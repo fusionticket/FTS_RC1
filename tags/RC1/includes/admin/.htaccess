@@ -1,0 +1,22 @@
+# Various useful php configs for phpmyticket
+# To enable rename it to .htaccess
+# WARNING: some apache configs reject .htaccess files
+# to be able to run phpmyticket you should edit includes/config/init_common.php
+
+# Security
+#php_flag register_globals off
+
+#misc
+#php_flag magic_quotes_gpc off
+#php_flag allow_call_time_pass_reference off
+
+# Recomended error reporting for production environment
+#php_flag display_errors off
+#php_flag log_erros on
+
+# Recommended error reporting for test environment
+#php_flag display_errors on
+#php_flag log_erros off
+
+
+#AddType text/plain;charset=UTF-8 php

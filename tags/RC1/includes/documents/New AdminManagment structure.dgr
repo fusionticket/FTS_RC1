@@ -1,0 +1,1330 @@
+object TatDiagram
+  NettoExportOffset = 3
+  AutomaticNodes = False
+  AutoScroll = True
+  AutoPage = True
+  Background.Scroll = True
+  Background.Style = biTile
+  Background.Visible = False
+  Background.Gradient.Direction = grTopBottom
+  Background.Gradient.StartColor = clWhite
+  Background.Gradient.EndColor = clYellow
+  Background.Gradient.Visible = False
+  Background.PrintGradient = False
+  SnapGrid.Active = False
+  SnapGrid.Force = False
+  SnapGrid.Visible = True
+  SnapGrid.SizeX = 7.559055118110236000
+  SnapGrid.SizeY = 7.559055118110236000
+  SnapGrid.Style = gsRuler
+  SnapGrid.Pen.Color = clSilver
+  SnapGrid.SnapToRuler = True
+  ShowLinkPoints = True
+  LeftRuler.Visible = True
+  LeftRuler.Divisions = 5
+  LeftRuler.Font.Charset = DEFAULT_CHARSET
+  LeftRuler.Font.Color = clWindowText
+  LeftRuler.Font.Height = -9
+  LeftRuler.Font.Name = 'Arial'
+  LeftRuler.Font.Style = []
+  LeftRuler.Units = unCenti
+  LeftRuler.MinorTickLength = 4
+  LeftRuler.MajorTickLength = 6
+  LeftRuler.Color = clWhite
+  LeftRuler.TickColor = clBlack
+  LeftRuler.Size = 16
+  LeftRuler.AutoFactor = True
+  LeftRuler.GridColor = clSilver
+  TopRuler.Visible = True
+  TopRuler.Divisions = 5
+  TopRuler.Font.Charset = DEFAULT_CHARSET
+  TopRuler.Font.Color = clWindowText
+  TopRuler.Font.Height = -9
+  TopRuler.Font.Name = 'Arial'
+  TopRuler.Font.Style = []
+  TopRuler.Units = unCenti
+  TopRuler.MinorTickLength = 4
+  TopRuler.MajorTickLength = 6
+  TopRuler.Color = clWhite
+  TopRuler.TickColor = clBlack
+  TopRuler.Size = 16
+  TopRuler.AutoFactor = True
+  TopRuler.GridColor = clSilver
+  Zoom = 100
+  BorderColor = clGray
+  MouseWheelMode = mwVertical
+  ActiveLayers = 0
+  LinkCursor = crHandPoint
+  PanCursor = crHandPoint
+  ZoomCursor = crDefault
+  IgnoreScreenDPI = False
+  ShowCrossIndicators = True
+  PageLines.Visible = True
+  PageLines.Pen.Style = psDot
+  KeyActions = [kaEscape, kaMove, kaPage, kaResize, kaSelect]
+  HandlesStyle = hsVisio
+  SmoothMode = smAntiAlias
+  TextRenderingMode = tmAntiAlias
+  SelectionMode = slmMultiple
+  CanMoveOutOfBounds = True
+  PageSettings.PaperName = 'A4'
+  PageSettings.PaperId = 9
+  PageSettings.PaperWidth = 210.000000000000000000
+  PageSettings.PaperHeight = 297.000000000000000000
+  PageSettings.Orientation = dpoLandscape
+  PageSettings.LeftMarginStr = '25.4'
+  PageSettings.TopMarginStr = '25.4'
+  PageSettings.RightMarginStr = '25.4'
+  PageSettings.BottomMarginStr = '25.4'
+  RulerAutoUnit = False
+  MeasUnit = duCenti
+  WheelZoom = True
+  WheelZoomIncrement = 10
+  WheelZoomMin = 10
+  WheelZoomMax = 500
+  BorderStyle = bsSingle
+  Color = clWhite
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  ParentColor = False
+  ParentFont = False
+  object DatabaseBlock1: TDatabaseBlock
+    Left = 39
+    Top = 21
+    Width = 188
+    Height = 72
+    Brush.Style = bsClear
+    SelBrush.Style = bsClear
+    Color = 16777088
+    SelColor = 16777088
+    ClipText = False
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 0
+        Top = 20
+        Width = 100
+        Height = 80
+        Text = 'Venues'
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Restrictions = []
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    DiagramFont = False
+    MinWidth = 40
+    MinHeight = 40
+    Shadow.Visible = True
+    Shadow.Color = clGray
+    Shadow.HOffset = 2
+    Shadow.VOffset = 2
+    Shadow.Transparency = 0
+    ParentShowHint = True
+    Gradient.Direction = grRightBottom
+    Gradient.StartColor = 16777088
+    Gradient.EndColor = clAqua
+    Gradient.Visible = True
+    BitmapMode = bmStretch
+    BitmapTransparent = False
+    MetaFile.Data = {04000000}
+    PictureMode = pmStretch
+    Transparent = False
+    Cursor = crDefault
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    Collapsed = False
+  end
+  object DatabaseBlock2: TDatabaseBlock
+    Left = 302
+    Top = 21
+    Width = 191
+    Height = 72
+    Brush.Style = bsClear
+    SelBrush.Style = bsClear
+    Color = 16777088
+    SelColor = 16777088
+    ClipText = False
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 0
+        Top = 20
+        Width = 100
+        Height = 80
+        Text = 'Events'
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Restrictions = []
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    DiagramFont = False
+    MinWidth = 40
+    MinHeight = 40
+    Shadow.Visible = True
+    Shadow.Color = clGray
+    Shadow.HOffset = 2
+    Shadow.VOffset = 2
+    Shadow.Transparency = 0
+    ParentShowHint = True
+    Gradient.Direction = grRightBottom
+    Gradient.StartColor = 16777088
+    Gradient.EndColor = clAqua
+    Gradient.Visible = True
+    BitmapMode = bmStretch
+    BitmapTransparent = False
+    MetaFile.Data = {04000000}
+    PictureMode = pmStretch
+    Transparent = False
+    Cursor = crDefault
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    Collapsed = False
+  end
+  object DatabaseBlock3: TDatabaseBlock
+    Left = 566
+    Top = 21
+    Width = 191
+    Height = 72
+    Brush.Style = bsClear
+    SelBrush.Style = bsClear
+    Color = 16777088
+    SelColor = 16777088
+    ClipText = False
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 0
+        Top = 20
+        Width = 100
+        Height = 80
+        Text = 'EventGroups'
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Restrictions = []
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    DiagramFont = False
+    MinWidth = 40
+    MinHeight = 40
+    Shadow.Visible = True
+    Shadow.Color = clGray
+    Shadow.HOffset = 2
+    Shadow.VOffset = 2
+    Shadow.Transparency = 0
+    ParentShowHint = True
+    Gradient.Direction = grRightBottom
+    Gradient.StartColor = 16777126
+    Gradient.EndColor = clAqua
+    Gradient.Visible = True
+    BitmapMode = bmStretch
+    BitmapTransparent = False
+    MetaFile.Data = {04000000}
+    PictureMode = pmStretch
+    Transparent = False
+    Cursor = crDefault
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    Collapsed = False
+  end
+  object DiagramLine1: TDiagramLine
+    SourceArrow.Shape = asEllipse
+    SourceArrow.Width = 10
+    SourceArrow.Height = 10
+    SourceArrow.Brush.Color = clBlack
+    TargetArrow.Shape = asLineArrow
+    TargetArrow.Width = 10
+    TargetArrow.Height = 10
+    TargetArrow.Brush.Color = clBlack
+    Cursor = crDefault
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 114
+        Top = -3
+        Width = 300
+        Height = 100
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    LineStyle = lsLine
+    Collapsed = False
+    Handles = <
+      item
+        OrX = 227.000000000000000000
+        OrY = 57.000000000000000000
+        Style = hsSize
+      end
+      item
+        OrX = 302.000000000000000000
+        OrY = 57.000000000000000000
+        Style = hsSize
+      end>
+    LinkPoints = <
+      item
+        Anchor = fmDiagramEditor.DatabaseBlock1
+        AnchorIndex = 3
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end
+      item
+        Anchor = fmDiagramEditor.DatabaseBlock2
+        AnchorIndex = 2
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end>
+  end
+  object DiagramLine2: TDiagramLine
+    SourceArrow.Shape = asLineArrow
+    SourceArrow.Width = 10
+    SourceArrow.Height = 10
+    SourceArrow.Brush.Color = clBlack
+    TargetArrow.Shape = asEllipse
+    TargetArrow.Width = 10
+    TargetArrow.Height = 10
+    TargetArrow.Brush.Color = clBlack
+    Cursor = crDefault
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 380
+        Top = -3
+        Width = 300
+        Height = 100
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    LineStyle = lsLine
+    Collapsed = False
+    Handles = <
+      item
+        OrX = 493.000000000000000000
+        OrY = 57.000000000000000000
+        Style = hsSize
+      end
+      item
+        OrX = 566.000000000000000000
+        OrY = 57.000000000000000000
+        Style = hsSize
+      end>
+    LinkPoints = <
+      item
+        Anchor = fmDiagramEditor.DatabaseBlock2
+        AnchorIndex = 3
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end
+      item
+        Anchor = fmDiagramEditor.DatabaseBlock3
+        AnchorIndex = 2
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end>
+  end
+  object DatabaseBlock4: TDatabaseBlock
+    Left = 37
+    Top = 182
+    Width = 191
+    Height = 72
+    Brush.Style = bsClear
+    SelBrush.Style = bsClear
+    Color = 8454143
+    SelColor = 8454143
+    ClipText = False
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 0
+        Top = 20
+        Width = 100
+        Height = 80
+        Text = 'Sale Points'
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Restrictions = []
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    DiagramFont = False
+    MinWidth = 40
+    MinHeight = 40
+    Shadow.Visible = True
+    Shadow.Color = clGray
+    Shadow.HOffset = 2
+    Shadow.VOffset = 2
+    Shadow.Transparency = 0
+    ParentShowHint = True
+    Gradient.Direction = grRightBottom
+    Gradient.StartColor = 8454143
+    Gradient.EndColor = clYellow
+    Gradient.Visible = True
+    BitmapMode = bmStretch
+    BitmapTransparent = False
+    MetaFile.Data = {04000000}
+    PictureMode = pmStretch
+    Transparent = False
+    Cursor = crDefault
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    Collapsed = False
+  end
+  object DatabaseBlock5: TDatabaseBlock
+    Left = 303
+    Top = 305
+    Width = 191
+    Height = 72
+    Brush.Style = bsClear
+    SelBrush.Style = bsClear
+    Color = clWhite
+    SelColor = clWhite
+    ClipText = False
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 0
+        Top = 20
+        Width = 100
+        Height = 80
+        Text = 'AdminGroups'
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Restrictions = []
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    DiagramFont = False
+    MinWidth = 40
+    MinHeight = 40
+    Shadow.Visible = True
+    Shadow.Color = clGray
+    Shadow.HOffset = 2
+    Shadow.VOffset = 2
+    Shadow.Transparency = 0
+    ParentShowHint = True
+    Gradient.Direction = grRightBottom
+    Gradient.StartColor = 10223515
+    Gradient.EndColor = 7339838
+    Gradient.Visible = True
+    BitmapMode = bmStretch
+    BitmapTransparent = False
+    MetaFile.Data = {04000000}
+    PictureMode = pmStretch
+    Transparent = False
+    Cursor = crDefault
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    Collapsed = False
+  end
+  object DatabaseBlock6: TDatabaseBlock
+    Left = 565
+    Top = 182
+    Width = 191
+    Height = 72
+    Brush.Style = bsClear
+    SelBrush.Style = bsClear
+    Color = 16744703
+    SelColor = 16744703
+    ClipText = False
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 0
+        Top = 20
+        Width = 100
+        Height = 80
+        Text = 'Admins'
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Restrictions = []
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    DiagramFont = False
+    MinWidth = 40
+    MinHeight = 40
+    Shadow.Visible = True
+    Shadow.Color = clGray
+    Shadow.HOffset = 2
+    Shadow.VOffset = 2
+    Shadow.Transparency = 0
+    ParentShowHint = True
+    Gradient.Direction = grRightBottom
+    Gradient.StartColor = 16744703
+    Gradient.EndColor = clFuchsia
+    Gradient.Visible = True
+    BitmapMode = bmStretch
+    BitmapTransparent = False
+    MetaFile.Data = {04000000}
+    PictureMode = pmStretch
+    Transparent = False
+    Cursor = crDefault
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    Collapsed = False
+  end
+  object DatabaseBlock7: TDatabaseBlock
+    Left = 565
+    Top = 305
+    Width = 191
+    Height = 72
+    Brush.Style = bsClear
+    SelBrush.Style = bsClear
+    Color = 16744703
+    SelColor = 16744703
+    ClipText = False
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 0
+        Top = 20
+        Width = 100
+        Height = 80
+        Text = 'AdminACLs'
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Restrictions = []
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    DiagramFont = False
+    MinWidth = 40
+    MinHeight = 40
+    Shadow.Visible = True
+    Shadow.Color = clGray
+    Shadow.HOffset = 2
+    Shadow.VOffset = 2
+    Shadow.Transparency = 0
+    ParentShowHint = True
+    Gradient.Direction = grRightBottom
+    Gradient.StartColor = 8421631
+    Gradient.EndColor = clRed
+    Gradient.Visible = True
+    BitmapMode = bmStretch
+    BitmapTransparent = False
+    MetaFile.Data = {04000000}
+    PictureMode = pmStretch
+    Transparent = False
+    Cursor = crDefault
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    Collapsed = False
+  end
+  object DiagramLine4: TDiagramLine
+    SourceArrow.Shape = asLineArrow
+    SourceArrow.Width = 10
+    SourceArrow.Height = 10
+    SourceArrow.Brush.Color = clBlack
+    TargetArrow.Shape = asLineArrow
+    TargetArrow.Width = 10
+    TargetArrow.Height = 10
+    TargetArrow.Brush.Color = clBlack
+    Cursor = crDefault
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 116
+        Top = 158
+        Width = 300
+        Height = 100
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    LineStyle = lsLine
+    Collapsed = False
+    Handles = <
+      item
+        OrX = 228.000000000000000000
+        OrY = 218.000000000000000000
+        Style = hsSize
+      end
+      item
+        OrX = 303.000000000000000000
+        OrY = 218.000000000000000000
+        Style = hsSize
+      end>
+    LinkPoints = <
+      item
+        Anchor = fmDiagramEditor.DatabaseBlock4
+        AnchorIndex = 3
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end
+      item
+        Anchor = fmDiagramEditor.DatabaseBlock8
+        AnchorIndex = 2
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end>
+  end
+  object DiagramSideLine1: TDiagramSideLine
+    SourceArrow.Shape = asLineArrow
+    SourceArrow.Width = 10
+    SourceArrow.Height = 10
+    SourceArrow.Brush.Color = clBlack
+    TargetArrow.Shape = asLineArrow
+    TargetArrow.Width = 10
+    TargetArrow.Height = 10
+    TargetArrow.Brush.Color = clBlack
+    Cursor = crDefault
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 33
+        Top = 93
+        Width = 200
+        Height = 58
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end
+      item
+        DControlAngle = True
+        Left = 133
+        Top = 136
+        Width = 224
+        Height = 30
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end
+      item
+        DControlAngle = True
+        Left = 257
+        Top = 151
+        Width = 200
+        Height = 33
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    LineStyle = lsSideLine
+    Orientation1 = aoVert
+    Orientation2 = aoVert
+    Collapsed = False
+    Handles = <
+      item
+        OrX = 133.000000000000000000
+        OrY = 93.000000000000000000
+        Style = hsSize
+      end
+      item
+        OrX = 245.000000000000000000
+        OrY = 151.000000000000000000
+        Style = hsSize
+      end
+      item
+        OrX = 357.000000000000000000
+        OrY = 184.000000000000000000
+        Style = hsSize
+      end>
+    LinkPoints = <
+      item
+        Anchor = fmDiagramEditor.DatabaseBlock1
+        AnchorIndex = 1
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end
+      item
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end>
+  end
+  object DiagramSideLine2: TDiagramSideLine
+    SourceArrow.Shape = asLineArrow
+    SourceArrow.Width = 10
+    SourceArrow.Height = 10
+    SourceArrow.Brush.Color = clBlack
+    TargetArrow.Shape = asLineArrow
+    TargetArrow.Width = 10
+    TargetArrow.Height = 10
+    TargetArrow.Brush.Color = clBlack
+    Cursor = crDefault
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 298
+        Top = 93
+        Width = 200
+        Height = 89
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end
+      item
+        DControlAngle = True
+        Left = 298
+        Top = 167
+        Width = 200
+        Height = 30
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    LineStyle = lsSideLine
+    Orientation1 = aoVert
+    Orientation2 = aoVert
+    Collapsed = False
+    Handles = <
+      item
+        OrX = 398.000000000000000000
+        OrY = 93.000000000000000000
+        Style = hsSize
+      end
+      item
+        OrX = 398.000000000000000000
+        OrY = 182.000000000000000000
+        Style = hsSize
+      end>
+    LinkPoints = <
+      item
+        Anchor = fmDiagramEditor.DatabaseBlock2
+        AnchorIndex = 1
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end
+      item
+        Anchor = fmDiagramEditor.DatabaseBlock8
+        AnchorIndex = 0
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end>
+  end
+  object DiagramSideLine3: TDiagramSideLine
+    SourceArrow.Shape = asLineArrow
+    SourceArrow.Width = 10
+    SourceArrow.Height = 10
+    SourceArrow.Brush.Color = clBlack
+    TargetArrow.Shape = asLineArrow
+    TargetArrow.Width = 10
+    TargetArrow.Height = 10
+    TargetArrow.Brush.Color = clBlack
+    Cursor = crDefault
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 562
+        Top = 93
+        Width = 200
+        Height = 58
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end
+      item
+        DControlAngle = True
+        Left = 435
+        Top = 136
+        Width = 227
+        Height = 30
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end
+      item
+        DControlAngle = True
+        Left = 335
+        Top = 151
+        Width = 200
+        Height = 31
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    LineStyle = lsSideLine
+    Orientation1 = aoVert
+    Orientation2 = aoVert
+    Collapsed = False
+    Handles = <
+      item
+        OrX = 662.000000000000000000
+        OrY = 93.000000000000000000
+        Style = hsSize
+      end
+      item
+        OrX = 548.000000000000000000
+        OrY = 151.000000000000000000
+        Style = hsSize
+      end
+      item
+        OrX = 435.000000000000000000
+        OrY = 182.000000000000000000
+        Style = hsSize
+      end>
+    LinkPoints = <
+      item
+        Anchor = fmDiagramEditor.DatabaseBlock3
+        AnchorIndex = 1
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end
+      item
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end>
+  end
+  object DiagramSideLine4: TDiagramSideLine
+    SourceArrow.Shape = asLineArrow
+    SourceArrow.Width = 10
+    SourceArrow.Height = 10
+    SourceArrow.Brush.Color = clBlack
+    TargetArrow.Shape = asLineArrow
+    TargetArrow.Width = 10
+    TargetArrow.Height = 10
+    TargetArrow.Brush.Color = clBlack
+    Cursor = crDefault
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 430
+        Top = 203
+        Width = 199
+        Height = 30
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end
+      item
+        DControlAngle = True
+        Left = 465
+        Top = 203
+        Width = 200
+        Height = 30
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    LineStyle = lsSideLine
+    Orientation1 = aoHorz
+    Orientation2 = aoHorz
+    Collapsed = False
+    Handles = <
+      item
+        OrX = 494.000000000000000000
+        OrY = 218.000000000000000000
+        Style = hsSize
+      end
+      item
+        OrX = 565.000000000000000000
+        OrY = 218.000000000000000000
+        Style = hsSize
+      end>
+    LinkPoints = <
+      item
+        Anchor = fmDiagramEditor.DatabaseBlock8
+        AnchorIndex = 3
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end
+      item
+        Anchor = fmDiagramEditor.DatabaseBlock6
+        AnchorIndex = 2
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end>
+  end
+  object DiagramSideLine5: TDiagramSideLine
+    SourceArrow.Shape = asLineArrow
+    SourceArrow.Width = 10
+    SourceArrow.Height = 10
+    SourceArrow.Brush.Color = clBlack
+    TargetArrow.Shape = asEllipse
+    TargetArrow.Width = 10
+    TargetArrow.Height = 10
+    TargetArrow.Brush.Color = clBlack
+    Cursor = crDefault
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 560
+        Top = 254
+        Width = 200
+        Height = 51
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end
+      item
+        DControlAngle = True
+        Left = 560
+        Top = 290
+        Width = 200
+        Height = 30
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    LineStyle = lsSideLine
+    Orientation1 = aoVert
+    Orientation2 = aoVert
+    Collapsed = False
+    Handles = <
+      item
+        OrX = 660.000000000000000000
+        OrY = 254.000000000000000000
+        Style = hsSize
+      end
+      item
+        OrX = 660.000000000000000000
+        OrY = 305.000000000000000000
+        Style = hsSize
+      end>
+    LinkPoints = <
+      item
+        Anchor = fmDiagramEditor.DatabaseBlock6
+        AnchorIndex = 1
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end
+      item
+        Anchor = fmDiagramEditor.DatabaseBlock7
+        AnchorIndex = 0
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end>
+  end
+  object DatabaseBlock8: TDatabaseBlock
+    Left = 303
+    Top = 182
+    Width = 191
+    Height = 72
+    Brush.Style = bsClear
+    SelBrush.Style = bsClear
+    Color = clWhite
+    SelColor = clWhite
+    ClipText = False
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 0
+        Top = 20
+        Width = 100
+        Height = 80
+        Text = 'AdminGroupsLinks'
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Restrictions = []
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    DiagramFont = False
+    MinWidth = 40
+    MinHeight = 40
+    Shadow.Visible = True
+    Shadow.Color = 10485760
+    Shadow.HOffset = 3
+    Shadow.VOffset = 3
+    Shadow.Transparency = 0
+    ParentShowHint = True
+    Gradient.Direction = grRightBottom
+    Gradient.StartColor = 16763025
+    Gradient.EndColor = 16755972
+    Gradient.Visible = True
+    BitmapMode = bmStretch
+    BitmapTransparent = False
+    MetaFile.Data = {04000000}
+    PictureMode = pmStretch
+    Transparent = False
+    Cursor = crDefault
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    Collapsed = False
+  end
+  object DiagramSideLine6: TDiagramSideLine
+    Pen.Width = 2
+    SelPen.Width = 2
+    SourceArrow.Shape = asLineArrow
+    SourceArrow.Width = 10
+    SourceArrow.Height = 10
+    SourceArrow.Brush.Color = clBlack
+    TargetArrow.Shape = asLineArrow
+    TargetArrow.Width = 10
+    TargetArrow.Height = 10
+    TargetArrow.Brush.Color = clBlack
+    Cursor = crDefault
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 298
+        Top = 254
+        Width = 200
+        Height = 51
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end
+      item
+        DControlAngle = True
+        Left = 298
+        Top = 290
+        Width = 200
+        Height = 30
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    LineStyle = lsSideLine
+    Orientation1 = aoVert
+    Orientation2 = aoVert
+    Collapsed = False
+    Handles = <
+      item
+        OrX = 398.000000000000000000
+        OrY = 254.000000000000000000
+        Style = hsSize
+      end
+      item
+        OrX = 398.000000000000000000
+        OrY = 305.000000000000000000
+        Style = hsSize
+      end>
+    LinkPoints = <
+      item
+        Anchor = fmDiagramEditor.DatabaseBlock8
+        AnchorIndex = 1
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end
+      item
+        Anchor = fmDiagramEditor.DatabaseBlock5
+        AnchorIndex = 0
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end>
+  end
+end

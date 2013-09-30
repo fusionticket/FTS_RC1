@@ -1,0 +1,130 @@
+<templatefile type='pdf2'>{literal}
+<style type="text/css">
+<!--
+table	{ vertical-align: middle; }
+tr		{ vertical-align: middle; }
+td		{ vertical-align: middle; }
+}
+-->
+</style>
+{/literal}
+
+<page border-style= "solid" border-width="1px" backcolor="#FEFEFE" backtop="0" backbottom="30mm" footer="date;heure;page" style="font-size: 8pt">
+<br><br><br>
+
+	<table align="center" cellspacing="0" style="width: 95%; text-align: left">
+		<tr>
+			<td style="width:10%; border-left-style:solid; border-left-width:1px; border-top-style:solid; border-top-width:1px"><b>Sold To:</b></td>
+			<td style="width:40%; border-right-style:solid; border-right-width:1px; border-top-style:solid; border-top-width:1px">&nbsp;</td>
+			<td style="width:50%; border-left-style:solid; border-left-width:1px; text-align:center" rowspan="2">
+			{if $organizer_logo}
+			<img src='{$_SHOP_files}{$organizer_logo}'/><br>
+			{/if}
+			{$organizer_name}<br>
+			{$organizer_address}<br>
+			{$organizer_ort}, {$organizer_state}&nbsp; {$organizer_plz}<br>
+			Tel:{$organizer_phone}<br>
+			Fax:{$organizer_fax}<br>
+			{$organizer_email}</td><br>
+		</tr>
+		<tr>
+			<td style="width:10%; border-left-style:solid; border-left-width:1px; border-bottom-style:solid; border-bottom-width:1px">&nbsp;</td>
+			<td style="border-right-style:solid; border-right-width:1px; border-bottom-style:solid; border-bottom-width:1px" width="40%">
+			<h4>{$user_firstname} {$user_lastname}<br>
+				{$user_address}<br>
+					{if $user_address1}
+						{$user_address1}<br>
+					{/if} {$user_city}, {$user_state} {$user_zip} <br>
+				{$user_email}<br>
+				{$user_phone}</h4><br><br></td>
+		</tr>
+	</table>
+
+	<br><br><br>
+	<table align="center" cellspacing="3" style="width: 95%; text-align: left; border-collapse:collapse" border="1" bordercolor="#000000">
+		<tr>
+			<th style="border-style:solid; border-width:1px; width: 20%; background: #E7E7E7; text-align: center">
+			Order Date</th>
+			<th style="border-style:solid; border-width:1px; width: 20%; background: #E7E7E7; text-align: center">
+			Order No.</th>
+			<th style="border-style:solid; border-width:1px; width: 20%; background: #E7E7E7; text-align: center">
+			Method</th>
+			<th style="border-style:solid; border-width:1px; width: 20%; background: #E7E7E7; text-align: center">
+			Ship Via</th>
+			<th style="border-style:solid; border-width:1px; width: 20%; background: #E7E7E7; text-align: center">
+			Payment Method</th>
+		</tr>
+		<tr>
+			<td width="20%" style="border-style:solid; border-width:1px; text-align: center">{$order_date|date_format:"%B %e, %Y"}</td>
+			<td width="20%" style="border-style:solid; border-width:1px; text-align: center">{$order_id}</td>
+			<td width="20%" style="border-style:solid; border-width:1px; text-align: center">{if $order_place=="www"}On-Line{else}BoxOffice{/if}</td>
+			<td width="20%" style="border-style:solid; border-width:1px; text-align: center">{$handling_text_shipment}</td>
+			<td width="20%" style="border-style:solid; border-width:1px; text-align: center">{$handling_text_payment}</td>
+		</tr>
+</table>
+	<br><br><br>
+{foreach key=cid item=con from=$bill name=foo}
+	{if $smarty.foreach.foo.first}
+		<table align="center" cellspacing="0" cellpadding="0" style="width: 95%;" border="1" bordercolor="#000000" >
+			<tr>
+				<th style="width: 30%; background: #E7E7E7; text-align: center;">	Description</th>
+				<th style="width: 10%; background: #E7E7E7; text-align: center;">Qty.</th>
+				<th style="width: 17%; background: #E7E7E7; text-align: center;">Category</th>
+				<th style="width: 17%; background: #E7E7E7; text-align: center;">Discounts</th>
+				<th style="width: 13%; background: #E7E7E7; text-align: center;">Price</th>
+				<th style="width: 13%; background: #E7E7E7; text-align: center;">Total</th>
+			</tr>
+		</table><br>
+
+	{/if}
+
+	<table align="center" cellspacing="0"  style="width: 95%;  font-size:; border-left-width:0px; border-right-width:0; border-top-width:0px; border-bottom-width:0px" border="0" cellpadding="0">
+		<tr>
+			<td style="border-style:none; border-width:medium; width: 30%; background: #F7F7F7; text-align: center">{$con.event_name}</td>
+			<td style="border-style:none; border-width:medium; width: 10%; background: #F7F7F7; text-align: center">{$con.qty}</td>
+			<td style="border-style:none; border-width:medium; width: 17%; background: #F7F7F7; text-align: center">{$con.category_name}</td>
+			<td style="border-style:none; border-width:medium; width: 17%; background: #F7F7F7; text-align: center">{$con.discount_name}</td>
+			<td style="border-style:none; border-width:medium; width: 13%; background: #F7F7F7; text-align: right">{valuta value=$con.seat_price|string_format:"%.2f"}</td>
+			<td style="border-style:none; border-width:medium; width: 13%; background: #F7F7F7; text-align: right">
+				{valuta value=$con.total|string_format:"%.2f"}</td>
+		</tr>
+	</table>
+{/foreach}<br>
+
+	  	<table align="center" style="width: 95%; " border="0">
+			<tr>
+				<th style="background-position: 0% 0%; width: 87%; text-align: right; background-image:none; background-repeat:repeat; background-attachment:scroll">
+				Subtotal : 
+				</th>
+				<th style="width: 13%; background: #F7F7F7; text-align: right;">{valuta value=$order_subtotal|string_format:"%.2f"}</th>
+			</tr>
+</table>
+
+
+<table align="center" style="width: 95%; " border="0">
+	<tr>
+		<th style="background-position: 0% 0%; width: 87%; text-align: right; background-image:none; background-repeat:repeat; background-attachment:scroll">
+		Handling Fee : 
+		</th>
+		<td style="width: 13%; background: #F7F7F7; text-align: right;">
+{valuta value=$order_fee|string_format:"%.2f"}</td>
+	</tr>
+</table>
+
+
+	<table align="center" style="width: 95%; " border="0">
+		<tr>
+			<th style="background-position: 0% 0%; width: 87%; text-align: right; background-image:none; background-repeat:repeat; background-attachment:scroll">
+			<b>Total :</b> </th>
+			<th style="width: 13%; background: #F7F7F7; text-align: right;"><b>{valuta value=$order_total_price|string_format:"%.2f"}</b></th>
+		</tr>
+		
+</table>
+
+<br><br><br>
+	<table align="center" width="95%" cellspacing="1">
+		<tr>	
+			<td align="center"><h1>Thank You!</h1></td>
+		</tr>
+	</table>
+</page></templatefile>

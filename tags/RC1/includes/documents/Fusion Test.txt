@@ -1,0 +1,135 @@
+------------------------------------------------------------------------------------------------------------------------------------
+Tested 16/07/13
+
+Lxsparks
+------------------------------------------------------------------------------------------------------------------------------------
+/ADMIN
+
+Home > Configuration  [Merchant Details]	Error uploading image:													Language																					
+																					!!img_loading_problem_ext!! 
+																					
+Home > Configuration  										Everytime [SAVE] is clicked and the changes			Security
+																					are saved my browser prompts if I want to save
+																					the password I am using (which suggests the
+																					password is being passed in a visable way to
+																					the browser)??
+
+Home > Configuration  [Event Settings]		!!allow_free_tickets!!													Language
+
+Home > Configuration  [Common]						Date & Time format do not affect Admin pages		Inconsistancy/general note
+
+Home > Plugins  													Only one plugin																	Unable to test
+
+User Management > POS Offices							Store Cookie [YES] > Save												Deprecated: Function ereg_replace() is deprecated in /var/www/vhosts/fusionticket.com/fts_test/includes/admin/view.spoints.php on line 175
+
+User Management > POS Offices [Edit POS]	Sale Point Administrators 
+																					'Kind' Column - only POS users can be attached so they will all be 'POS User'
+																																													Redundant feature unless Admin could also be a POS User
+																																													
+User Management > POS Offices [Edit POS]	Sale Point Administrators 
+																					Icon missing for Unlink action?									General note
+
+Event Management > Venues > Modify Venue	[Seat Charts] Cannot undefine a seat on chart		General note
+																					So if a seat is accidentally defined it can
+																					never be blank/undefined again
+
+Event Management > Venues > Modify Venue	[Seat Charts] Would be good if clicking the			General note
+																					Zone / View icon it toggled the zone seats
+																					on/off themselves rather than toggling between
+																					the actual zones.  If checking more than one zone
+																					you can select one 'zone' but than have to 
+																					manually add all the other seats
+																					
+Event Management > Venues > Modify Venue	[Seat Charts] Auto numbering of seats using 		General note
+																					letters instead of going A-Z then AA-ZZ etc
+																					it uses symbols after the letter 'Z'
+																					
+Event Management > Events > New Event			Event types added/edited in Configuration page	Inconsistancy/general note
+Home > Configuration  [Common]						appear undefined language in the Events page,
+																					To successfully edit the event types requires
+																					editing the language file as well
+																					
+Event Management > Events > New Event			Cannot directly type date/time into boxes					General note
+																					Preferable to either type directly (people
+																					like me who prefer typing) and have the JQuery
+																					date/time sliders overule if used
+																					
+Event Management > Events > New Event			Configuration: Time format in 12hr format				Inconsistancy/general note
+Home > Configuration  [Common]						Event edit: only in 24hr format
+																				
+Order Management > Handling/Events				List although colour coded does look very 'busy'	General note
+																					could do with a little make-over. Maybe if each
+																					block of Heading + contents had a little space
+																					around it?
+																					Also suggest the filter being used on other lists
+																					could be used here too to pick out tickets not yet
+																					paid/sent/etc
+																					
+Reporting > Other Reports [Event Archives]																														Issue
+																					Error message on spreadsheet:
+																					Warning: tempnam():open_basedir restriction in effect. File is not within the allowed path(s): (/var/www/vhosts/fusionticket.com/fts_test/:/tmp/:/var/www/vhosts/fusionticket.com/ftsites/:/var/www/vhosts/fusionticket.com/httpdocs/)
+
+Reporting > Other Reports [Ticket Status Report]																											Error in report/inconsistancy
+																					Include Seats Not Yet Sent: [NO] and the report includes
+																					both paid and non paid/sent tickets AND classes them all as
+																					paid.
+																					Include Seats Not Yet Sent: [YES] and the report shows just
+																					unsent tickets.
+																					
+Reporting > Other Reports [Barcodes]			Report lists ticket numbers - no barcodes (Open Office Calc)	General note
+
+Import/Export															Not tested.
+
+Search > (various) > Order [Status Log]		Seat numbers are displayed followed by what looks like an			General note
+																					empty array (?). e.g.:
+																					1408| , [, ]
+																					1409| , [, ]
+																					1410| , [, ]
+
+Templates																	Not tested
+
+Order Handlings														Not tested but see note below.
+
+Utilities > Backup												Not tested
+
+Buy Resources															Not tested
+																				
+																				
+------------------------------------------------------------------------------------------------------------------------------------																				
+/WEB SHOP
+
+Couldn't get any discount codes to work
+
+Cash payment should never be allowed as an option for the web shop
+
+Order Tickets > Seat Plan									!!placemap_seats_selected!!												Language
+
+Order Tickets > Seat Plan [Selecting seats]
+																					Changing the ticket discount type only affects		General Note
+																					the overall charge of all seats selected.  By
+																					being able to change it I would expect the seats
+																					to take on that price as I selected them.
+
+------------------------------------------------------------------------------------------------------------------------------------																					
+/POS
+
+After log in															Deprecated: Function ereg_replace() is deprecated in /var/www/vhosts/fusionticket.com/fts_test/includes/classes/model.admin.php on line 180 
+
+Book Tickets > Select Category [View seatmap]																								Language
+																					!!placemap_seats_selected!!
+																					
+Book Tickets > New Customer								No State field																		General note
+
+Book Tickets > New Customer								Email still a required field											General note
+
+Book Tickets > Select Payment method			New Customer details are cleared!									General note
+
+Orders Overview														!!to-date-edit!!																	Language
+																					!!from-date-edit!!
+																					
+Orders Overview > View Order Details			[Next Order] Every so often takes you back to 		General note
+																					main list instead of the next order
+																					
+Orders Overview														Un-paid orders cannot be set to paid despite			General note
+																					being a POS
+------------------------------------------------------------------------------------------------------------------------------------																				

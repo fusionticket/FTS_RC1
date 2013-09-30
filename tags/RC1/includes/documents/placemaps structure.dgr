@@ -1,0 +1,850 @@
+object TatDiagram
+  NettoExportOffset = 3
+  AutomaticNodes = False
+  AutoScroll = True
+  AutoPage = True
+  Background.Scroll = True
+  Background.Style = biTile
+  Background.Visible = False
+  Background.Gradient.Direction = grTopBottom
+  Background.Gradient.StartColor = clWhite
+  Background.Gradient.EndColor = clYellow
+  Background.Gradient.Visible = False
+  Background.PrintGradient = False
+  SnapGrid.Active = False
+  SnapGrid.Force = False
+  SnapGrid.Visible = True
+  SnapGrid.SizeX = 7.559055118110236000
+  SnapGrid.SizeY = 7.559055118110236000
+  SnapGrid.Style = gsRuler
+  SnapGrid.Pen.Color = clSilver
+  SnapGrid.SnapToRuler = True
+  ShowLinkPoints = True
+  LeftRuler.Visible = True
+  LeftRuler.Divisions = 5
+  LeftRuler.Font.Charset = DEFAULT_CHARSET
+  LeftRuler.Font.Color = clWindowText
+  LeftRuler.Font.Height = -9
+  LeftRuler.Font.Name = 'Arial'
+  LeftRuler.Font.Style = []
+  LeftRuler.Units = unCenti
+  LeftRuler.MinorTickLength = 4
+  LeftRuler.MajorTickLength = 6
+  LeftRuler.Color = clWhite
+  LeftRuler.TickColor = clBlack
+  LeftRuler.Size = 16
+  LeftRuler.AutoFactor = True
+  LeftRuler.GridColor = clSilver
+  TopRuler.Visible = True
+  TopRuler.Divisions = 5
+  TopRuler.Font.Charset = DEFAULT_CHARSET
+  TopRuler.Font.Color = clWindowText
+  TopRuler.Font.Height = -9
+  TopRuler.Font.Name = 'Arial'
+  TopRuler.Font.Style = []
+  TopRuler.Units = unCenti
+  TopRuler.MinorTickLength = 4
+  TopRuler.MajorTickLength = 6
+  TopRuler.Color = clWhite
+  TopRuler.TickColor = clBlack
+  TopRuler.Size = 16
+  TopRuler.AutoFactor = True
+  TopRuler.GridColor = clSilver
+  Zoom = 100
+  BorderColor = clGray
+  VertScrollBar.Position = 8
+  HorzScrollBar.Position = 9
+  MouseWheelMode = mwVertical
+  ActiveLayers = 0
+  LinkCursor = crHandPoint
+  PanCursor = crHandPoint
+  ZoomCursor = crDefault
+  IgnoreScreenDPI = False
+  ShowCrossIndicators = True
+  PageLines.Visible = True
+  PageLines.Pen.Style = psDot
+  KeyActions = [kaEscape, kaMove, kaPage, kaResize, kaSelect]
+  HandlesStyle = hsVisio
+  SmoothMode = smAntiAlias
+  TextRenderingMode = tmAntiAlias
+  SelectionMode = slmMultiple
+  CanMoveOutOfBounds = True
+  PageSettings.PaperName = 'A4'
+  PageSettings.PaperId = 9
+  PageSettings.PaperWidth = 209.973333333333300000
+  PageSettings.PaperHeight = 296.968333333333300000
+  PageSettings.Orientation = dpoPortrait
+  PageSettings.LeftMarginStr = '25.4'
+  PageSettings.TopMarginStr = '25.4'
+  PageSettings.RightMarginStr = '25.4'
+  PageSettings.BottomMarginStr = '25.4'
+  RulerAutoUnit = False
+  MeasUnit = duCenti
+  WheelZoom = True
+  WheelZoomIncrement = 10
+  WheelZoomMin = 10
+  WheelZoomMax = 500
+  BorderStyle = bsSingle
+  Color = clWhite
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  ParentColor = False
+  ParentFont = False
+  ExplicitHeight = 414
+  object FlowActionBlock1: TFlowActionBlock
+    Left = 64
+    Top = 63
+    Width = 100
+    Height = 50
+    Brush.Style = bsClear
+    SelBrush.Style = bsClear
+    Color = clWhite
+    SelColor = clWhite
+    ClipText = False
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 0
+        Top = 0
+        Width = 100
+        Height = 100
+        Text = 'Events'
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Restrictions = []
+    DiagramFont = True
+    MinWidth = 40
+    MinHeight = 40
+    Shadow.Visible = True
+    Shadow.Color = clGray
+    Shadow.HOffset = 2
+    Shadow.VOffset = 2
+    Shadow.Transparency = 0
+    ParentShowHint = True
+    Gradient.Direction = grRightBottom
+    Gradient.StartColor = clWhite
+    Gradient.EndColor = clGray
+    Gradient.Visible = True
+    BitmapMode = bmStretch
+    BitmapTransparent = False
+    MetaFile.Data = {04000000}
+    PictureMode = pmStretch
+    Transparent = False
+    Cursor = crDefault
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    Collapsed = False
+  end
+  object FlowActionBlock2: TFlowActionBlock
+    Left = 163
+    Top = 147
+    Width = 100
+    Height = 50
+    Brush.Style = bsClear
+    SelBrush.Style = bsClear
+    Color = clWhite
+    SelColor = clWhite
+    ClipText = False
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 0
+        Top = 0
+        Width = 100
+        Height = 100
+        Text = 'PlaceMaps'
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Restrictions = []
+    DiagramFont = True
+    MinWidth = 40
+    MinHeight = 40
+    Shadow.Visible = True
+    Shadow.Color = clGray
+    Shadow.HOffset = 2
+    Shadow.VOffset = 2
+    Shadow.Transparency = 0
+    ParentShowHint = True
+    Gradient.Direction = grRightBottom
+    Gradient.StartColor = clWhite
+    Gradient.EndColor = clGray
+    Gradient.Visible = True
+    BitmapMode = bmStretch
+    BitmapTransparent = False
+    MetaFile.Data = {04000000}
+    PictureMode = pmStretch
+    Transparent = False
+    Cursor = crDefault
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    Collapsed = False
+  end
+  object FlowActionBlock3: TFlowActionBlock
+    Left = 268
+    Top = 225
+    Width = 100
+    Height = 50
+    Brush.Style = bsClear
+    SelBrush.Style = bsClear
+    Color = clWhite
+    SelColor = clWhite
+    ClipText = False
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 0
+        Top = 0
+        Width = 100
+        Height = 100
+        Text = 'pmParts'
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Restrictions = []
+    DiagramFont = True
+    MinWidth = 40
+    MinHeight = 40
+    Shadow.Visible = True
+    Shadow.Color = clGray
+    Shadow.HOffset = 2
+    Shadow.VOffset = 2
+    Shadow.Transparency = 0
+    ParentShowHint = True
+    Gradient.Direction = grRightBottom
+    Gradient.StartColor = clWhite
+    Gradient.EndColor = clGray
+    Gradient.Visible = True
+    BitmapMode = bmStretch
+    BitmapTransparent = False
+    MetaFile.Data = {04000000}
+    PictureMode = pmStretch
+    Transparent = False
+    Cursor = crDefault
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    Collapsed = False
+  end
+  object FlowActionBlock4: TFlowActionBlock
+    Left = 373
+    Top = 388
+    Width = 100
+    Height = 50
+    Brush.Style = bsClear
+    SelBrush.Style = bsClear
+    Color = clWhite
+    SelColor = clWhite
+    ClipText = False
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 0
+        Top = 0
+        Width = 100
+        Height = 100
+        Text = 'pmCatecories'
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Restrictions = []
+    DiagramFont = True
+    MinWidth = 40
+    MinHeight = 40
+    Shadow.Visible = True
+    Shadow.Color = clGray
+    Shadow.HOffset = 2
+    Shadow.VOffset = 2
+    Shadow.Transparency = 0
+    ParentShowHint = True
+    Gradient.Direction = grRightBottom
+    Gradient.StartColor = clWhite
+    Gradient.EndColor = clGray
+    Gradient.Visible = True
+    BitmapMode = bmStretch
+    BitmapTransparent = False
+    MetaFile.Data = {04000000}
+    PictureMode = pmStretch
+    Transparent = False
+    Cursor = crDefault
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    Collapsed = False
+  end
+  object FlowActionBlock5: TFlowActionBlock
+    Left = 373
+    Top = 308
+    Width = 100
+    Height = 50
+    Brush.Style = bsClear
+    SelBrush.Style = bsClear
+    Color = clWhite
+    SelColor = clWhite
+    ClipText = False
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 0
+        Top = 0
+        Width = 100
+        Height = 100
+        Text = 'pmZones'
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Restrictions = []
+    DiagramFont = True
+    MinWidth = 40
+    MinHeight = 40
+    Shadow.Visible = True
+    Shadow.Color = clGray
+    Shadow.HOffset = 2
+    Shadow.VOffset = 2
+    Shadow.Transparency = 0
+    ParentShowHint = True
+    Gradient.Direction = grRightBottom
+    Gradient.StartColor = clWhite
+    Gradient.EndColor = clGray
+    Gradient.Visible = True
+    BitmapMode = bmStretch
+    BitmapTransparent = False
+    MetaFile.Data = {04000000}
+    PictureMode = pmStretch
+    Transparent = False
+    Cursor = crDefault
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    Collapsed = False
+  end
+  object DiagramSideLine1: TDiagramSideLine
+    SourceArrow.Shape = asNone
+    SourceArrow.Width = 10
+    SourceArrow.Height = 10
+    SourceArrow.Brush.Color = clBlack
+    TargetArrow.Shape = asNone
+    TargetArrow.Width = 10
+    TargetArrow.Height = 10
+    TargetArrow.Brush.Color = clBlack
+    Cursor = crDefault
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 14
+        Top = 113
+        Width = 200
+        Height = 59
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end
+      item
+        DControlAngle = True
+        Left = 39
+        Top = 157
+        Width = 199
+        Height = 30
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    LineStyle = lsSideLine
+    Orientation1 = aoVert
+    Orientation2 = aoHorz
+    Collapsed = False
+    Handles = <
+      item
+        OrX = 114.000000000000000000
+        OrY = 113.000000000000000000
+        Style = hsSize
+      end
+      item
+        OrX = 163.000000000000000000
+        OrY = 172.000000000000000000
+        Style = hsSize
+      end>
+    LinkPoints = <
+      item
+        Anchor = fmDiagramEditor.FlowActionBlock1
+        AnchorIndex = 1
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end
+      item
+        Anchor = fmDiagramEditor.FlowActionBlock2
+        AnchorIndex = 2
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end>
+  end
+  object DiagramSideLine2: TDiagramSideLine
+    SourceArrow.Shape = asNone
+    SourceArrow.Width = 10
+    SourceArrow.Height = 10
+    SourceArrow.Brush.Color = clBlack
+    TargetArrow.Shape = asNone
+    TargetArrow.Width = 10
+    TargetArrow.Height = 10
+    TargetArrow.Brush.Color = clBlack
+    Cursor = crDefault
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 113
+        Top = 197
+        Width = 200
+        Height = 53
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end
+      item
+        DControlAngle = True
+        Left = 141
+        Top = 235
+        Width = 199
+        Height = 30
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    LineStyle = lsSideLine
+    Orientation1 = aoVert
+    Orientation2 = aoHorz
+    Collapsed = False
+    Handles = <
+      item
+        OrX = 213.000000000000000000
+        OrY = 197.000000000000000000
+        Style = hsSize
+      end
+      item
+        OrX = 268.000000000000000000
+        OrY = 250.000000000000000000
+        Style = hsSize
+      end>
+    LinkPoints = <
+      item
+        Anchor = fmDiagramEditor.FlowActionBlock2
+        AnchorIndex = 1
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end
+      item
+        Anchor = fmDiagramEditor.FlowActionBlock3
+        AnchorIndex = 2
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end>
+  end
+  object DiagramSideLine3: TDiagramSideLine
+    SourceArrow.Shape = asNone
+    SourceArrow.Width = 10
+    SourceArrow.Height = 10
+    SourceArrow.Brush.Color = clBlack
+    TargetArrow.Shape = asNone
+    TargetArrow.Width = 10
+    TargetArrow.Height = 10
+    TargetArrow.Brush.Color = clBlack
+    Cursor = crDefault
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 113
+        Top = 197
+        Width = 200
+        Height = 216
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end
+      item
+        DControlAngle = True
+        Left = 193
+        Top = 398
+        Width = 200
+        Height = 30
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    LineStyle = lsSideLine
+    Orientation1 = aoVert
+    Orientation2 = aoHorz
+    Collapsed = False
+    Handles = <
+      item
+        OrX = 213.000000000000000000
+        OrY = 197.000000000000000000
+        Style = hsSize
+      end
+      item
+        OrX = 373.000000000000000000
+        OrY = 413.000000000000000000
+        Style = hsSize
+      end>
+    LinkPoints = <
+      item
+        Anchor = fmDiagramEditor.FlowActionBlock2
+        AnchorIndex = 1
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end
+      item
+        Anchor = fmDiagramEditor.FlowActionBlock4
+        AnchorIndex = 2
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end>
+  end
+  object DiagramSideLine5: TDiagramSideLine
+    SourceArrow.Shape = asNone
+    SourceArrow.Width = 10
+    SourceArrow.Height = 10
+    SourceArrow.Brush.Color = clBlack
+    TargetArrow.Shape = asNone
+    TargetArrow.Width = 10
+    TargetArrow.Height = 10
+    TargetArrow.Brush.Color = clBlack
+    Cursor = crDefault
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 218
+        Top = 269
+        Width = 200
+        Height = 29
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end
+      item
+        DControlAngle = True
+        Left = 271
+        Top = 277
+        Width = 199
+        Height = 30
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end
+      item
+        DControlAngle = True
+        Left = 323
+        Top = 285
+        Width = 200
+        Height = 30
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    LineStyle = lsSideLine
+    Orientation1 = aoVert
+    Orientation2 = aoVert
+    Collapsed = False
+    Handles = <
+      item
+        OrX = 318.000000000000000000
+        OrY = 275.000000000000000000
+        Style = hsSize
+      end
+      item
+        OrX = 370.000000000000000000
+        OrY = 292.000000000000000000
+        Style = hsSize
+      end
+      item
+        OrX = 423.000000000000000000
+        OrY = 308.000000000000000000
+        Style = hsSize
+      end>
+    LinkPoints = <
+      item
+        Anchor = fmDiagramEditor.FlowActionBlock3
+        AnchorIndex = 1
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end
+      item
+        Anchor = fmDiagramEditor.FlowActionBlock5
+        AnchorIndex = 0
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end>
+  end
+  object DiagramSideLine6: TDiagramSideLine
+    SourceArrow.Shape = asNone
+    SourceArrow.Width = 10
+    SourceArrow.Height = 10
+    SourceArrow.Brush.Color = clBlack
+    TargetArrow.Shape = asNone
+    TargetArrow.Width = 10
+    TargetArrow.Height = 10
+    TargetArrow.Brush.Color = clBlack
+    Cursor = crDefault
+    TextCells = <
+      item
+        DControlAngle = True
+        Left = 218
+        Top = 275
+        Width = 200
+        Height = 100
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end
+      item
+        DControlAngle = True
+        Left = 271
+        Top = 360
+        Width = 199
+        Height = 30
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end
+      item
+        DControlAngle = True
+        Left = 323
+        Top = 367
+        Width = 200
+        Height = 29
+        Clip = False
+        WordWrap = True
+        DControlFont = True
+        Alignment = taCenter
+        VertAlign = vaCenter
+        RotateFont = True
+        CellFrame.Color = clWhite
+        CellFrame.Transparent = True
+        CellFrame.AutoFrame = False
+        CellFrame.AutoFrameMargin = 0
+        CellFrame.Visible = False
+        Visible = True
+      end>
+    Visible = True
+    Layer = 0
+    Transparency = 0
+    LineStyle = lsSideLine
+    Orientation1 = aoVert
+    Orientation2 = aoVert
+    Collapsed = False
+    Handles = <
+      item
+        OrX = 318.000000000000000000
+        OrY = 275.000000000000000000
+        Style = hsSize
+      end
+      item
+        OrX = 370.000000000000000000
+        OrY = 375.000000000000000000
+        Style = hsSize
+      end
+      item
+        OrX = 423.000000000000000000
+        OrY = 388.000000000000000000
+        Style = hsSize
+      end>
+    LinkPoints = <
+      item
+        Anchor = fmDiagramEditor.FlowActionBlock3
+        AnchorIndex = 1
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end
+      item
+        Anchor = fmDiagramEditor.FlowActionBlock4
+        AnchorIndex = 0
+        Collapsable = False
+        Collapsed = False
+        LinkConstraint = lcAll
+        Visible = True
+      end>
+  end
+end

@@ -1,0 +1,226 @@
+<?php
+  if(function_exists("date_default_timezone_set")) {
+    @date_default_timezone_set(date_default_timezone_get());
+  }
+  
+  function load() {
+    $content = array();
+    $dir = dirname(__FILE__)."/includes/lang";
+	  if ($handle = opendir($dir)) {
+		   while (false !== ($file = readdir($handle))) {
+             if ($file != "." && $file != ".." && !is_dir($dir.$file) && preg_match("/^site_(.*?\w+).inc/", $file, $matches)&& $matches[1]!='en')
+                { $content[$matches[1]] = $file ;}
+          }
+		   closedir($handle);
+  	}
+    print_r($content );
+    return $content;
+  }
+  
+  function findinside( $string) {
+      preg_match_all('/define\(["\']([a-zA-Z0-9_]+)["\'],[ ]*(.*?)\);/si',  $string, $match); //.'/i'
+      return array_combine($match[1],$match[2]);
+  }
+  
+  if ($_POST['load']) {
+    $string1 = file_get_contents('includes/lang/site_en.inc');
+        $diff1 = findinside($string1);
+      if (file_exists( dirname(__FILE__)."/includes/lang/site_{$_POST['lang']}.inc")) {
+        $string2 = file_get_contents("includes/lang/site_{$_POST['lang']}.inc");
+        $diff2 = findinside($string2);
+    } else {
+        $diff2 = array();
+    }
+  }
+  
+  if (isset($_POST["oper"])) {
+	  if ($_POST["oper"] == "add") {
+		//don't need
+		 
+	  } elseif ($_POST["oper"] == "edit") {
+		$sring2 = file_get_contents('includes/lang/site_'.$_POST['lang'].'.inc');
+		preg_match('/define\(["\']('.$_POST["id"].')["\'],[ ]*(.*?)\);/si',  $sring2, $match);
+		$oldstring = $match[0];
+		$text = $_POST["lang2"];
+		//Special Characters, add to your need
+		$umlautArray = Array("/ä/","/ö/","/ü/","/Ä/","/Ö/","/Ü/","/ß/");
+		$replaceArray = Array("&auml;","&ouml;","&uuml;","&Auml;","&Ouml;","&Uuml;","&szlig;");
+		$text = preg_replace($umlautArray , $replaceArray , $text);
+		$newstring = "define(".'"'.$_POST["id"].'"'.",".$text.");";
+		if ($newstring===$oldstring){
+			die('Nothing to update');
+		}else{
+			$data = implode("",file('includes/lang/site_'.$_POST['lang'].'.inc'));
+			$str = str_replace($oldstring,$newstring,$data);
+			$handle = fopen('includes/lang/site_'.$_POST['lang'].'.inc','w'); 
+			fwrite($handle,$str);
+			fclose($handle);
+			}
+	  } elseif ($_POST["oper"] == "del") {
+		//don't need
+		 
+	  }
+
+  }elseif ($_POST['load']=='update_1') {
+	 $diff= array_diff_key($diff2, $diff1); 
+     if (count($diff)===0) {
+       die('Nothing to update');
+     } elseif (!is_writable('includes/lang/site_en.inc')) {
+       die('This file is not writable.');
+     } else {
+       $string1 .= "<"."?php\n";
+       $string1 .= "// defines added at: ".date('c')."\n";
+       $diff= array_diff_key($diff2, $diff1);
+       foreach ($diff as $key =>$value) {
+         $string1 .= "define('$key', $value);\n";
+       }
+       $string1 .= "?>";
+       file_put_contents("includes/lang/site_en.inc",$string1, FILE_TEXT );
+     }
+     die("New values have been added to your default language file, please reload the page");
+
+  }elseif ($_POST['load']=='update_2') {
+	 $diff= array_diff_key($diff1, $diff2); 
+     if (count($diff)===0) {
+       die('Nothing to update');
+     } elseif (!is_writable("includes/lang/site_{$_POST['lang']}.inc")) {
+       die('This file is not writable.');
+     } else {
+       $string2 .= "<"."?php\n";
+       $string2 .= "// defines added at: ".date('c')."\n";
+       $diff= array_diff_key($diff1, $diff2);
+       foreach ($diff as $key =>$value) {
+         $string2 .= "define('$key', $value);\n";
+       }
+       $string2 .= "?>";
+       file_put_contents("includes/lang/site_{$_POST['lang']}.inc",$string2, FILE_TEXT );
+     }
+     die("New values have been added to your editable language file, please reload the page");
+	 
+  } elseif ($_POST['load']=='grid')  {
+    $responce = array();
+    $responce['page'] = 1;
+    $responce['total'] = 1;
+    $responce['records'] = count($diff1)+count($diff2);
+    $responce['userdata'] = array();
+    $i=0;
+
+    foreach ($diff1 as $key =>$value) {
+      $responce['rows'][$i]['id']=$key;
+      $responce['rows'][$i]['cell']=array($key, htmlentities($value), htmlentities($diff2[$key]));
+      $i++;
+    }
+    foreach ($diff2 as $key =>$value) {
+      if(!array_key_exists($key, $diff1 )){
+      $responce['rows'][$i]['id']=$key;
+      $responce['rows'][$i]['cell']=array($key, "&nbsp;", htmlentities($value));
+      $i++;
+    }
+    }
+    echo json_encode($responce);
+    exit;
+  };
+
+?>
+		<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+		"http://www.w3.org/TR/html4/strict.dtd">
+        <html>
+		<head>
+		<title>Language Editor</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        
+        <link rel="stylesheet" type="text/css" media="screen" href="css/flick/jquery-ui-1.8.9.custom.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/ui.jqgrid.css" />
+		<script type="text/javascript" src="scripts/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery/jquery-ui.js"></script>
+		<script type="text/javascript" src="scripts/jquery/i18n/grid.locale-en.js" ></script>
+		<script type="text/javascript" src="scripts/jquery/jquery.jqGrid.min.js"></script>
+
+
+		<script type="text/javascript">
+        $(document).ready(function() {
+          var mylanguage = $("#language");
+          var lang = mylanguage.val();
+          var lastsel;
+          var mygrid1 = $("#table1").jqGrid({
+            url:'langedit.php',
+            datatype: 'JSON',
+            mtype: 'POST',
+            postData: {"load":"grid","lang":lang},
+            colNames: ['LangKey','Default Language','Editable Language'],
+            colModel :[
+                {name:'key',   index:'key',   width:200, sortable:false, resizable: false},
+                {name:'lang1', index:'lang1', width:470, sortable:false, resizable: false},
+                {name:'lang2', index:'lang2', width:470, sortable:false, resizable: false, editable:true, edittype: "textarea", editoptions: {rows:"5",cols:"54"}}],
+            altRows: true,
+			autoencode:false,
+            rowNum:20,
+			rowList : [20,30],
+			scroll:true,
+			loadonce:true,
+			rownumbers: true,
+			rownumWidth: 40,
+			pager: '#pager',
+			viewrecords: true,
+			caption:"Language Editor",
+            editurl: "langedit.php",
+			height: "460",
+			onSelectRow: function(rowid,status) {
+              if(rowid && rowid!==lastsel){
+                mygrid1.jqGrid('restoreRow',lastsel);
+                mygrid1.jqGrid('editRow',rowid, true, null, null, "langedit.php", {lang:lang});
+                lastsel=rowid;
+           		}
+            }
+            });
+			
+			mygrid1.jqGrid('navGrid',"#pager",{del:false,add:false,edit:false},{width:800});
+
+      		$('#update_default').click(function(){
+             $.post("langedit.php", {load:"update_1", lang:lang }, function(data){
+                alert(data)}, "text");
+      		});
+			
+			 $('#update_lang').click(function(){
+             $.post("langedit.php", {load:"update_2", lang:lang }, function(data){
+                alert(data)}, "text");
+      		});
+       });
+
+		</script>
+        <style>
+		*{
+			font-family: Arial, Helvetica, sans-serif;
+			font-size:14px;
+			color:#444;
+		}
+		</style>
+</head>
+<body>
+  <div align="center">
+
+  <a>Select the languagefile:</a>
+  <form id="select_language" name="select_language" action=langedit.php method=LINK>
+  <select id='language' name='language' onChange="document.select_language.submit();">
+  <?php
+    $opt = load();
+	$sel[$_GET['language']] = " selected='selected' ";
+    foreach($opt as $k=>$v) {
+    echo "<option value='$k' name='$k' $sel[$k] >" . $v . "</option>\n";
+    }
+  ?>
+  </select>
+  </form>
+  <br /><br />
+  <table id="table1" class="scroll" cellpadding="0" cellspacing="0"></table>
+  <div id="pager" ></div>
+  
+  <br /><br />
+  <button id='update_default'>Update Default Language</button>
+  <button id='update_lang'>Update Editable Language</button><br><br>
+  
+  <a>Click on editable language field. Edit text between quotes. Click field to the left. Press "Enter".</a><br><br>
+
+  </div>
+</body>
+</html>

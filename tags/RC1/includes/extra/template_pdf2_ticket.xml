@@ -1,0 +1,146 @@
+<templatefile type='pdf2'>{literal}
+<style type="text/css">
+<!--
+table	{ vertical-align: middle; }
+tr		{ vertical-align: middle; }
+td		{ vertical-align: middle; }
+}
+-->
+</style>
+{/literal}
+<page>
+	<table cellspacing="0" style= cellpadding="5" width="100%">
+		<tr>
+			<td  colspan="4" colspan="4" style="border-left-style: solid; border-left-width: 1px; border-top-style: solid; border-top-width: 1px" align="center">
+			<b><i>{$organizer_name} Presents</i></b></td>
+			<td  colspan="4" style="border-right-style: solid; border-right-width: 1px; border-top-style: solid; border-top-width: 1px" rowspan="2"><barcode type="CODE39"; value="{$barcode_text}"></barcode></td>
+		</tr>
+		<tr>
+			<td  colspan="4" style="border-left-style: solid; border-left-width: 1px; vertical-align:top" align="center">
+			<h1 align="center">{$event_name}</h1>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-left-style: solid; border-left-width: 1px">&nbsp;</td>
+			<td colspan="2" bgcolor="#C0C0C0" align="center"><b>Location Details</b></td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td bgcolor="#C0C0C0" colspan="2" align="center"><b>Date and Time</b></td>
+			<td style="border-right-style: solid; border-right-width: 1px;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="border-left-style: solid; border-left-width: 1px">&nbsp;</td>
+			<td style="bgcolor" colspan="2" align="center">{$ort_name}</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td><b>&nbsp;Event Date:</b></td>
+			<td>{$event_date|date_format:" %a - %h %e, %Y"}</td>
+			<td style="border-right-style: solid; border-right-width: 1px">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="border-left-style: solid; border-left-width: 1px"></td>
+			<td style="bgcolor" colspan="2" align="center">{$ort_address}</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td><b>&nbsp;Start Time:</b></td>
+			<td>{$event_time|date_format:" %I:%M %p"}</td>
+			<td style="border-right-style: solid; border-right-width: 1px">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="border-left-style: solid; border-left-width: 1px">&nbsp;</td>
+			<td style="bgcolor" colspan="2" align="center">{$ort_city}, {$ort_state}&nbsp; {$ort_zip}</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td><b>&nbsp;Doors Open:</b></td>
+			<td>{$event_open|date_format:" %I:%M %p"}</td>
+			<td style="border-right-style: solid; border-right-width: 1px">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="border-left-style: solid; border-left-width: 1px"></td>
+			<td style="bgcolor" colspan="2" align="center">{$ort_phone}</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td style="align=" colspan="2">&nbsp;</td>
+			<td style="border-right-style: solid; border-right-width: 1px">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="border-left-style: solid; border-left-width: 1px">&nbsp;</td>
+			<td style="bgcolor"2" align="center" colspan="2">&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td colspan="2">&nbsp;</td>
+			<td style="border-right-style: solid; border-right-width: 1px">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="border-left-style: solid; border-left-width: 1px">&nbsp;</td>
+			<td align="center" colspan="2" style="bgcolor"><b>{$pmp_name}</b></td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td bgcolor="#C0C0C0" align="center" colspan="2"><b>Ticket Details</b></td>
+			<td style="border-right-style: solid; border-right-width: 1px">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="border-left-style: solid; border-left-width: 1px">&nbsp;</td>
+			<td align="center"><b>Zone:</b></td>
+			<td align="center"><i>{$pmz_short_name}</i></td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td "width=20%"><b>&nbsp;Type:</b></td>
+			<td><i>{$category_name}</i></td>
+			<td style="border-right-style: solid; border-right-width: 1px">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="border-left-style: solid; border-left-width: 1px"></td>
+			<td align="center"><b>Row :</b></td>
+			<td align="center"><i>{$seat_row_nr}</i></td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td><b>&nbsp;Price:</b></td>
+			<td><i>$ {$category_price} <small>{$organizer_currency}</small></i></td>
+			<td style="border-right-style: solid; border-right-width: 1px">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="border-left-style: solid; border-left-width: 1px">&nbsp;</td>
+			<td align="center"><b>Seat :</b> </td>
+			<td align="center"><i>{$seat_nr}</i></td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td style="border-right-style: solid; border-right-width: 1px">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="border-left-style: solid; border-left-width: 1px">&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td><b>&nbsp;Discount:</b></td>
+			<td><i>{$discount_name}</i></td>
+			<td style="border-right-style: solid; border-right-width: 1px">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="border-left-style: solid; border-left-width: 1px; border-bottom-style: solid; border-bottom-width: 1px">&nbsp;</td>
+			<td style="border-bottom-style: solid; border-bottom-width: 1px">&nbsp;</td>
+			<td style="border-bottom-style: solid; border-bottom-width: 1px">&nbsp;</td>
+			<td style="border-bottom-style:solid; border-bottom-width:2px" style="border-bottom-style: solid; border-bottom-width: 1px">&nbsp;</td>
+			<td style="border-bottom-style:solid; border-bottom-width:2px" style="border-bottom-style: solid; border-bottom-width: 1px">&nbsp;</td>
+			<td style="border-bottom-style: solid; border-bottom-width: 1px">&nbsp;</td>
+			<td style="border-bottom-style: solid; border-bottom-width: 1px">&nbsp;</td>
+			<td style="border-right-style: solid; border-right-width: 1px; border-bottom-style: solid; border-bottom-width: 1px">&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="8" align="right" height="30
+			"><small>&copy;&nbsp;{$organizer_name}</small></td>
+		</tr>
+		<tr>
+			<td colspan="8" style="vertical-align: top" align="justify">
+				<b>NOTE TO PURCHASER: TREAT THESE TICKETS AS YOU WOULD ANY OTHER VALUABLE OR CASH.</b>  Unauthorized duplication, alteration, or sale of this 
+				ticket may prevent admittance to the event. Present this page at the time of admission to be scanned. The unique bar code on this ticket 
+				allows only one entry per ticket</td>
+		</tr>
+		<tr>
+			<td colspan="8" style=" border-top-style: dashed; border-top-width: 3px"></td>
+		</tr>
+	</table>
+</page></templatefile>

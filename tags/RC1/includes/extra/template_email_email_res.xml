@@ -1,0 +1,39 @@
+<templatefile type='email'><?xml version="1.0" encoding="UTF-8" ?>
+<template deflang="en">
+<TO email="$user_firstname $user_lastname &lt;$user_email&gt;"/>
+<subject lang="en" value="Confirmation of your tickets, order no. $order_id"/>
+
+<text lang="en">
+TEST SYSTEM - PLEASE EDIT IN TEMPLATES!
+
+Dear $user_firstname $user_lastname!
+
+This E-Mail confirms your ticket order from Demo 
+Your reservation number is: $order_id
+
+Your tickets are only reserved for a limited time. To purchase the tickets please go to: $order_link$order_id
+Thank you very much.
+
+$order_date
+
+</text>
+
+<html lang="en">
+<b>TEST SYSTEM - PLEASE EDIT IN TEMPLATES!</b>
+
+<p>Dear $user_firstname $user_lastname!</p>
+
+<p>This E-Mail confirms your ticket order from Demo </p>
+<p>Your purchase number is: <b>$order_id</b></p>
+
+<p>Your tickets are only reserved for a limited time. To purchase the tickets please go <a href="$order_link$order_id"> here</a>
+</p>
+
+<p>
+Thank you very much.
+</p><p>
+$order_date
+
+</p>
+</html>
+</template></templatefile>

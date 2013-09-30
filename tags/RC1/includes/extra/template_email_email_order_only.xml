@@ -1,0 +1,36 @@
+<templatefile type='email'><?xml version="1.0" encoding="UTF-8" ?>
+<template deflang="en">
+<TO email="$user_firstname $user_lastname &lt;$user_email&gt;"/>
+
+<subject lang="en" value="Your tickets (order nr. $order_id)"/>
+
+<text lang="en">
+DEMO * DEMO * DEMO * DEMO
+
+Dear $user_firstname $user_lastname!
+
+You find here your tickets in attachment.
+Your Order-Nr. is: $order_id
+
+Thank You very much and a lot of fun!
+
+$order_date
+
+</text>
+
+<html lang="en">
+<b>DEMO * DEMO * DEMO * DEMO</b>
+
+<p>Dear $user_firstname $user_lastname!</p>
+
+<p>You find here your tickets in attachment.
+Your Order-Nr. is: <b>$order_id</b></p>
+
+<p>Thank You very much and a lot of fun!</p>
+ 
+<p><i>$order_date</i></p>
+
+</html>
+
+<order_pdf order_id="$order_id" name="order_$order_id.pdf" mark_send="yes" summary="quittance"/>
+</template></templatefile>

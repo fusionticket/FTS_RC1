@@ -1,0 +1,290 @@
+Change Log
+/**
+ *               %%%copyright%%%
+ *
+ * FusionTicket - ticket reservation system
+ *  Copyright (C) 2007-2013 FusionTicket Solution Limited . All rights reserved.
+ *
+ * Original Design:
+ *	phpMyTicket - ticket reservation system
+ * 	Copyright (C) 2004-2005 Anna Putrino, Stanislav Chachkov. All rights reserved.
+ *
+ * This file is part of FusionTicket.
+ *
+ * This file may be distributed and/or modified under the terms of the
+ * "GNU General Public License" version 3 as published by the Free
+ * Software Foundation and appearing in the file LICENSE included in
+ * the packaging of this file.
+ *
+ * This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING
+ * THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE.
+ *
+ * Any links or references to Fusion Ticket must be left in under our licensing agreement.
+ *
+ * By USING this file you are agreeing to the above terms of use. REMOVING this licence does NOT
+ * remove your obligation to the terms of use.
+ *
+ * The "GNU General Public License" (GPL) is available at
+ * http://www.gnu.org/copyleft/gpl.html.
+ *
+ * Contact help@fusionticket.com if any conditions of this licencing isn't
+ * clear to you.
+ */
+
+////////////////////////////////////
+// THIS FILE IS NOW DEPRICATED
+// IT IS ONLY KEEP FOR HISTORIC REASONS
+// FOR bug/feature tracking use http://mantis.fusionticket.org
+////////////////////////////////////
+
+
+Feedback:
+	- When users signup add in another email feild to check there email is the same as the first field.
+//TODO: FIX templates
+//TODO: PARTIAL - Let users change there details.
+//BUG: Some links in the admin page don't work.
+//BUG: Only Cash and paypal orders work in POS?
+//BUG: Paid Sent has no colour in admin area.
+TESTING - Let users see current orders, and past orders (allow to cancel change etc).
+
+-- BETA 3 PATCH 1 ---
+06/06/2008
+Ver 1.3.5 Build 45
+- Fixed PDF's header error
+- Removed White space which could cause potential problems.
+- Fixed problem in PoS where it would not create a new user if you didnt click "New User"
+- Fixed Process Order Link
+
+
+-- BETA 3 - PUBLIC --
+2/06/2008
+Ver 1.3.5 Build 44
+- Cleaned up templates
+- New standard template! Thank you to Paul AKA pangea
+- Global Email is taken from Organiser Settings now (activation page etc)
+- Currency is taken from organiser settings (again)
+- Fixed some object errors
+- Improved User Login, cleaned up the code and improved security
+- Increased state feild size in DB.
+
+
+
+24/05/2008
+Ver 1.3.4 Build 43
+- Added Processing Section in POS for manual system intergration and easy order processing. (too be expanded at a later date)
+- Login will redirect to last page when logging on.
+- Updated Footer with correct link
+
+
+
+20/05/2008
+Ver 1.3.4 Build 42
+- Added max res orders so users cant go an reserve the whole dam show any pay nothing!
+	It is very much recommend if you use Reservation that this feature is enabled it is enabled by default!
+- Improved transaction code in class.shopdb.php Fixed some strange happenings, Transactions are near 100% reliable now.
+- Users can now change the size of a event mid show only applicable to unnumbered seats - Utilised Exsisting Code.
+	Event Must be unpubished (nautraly).
+- Shows total tickets bought in catview admin area
+
+
+
+28/04/2008
+Ver 1.3.4 Build 41
+- Updated htmlMimeMail to v5 designed for php5
+- Updated PEAR Core system, Its not used as far as im aware but updated it to php5 version just incase.
+- Added resend activation email
+- Added Extra lang items in lang file need to be added to the rest of the languages
+- Added Extra db fields, SQL in 'Current Patch' folder
+- Added Extra options to Config in Admin Area
+
+
+--BETA 2 --
+
+27/04/2008
+Ver 1.3.4 Build 40
+- Fixed MySQLi Error in class.shopdb.php should display the error properly and compile pages fine now
+- Fixed missing colloums
+- Fixed Missing data for ordering tickets.
+- Changed quote var to mysqli over mysql in Handlings.php
+- Updated Smarty Version
+NOTES: Uses PHP send mail the script will only send mail from the domain that its at! Check Mail Security Settings!
+
+--BETA 1 -- Still late alpha i wanted a beta version for some feedback so here it is.
+
+14/04/2008
+Ver 1.3.3 Build 39
+- Fixed no date bug in order template
+- Removed SpryAssests should show basket
+- Tested site with cookies off, seem so be no problems unless logging in to the admin site.
+
+
+--PRE ALPHA 1.3 BUILD--
+31/03/2008
+Ver 1.3.2 Build 38
+- Added Order Options in the admin area so auto shop settings can be changed. Apears to work :)
+- Added Reserved Labling on order handlings
+- Updated Missing lanuage text in admin file.
+
+12/03/2008
+Ver 1.3.2 Build 37
+- Can now select exsisting users when ordering/reserving in the box office
+- Added new field in users, which counts the users total orders, when ever a new order is made the count is increased.
+this gives a more realistic veiw, when old orders are deleated you can still still you popular customers.
+
+11/03/2008
+Ver 1.3.2 Build 36
+- Now finds earlyest event date for ordering instead of see weather it alt date. adds more functality.
+- Handling and reserve buttons check event date agaisnt shop config offset to see if they should be displayed.
+- Cant reserve length of reserve time+2days before an event as you would have a reservation overlapping an event which means un paid tickets. I will make it so reservations before the event can be changed.
+
+
+
+11/03/2008
+Ver 1.3.2 Build 35
+- Orders will now follow alt methods, Handlings will either check the cart or event_date input, if no input the use_alt lines will be ignored so payments arent asked if they are alt payments are not as we dont need to ask the system, it knows the handling id.
+- handling will just check if an alt is slected not which one. Which works just not how i want it yet.
+- created update.php, doesnt require smarty for the class.
+- created tickets function, will grab the min date from a list of tickets, so when ordering stuff the min date is allways picked out,
+
+
+
+09/03/2008
+Ver 1.3.2 Build 34
+- Fixed Bug in personal page where would still ask for payment even tho it has been paid for [personal_order.tpl]
+- Started to add alt payment system.
+- Users can pay for reserved tickets.
+- Users can pay for unpaid orders.
+- Cleaned up automated scripts, now using MySQLi and more effecient coding.[update_smarty.php]
+
+
+23/02/2008
+Ver 1.3.2 Build 33
+- Added counter on personal page with time remaining to order reserved tickets.
+- Added counter on personal page to pay for an unpaid order!
+
+
+22/02/2008
+
+Ver 1.3.2 Build 32
+- Added timer on auto update scripts, will update every x mins
+- Will now delete orders that have not been paid for can be turned off and is induvidual to each handling.
+- Unpaid script will ignore tickets booked in the box office.
+
+
+21/02/2008
+Ver 1.3.2 Build 31
+- Added New Feilds to ShopConfig
+- Added Update and Time class
+- Added autorunning scripts to check for unpaid reserved tickets
+- Added Time Functions for time proccessing commands, now a countdown function.
+- Updated Some templates for language support.
+- Changed View Order template in personal page, looks much better now. And can procced to check out if they have failed to pay on check out.
+- Changed View Orders template shows events now (although it is a bodge as only tickets contain event information!)
+
+
+
+14/02/2008
+Ver 1.3.2 Build 30
+- Added new table `ShopConfig`
+- Updated Paypal button.
+- Updated personal Page, used different order list.
+- Can now pay for unpaid orders
+- Visualy shows order status
+
+
+11/02/2008
+Ver 1.3.2 Build 29
+- Improved Reservation code.
+- Can now create complimentory tickets.
+- Can now remove booking fee from tickets if someone is collecting.
+
+
+10/02/2008
+Ver 1.3.2 Build 28
+- New Frount end for box office
+- Adding in new reservation system
+- Added new sql colums
+- Added in seat status 'resp'
+- Added default reserve payment
+//TODO: Update standard MySQL Dump
+- Fixed: Time formats not showing in some lanuages.
+- Changed the payment method in the box office.
+- Fixed: Registration email not being sent to the right address.
+
+
+27/01/2008
+Ver 1.3.2
+- Box office will now actualy show all orders created in the box office not one just created by the box office user.
+- Box office lists order status correctly.
+- Fixed Error with address form.
+- Fixed display bug if you have more than 3 payments.
+
+
+
+RELEASE CANDIDATE 2
+21/01/2008
+Ver 1.31 build 26
+- Fixed a problem with paypal IPN intergration... It was working how it should, it didnt think that it was being paid the correct amount, the paypal value had changed.
+- Started adding user current orders.
+
+
+17/01/2008
+Ver 1.31 build 25
+- Fixed problem with paypal form, works and works well, have to remember to set the
+ IPN payment in the buissness account to send the payment details back to the user.
+- You may have noticed the WHOLE site is covered under a SSL cert, of course this is mine,
+	but its easy to impliment and regardless of the address the user types in they will
+	be redirected correctly to https://secure.noctem.co.uk
+- Fixed many little problems with the admin page due to php5 and mysql5 upgrades (which where affecting the website its self).
+- Fixed two bugs in the POS interface, it used to show trashed items now fixed.
+
+
+11/01/2008
+Ver 1.31 build 24
+- User can now change there details. Requires the user to enter there password for added security.
+- Improved personal page, increased spacing.
+
+
+10/01/2008
+Ver 1.3 build 23
+- Users now have to be logged in and activated to buy tickets.
+- If the user log's out when getting tickets they will be pushed back
+	to the home page and wont be able to finish the purchase intill
+	they log's back in.
+- Personal Page has been redesigned and is nearly ready to update user info.
+- Personal info can now be changed need to enter password needs doing properly, currently
+	it relog's the user.
+
+
+09/01/2008
+Ver 1.3 build 22
+- Fixed problem with cart session not starting properly.
+- Activation email now points to the correct webpage.
+
+
+07/01/2008
+Ver 1.3 build 21
+- If you have not activated your account the nessary message is displayed.
+- If you have entered the wrong user name or pass the nessary message will be displayed.
+
+
+27/11/07
+Ver: 1.3 build 20
+-Made the page refresh after each proccess which allows functions to be called back to any part of the webpage
+ not just the file which ran them.
+ So items dont have to be a defined session.
+-After users register they will be redirected to the registered webpage and told to activate there account.
+-You dont try to automaticaly try to sign in after registering.
+
+
+05/07-11/07
+Ver: 1.0-1.2 build 1-19
+- Changed theme
+- Moved login pannel from left to right hand side.
+- Added user activation emails.
+- Cleaned up tpl code.
+- Set default language as english, removed language selector for now.
+- Updated the site to php5. (More secure, quicker and improved functions).
+- Fixed seating display error.
+- Other bits and bobs.

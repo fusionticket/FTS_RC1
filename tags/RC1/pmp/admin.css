@@ -1,0 +1,132 @@
+*{font-size:12px;font-family:Verdana,Arial, Helvetica, san-serif; }
+
+.aui_bico{}
+.aui_bico_menu {padding-right:10px;}
+.aui_bico_body{}
+/* admin interface */
+.admin_name{background-color:#ededed;
+color:#999999;
+font-size: 12px;
+font-weight:bold;
+}
+.admin_value{background-color:#fafafa}
+.admin_form{border: #cccccc 1px solid;}
+.admin_list{border: #cccccc 1px solid;}
+.admin_list_row_0{background-color:#ededed}
+.admin_list_row_1{background-color:#cdcdcd}
+.admin_list_title{font-size:16px; font-weight:bold;color:#555555;}
+.admin_list_subtitle{font-size:12px; font-weight:bold;}
+.admin_list_item{}
+.err{color:red;}
+.menu_admin{border-right:#cccccc 1px solid; border-bottom:#cccccc 1px solid;border-top:#cccccc 1px solid;}
+.menu_admin_title{color:#555555; background-color:#ffffff;font-weight:bold;
+                  padding-left: 25px;
+		  padding-top: 4px;
+		  padding-bottom: 4px;
+}
+.menu_admin_link{font-size: 12px;
+                  padding-left: 25px;
+		  padding-top: 2px;
+		  padding-bottom: 2px;
+		  text-decoration:none;
+		  color:#000000;
+		  display:block;
+		  }
+.menu_admin_link:hover{font-size: 12px;
+                  padding-left: 25px;
+		  padding-top: 2px;
+		  padding-bottom: 2px;
+		  text-decoration:none;
+		  color:#ffffff;
+		  display:block;
+		  background:#bbbbbb;
+		  }
+.menu_admin_item{background:#ededed;}
+.admin_head{color:#ffffff; font-weight:bold; font-size:24px; padding-left:20px;}
+.link_head{color:#444444;text-decoration:none; }
+.link_head:hover{color:#555555;text-decoration:underline; }
+.link{color:#333333;text-decoration:none; }
+.link:hover{color:#999999;text-decoration:underline; }
+.foot{font-size:9px;}
+.foot_link{color:#333333;text-decoration:none;font-size:9px;}
+.foot_link:hover{color:#999999;text-decoration:underline;font-size:9px; }
+.pm_numbers_x{color:#333333; font-size:10px;padding-bottom:3px;}
+.pm_numbers_y{color:#333333; font-size:10px;padding-right:5px;}
+.stats_event_item{background-color:#a0a0a0 ; color:#ffffff;}
+.stats_cat_item{background-color:#ededed; 
+             border-bottom: #ffffff 2px solid; color:#999999}
+.stats_title{background-color:#999999 ;color:#ffffff; border:#ffffff  1px solid; }
+.order_item{background-color:#bbbbbb ; color:#ffffff;}
+.ticket_item{background-color:#ededed; 
+             border-bottom: #ffffff 2px solid; color:#a0a0a0}
+.ticket_item_1{background-color:#bbbbbb; border-right: #ffffff 2px solid;}
+.order_list_type{background-color:#999999 ; color:#ffffff; font-weight:bold;}
+.order_list_ordered{background-color:#cccccc;}
+.order_list_sended{background-color:#cccccc; }
+.order_list_payed{background-color:#cccccc ;}
+.order_list_canceled{background-color:#cccccc ;}
+.order_list_reemit{background-color:#cccccc ;}
+.order_td{padding-left:15px;}
+.admin_order_res{background-color:orange;}
+.admin_order_ord{background-color:#99ccff;}
+.admin_order_payed{background-color:#99ffcc;}
+.admin_order_send{background-color:#ffcccc;}
+.admin_order_cancel{background-color:#cccccc;}
+.admin_order_reemit{background-color:#ffffcc;}
+.admin_order_payedsend{background-color:#FF9966;}
+.info{border:#cccccc 1px dashed;
+      background-color:#efefef;
+      text-align: center;}
+.error{color:red;padding-left:25px;padding-bottom:3px; padding-top:3px;font-weight:bold;font-family:Georgia;
+      font-size:14px; }
+.success{color:green; padding-left:25px;padding-bottom:3px; padding-top:3px;font-weight:bold; font-family:Georgia;
+         font-size:14px;}
+.mysql_error{font-weight:bold;}
+.UITabMenuNavOff{
+background:#dddddd;
+color:#000000;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:x-small;
+FONT-VARIANT: small-caps;
+text-align: center;
+border-bottom:1px solid #ffffff;
+text-decoration:none;
+}
+.UITabMenuNavOn{
+background: #C0C0C0;
+	color:#ffffff;
+        text-decoration:none;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:x-small;
+	FONT-VARIANT: small-caps;
+	text-align: center;
+        border-bottom:1px solid #C0C0C0;
+	}
+A.UITabMenuTab{
+text-decoration:none;
+font-weight: bold;
+}
+A.UITabMenuTab:link{
+  color: #444444;
+   }
+A.UITabMenuTab:visited {
+  color: #444444;
+   }
+A.UITabMenuTab:hover {
+  color: #000000;
+  text-decoration: underlay;
+  }
+.UITabMenuChildMenu{
+	background:#000066;
+	color:#ffffff;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:x-small;
+	padding:4px;
+	}
+.UITabMenuChildMenu:hover{
+	background:#000066;
+	color:#ffffff;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:x-small;
+	padding:4px;
+        }

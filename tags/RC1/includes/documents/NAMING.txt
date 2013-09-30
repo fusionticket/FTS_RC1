@@ -1,0 +1,94 @@
+--Fusion Ticket File Naming Conventions--
+
+Please feel free to update this document if you feel it to be inacurrate or incorrect.
+
+
+1. CODE NAMING
+ 
+	There are a hundred differnt ways to name class names and varibles.
+	Everyone has there prefered methods, but for the sake of this project
+		we can agree that everyone should try and follow the rules below.
+		
+	1.1: ClassNames: Class names should have a CAPITOL for each letter 
+		of each word.
+		
+		No Spaces, No Special Chars and No Underscores
+	
+		:-D		-> 	Order, EmailController, SwiftEmailCompiler
+		:'-( 	-> 	order, emailController, Swift_Email_Compiler
+	
+	1.2: Function names: functions should use a cammelcaps style naming,
+		but should follow the simple rules.
+		
+		First word lower case, Every subsiquent word has uppercase first letter,
+		No Spaces, No special Chars and No underscores.
+		
+		:-D		->	save(), deleteOrder(), isValid(), doThisFunctionNow()
+		:'-(	->	Save(), DeleteOrder(), is_Valid(), do_this_function_now()
+		
+		There may be exceptions to these rules, such as: __construct.
+		Or _load() which would be the private version of load().
+		E.g. : 
+			static public load(){.. return self::_load()}
+			private _load()
+		
+	1.3 Varibles: 
+		Vars should follow the same rules as functions.
+		
+		See Functions...
+		
+		Exceptions:
+			When following table naming. So we can set $this->order_id 
+			as this would match the coloumn name of order_id in the order table.
+			
+			Construct varibles used by a abstract class: 
+				protected _columns = array(...)
+				protected _id = '..'
+	
+2. File Naming
+
+	Rules:
+		All Lower Case
+		Full stop between each
+		Type of file post file name.
+		
+	Types of Files:
+		Classes : class.classname.php ie. class.session.php
+		Models 	: model.modelname.php ie. model.seat.php
+		Simple Files : filename.php ie. init.php
+		Compiliers : compilier.complib.comptype.php ie. compiler.swift.email.php
+		Ajax 	: ajax.ajaxname.php ie. ajax.posajax.php
+		Etc..
+		
+	Examples:
+		model.order.php
+		compiler.swift.email.php
+		
+	Respective Class Names:
+		class Order {..}
+		class EmailSwiftCompiler{..}
+		
+3. Database Naming
+
+	3.1: Tables
+		Table names should be sensible at best. Every new table should be lowercase, this makes the system
+		 cross compatible between windows and unix but is allso recommended by InnoDB to reduce confusion
+		 between lower and uppercase tables.
+		
+		Table names should only include letters and '_', they should also be plurised if holding an object style 
+		records like orders.
+		
+		:-D		: orders, order_statuses, seats
+		:'-(	: order, OrderStatus, SEATS
+		
+	3.2: Column Names
+		Should follow there table name affixed with their name. Again sensible names, if the table name is plurised
+		remove the plural. orders = order
+		
+		If the table name is long or contains '_' then using a abreavation is recommended
+		
+		It is not required but hinting the type of field can be helpful.
+		
+		:-D		: order_id, order_timestamp, os_id (order_statuses) etc...
+		:'-( 	: id, ord_id, orderid, order_statuses_id
+		

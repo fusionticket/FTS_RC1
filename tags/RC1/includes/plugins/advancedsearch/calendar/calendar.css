@@ -1,0 +1,57 @@
+
+#calendar-page { float: left; background-color: #6699CC; font-family: tahoma; font-size: 11px; min-width: 150px; }
+#calendar-page select { font-family: tahoma; font-size: 11px; }
+
+#calendar-header { padding-top: 2px; }
+#calendar-header .closeme { padding: 0px 3px 2px 0px; }
+
+#calendar-body { padding: 2px 3px 3px 3px; }
+#calendar-body .general { background-color: #FFFFFF; }
+#calendar-body .othermonth { background-color: #EEEEEE; color: #AAAAAA; }
+#calendar-body .header { background-color: #6699CC; color: #FFFFFF; }
+#calendar-body .today { background-color: #FFFFCC; }
+#calendar-body .select { background-color: #FFCC99; }
+#calendar-body .othermonth a:link { text-decoration : none; color: #CCFFCC; }
+#calendar-body .othermonth a:visited { text-decoration : none; color: #CCFFCC; }
+#calendar-body .othermonth a:hover { text-decoration : underline; color: #FFFFFF; }
+#calendar-body td div { padding: 3px; width: 15px; }
+#calendar-body a { display: block; }
+#calendar-body a:link { text-decoration : none; color: #000000; }
+#calendar-body a:visited { text-decoration : none; color: #000000; }
+#calendar-body a:hover { text-decoration : underline; color: #FF0000; background-color: #FFC; }
+#calendar-body .disabledate { color: #aaa; background-color: #eee; }
+
+#calendar-body .refresh { color: #FFF; padding: 10px 3px 3px; }
+#calendar-body .refresh .txt-container { padding: 25px 10px 10px; height: 50px; }
+
+#calendar-body .mon {}
+#calendar-body .tue {}
+#calendar-body .wed {}
+#calendar-body .thu {}
+#calendar-body .fri {}
+#calendar-body .sat { color: #66C; }
+#calendar-body .sat a:link { color: #66C; }
+#calendar-body .sun { color: #930; }
+#calendar-body .sun a:link { color: #930; }
+
+#calendar-footer { background-color: #CCCCCC; }
+#calendar-footer .btn { line-height: 21px; }
+#calendar-footer .btn a:link { text-decoration : none; color: #000000; display: block; }
+#calendar-footer .btn a:visited { text-decoration : none; color: #000000; }
+#calendar-footer .btn a:hover { text-decoration : none; color: #FF0000; }
+
+#calendar-header, #calendar-body, #calendar-footer { padding-left: 1px; padding-right: 1px; }
+#calendar-body table { font-family: tahoma; font-size: 11px; }
+
+#calendar-container { }
+
+.tcday, .tcmonth, .tcyear { font-size: 11px; z-index: 10; }
+
+.date-tccontainer { border: 1px solid #cccccc; background-color: #efefef; padding: 2px; float: left; margin-right: 2px; text-align: center; text-decoration: none; }
+
+
+#calendarform { margin: 0px; padding: 0px; }
+#calendarform ul { margin: 0px; padding: 0px; list-style: none; }
+#calendarform ul li { display: inline; }
+
+.calendar-border { border: 1px solid #000; }

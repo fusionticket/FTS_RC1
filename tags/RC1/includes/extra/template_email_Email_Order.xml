@@ -1,0 +1,142 @@
+<templatefile type='email'><?xml version="1.0" encoding="UTF-8" ?>
+<template deflang="nl">
+<TO email="$user_firstname $user_lastname &lt;$user_email&gt;"/>
+<BCC email="kaarten@lumensoft.nl"/>
+<HEADER name="2" value="1"/>
+<subject lang="nl" value="Bevestiging reservering, nr.: $order_id"/>
+<subject lang="en" value="Confirmation of your tickets, order no. $order_id"/>
+<subject lang="de" value="Bestätigung Ihre Bestellung no. $order_id"/>
+<text lang="nl">
+Reserveringsnummer: $order_id
+Beste $user_firstname $user_lastname,
+Via onze website ontvingen wij uw bestelling.
+Na ontvangst van uw betaling worden de gereserveerde kaarten
+verzonden naar:
+$user_firstname $user_lastname
+$user_address
+$user_address1
+$user_zip $user_city
+Hartelijk dank.
+</text>
+<html lang="nl">
+<br />
+Reserveringsnummer: $order_id
+<br />
+<p>Beste $user_firstname $user_lastname,</p>
+<p>
+Via onze website ontvingen wij uw bestelling.<br />
+Na ontvangst van uw betaling worden de gereserveerde kaarten
+verzonden naar:
+<br />
+$user_firstname $user_lastname<br />
+$user_address<br />
+$user_zip $user_city<br />
+$user_country_name
+</p><p>
+Hartelijk dank.
+</p>
+</html>
+<text lang="en">
+Dear $user_firstname $user_lastname!
+This E-Mail confirms your ticket order from Demo 
+Your purchase number is: $order_id
+Thank you very much.
+$order_date
+</text>
+<html lang="en">
+<b>TEST SYSTEM - PLEASE EDIT IN TEMPLATES!</b>
+<p>Dear $user_firstname $user_lastname!</p>
+<p>This E-Mail confirms your ticket order from Demo 
+</p>
+<p>Your purchase number is: <b>$order_id</b>
+</p>
+<p>
+Thank you very much.
+</p><p>
+$order_date
+</p>
+</html>
+<text lang="de">
+DEMO * DEMO * DEMO * DEMO
+Liebe/r $user_firstname $user_lastname!
+Diese E-Mail bestätigt Ihre Ticketbestellung bei Demo 
+Ihre Bestell-Nr. ist: $order_id
+Herzlichen Dank und viel Vergnügen!
+
+$order_date
+Ihre Demo Team
+</text>
+<html lang="de">
+<b>DEMO * DEMO * DEMO * DEMO</b>
+<p>Liebe/r $user_firstname $user_lastname!</p>
+<p>
+Diese E-Mail bestätigt Ihre Ticketbestellung bei Demo.
+</p>
+<p>Ihre Bestell-Nr. ist: <b>$order_id</b></p>
+
+<p>
+Herzlichen Dank und viel Vergnügen!
+</p>
+<p>
+$order_date
+
+</p>
+</html>
+
+<text lang="fr">
+DEMO * DEMO * DEMO * DEMO
+
+Cher/Chère $user_firstname $user_lastname!
+Ce courrier éléctronique confirme Votre commande Demo 
+Votre Commande-Nr. est: $order_id
+
+Merci beaucoup et bon amusement!
+$order_date
+
+</text>
+<html lang="fr">
+<b>DEMO * DEMO * DEMO * DEMO</b>
+<p>Cher/Chère $user_firstname $user_lastname!</p>
+<p>
+Ce courrier éléctronique confirme Votre commande 
+</p>
+<p>
+Votre Commande-Nr. est: <b>$order_id</b></p>
+<p>
+Merci beaucoup et bon amusement!
+</p>
+<p>
+$order_date
+
+</p>
+</html>
+
+<text lang="it">
+DEMO * DEMO * DEMO * DEMO
+
+Gentile/Gentilissima $user_firstname $user_lastname!
+Questo email conferma il Suo ordine Demo 
+Il Suo Ordine-Nr. è: $order_id
+Lei riceverà i Suoi biglietti per posta nei prossimi giorni.
+Grazie mille e buon divertimento!
+$order_date
+
+</text>
+<html lang="it">
+<b>DEMO * DEMO * DEMO * DEMO</b>
+
+<p>Gentile/Gentilissima $user_firstname $user_lastname!</p>
+<p>
+Questo email conferma il Suo ordine Demo 
+</p><p>
+Il Suo Ordine-Nr. è: <b>$order_id</b></p>
+
+<p>
+Grazie mille e buon divertimento!
+</p>
+<p>
+$order_date
+
+</p>
+</html>
+</template></templatefile>

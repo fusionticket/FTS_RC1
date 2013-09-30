@@ -1,0 +1,40 @@
+<templatefile type='email'><?xml version="1.0" encoding="UTF-8" ?>
+<template deflang="en">
+<TO email="$user_firstname $user_lastname &lt;$user_email&gt;"/>
+
+<subject lang="en" value="Your tickets (order nr. $order_id)"/>
+
+<text lang="en">
+DEMO * Change this email in Admin - Templates - Email_With_Tickets* DEMO
+
+
+Dear $user_firstname $user_lastname!
+
+You will find your tickets in the attachment.
+Your Order-No. is: $order_id
+
+Thank You very much!
+
+$order_date
+
+Any problems please email sales@demo-theater.co.uk
+
+</text>
+
+<html lang="en">
+<b>DEMO * Change this email in Admin - Templates - email_order * DEMO</b>
+
+
+<p>Dear $user_firstname $user_lastname!</p>
+
+<p>You will find your tickets in the attachment.
+Your Order-No. is: <b>$order_id</b></p>
+
+<p>Thank You very much and a lot of fun!</p>
+ 
+<p><i>$order_date</i></p>
+
+</html>
+
+<order_pdf order_id="$order_id" name="order_$order_id.pdf" mark_send="no"/>
+</template></templatefile>

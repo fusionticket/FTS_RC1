@@ -1,0 +1,29 @@
+<templatefile type='pdf2'><page backtop="10mm" >
+	<page_header>
+		<table style="width: 100%; border: solid 1px black;">
+			<tr>
+				<td style="text-align: left;	width: 50%">html2pdf</td>
+				<td style="text-align: right;	width: 50%">Exemples de QRcode</td>
+			</tr>
+		</table>
+	</page_header>
+	<h1>Exemples de QRcode</h1>
+	<h3>Message avec Correction d'erreur L, M, Q, H (valeur par défaut : H)</h3>
+	<qrcode value="{$barcode_text}" ec="L" ></qrcode>
+	<qrcode value="{$barcode_text}" ec="M" ></qrcode>
+	<qrcode value="{$barcode_text}" ec="Q" ></qrcode>
+	<qrcode value="{$barcode_text}" ec="H" ></qrcode>
+	<br>
+	<h3>Message de taille 0.3mm, 0.6mm, 1mm, 2mm (valeur par défaut : 0.6mm)</h3>
+	<qrcode value="{$barcode_text}" size="0.3mm"></qrcode>
+	<qrcode value="{$barcode_text}" size="0.6mm"></qrcode>
+	<qrcode value="{$barcode_text}" size="1mm"></qrcode>
+	<qrcode value="<{$barcode_text}" size="2mm"></qrcode>
+	<br>
+	<h3>Message de différentes couleurs</h3>
+	<qrcode value="{$barcode_text}" style="background-color: white;   color: black;"></qrcode>
+	<qrcode value="{$barcode_text}" style="background-color: yellow;  color: red"></qrcode>
+	<qrcode value="{$barcode_text}" style="background-color: #FFCCFF; color: #003300"></qrcode>
+	<qrcode value="{$barcode_text}" style="background-color: #CCFFFF; color: #003333"></qrcode>
+	<br>
+</page></templatefile>

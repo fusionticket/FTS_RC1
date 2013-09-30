@@ -1,0 +1,142 @@
+<templatefile type='email'><?xml version="1.0" encoding="UTF-8" ?>
+<template deflang="en">
+<TO email="$user_firstname $user_lastname $user_email"/>
+
+<subject lang="en" value="Confirmation for your order no. $order_id"/>
+<subject lang="de" value="Best�tigung Ihre Bestellung no. $order_id"/>
+<subject lang="fr" value="Confirmation de Votre commande nr. $order_id"/>
+<subject lang="it" value="Conferma del Suo ordine nr. $order_id"/>
+
+<text lang="en">
+DEMO* Change this text in Admin-Templates-email_invoice *DEMO
+
+Dear $user_firstname $user_lastname!
+
+This E-Mail confirms your ticket order from Demo 
+Your order number is: $order_id
+The invoice is attached. You have 10 days to pay the invoice.
+
+Once we receive your payment we send you your e-tickets by email.
+
+Thank you very much!
+
+Order Date:$order_date
+Order ID: $order_id
+
+To contact us email us here: sale@demotheater.co.uk
+
+</text>
+
+<html lang="en">
+<b>DEMO * DEMO * DEMO * DEMO</b>
+
+<p>Dear $user_firstname $user_lastname!</p>
+
+<p>This E-Mail confirms your ticket order from Demo 
+</p>
+<p>Your purchase number is: <b>$order_id</b>
+</p>
+
+<p>
+The invoice is attached. You have 10 days to pay the invoice.
+Once we receive your payment we send you your e-tickets by email.
+</p>
+
+<p>
+Thank you very much!
+</p><p>
+Order Date:$order_date
+Order ID: $order_id
+</p><p>
+To contact us, email: <a href="mailto:sale@demotheater.co.uk">Sales</a>
+</p>
+</html>
+
+<text lang="de">
+DEMO * DEMO * DEMO * DEMO
+
+Liebe/r $user_firstname $user_lastname!
+Diese E-Mail besttigt Ihre Ticketbestellung bei Demo 
+Ihre Bestell-Nr. ist: $order_id
+Herzlichen Dank und viel Vergn�gen!
+
+$order_date
+Ihre Demo Team
+</text>
+<html lang="de">
+<b>DEMO * DEMO * DEMO * DEMO</b>
+<p>Liebe/r $user_firstname $user_lastname!</p>
+<p>
+Diese E-Mail besttigt Ihre Ticketbestellung bei Demo.
+</p>
+<p>Ihre Bestell-Nr. ist: <b>$order_id</b></p>
+
+<p>
+Herzlichen Dank und viel Vergn�gen!
+</p>
+<p>
+$order_date
+
+</p>
+</html>
+
+<text lang="fr">
+DEMO * DEMO * DEMO * DEMO
+
+Cher/Chre $user_firstname $user_lastname!
+Ce courrier lctronique confirme Votre commande Demo 
+Votre Commande-Nr. est: $order_id
+
+Merci beaucoup et bon amusement!
+$order_date
+
+</text>
+<html lang="fr">
+<b>DEMO * DEMO * DEMO * DEMO</b>
+<p>Cher/Ch�re $user_firstname $user_lastname!</p>
+<p>
+Ce courrier lctronique confirme Votre commande 
+</p>
+<p>
+Votre Commande-Nr. est: <b>$order_id</b></p>
+<p>
+Merci beaucoup et bon amusement!
+</p>
+<p>
+$order_date
+
+</p>
+</html>
+
+<text lang="it">
+DEMO * DEMO * DEMO * DEMO
+
+Gentile/Gentilissima $user_firstname $user_lastname!
+Questo email conferma il Suo ordine Demo 
+Il Suo Ordine-Nr. : $order_id
+Lei ricever� i Suoi biglietti per posta nei prossimi giorni.
+Grazie mille e buon divertimento!
+$order_date
+
+</text>
+<html lang="it">
+<b>DEMO * DEMO * DEMO * DEMO</b>
+
+<p>Gentile/Gentilissima $user_firstname $user_lastname!</p>
+<p>
+Questo email conferma il Suo ordine Demo 
+</p><p>
+Il Suo Ordine-Nr.: <b>$order_id</b></p>
+
+<p>
+Grazie mille e buon divertimento!
+</p>
+<p>
+$order_date
+
+</p>
+</html>
+
+<order_pdf order_id="$order_id" name="invoice_$order_id.pdf" mark_send="no" mode="summary"/>
+
+</template></templatefile>

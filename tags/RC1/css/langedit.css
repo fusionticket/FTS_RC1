@@ -1,0 +1,282 @@
+/* Site
+   -------------------------------- */
+
+html {
+	overflow-y: scroll;
+	background: #5f5f5f ;
+}
+
+body {
+	margin: 0;
+	padding: 0px 0px 10px 01px;
+	background: transparent;
+	min-height: 100%;
+	/* font-family: "Lucida Grande", "Arial", "Helvetica", "Verdana", "sans-serif"; */
+	font-family: "Arial", "Helvetica", "Verdana", "sans-serif";
+	font-size: 10px;
+}
+
+#wrapper {
+	margin: 0 auto;
+	width: 956px;
+	position: relative;
+	/*
+	background: url('/images/body_footer_bg.jpg') no-repeat center bottom;
+	padding-bottom: 365px;
+	 */
+}
+
+#banner {
+	height: 125px;
+}
+
+#content .bg {
+	opacity: 0;
+	-moz-opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+table.layout-grid a.disabled, table.layout-grid a.disabled:hover {
+	color: #aaa;
+	cursor: default;
+	text-decoration: line-through;
+}
+
+div.notice {
+	background: #FFF1AF;
+	padding: 3px;
+	margin-bottom: 5px;
+	font-size: 12px;
+	border: 1px solid #EFD500;
+}
+
+
+
+/* Content
+   -------------------------------- */
+
+#content-wrapper {
+	background: #FFF ;
+}
+
+#content {
+	zoom: 1;
+}
+
+.content-top {
+	font-size: 1px;
+	height: 13px;
+}
+
+.content {
+	padding: 0 3px 0 3px;
+	overflow: hidden;
+}
+
+#content .content {
+	min-height: 380px;
+}
+
+#home #content .content,
+#download #content .content,
+#demos #content .content,
+#docs #content .content,
+#support #content .content,
+#development #content .content,
+#about #content .content {
+	background: none;
+}
+
+#ie6 #content .content {
+	height: 380px;
+	overflow-y: visible;
+}
+
+/* Layout */
+
+.content-head {
+	height: 74px;
+	border-bottom: 1px solid #ccc;
+	background-color: #fff;
+}
+
+.content-head h2 {
+	margin: 0;
+	padding: 20px 0 20px 24px;
+	color: #ff9c08;
+	font: normal 29px/30px "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+}
+
+.content-head h2 span {
+	padding-right: 16px;
+	border-right: 1px solid #ccc;
+}
+
+.content-head p {
+	margin: 0;
+	padding: 28px 0 0 12px;
+	float: left;
+	font: bold 15px "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+}
+
+
+/* Layout
+   -------------------------------- */
+
+.layout-grid {
+	width: 100%;
+}
+
+.layout-grid td {
+	vertical-align: top;
+}
+
+.layout-grid td.left-nav {
+	width: 200px;
+}
+
+.layout-grid td.normal {
+	border-left: 1px solid #eee;
+	padding: 10px 12px;
+	font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+}
+
+
+
+
+/* Normal
+   -------------------------------- */
+
+h2,
+h3,
+h4 {
+	margin: 0;
+	font-weight: normal;
+}
+
+h2, h3 {
+	padding: 0 0 9px;
+}
+
+h4 {
+	padding-bottom: 21px;
+	border-bottom: 1px dashed #999;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+p {
+	font-size: 12px;
+}
+
+
+/* Footer
+   -------------------------------- */
+
+#footer {
+	height: 45px;
+	padding: 10px 0;
+	position: relative;
+}
+
+#footer .inner {
+	position: relative;
+	z-index: 2;
+}
+
+#ie6 #footer .inner {
+	zoom: 1;
+}
+
+#footer .bg {
+	width: 100%;
+	height: 65px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+#footer p {
+	margin: 0;
+	padding: 0;
+	color: #5e5e5e;
+	font: normal 9px 'Arial', 'Helvetica', sans-serif;
+	text-transform: uppercase;
+}
+
+#footer p a {
+	color: #bbb;
+}
+
+#footer span.first {
+	display: block;
+	float: left;
+	padding: 6px 0 0 16px;
+}
+
+#footer .block {
+	display: block;
+	float: left;
+}
+
+#footer .block span,
+#footer span.empty {
+	display: none;
+}
+
+#header {
+	/*overflow: auto;*/
+	text-align: left;
+	width: 100%;
+	background-color: #fff;
+	margin-bottom: 5px;
+	padding: 3 0px 3 05px;
+
+}
+
+#header h1 {
+	font-size: 30px;
+	font-weight: 100;
+	letter-spacing: -1px;
+	padding: 12px 0 5px 10px;
+}
+
+#header h1 a {
+	color: #fff;
+	text-decoration: none;
+}
+
+#header h1 a:hover {
+	color: #000;
+	text-decoration: none;
+}
+
+#header h2 {
+	color: #333000;
+	font-size: 19px;
+	font-weight: 100;
+	padding: 3 0px 3 05px;
+	letter-spacing: 5px;
+	line-height: 12px;
+	text-align: left;
+	margin-left: 5px;
+}
+#header ul {
+	clear: left;
+	margin: 5px auto;
+	display: block;
+	overflow: auto;
+	text-align: center;
+}
+
+#header ul li {
+	display: inline;
+	list-style-type: none;
+	margin: 10px;
+	font-size: 1.4em;
+	overflow: auto;
+}
+#header ul li a:hover {
+	color: #4F07E2;
+}

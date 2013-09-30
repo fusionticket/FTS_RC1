@@ -1,0 +1,184 @@
+body{
+	font-family: Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif;	/* Font to use */
+	margin:0px;
+
+}
+
+#accordion {
+	/*margin: 10px 0 10px 10px;*/
+	width: 100%;
+	font-family: verdana, arial;
+	font-size: 12px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+#accordion .accordion-header {
+	/*background: #3971AC;*/
+	/*color: #fff;*/
+	/*border-bottom: 1px solid #fff;*/
+	position: relative;
+	
+	color:#0073EA;
+	font-size:1.1em;
+	font-weight: bold;
+	border: 1px solid #DDDDDD;
+	width:99%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom:auto;
+	margin-top:auto;
+	background-repeat:no-repeat;
+	background-position:top right;
+	height:30px;
+}
+
+#accordion .accordion-header:hover {
+	color: #FFFFFF;
+	background: #0073ea;
+}
+
+#accordion .accordion-header h3 {
+	margin: 7px 0;
+	cursor: pointer;
+	text-indent: 10px;
+	position: relative;
+	padding-left: 2.2em;
+	/*padding: 5px 0;*/
+	/*line-height: 1.3;*/
+}
+
+#accordion .header-active {
+	color: #FF0084;
+}
+
+#accordion .accordion-header span {
+	background: url(images/arrows_sprite.png) no-repeat;
+	background-position: 0 0px;
+	display: block;
+	position: absolute;
+	width: 11px;
+	height: 16px;
+	top: 5px;
+	left: 0.5em;
+}
+
+#accordion .accordion-header span.icon-active {
+	background: url(images/arrows_sprite.png) no-repeat;
+	background-position: 0 -16px;
+	display: block;
+	position: absolute;
+	width: 11px;
+	height: 16px;
+	top: 5px;
+	left: 0.5em;
+}
+
+#accordion form.accordion-content {
+	margin: 0px 0 0px 0;
+	padding-bottom: 10px;
+	list-style-type: none;
+	border: 1px solid #ccc;
+	width:99%;
+	margin: auto;
+}
+
+#accordion form.accordion-content li {
+	padding: 1px 0px;
+	display: block;
+	margin: 0;
+	padding: 2px 5px;
+}
+
+#accordion form.accordion-content li a {
+	color: #D16C3A;
+	padding:1px;
+	font-size:0.9em;
+	position:relative;
+	/*overflow: hidden;*/
+	display: table;
+	width: 100%;
+}
+
+.accordion-content p, .accordion-content h1{
+	padding: 0 5px;
+	}
+
+/* ************************************************************************************************************ */
+
+
+
+.form_buttons {
+	clear: both;
+	padding: 5px 0;
+	}
+	
+.div_calendar {
+	display: table-row;
+	}
+
+p.calender_clearance {
+	padding-top: 12px;
+}
+
+.admin_name {
+	background-color: transparent;
+}
+
+.btn_disabled, .btn_disabled:hover {
+	background: #CCCCCC;
+	border: none;
+	outline: none;
+	font-weight: normal;
+}
+
+.admin_name label {
+    display: block;
+    float: left;
+    margin-right: 0.5em;
+    text-align: left;
+    width: 306px;
+		background-color: #EDEDED;
+		padding-left: 5px;
+		line-height: 22px;
+	}
+	
+label.opt {
+	/*width: 22em;*/
+	/*padding-bottom: 10px;*/
+	}
+	
+table#resultsEdit {
+	width: 99%;
+}
+
+img.img_spacer {
+	width: 16px;
+	height: 16px;
+	margin: 0 2px;
+}
+
+table#option_buttons {
+	width: 99%;
+}
+
+td.admin_value {
+	text-align: center;
+	vertical-align: middle;
+}
+
+tr.blank_row {
+	height: 16px;
+}
+
+textarea#email_msg {
+	width: 100%;
+}
+
+.page_rows {
+	margin-top: 16px;
+}
+
+.page_rows>select {
+	margin-left: 20px;
+}

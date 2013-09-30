@@ -1,0 +1,24 @@
+<templatefile type='email'><?xml version="1.0" encoding="UTF-8" ?><template deflang="en">
+<TO email="$user_firstname $user_lastname &lt;$user_email&gt;"/>
+<subject lang="en" value="Confimation of registration"/>
+
+<text lang="en">
+Dear $user_firstname $user_lastname!
+
+Please click on the link below:
+
+Please copy the following link into your browser:
+$link
+
+Thank you
+
+</text>
+
+<html lang="en">
+<p>Dear $user_firstname $user_lastname!</p>
+<p>Please click on the link below:</p>
+<a href="$link">Click Here</a>
+<p>Thank You</p>
+</html>
+
+</template></templatefile>
