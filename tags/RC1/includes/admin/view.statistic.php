@@ -281,7 +281,7 @@ class StatisticView extends ExportView{
       if ($tab <256) {
         return false;
       } else {
-        return plugin::call('%'.get_class($this).'_Execute', $tab-1, $this);
+        return plugin::call('is'.get_class($this).'_Execute', $tab-1, $this);
       }
     }
   }

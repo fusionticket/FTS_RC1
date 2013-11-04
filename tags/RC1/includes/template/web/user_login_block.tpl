@@ -72,12 +72,10 @@
                                       <input type="hidden" name="uri" value="{$smarty.server.REQUEST_URI}">
                                     {/if}
                                     <p id="form-login-username">
-                                  		<label for="modlgn-username">{!email!}</label><br>
-                                      <input type='text' id="modlgn-username" name='username' size='25' required=true> {printMsg key='loginusername'}
+                                  		<label for="modlgn-username">{!email!}</label><input type='text' id="modlgn-username" name='username' required='required' size="30"/>{printMsg key='loginusername'}
                                   	</p>
-                                  	<p id="form-password-remember">
-                                  		<label for="modlgn-passwd">{!password!}</label><br>
-                                      <input id="modlgn-passwd" type='password' name='password' size='25' required=true>{printMsg key='loginpassword'}
+                                  	<p id="form-login-password">
+                                  		<label for="modlgn-passwd">{!password!}</label><input id="modlgn-passwd" type='password' name='password' required='required' size="30"/>{printMsg key='loginpassword'}
                                     </p>
                                    	<div id="form-shop-remember">
                                       <ul>
@@ -86,7 +84,7 @@
                                     	</ul>
                                     </div>
                                     <div class='gui_footer'>
-                                      <button  type='submit' name='submit' id='_submit' class=' admin-button ui-state-default  link  ui-corner-all admin-button-text ' style='float:right;'  alt='Submit'>{!login_button!}</button>
+                                      <button  type='submit' name='submit' id='_submit' class=' admin-button ui-state-default  link  ui-corner-all admin-button-text ' style='float:right;'>{!login_button!}</button>
                                     </div>
                                   </form>
 

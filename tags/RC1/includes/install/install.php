@@ -32,7 +32,6 @@
  * clear to you.
  */
 
-error_reporting(E_ALL);
 
 
 if (!defined('ft_check')) {die('System intrusion ');}

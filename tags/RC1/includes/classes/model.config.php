@@ -240,7 +240,7 @@ class config extends model{
       if (($type & self::MDL_SKIPSAVE)){ continue;}
       if (is_array($exclude) && in_array($key,$exclude )) { continue; }
       if ($type & self::MDL_FILE) {
-        if (!$this->fillFilename ($_REQUEST, $key)) {return false; }
+        if (!$this->fillFilename ($_REQUEST, $key)) {return self::_abort('cant_save_configvalue_filename', $key); }
       } else
       if (($val= $this->_set($key1, '~~~',$type))) {
 

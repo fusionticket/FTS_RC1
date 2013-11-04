@@ -214,6 +214,7 @@ class PlaceMapPartView extends AdminView {
 									echo "<td class='admin_list_item' align=right>";
 									if (!$view_only) {
 										echo $this->show_button("button",'add_category_seat',2, array(
+										 'disable'=>$category->category_numbering=='none',
 										 'onclick'=>'this.form.category_id.value= '.$ident."; this.form.action.value='def_cat_pmp'; this.form.submit(); return false;"));
                     echo $this->show_button("{$_SERVER['PHP_SELF']}?action=view_pmp&pmp_id=$pmp_id&category_id={$ident}",'view',2,array('image'=>'../images/select.png'));
 									}
@@ -224,7 +225,10 @@ class PlaceMapPartView extends AdminView {
       }
   	$this->grid_footer();
 
-      if (!$view_only) {
+      if ($view_only) {
+        echo "</td></tr><table>";
+
+      } else {
           echo "<input type='hidden' name='zone_id'><input type='hidden' name='category_id'>\n";
 
           echo "</td></tr><table>

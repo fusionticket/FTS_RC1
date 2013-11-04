@@ -39,8 +39,8 @@ class TabsEventsView extends AdminView {
   var $tabitems = array(2=>"event_tab|manager",
                 3=>"history_tab|manager",
                 0=>'ort_admin_tab|manager',
-                1=>"event_group_tab|admin",
-                4=>'global_discounts|admin');
+                1=>"event_group_tab|manager",
+                4=>'global_discounts|manager');
 
   function draw() {
     global $_SHOP;

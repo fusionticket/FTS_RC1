@@ -358,7 +358,7 @@ class MyCart_Smarty {
 
    // print_r($places);
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    if($places_id=Seat::reservate(session_id(), $event_id, $category_id, $seats, $category_numbering, $reserved, $force, $mode)){
+    if($places_id=Seat::reservate(session_id(), $event_id, $category_id, $seats, $category_numbering, $reserved, $force)){
 	  //if cart empty create new cart
       if(!isset($cart)){
         $cart = new Cart();

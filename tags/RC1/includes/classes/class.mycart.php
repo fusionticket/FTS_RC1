@@ -250,7 +250,7 @@ class PlaceItem {
   var $created;
   function __construct ($cart, $event_id, $category_id, $seat_ids){
     global $_SHOP;
-    $this->date = date('c');
+    $this->created = date('c');
     $this->cart = $cart;
     $this->event_id=$event_id;
     $this->category_id=$category_id;

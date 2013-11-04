@@ -39,7 +39,7 @@
  */
 if (!defined('ft_check')) {die('System intrusion ');}
 
-//  set_error_handler("customError");
+  set_error_handler("customError");
 
   //ini_set('session.save_handler','user');
   //require_once("classes/class.sessions.php");

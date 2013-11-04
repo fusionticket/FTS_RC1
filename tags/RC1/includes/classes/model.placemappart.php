@@ -39,7 +39,7 @@ class PlaceMapPart Extends Model {
   protected $_tableName = 'PlaceMapPart';
   protected $_columns   = array( '#pmp_id', '*pmp_pm_id', 'pmp_ident', '#pmp_ort_id',
                                  '#pmp_event_id', '*pmp_name', '*pmp_width', '*pmp_height',
-                                 'pmp_scene', 'pmp_shift', 'pmp_data', 'pmp_data_orig', 'pmp_expires');
+                                 '*pmp_scene', '*pmp_shift', 'pmp_data', 'pmp_data_orig', 'pmp_expires');
   var $data =null;
 
   static function create ($pmp_pm_id = 0, $pmp_name = 0, $pmp_width = 0, $pmp_height = 0) {
@@ -278,7 +278,7 @@ class PlaceMapPart Extends Model {
     for($j = 0;$j < $this->pmp_height;$j++) {
       for($k = 0;$k < $this->pmp_width;$k++) {
         $seat = $this->data[$j][$k];
-        if ($seat[PM_ZONE] > 0) {
+        if (is_numeric($seat[PM_ZONE])) {
           $zone[$seat[PM_ZONE]]++;
           $cat[$seat[PM_CATEGORY]]++;
       }
@@ -483,7 +483,7 @@ function auto_numbers ($zone_id, $first_row = 1, $step_row = 1, $inv_row = false
     for($j = 0;$j < $this->pmp_height;$j++) {
       for($k = 0;$k < $this->pmp_width;$k++) {
         $seat = $this->data[$j][$k];
-        if ($seat[PM_ZONE] > 0 and $seat[PM_CATEGORY] == $cat_id) {
+        if (is_numeric($seat[PM_ZONE]) and $seat[PM_CATEGORY] == $cat_id) {
           $l = min($l, $k);
           $r = max($r, $k);
           $t = min($t, $j);
@@ -550,7 +550,7 @@ function auto_numbers ($zone_id, $first_row = 1, $step_row = 1, $inv_row = false
     for($j = 0;$j < $this->pmp_height;$j++) {
       for($k = 0;$k < $this->pmp_width;$k++) {
         $seat = $this->data[$j][$k];
-        if ($seat[PM_ZONE] > 0 and $seat[PM_CATEGORY]) {
+        if (is_numeric($seat[PM_ZONE]) and $seat[PM_CATEGORY]) {
           if ($zones) {
             $key = $this->pmp_id . "-" . $seat[PM_ZONE] . "-" . $seat[PM_CATEGORY];
           } else {
@@ -596,7 +596,7 @@ function auto_numbers ($zone_id, $first_row = 1, $step_row = 1, $inv_row = false
     for($j = 0;$j < $this->pmp_height;$j++) {
       for($k = 0;$k < $this->pmp_width;$k++) {
         $seat = $this->data[$j][$k];
-      	if ($seat[PM_ZONE] > 0) {
+      	if (is_numeric($seat[PM_ZONE]) > 0) {
       	  if ($seat[PM_CATEGORY]) {
             $zone = $this->zones[$seat[PM_ZONE]];
             $category = $this->categories[$seat[PM_CATEGORY]];
@@ -647,13 +647,13 @@ function auto_numbers ($zone_id, $first_row = 1, $step_row = 1, $inv_row = false
     // echo rebuild_cache;
     $seats_db = Seat::load_pmp_all($this->pmp_id);
     $expires = time() + 3600;
-
+    $error = false;
     if ($seats_db) {
       for($j = 0;$j < $this->pmp_height;$j++) {
         for($k = 0;$k < $this->pmp_width;$k++) {
           $seat_c = $this->data[$j][$k];
 
-          if ($seat_c[PM_ZONE] > 0 and $seat_c[PM_CATEGORY]) {
+          if (is_numeric($seat_c[PM_ZONE]) and $seat_c[PM_CATEGORY]) {
             if ($seat_db = $seats_db[$seat_c[PM_ID]]) {
               if ($seat_db['seat_ts']) {
                   $expires = min($seat_db['seat_ts'], $expires);
@@ -661,8 +661,10 @@ function auto_numbers ($zone_id, $first_row = 1, $step_row = 1, $inv_row = false
 
               if ($seat_db['seat_status'] == 'free') {
                   $this->data[$j][$k][PM_STATUS] = PM_STATUS_FREE;
+//              } elseif ($seat_db['seat_status'] == 'res') {
+//                $this->data[$j][$k][PM_STATUS] = PM_STATUS_RESP;
               } elseif ($seat_db['seat_status'] == 'resp') {
-                  $this->data[$j][$k][PM_STATUS] = PM_STATUS_RESP;
+                $this->data[$j][$k][PM_STATUS] = PM_STATUS_RESP;
               } else {
                   $this->data[$j][$k][PM_STATUS] = PM_STATUS_OCC;
               }
@@ -691,7 +693,7 @@ function auto_numbers ($zone_id, $first_row = 1, $step_row = 1, $inv_row = false
       for($j = 0;$j < $this->pmp_height;$j++) {
         for($k = 0;$k < $this->pmp_width;$k++) {
           $seat = $this->data[$j][$k];
-          if ($seat[PM_ZONE] > 0 and (!$pmz_ident or $seat[PM_ZONE] == $pmz_ident)) {
+          if (is_numeric($seat[PM_ZONE]) and (!$pmz_ident or $seat[PM_ZONE] == $pmz_ident)) {
             if ($prev = $tmp[$seat[PM_ZONE]][$seat[PM_ROW]][$seat[PM_SEAT]]) {
               $doubles[$prev[0]][$prev[1]] = true;
               $doubles[$j][$k] = true;

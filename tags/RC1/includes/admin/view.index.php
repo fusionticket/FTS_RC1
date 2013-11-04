@@ -46,7 +46,6 @@ class IndexView extends AdminView {
 
   function __construct( $width=0){
     GLOBAL $_SHOP;
-    plugin::call('doAddACLResource','index_default_specs', 'admin' );
 
     if($_SHOP->software_updater_enabled){
       $this->tabitems[3] = "version_updater|admin";

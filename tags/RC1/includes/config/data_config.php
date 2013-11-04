@@ -80,7 +80,7 @@ $config['group_common'] = array(
                                                        'TRACEONLY'=>'Trace without orphan check',
                                                        '0'       => 'Disable (faster response)')),
 
-  'shopconfig_run_as_demo' => array(0,'yesno','*'), // " int(3) NOT NULL DEFAULT '0'"
+  'shopconfig_run_as_demo' => array('0','hidden',''), // " int(3) NOT NULL DEFAULT '0'"
   'notifytimeout' => array(20,'number','*'),
 );
 
@@ -121,7 +121,7 @@ $config['group_ordering'] = array(
 $config['group_upload'] = array(
   'allowed_uploads'    =>  array(null,'text','#@'),
 //  'allowed_images'     =>  array(null,'area','#@',array('rows'=>5,'cols'=>92)),
-  'allowed_other'      =>  array(null,'text','#@'),
+//  'allowed_other'      =>  array(null,'text','#@'),
   'file_mode'          =>  array(null,'text'),
   'allowed_maxsize'    =>  array(9000,'number'),
   'allowed_maxwidth'   =>  array(200,'number'),

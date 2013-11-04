@@ -86,8 +86,8 @@ class plugin extends model {
   static function loadAll($allrecord=true ) {
     $plugs = self::getPlugins();
     if (count($plugs)>1) {
-  	$isall = $plugs[0];
-  	unset($plugs[0]);
+    	$isall = $plugs[0];
+    	unset($plugs[0]);
 
       if ($isall && !$allrecord) {
         $plug = reset($plugs);
@@ -98,11 +98,13 @@ class plugin extends model {
           } else {
             $plug = next($plugs);
           }
-
         }
+        $isall = $allrecord;
+      }
+      if ($isall == $allrecord) {
         reset($plugs);
-      	return $plugs;
-       }
+        return $plugs;
+      }
     }
 
     self::getPlugins($allrecord);

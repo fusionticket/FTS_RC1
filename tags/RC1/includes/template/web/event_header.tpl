@@ -33,7 +33,9 @@
                                 <div class="art-content-layout layout-item-1">
                                   <div class="art-content-layout-row">
                                     <div class="art-layout-cell layout-item-2" style="width: 30%;">
+                                         <a class="title_link" href='{url file='index.php' event_id={$shop_event.event_id}}'>
                                       {gui->image href="{$shop_event.event_image}" width=160 height=150 align='left' class="magnify has-tooltip" border="0" style="" alt="{$shop_event.event_name} in {$shop_event.ort_city}" title="{$shop_event.event_name} in {$shop_event.ort_city}" border="0"}
+                                           </a>
                                     </div>
                                     <div class="art-layout-cell layout-item-3" style="width: 70%;">
                                       <ul>
@@ -43,7 +45,7 @@
                                           </a>
                                           {if $shop_event.event_mp3}
                                             <a  href='files/{$shop_event.event_mp3}'>
-                                              <img src='{$_SHOP_themeimages}audio-small.png' border='0' valign='bottom'>
+                                              <img src='{$_SHOP_themeimages}audio-small.png' alt='audio' />
                                             </a>
                                           {/if}
                                         </li>

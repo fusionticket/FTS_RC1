@@ -91,7 +91,7 @@ class Model {
       if ($filldefs) {
         foreach($defs as $key => $value) {
           If ($key != $this->_idName) {
-            $this->$key = $value->Default;
+            $this->$key = ($value->Default==='CURRENT_TIMESTAMP')?null: $value->Default;
           }
         }
       }

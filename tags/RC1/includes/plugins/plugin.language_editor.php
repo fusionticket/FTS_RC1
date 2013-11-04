@@ -101,6 +101,12 @@ class plugin_language_editor extends baseplugin {
       */
    }
 
+  function config(& $config){
+
+    $config['group_common']['language_editor_plugin_userref'] = array('','view','');
+  }
+
+
   function doUtilitiesView_Items($items){
       $items[$this->plugin_acl] ='language_editor|admin';
       return $items;
@@ -110,8 +116,77 @@ class plugin_language_editor extends baseplugin {
   global $_SHOP;
   // this section works the same way as the draw() function insite the views it self.
     if ($id==$this->plugin_acl) {
+
       if ($_POST['action'] == 'editlang' && is($_POST['lang'],false) && is($_POST['package'],false)) {
-         $this->_tablelangedit($view,$_POST['lang'],$_POST['package']);
+        $_SESSION['langedit']['lang']    = $_POST['lang'];
+        $_SESSION['langedit']['package'] = $_POST['package'];
+        $_SESSION['langedit']['diff1']   = null;
+        $lang =    $_SESSION['langedit']['lang'];
+        $package = $_SESSION['langedit']['package'];
+
+        $editfile = dirname(dirname(__FILE__)).DS.'lang'.DS."{$package}_{$lang}.inc";
+        $deffile = dirname(dirname(__FILE__)).DS.'lang'.DS."{$package}_en.inc";
+        if ($lang ==='en') {
+          $diff1 = $this->_send('language/download.xml', array('ftrevision'=>$this->getRevision(), 'ftlang'=>'en', 'ftpackage'=>$package, 'ftuser'=>0));
+    //      var_dump($diff1);
+        //  $diff1 = $diff1['data'];
+        } else {
+          $string1  = file_get_contents($deffile);
+          $diff1 = $this->findinside($string1);
+          $string1 ='';
+        }
+        if (file_exists( $editfile)) {
+          $settings = getLanginfo($editfile);
+          $string2  = file_get_contents($editfile);
+          $diff2 = $this->findinside($string2);
+        } else {
+          $diff2 = array();
+          $settings = array();
+        }
+        $_SESSION['langedit']['diff1'] = $diff1;
+        $_SESSION['langedit']['diff2'] = $diff2;
+        $_SESSION['langedit']['settings'] = $settings;
+
+        $this->_tablelangedit($view);
+
+      }elseif ($_POST['action']=='update_2') {
+
+        $editfile = dirname(dirname(__FILE__)).DS.'lang'.DS."{$_SESSION['langedit']['package']}_{$_SESSION['langedit']['lang']}.inc";
+        $diff2 = $_SESSION['langedit']['diff2'];
+
+        if (!is_writable($editfile)) {
+          addwarning('This file is not writable.');
+        } else {
+          $string2 = "<"."?php\n";
+          $string2 .= "/**\n";
+          $string2 .= file_get_contents (ROOT."licence.txt")."\n";
+          $string2 .= "**/\n\n";
+          $string2 .= "//Defines added at: ".date('c')."\n";
+          $_SESSION['langedit']['settings']['revision'] = $this->getRevision();
+          foreach($_SESSION['langedit']['settings'] as $key => $value) {
+            $string2 .= "//".ucfirst($key).': '.$value;
+            $string2 .= "\n";
+          }
+          $oldkey='';
+          foreach ($diff2 as $key =>$value) {
+            if (is_null($value) || empty($key)) { continue;}
+            if ($key{0} <> $oldkey) {
+              $string2 .= "\n";
+              $oldkey = $key{0};
+            }
+            $string2 .= "define('$key', \"".$value."\");\n";
+          }
+          $string2 .= "?>";
+          $_SESSION['langedit']['diff2'] = $diff2;
+
+
+          file_put_contents($editfile,$string2, FILE_TEXT );
+          addNotice('Translation is saved');
+        }
+        redirect('view_utils.php' ,array('action'=>'update'));
+      }elseif ($_POST['action']=='update') {
+        $this->_tablelangedit($view);
+        return true;
       } else
         $this->_tableLangages($view);
     } else return false;
@@ -124,150 +199,291 @@ class plugin_language_editor extends baseplugin {
     if ($id==$this->plugin_acl) {
     //  die('here '.$id.' '.$this->plugin_acl);
       // do your tasks here.
-      $lang = !empty($_POST['lang'])?$_POST['lang']: $_SESSION['lang'];
-      $editfile = dirname(dirname(__FILE__)).DS.'lang'.DS."site_{$lang}.inc";
-      $deffile = dirname(dirname(__FILE__)).DS.'lang'.DS."site_en.inc";
 
-      if ($_POST['action'] || is($_POST['lang'],false)) {
-        If (!isset($_SESSION['diff1']) or $_SESSION['lang']<>$_POST['lang'] ) {
-          $string1 = file_get_contents($deffile);
-          $diff1 = $this->findinside($string1);
-          if (file_exists( $editfile)) {
-            $string2 = file_get_contents($editfile);
-            $diff2 = $this->findinside($string2);
-          } else {
-            $diff2 = array();
-          }
-
-          $_SESSION['diff1'] = $diff1;
-          $_SESSION['diff2'] = $diff2;
-
-      //    var_dump($diff1,$diff2);
-          if ($_POST['lang']) {
-            $_SESSION['lang']  = $_POST['lang'];
-          }
-        }
-      }
-      $diff1= $_SESSION['diff1'];
-      $diff2= $_SESSION['diff2'];
-
+      //------------------------------------------------------------------------------
       if ($_POST['action']=='new_language') {
+        //------------------------------------------------------------------------------
+
         $lang = strtolower($_POST['lang']);
         if (strlen($lang)<>2) {
           die('Language code needs to be 2 characters');
 
         } elseif (!is_string($lang)) {
           die('Language code needs to be 2 characters');
-        } elseif (file_exists()){
+        } elseif (file_exists($editfile)){
           die('Language code already exist.');
         } else {
           $string2 = "<"."?php\n";
-          $string2 .= "// defines added at: ".date('c')."\n\n";
+          $string2 .= "//CreateDate: ".date('c')."\n";
+          $string2 .= "//Creator: ".clean($_POST['creator'])."\n";
+          $string2 .= "//Language: ".clean($_POST['name'])."\n";
+          $string2 .= "//Revision: ".$this->getRevision()."\n";
           $string2 .= "?>";
           file_put_contents($editfile,$string2, FILE_TEXT );
         }
         echo ("done");
         return true;
+
+        //------------------------------------------------------------------------------
       } elseif ($_POST['action']=='edit') {
+        //------------------------------------------------------------------------------
+
+        $editfile = dirname(dirname(__FILE__)).DS.'lang'.DS."{$_SESSION['langedit']['package']}_{$_SESSION['langedit']['lang']}.inc";
         if (!is_writable($editfile)) {
           die('This file is not writable. : '.$editfile);
         } else {
-          $_SESSION['diff2'][$_POST['key']] = $_POST['value'];
-
-          $string2 = "<"."?php\n";
-          $string2 .= "// defines added at: ".date('c')."\n";
-          foreach ($_SESSION['diff2'] as $key =>$value) {
-            $umlautArray = Array("/ä/","/ö/","/ü/","/Ä/","/Ö/","/Ü/","/ß/");
-            $replaceArray = Array("&auml;","&ouml;","&uuml;","&Auml;","&Ouml;","&Uuml;","&szlig;");
-            $value = preg_replace($umlautArray , $replaceArray , $value);
-            $string2 .= "define('$key', '".addslashes($value)."');\n";
-          }
-          $string2 .= "?>";
-          file_put_contents($editfile,$string2, FILE_TEXT );
+          $_SESSION['langedit']['diff2'][$_POST['key']] = addslashes($_POST['value']);
         }
-        echo $_POST['value'];
+        echo 'done';
         return true;
 
-      }elseif ($_POST['action']=='update_2') {
-        if (count($diff1)===0) {
-          die('noting to update');
-        } elseif (!is_writable($editfile)) {
-          die('This file is not writable.');
+        //------------------------------------------------------------------------------
+      } elseif ($_POST['action']=='remove') {
+        //------------------------------------------------------------------------------
+
+        $_SESSION['langedit']['diff1'][$_POST['key']] = null;
+        $_SESSION['langedit']['diff2'][$_POST['key']] = null;
+        unset($_SESSION['langedit']['diff1'][$_POST['key']]);
+        unset($_SESSION['langedit']['diff2'][$_POST['key']]);
+   //     var_dump($_SESSION['langedit']['diff2'][$_POST['key']]);
+        echo 'done';
+        return true;
+
+        //------------------------------------------------------------------------------
+      } elseif ($_POST['action']=='downcase') {
+        //------------------------------------------------------------------------------
+
+
+      $_SESSION['langedit']['diff2'][strtolower($_POST['key'])] = $_POST['value'];
+
+      $_SESSION['langedit']['diff1'][$_POST['key']] = null;
+      $_SESSION['langedit']['diff2'][$_POST['key']] = null;
+      unset($_SESSION['langedit']['diff1'][$_POST['key']]);
+      unset($_SESSION['langedit']['diff2'][$_POST['key']]);
+
+   //   var_dump($_SESSION['langedit']['diff2'][$_POST['key']]);
+  //    var_dump($_SESSION['langedit']['diff2'][strtolower($_POST['key'])]);
+
+        echo 'done';
+        return true;
+
+      //------------------------------------------------------------------------------
+    } elseif ($_POST['action']=='upload_files')  {
+      //------------------------------------------------------------------------------
+
+//        print_r($_POST); print_r( $_SHOP->language_editor_plugin_userref);
+        if (!isset($_SHOP->language_editor_plugin_userref) || empty($_SHOP->language_editor_plugin_userref)) {
+          $diff1 = $this->_send('language/register.xml',  array('ftuser'=>$_SHOP->organizer_name, 'ftemail'=>$_SHOP->organizer_email, 'ftcountry'=>$_SHOP->organizer_country, 'ftuserrev'=>'Unknown'));
+          if ($diff1{0}!=='*') {
+            echo 'Error: ',$diff1;
+            return true;
+          }
+          $diff1 = substr($diff1,1);
+          config::updateFile('language_editor_plugin_userref',$diff1);
         } else {
-          $string2 = "<"."?php\n";
-          $string2 .= "'.DS.'/ defines added at: ".date('c')."\n";
-          foreach ($diff2 as $key =>$value) {
-            $string2 .= "define('$key', '".addslashes($value)."');\n";
-          }
-          $diff= array_diff_key($diff1, $diff2);
-          foreach ($diff as $key =>$value) {
-            $string2 .= "define('$key', '".addslashes($value)."');\n";
-          }
-          $string2 .= "?>";
-          $_SESSION['diff2'] = array_merge($diff2, $diff );
-          file_put_contents($editfile,$string2, FILE_TEXT );
+          $diff1 = $_SHOP->language_editor_plugin_userref;
         }
-        echo ("done");
+        $lang = $_SESSION['langedit']['lang'];
+        foreach ($_POST['files'] as $file ) {
+          $editfile = dirname(dirname(__FILE__)).DS.'lang'.DS."{$file['name']}_{$lang}.inc";
+          $string1  = file_get_contents($editfile);
+          $data = json_encode( $this->findinside($string1));
+          $settings = getlanginfo($editfile);
+         // print_r($data);
+          $result = $this->_send('language/upload.xml',  array('ftuser'=>$diff1,
+                                                                 'ftlang'=>$lang,
+                                                                 'ftlangname'=>$settings['language'],
+                                                                 'ftpackage'=>$file['name'],
+                                                                 'ftrevision'=>$this->getRevision(),
+                                                                 'ftdata'=>$data));
+          echo $result, "\n";
+        }
+        echo 'done';
         return true;
 
-      } elseif ($_POST['action']=='grid')  {
-        $responce = array();
-        $responce['userdata'] = array();
-        $responce['aaData'] = array();
-        $i=0;
+        //------------------------------------------------------------------------------
+      } elseif ($_POST['action']=='upload')  {
+        //------------------------------------------------------------------------------
 
-        foreach ($diff1 as $key =>$value) {
-          $responce['aaData'][$i]=array('data'=>'<table style="width:100%" border=0  cellspacing=1 cellpadding=2><tr><th colspan=2 style="text-align:left;">'.$key.'</th></tr><tr><td width="30"><i><b>EN:</b></i></td><td>'.htmlentities($value).'</td></tr><tr><td><i><b>'.strtoupper($_SESSION['lang']).':</b></i></td><td class="editable">'.htmlentities($diff2[$key]).'</td></tr></table>');
-          $responce['aaData'][$i]['DT_RowId']=$key;
-          $i++;
-        }
-        foreach ($diff2 as $key =>$value) {
-          if(!array_key_exists($key, $diff1 )){
-            $responce['aaData'][$i]=array('data'=>'<table style="width:100%" border=0  cellspacing=0 cellpadding=0><tr><th colspan=2 style="text-align:left;">'.$key.'</th></tr><tr><td><i><b>EN:</b></i></td><td><i>'.con('langedit_missing').'</td></tr><tr><td><i><b>'.strtoupper($_SESSION['lang']).':</b></i>'.htmlentities($value).'</td></tr></table>');
-            $responce['aaData'][$i]['DT_RowId']=$key;
-            $i++;
+        $lang = $_SESSION['langedit']['lang'];
+        $files = array();
+   //     var_dump($_SESSION['langedit']['files']);
+        foreach ($_SESSION['langedit']['files'] as $value ) {
+          $editfile = dirname(dirname(__FILE__)).DS.'lang'.DS.$value."_{$lang}.inc";
+          $settings = getLanginfo($editfile);
+//        var_dump($editfile, $settings);
+         if ($settings['modified']) {
+            $files[$value] = $settings;
           }
+        }
+        if (count($files)==0) {
+          echo "No Customized files found.";
+          return true;
+        }
+        echo "<table width='100%' border=1>";
+        foreach ($files as $key => $file ) {
+        //  var_dump($key,$file);
+          echo "<tr>";
+          echo "<th width='20px' style='text-align:center;'><input type='checkbox' name='{$key}'/></th>";
+          echo "<td>{$key}</td>";
+          echo "<td width='200px'>{$file['defines added at']}</td>";
+          echo "</tr>";
+        }
+        echo "</table>";
+        return true;
+
+        //------------------------------------------------------------------------------
+      } elseif ($_POST['action']=='grid')  {
+        //------------------------------------------------------------------------------
+
+        $diff1= $_SESSION['langedit']['diff1'];
+        $diff2= $_SESSION['langedit']['diff2'];
+
+        $responce = array();
+        $responce['aaData'] = array();
+        $i=-1;
+        $class = (is_writable($editfile))?'class="editable"':'test="'.$editfile.'"';
+        $diff3 =  array_unique(array_merge(array_keys($diff1), array_keys($diff2)));
+
+     //   usort($diff3,array($this,'lowercmp'));
+        $count = count($diff3);
+        foreach ($diff3 as $key) {
+          if (empty($key) || (is_null($diff1[$key]) && is_null($diff2[$key]))) {
+            $count = $count -1;
+            continue;
+          }
+          if (($key != strtolower($key)) && array_key_exists($key, $diff1 ) && !array_key_exists($key, $diff2 )) {
+            $count = $count -1;
+            continue;
+          }
+          if ($_POST['iDisplayLength']==0) {
+            continue;
+          }
+          if (!empty($_POST['sSearch']) && strpos($key, trim($_POST['sSearch']) ) ===false) {
+            continue;
+          }
+          $i++;
+          if ($_POST['iDisplayStart']>0) {
+            $_POST['iDisplayStart'] = $_POST['iDisplayStart'] -1;
+            continue;
+          }
+         $red = ($diff1[$key] === $diff2[$key])?'border: 1px solid green;':$red;
+          $red = (!array_key_exists($key, $diff1 ))?'border: 1px solid red;':$red;
+          $red = (!array_key_exists($key, $diff2 ))?'border: 1px solid blue;':$red;
+          $red .= ($key != strtolower($key))?'color:red;':'';
+          if(!array_key_exists($key, $diff1 )){
+            $responce['aaData'][$i]=array('data'=>'<table style="width:100%; '.$red.'" border=0  cellspacing=0 cellpadding=0>
+                                                      <tr>
+                                                         <th colspan=2 style="text-align:left; margin:10; padding:5; " id="'.$key.'_key">'.$key.'</th>
+                                                      </tr>
+                                                      <tr>
+                                                        <td valign=top width="30"><i><b>EN:</b></i></td>
+                                                        <td valign=top style="margin:0;padding:0; margin:10;padding:0;" id="'.$key.'_orgin"><i>'.con('langedit_missing').'</td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td valign=top width="30"><i><b>'.strtoupper($_SESSION['langedit']['lang']).':</b></i></td>
+                                                        <td valign=top style="margin:0;padding:0;" id="'.$key.'_edit">'.htmlentities(stripslashes($diff2[$key])).'</td>
+                                                      </tr>
+                                                    </table>');
+          } else {
+            $responce['aaData'][$i]=array('data'=>'<table style="width:100%;'.$red.'" border=0  cellspacing=0 cellpadding=0>
+                                                       <tr>
+                                                         <th colspan=2 style="text-align:left; margin:10; padding:5; " id="'.$key.'_key">'.$key.'</th>
+                                                       </tr>
+                                                       <tr>
+                                                         <td valign=top width="30"><i><b>EN:</b></i></td>
+                                                         <td valign=top style="margin:0;padding:0;" id="'.$key.'_orgin" >'.htmlentities(stripslashes($diff1[$key])).'</td>
+                                                       </tr>
+                                                       <tr style="border:1px solid white;">
+                                                         <td valign=top ><i><b>'.strtoupper($_SESSION['langedit']['lang']).':</b></i></td>
+                                                         <td valign=top style="margin:0;padding:0;" '.$class.' id="'.$key.'_edit">'.htmlentities(stripslashes($diff2[$key])).'</td>
+                                                       </tr>
+                                                     </table>');
+          }
+          $red = '';
+          $red .= (!isset($diff1[$key]))?'missing ':'';
+          $red .= ($key != strtolower($key))?'case ':'';
+
+          $responce['aaData'][$i]['DT_RowClass']=$red;
+          $responce['aaData'][$i]['DT_RowId']=$key;
+
+          if ($_POST['iDisplayLength']>0) {
+            $_POST['iDisplayLength'] = $_POST['iDisplayLength'] -1;
+          }
+
         }
         $responce["sEcho"] = $_POST['sEcho'];
-        $responce[  "iTotalRecords"] = $i;
+        $responce[  "iTotalRecords"] = $count;
         $responce[  "iTotalDisplayRecords"] = $i;
         echo json_encode($responce);
         return true;
+
+        //------------------------------------------------------------------------------
+      }elseif ($_POST['action']=='copymissing')  {
+       // echo 'we doing it';
+        $diff1= $_SESSION['langedit']['diff1'];
+        //------------------------------------------------------------------------------
+
+        foreach ($diff1 as $key =>$value) {
+          if (!isset($_SESSION['langedit']['diff2'][$key])) {
+            $_SESSION['langedit']['diff2'][$key] = $value;
+          }
+        }
+        echo 'done';
+        return true;
+
+        //------------------------------------------------------------------------------
       }elseif ($_POST['action']=='languages')  {
+        //------------------------------------------------------------------------------
+
         $responce = array();
         $responce['userdata'] = array();
         $responce['aaData'] = array();
         $dir = dirname(dirname(__FILE__)).DS."lang";
         //  echo "<option value=''>Select</option>\n";
         $resp = array('en'=>array());
+        $langs = $this->_send('language/getlanguage.xml',array('ftrevision'=>$this->getRevision()));
+        // var_dump($langs);
+        foreach ($langs as $row) {
+            $resp[$row['language']]['DT_RowId']=$row['language'];
+            $resp[$row['language']]['code'] = $row['language'];
+            $resp[$row['language']]['name'] = $row['value'];
+            $resp[$row['language']]['versions']=$row['versions'];
+            $resp[$row['language']]['local']   = false;
+        }
         if ($handle = opendir($dir)) {
           while (false !== ($file = readdir($handle))) {
             if ($file != "." && $file != ".." && !is_dir($dir.$file) && preg_match("/^site_(.*?\w+).inc\z/", $file, $matches)){
-              $resp[$matches[1]]['DT_RowId']=$matches[1];
-              $resp[$matches[1]]['language'] = '['.$matches[1].'] '.$_SHOP->langs_names[$matches[1]];
-              $resp[$matches[1]]['origin']='local';
-              $resp[$matches[1]]['complete']='100%';
-              $resp[$matches[1]]['customized']='100%';
-              $resp[$matches[1]]['actions']='';
+              if (!isset($resp[$matches[1]])) {
+                $settings = getLanginfo($dir.$file);
+                if (!isset($settings['language']) && isset($_SHOP->langs_names[$matches[1]])) {
+                  $settings['language'] = $_SHOP->langs_names[$matches[1]];
+                }
+                $resp[$matches[1]]['DT_RowId']=$matches[1];
+                $resp[$matches[1]]['code'] = $matches[1];
+                $resp[$matches[1]]['name'] = $settings['language'];
+                $resp[$matches[1]]['versions']= array();
+              }
+              $resp[$matches[1]]['local']= true;
             }
           }
           closedir($handle);
         }
-        $langs = $this->_send('language/getlanguage.xml',array('ftrevision'=>$this->getRevision()));
-    //    var_dump($langs);
-        foreach ($langs as $row) {
-          if (!isset($resp[$row['language']])) {
-            $resp[$row['language']]['DT_RowId']=$row['language'];
-            $resp[$row['language']]['language'] = '['.$row['language'].'] '.$row['value'];
-            $resp[$row['language']]['origin']='available';
-            $resp[$row['language']]['complete']='100%';
-            $resp[$row['language']]['customized']='100%';
-            $resp[$row['language']]['actions']='';
+     //   var_dump($resp);
+        foreach ($resp as $value ) {
+          $versiontxt ='<span id="'.$value['code'].'_span" data-versions=\''.json_encode($value['versions']).'\' data-count='.count($value['versions']).'>';
+          if ($value['local']) {
+            $versiontxt .= 'local';
+            if (count($value['versions'])>0) {
+              $versiontxt .= ' + '.(count($value['versions'])).' version(s) on the server';
+            } else
+              $versiontxt .= ' version only ';
+          } else {
+            $versiontxt .= (count($value['versions'])).' version(s) on the server';
           }
 
-        }
-    //    var_dump($resp);
-        foreach ($resp as $value ) {
+          $value['versions'] = $versiontxt.'</span>';
+
           $responce['aaData'][] = $value;
         }
 
@@ -276,7 +492,11 @@ class plugin_language_editor extends baseplugin {
         $responce[  "iTotalDisplayRecords"] = count($responce['aaData']);
         echo json_encode($responce);
         return true;
+
+        //------------------------------------------------------------------------------
       }elseif ($_POST['action']=='packages')  {
+        //------------------------------------------------------------------------------
+
         $content = array();
         $responce = array();
         $responce['userdata'] = array();
@@ -289,24 +509,23 @@ class plugin_language_editor extends baseplugin {
           return true;
         }
         $dir = dirname(dirname(__FILE__)).DS."lang";
+        $_SESSION['langedit']['lang']    = clean($_POST['lang']);
+        $_SESSION['langedit']['version'] = clean($_POST['version']);
         //  echo "<option value=''>Select</option>\n";
         $resp = array();
         $resp['site']['DT_RowId']='site';
-        $resp['site']['language'] = con('langedit_mainfile');
-        $resp['site']['origin']='';
-        $resp['site']['complete']='';
+        $resp['site']['language'] = '[Main language file]';
+        $resp['site']['server']='';
+        $resp['site']['local']='';
         $resp['site']['customized']='';
-        $resp['site']['actions']='';
-
-        $plugs = plugin::loadAll(false);
+        $plugs = plugin::loadAll(true);
         foreach ($plugs as $key => $row) {
             $key = get_class( $row->plug('xx'));
             $resp[$key]['DT_RowId']=$key;
             $resp[$key]['language'] = $row->plugin_info;
-            $resp[$key]['origin']='';
-            $resp[$key]['complete']='';
+            $resp[$key]['local']='';
+            $resp[$key]['server']='';
             $resp[$key]['customized']='';
-            $resp[$key]['actions']='';
         }
         $query = 'select DISTINCT handling_payment from `Handling`';
         if ($res = ShopDB::query($query)) {
@@ -315,51 +534,55 @@ class plugin_language_editor extends baseplugin {
               $key = 'eph_'. $row['handling_payment'];
               $resp[$key]['DT_RowId']=$key;
               $resp[$key]['language'] =  $row['handling_payment'];
-              $resp[$key]['origin']='';
-              $resp[$key]['complete']='';
+              $resp[$key]['local']='';
+              $resp[$key]['server']='';
               $resp[$key]['customized']='';
-              $resp[$key]['actions']='';
             }
           }
         }
-
-        $langs = $this->_send('language/getpackages.xml',array('ftrevision'=>$this->getRevision(), 'ftlang'=>$_POST['lang'], 'ftpackages'=>array_keys($resp) ));
-
-        $lang = $_POST['lang'];
+        $_SESSION['langedit']['files'] = array_keys($resp);
+        $langs = $this->_send('language/getpackages.xml',array('ftrevision'=>$this->getRevision(), 'ftlang'=>$_SESSION['langedit']['lang'], 'ftpackages'=> array_keys($resp), 'ftuser'=>$_SESSION['langedit']['version'] ));
+        $lang = $_SESSION['langedit']['lang'];
+  //      var_dump($langs);
         foreach ($resp as $key => $value ) {
-          $editfile = dirname(dirname(__FILE__)).DS.'lang'.DS.$key."_{$lang}.inc";
-          $deffile = dirname(dirname(__FILE__)).DS.'lang'.DS.$key."_en.inc";
-          $diff1 =  $diff2 = array();
-          if ($lang=='en' && $langs[$key]) {
-            $diff1 =  $langs[$key]['master'];
-          }elseif (file_exists($deffile)) {
-            $string1 = file_get_contents($deffile);
-            $diff1 = $this->findinside($string1);
-            $string1 = '';
+          if (array_key_exists($key, $langs )) {
+            $diff1 = $langs[$key]['keys'];
+            $value['server'] = $langs[$key]['versions'];
+            $value['language'] = $langs[$key]['name'];
+          }else {
+            $diff1 = array();
+            $value['server'] ='[not available]';
           }
-          if (file_exists($editfile)) {
-            $value['origin'] = 'local';
+  //        $responce[  "test"][$key] = $diff1;
+
+          if (file_exists(dirname(dirname(__FILE__)).DS.'lang'.DS.$key."_{$lang}.inc")) {
+            $editfile = dirname(dirname(__FILE__)).DS.'lang'.DS.$key."_{$lang}.inc";
             $string1 = file_get_contents($editfile);
-            $diff2 = $this->findinside($string1);
+            $diff2 = array_keys($this->findinside($string1));
             $string1 = '';
-          } elseif(isset($langs[$key])) {
-            $value['origin'] = 'availeble';
-            $diff2 = ($langs[$key]['slave'])?$langs[$key]['slave']:$langs[$key]['master'];
-          }
-          $diff = array_intersect($diff1, $diff2);
-          if (count($diff1)>0 && $value['origin']) {
-            $value['complete'] = round((count($diff)/count($diff1))*100).'%';
+            $diff = array_intersect($diff1, $diff2);
+            if (count($diff1)>0) {
+              $diffm = array_diff( $diff1,$diff);
+              if (count($diffm )>10) {
+                 $diffm = array_slice($diffm, 0,10);
+                 $diffm[]='[More...]';
+              }
+              $value['local'] = '<span title=\''.implode("\n",$diffm).'\'>'.round(max(0,(count($diff)/count($diff1))-0.004)*100).'%' .'</span>';
+            } else {
+              $value['local'] = '[New]';
+            }
+            $diffm = array_diff( $diff2,$diff);
+            if (($cnt = count($diffm))>10) {
+                 $diffm = array_slice($diffm, 0,10);
+                 $diffm[]='[More...]';
+            }
+            if (count($diffm)>0) {
+              //    var_dump(count(array_diff($diff2,$diff)));
+              $value['local'] = $value['local'].'<span title="'.implode("\n",$diffm).'"> &plus;'. $cnt .'</span>';
+            }
+
           } else {
-            $value['complete'] = 'na.';
-
-          }
-
-          if (count(array_diff( $diff2,$diff))>0) {
-        //    var_dump(count(array_diff($diff2,$diff)));
-            $value['complete'] = $value['complete'].' &plus;';
-          }
-          if (!$value['origin']) {
-            $value['origin'] ='missing';
+            $value['local'] = 'na.';
           }
           $responce['aaData'][] = $value;
         }
@@ -371,6 +594,8 @@ class plugin_language_editor extends baseplugin {
     }
     return false;
   }
+
+
   function getRevision(){
     $rev = explode(" ",INSTALL_REVISION);
     return (int)$rev[1];
@@ -378,22 +603,24 @@ class plugin_language_editor extends baseplugin {
 
   function _send($action='', $data=false){
     global $_SHOP;
-    //    var_dump($data);
+       // var_dump($data);
+    $this->sended =$data;
 
     $rsc = new RestServiceClient('http://cpanel.fusionticket.org/'.$action);
     //    echo $action, '= ';
     try{
       $rsc->setArray($data);
-      $rsc->ftUser  = base64_encode($_SHOP->plugin_languser.'||'.$_SHOP->plugin_langemail.'||'.date('c'));
-      $rsc->checksom = sha1($rsc->json .$rsc->josUser);
+ //     $rsc->ftUser  = base64_encode($_SHOP->plugin_languser.'||'.$_SHOP->plugin_langemail.'||'.date('c'));
+ //     $rsc->checksom = sha1($rsc->json .$rsc->josUser);
       $rsc->excuteRequest();
       $value  = $rsc->getResponse();
       $return = json_decode($value, true);
-      //      var_dump('return:', $value);
+/*  //     var_dump(json_last_error(),$return, $value);
       if (is_array($return) && $return['error']) {
         $this->errors =$return['reason'];
         return false;
       }
+   */
       return is($return, $value);
     }catch(Exception $e){
       $this->errors =   var_export($e->getMessage(), true);
@@ -405,9 +632,20 @@ class plugin_language_editor extends baseplugin {
   function _tableLangages($view){
     global $_SHOP;
     ?>
+    <style>
+      label, input { display:block; text-align:left;}
+      input.text { margin-bottom:12px; width:95%; padding: .4em; }
+      h1 { font-size: 1.2em; margin: .6em 0; }
+      fieldset { padding:0; border:0; margin-top:0; }
+
+      .ui-dialog .ui-state-error { padding: .3em; }
+      .ui-menu { width: 100px; }
+      .validateTips { border: 1px solid transparent; padding: 0.3em; }
+    </style>
  		<script type="text/javascript">
        $(document).ready(function() {
           var lastsel;
+          var doaction;
           var mygrid1 = $("#table1").dataTable({
                  //   bProcessing: true,
                     bServerSide: true,
@@ -429,11 +667,9 @@ class plugin_language_editor extends baseplugin {
                     },
                     bPaginate: false,
                     bScrollCollapse: false,
-                    aoColumns : [ { "mData": "language" },
-                                  {'sWidth':'135px', "mData": "origin" },
-                                  {'sWidth':'135px', "mData": "complete" },
-                                  {'sWidth':'135px', "mData": "customized" },
-                                  {'sWidth':'135px', "mData": "actions" }],
+                    aoColumns : [ {'sWidth':'35px', "mData": "code" },
+                                  { "mData": "name" },
+                                  {'sWidth':'405px', "mData": "versions" }],
                     fnGridComplete:  function(aoData){
                       var oTT1 = TableTools.fnGetInstance( 'table1' );
                       oTT1.fnSelect( $('#table1 tbody tr')[0] );
@@ -441,11 +677,79 @@ class plugin_language_editor extends baseplugin {
                     oTableTools: {
                       "sRowSelect": "single",
                       "aButtons": [],
-                       "fnRowSelected": function ( nodes ) {
-                         $('#lang').val(nodes[0].id);
-                         mygrid2.fnDraw(true);
+                  fnRowDeselected: function ( nodes ) {
+                      if (nodes.length !=0) {
+                         /* prevent calling reset twice when blurring */
+                          if (this.editing) {
+                              this.buttonbar.remove();
+                              this.ftsmenu.remove();
+                              this.editing   = false;
+                          }
                       }
-                 }
+                  },
+                  fnRowSelected: function ( nodes ) {
+                    var TableTool = this;
+
+                    if (nodes.length ==0 || this.editing ) { return; }
+                    $('#lang').val(nodes[0].id);
+                    mygrid2.fnDraw(true);
+
+
+                    currentRow = nodes[0].id;
+
+                    var editfield   = $('#'+nodes[0].id+'_span');//.get(1);
+                    if (editfield.data('count')<=1) {
+                      return false;
+                    }
+                    var selection  = editfield.data('versions');
+
+                    this.buttonbar  = $('<div id="buttonbar" style="z-index:9999; position:relative; float:right;" />');
+                    var button;
+
+                    button = $('<button title="View other language version from the server." />').button({
+                              icons: {
+                                primary: "ui-icon-search"
+                              },
+                              text: false
+                            }).click(function () {
+                                      var menu = $( '#'+nodes[0].id+'_menu').show();
+                                      var $table = menu.children("li").children("a");
+                                      $table.css({ position: "absolute", visibility: "hidden", display: "block" });
+                                      var tableWidth = $table.outerWidth();
+                                      $table.css({ position: "", visibility: "", display: "" });
+                                      menu.width(tableWidth+10);
+                                      menu.position({
+                                        my: "right top",
+                                        at: "right bottom",
+                                        of: $( this )
+                                      });
+                                      $( document ).one( "click", function() {
+                                        menu.hide();
+                                      });
+                                      return false;
+                            } );
+                        button.height(16).width(16);
+                        this.buttonbar.append(button);
+
+                        var menu = $( '<ul style="text-align:left;" />' );
+                        menu.attr('id',nodes[0].id+'_menu');
+                        $.each(selection , function(index, value) {
+                          var row = $('<a href="#" class="versionmenu" style="white-space: nowrap;"  />').data('id',index).text(value);
+                          menu.append($('<li  style="white-space: nowrap;" />').append(row));
+                        });
+                        menu.menu().hide();
+                        $('.versionmenu').click(function(e) {
+                          $('#version').val($(this).data('id'));
+                          mygrid2.fnDraw(true);
+                          return false;
+                        });
+                        $(document.body).append(menu);
+                        editfield.parent().prepend(this.buttonbar);
+                     TableTool.ftsmenu = menu
+                    TableTool.editing    = true;
+                  }
+
+              }
           });
            var mygrid2 = $("#table2").dataTable({
                  //   bProcessing: true,
@@ -455,6 +759,7 @@ class plugin_language_editor extends baseplugin {
                     fnServerParams: function ( aoData ) {
                       aoData.push( { "name":  'action', "value": "packages" } );
                       aoData.push( { "name":  'lang', "value": $('#lang').val()} );
+                      aoData.push( { "name":  'version', "value": $('#version').val()} );
                     },
                     sScrollY: '240px',
                     bJQueryUI: true,
@@ -470,10 +775,9 @@ class plugin_language_editor extends baseplugin {
                     bPaginate: false,
                     bScrollCollapse: false,
                     aoColumns : [ { "mData": "language" },
-                                  {'sWidth':'135px', "mData": "origin" },
-                                  {'sWidth':'135px', "mData": "complete" },
-                                  {'sWidth':'135px', "mData": "customized" },
-                                  {'sWidth':'135px', "mData": "actions" }],
+                                  {'sWidth':'135px', "mData": "server" },
+                                  {'sWidth':'135px', "mData": "local" },
+                                  {'sWidth':'135px', "mData": "customized" }],
                     fnGridComplete:  function(aoData){
                     },
                     oTableTools: {
@@ -484,38 +788,155 @@ class plugin_language_editor extends baseplugin {
                     }
                  }
         });
-
-      	$( "#new_language" ).button({
-      			text: true,
-      			icons: {
-      				primary: "ui-icon-plusthick"
-      			}
-    		});
-          $('#new_language').click(function(){
-            var reply = prompt("Please enter the 2 token code of the new language?", "xx");
-            var name  = prompt("Please enter the full name the new language?", "");
-            if (name!=null && name!="") {
-              $.post("view_utils.php", { action: "new_language", lang: reply, name: name }, function(data){
-                if (data== 'done') {
-                  location.reload();
-                } else alert(data);}, "text");
-              }
+    $( "#sved4" )
+      .button()
+      .next()
+        .button({
+          text: false,
+          icons: {
+            primary: "ui-icon-triangle-1-s"
+          }
+        })
+        .click(function() {
+          var menu = $( this ).parent().parent().next().show().position({
+            my: "left top",
+            at: "left bottom",
+            of: $( this )
           });
+          $( document ).one( "click", function() {
+            menu.hide();
+          });
+          return false;
+        })
+        .parent()
+          .buttonset().parent()
+          .next()
+            .hide()
+            .menu();
+        $('#new_language').click(function(){
+            $( "#newlang-form" ).dialog( "open" );
+            return false;
+        });
+        $('#upload_language').click(function(){
+            doaction = 'upload';
+            $( "#upload-form" ).dialog( "open" );
+            return false;
+        });
 
-   	  	$( "#sved4" ).button({
-    			text: true,
-    			icons: {
-    				primary: "ui-icon-disk"
-    			}
-    		});
+        $('#download_language').click(function(){
+            doaction = 'download';
+            $( "#upload-form" ).dialog( "open" );
+            return false;
+        });
+
+
         jQuery("#selectlang").submit( function() {
         	if( $('#package').val()  != '' && $('#lang').val() !='' ) {return true;}
         	else {
-        	  alert("Please, Select language amd package first.");
+        	  alert("Please, Select language and package first.");
         	  return false;
         	}
         });
-      });
+      function checkLength( o, n, min, max ) {
+      if ( o.val().length > max || o.val().length < min ) {
+        o.addClass( "ui-state-error" );
+        updateTips( "Length of " + n + " must be between " +
+          min + " and " + max + "." );
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+    function checkRegexp( o, regexp, n ) {
+      if ( !( regexp.test( o.val() ) ) ) {
+        o.addClass( "ui-state-error" );
+        updateTips( n );
+        return false;
+      } else {
+        return true;
+      }
+    }
+        function updateTips( t ) {
+      tips
+        .text( t )
+        .addClass( "ui-state-highlight" );
+      setTimeout(function() {
+        tips.removeClass( "ui-state-highlight", 1500 );
+      }, 500 );
+    }
+    var myname = $( "#myname" ),
+      mylang = $( "#mylang" ),
+      mycreator = $( "#mycreator" ),
+      allFields = $( [] ).add( myname ).add( mylang ).add( mycreator );
+      var tips = $( ".validateTips" );
+  $( "#newlang-form" ).dialog({
+      autoOpen: false,
+      height: 310,
+      width: 400,
+      modal: true,
+      bgiframe: false,
+      position:['middle',50],
+      buttons: {
+        "Create": function() {
+          var bValid = true;
+          allFields.removeClass( "ui-state-error" );
+
+          bValid = bValid && checkLength( mylang, "Language Code", 2, 2 );
+          bValid = bValid && checkRegexp( mylang, /^([a-zA-Z])+$/i, "The Language code needs to have only of consist of a-z." );
+          bValid = bValid && checkLength( myname, "Language Name", 3, 26 );
+          bValid = bValid && checkLength( mycreator, "The Creator", 5, 26 );
+
+          // From jquery.validate.js (by joern), contributed by Scott Gonzalez: http://projects.scottsplayground.com/email_address_validation/
+//          bValid = bValid && checkRegexp( email, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "eg. ui@jquery.com" );
+//          bValid = bValid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
+
+          if ( bValid ) {
+               $.post("view_utils.php", { action: "new_language", lang: mylang.val(), name: myname.val(), creator: mycreator.val() }, function(data){
+                if (data== 'done') {
+                  location.reload();
+                } else alert(data);}, "text");
+
+          }
+        },
+        Cancel: function() {
+          $( this ).dialog( "close" );
+        }
+      },
+      close: function() {
+        allFields.val( "" ).removeClass( "ui-state-error" );
+      }
+    });
+  $( "#upload-form" ).dialog({
+     autoOpen: false,
+      height: 410,
+      width: 600,
+      modal: true,
+      bgiframe: false,
+      position:['middle',50],
+      buttons: {
+        "Ok": function() {
+          var bValid = true;
+          if ( bValid ) {
+               $('#filelist').append('<h1>Please wait files will be '+doaction+'ed now.</h1>');
+               $.post("view_utils.php",
+                      { action: doaction+"_files", files: $('#uploadform').serializeArray() },
+                      function(data){ alert(data); mygrid2.fnDraw(true); $( "#upload-form" ).dialog( "close" ); },
+                      "html");
+
+          }
+        },
+        Cancel: function() {
+          $( this ).dialog( "close" );
+        }
+      },
+      open: function (){
+               $( "#upload-form" ).dialog( "option", 'title', doaction+" files dialog." );
+               $.post("view_utils.php", { action: doaction }, function(data){
+                 $('#filelist').html(data);
+               }, "html");
+      }
+    });      });
 		</script>
 
 	<style>
@@ -523,19 +944,20 @@ class plugin_language_editor extends baseplugin {
   padding: 10px 4px;
   }
 </style>
+<?php
+  $view->
   <form method='post' id=selectlang>
   <input type=hidden name='action' value='editlang'/>
   <input type=hidden name='lang' id='lang' value=''/>
+  <input type=hidden name='version' id='version' value='0'/>
   <input type=hidden name='package' id='package' value=''/>
 
   <table id="table1">
     <thead>
     <tr class='admin_list_header'>
-      <th class='' id='language_key' style='text-align:left'>Langague</th>
-      <th class='' id='language_key' style='text-align:left'>Orgin</th>
-      <th class='' id='language_key' style='text-align:left'>Completed</th>
-      <th class='' id='language_key' style='text-align:left'>Customized</th>
-      <th class='' id='language_key' style='text-align:left'></th>
+      <th class='' id='language_key' style='text-align:left'>Code</th>
+      <th class='' id='language_key' style='text-align:left'>Language Name</th>
+      <th class='' id='language_key' style='text-align:left'>Available Version</th>
      </tr>
   </thead>
   <tbody></tbody>
@@ -544,107 +966,292 @@ class plugin_language_editor extends baseplugin {
     <thead>
     <tr class='admin_list_header'>
       <th class='' id='language_key' style='text-align:left'>Package</th>
-      <th class='' id='language_key' style='text-align:left'>Orgin</th>
-      <th class='' id='language_key' style='text-align:left'>Completed</th>
+      <th class='' id='language_key' style='text-align:left'>Server</th>
+      <th class='' id='language_key' style='text-align:left'>Local</th>
       <th class='' id='language_key' style='text-align:left'>Customized</th>
-      <th class='' id='language_key' style='text-align:left'></th>
      </tr>
   </thead>
   <tbody></tbody>
    </table>
-	<div id="toolbarz" class="ui-widget-header ui-corner-all"  style="width:<?php echo $view->width; ?>">
-    <button id='new_language'>new language</button>
-    <button type=submit id="sved4">Edit language</button>
+	<div id="toolbarz" class="ui-widget-header ui-corner-all"  style="display: inline-block; text-align:right; width:<?php echo $view->width; ?>">
+    <span>
+      <button type=submit id="sved4">Edit language</button>
+      <button id="select">Select an action</button>
+    </span>
   </div>
+    <ul>
+      <li><a id='new_language' href="#">New</a></li>
+      <li><a id='download_language' href="#">Download</a></li>
+      <li>-</li>
+      <li><a id='upload_language' href="#">Upload</a></li>
+    </ul>
   </form>
+
+  <div id="newlang-form" title="Create new language">
+  <form>
+  <fieldset>
+    <label for="lang">Language Code</label>
+    <input type="text" name="lang" id="mylang" class="text ui-widget-content ui-corner-all" />
+    <label for="name">Language Name</label>
+    <input type="text" name="name" id="myname" value="" class="text ui-widget-content ui-corner-all" />
+    <label for="creator">Creator</label>
+    <input type="text" name="creator" id="mycreator" value="<?php echo $_SHOP->organizer_name; ?>" class="text ui-widget-content ui-corner-all" />
+  </fieldset>
+  <span class="validateTips">All form fields are required.</span>
+  </form>
+</div>
+  <div id="upload-form" title="Upload changed language files.">
+  <form id=uploadform>
+  <fieldset>
+    <span id=filelist></span>
+  </fieldset>
+  <span class="validateTips">Select the languages that you want to upload to the server repository.</span>
+  </form>
+</div>
     <?php
   }
 
-  function _tablelangedit($view, $lang, $package){
+  function _tablelangedit($view){
     global $_SHOP;
     ?>
  		<script type="text/javascript">
        $(document).ready(function() {
-          var mycombo = $("#combo");
-          var lang = mycombo.val();
-          var lastsel;
+          var currentRow = -1;
           var mygrid1 = $("#table1").dataTable({
- //   bProcessing: true,
-    bServerSide: true,
-    sAjaxSource: "view_utils.php?x=grid",
-    sServerMethod: "POST",
-    fnServerParams: function ( aoData ) {
-      aoData.push( { "name":  'action', "value": "grid" } );
-      aoData.push( { "name":  'lang', "value":  lang});
-    },
-    sScrollY: '400px',
-    bJQueryUI: true,
-    sDom: '<l<t>p>',
-    bSort: false,
-    bAutoWidth: true,
-    oLanguage: {
-      sEmptyTable: 'No data available in table',
-      sLoadingRecords : 'Loading...',
-      sZeroRecords:  'No matching records found.'
-    },
-    bPaginate: false,
-    bScrollCollapse: false,
-    aoColumns : [ {'sWidth':'135px', "mData": "data" }],
-                    oTableTools: {
-                      "sRowSelect": "single",
-                      "aButtons": [],
-                      "fnRowSelected": function ( nodes ) {
-                   ;//      $('#package').val(nodes[0].id);
-                    },
-    fnGridComplete:  function(aoData){
-//      $('#cart_table td').addClass('payment_form');
-    },
-           fnDrawCallback: function () {
-            $('#table1 .editable').editable( 'view_utils.php', {
-                type      : 'textarea',
-                tooltip   : 'Click to edit...',
-                select : true,
-                cssclass : "editable" ,
-                "height": "34px",
-                submit  : 'OK',
-//                style   : 'display: inline',
-          //      onblur : submit,
-                submitdata : function(value, settings) {
-                  return {key: lastsel, action:'edit'};
+             //   bProcessing: true,
+                bServerSide: true,
+                sAjaxSource: "view_utils.php?x=grid",
+                sServerMethod: "POST",
+                fnServerParams: function ( aoData ) {
+                  aoData.push( { "name":  'action', "value": "grid" } );
                 },
-                "callback": function( sValue, y ) {
-                    /* Redraw the table from the new data on the server */
-//                    mygrid1.fnDraw();
-                }
+                fnGridComplete:  function(aoData){
+                  if (currentRow != -1) {
+                    var oTT1 = TableTools.fnGetInstance( 'table1' );
+                    oTT1.fnSelect( $('#'+currentRow) );
+                  }
+                },
 
-            } );
-        }
-  });
+                sScrollY: '400px',
+                bJQueryUI: false,
+             //  sDom: 'T<l<t>p>',
+                sDom: 'Tlfiptr',
+                bSort: false,
+                bAutoWidth: true,
+                bPaginate: false,
+                bScrollCollapse: false,
+             //   bScrollInfinite: true,
+            //    iScrollLoadGap : 3,
 
-         $( "#update_2" ).button({
-      			text: true,
+                aoColumns : [ { "mData": "data" }],
+                oTableTools: {
+                  sRowSelect: "single",
+                  aButtons: [],
+                  fnRowDeselected: function ( nodes ) {
+                      if (nodes.length !=0) {
+                         /* prevent calling reset twice when blurring */
+                          if (this.editing) {
+                              /* before reset hook, if it returns false abort reseting */
+ //                             $('#'+nodes[0].id+' table th:first').detach(this.buttonbar);
+                              this.buttonbar.detach();
+                              var editfield = $('#'+nodes[0].id+'_edit');//.get(1);
+                              if (this.revert != $('#'+nodes[0].id+'_input').val()) {
+                                this.form.submit();
+                              }
+                              $(editfield).text(this.revert);
+                              this.editing   = false;
+                          }
+                      }
+                  },
+                  fnRowSelected: function ( nodes ) {
+                    var TableTool = this;
+
+                    if (nodes.length ==0) { return; }
+
+                    currentRow = nodes[0].id;
+
+                    var editfield = $('#'+nodes[0].id+'_edit');//.get(1);
+
+                    var form = $('<form />');
+                     this.revert  = inputvalue   = $(editfield).text();
+
+                      this.buttonbar = $('<div id="buttonbar" style="z-index:9999; position:relative; float:right;" />');
+                      var button, buttonA, buttonB;
+
+                        if ($(nodes[0]).hasClass('case')) {
+
+                        buttonB = $('<button title="Lowercase the keyvalue." />').button({
+                              icons: {
+                                primary: "ui-icon-arrowthickstop-1-s"
+                              },
+                              text: false
+                            }).click(function () {
+                             var ajaxoptions = {
+                                  type    : 'POST',
+                                  data    : { action: "downcase", key: nodes[0].id, value: intput.val() },
+                                  dataType: 'html',
+                                  url     : 'view_utils.php?x=downcase',
+                                  success : function(result, status) {
+                                      if (result !== 'done') { alert(result); } else {
+                                        mygrid1.fnDeleteRow(nodes[0].id);
+                                        currentRow = nodes[0].id.toLowerCase();
+                                      }
+                                        //
+                                  }
+                              };
+                              $.ajax(ajaxoptions);
+                            } );
+                        buttonB.height('16px').width('16px');
+                        this.buttonbar.append(buttonB);
+
+                      }
+                     if ($(nodes[0]).hasClass('missing')) {
+                     button = $('<button title="Copy translation." />').button({
+                            icons: {
+                              primary: "ui-icon-copy"
+                            },
+                            text: false
+                          }).click(function () {
+                            $('#'+nodes[0].id+'_input').val($('#'+nodes[0].id+'_orgin').html())
+                          } );
+                      button.height('16px').width('16px');
+}
+                      this.buttonbar.append(button);
+                      buttonA = $('<button  title="Remove this translation." />').button({
+                              icons: {
+                                primary: "ui-icon-circle-minus"
+                              },
+                              text: false
+                            }).click(function () {
+                              /* defaults for ajaxoptions */
+                              var ajaxoptions = {
+                                  type    : 'POST',
+                                  data    : { action: "remove", key: nodes[0].id },
+                                  dataType: 'html',
+                                  url     : 'view_utils.php?x=remove',
+                                  success : function(result, status) {
+                                      if (result !== 'done') { alert(result); } else
+                                         mygrid1.fnDeleteRow(nodes[0].id);
+                                  }
+                              };
+                              $.ajax(ajaxoptions);
+                            } );
+                        buttonA.height('16px').width('16px');
+                        this.buttonbar.append(buttonA);
+
+                      button = $('<button  title="Restore translation." />').button({
+                            icons: { primary: "ui-icon-circle-close" },
+                            text: false
+                          }).click(function () {
+                              $('#'+nodes[0].id+' textarea').val(inputvalue);
+                          } );
+                      button.height('16px').width('16px');
+                      this.buttonbar.append(button);
+                      button = $('<button  title="Save translation." />').button({
+                            icons: {
+                              primary: "ui-icon-circle-check"
+                            },
+                            text: false
+                          }).click(function () {
+                           TableTool.form.submit();
+                          } );
+                      button.height('16px').width('16px');
+                      this.buttonbar.append(button);
+
+                    $('#'+nodes[0].id+'_key').prepend(this.buttonbar);
+
+             //       return true;
+                    TableTool.editing    = true;
+                     $(editfield).html('');
+
+                    /* create the form object */
+                    form.attr('style', editfield.attr('style'));
+
+                    TableTool.form = form;
+                    editfield.append(form);
+
+//                    form.attr('class',
+                    var intput = $('<textarea />');
+                    intput.height('38px')
+                          .width('840px')
+                          .attr('id', nodes[0].id+'_input')
+                          .attr('style', "min-width:840px;max-width:840px;min-height:38px;margin:0;width:840px;height:34px;")
+                          .val(inputvalue)
+                          .keydown(function(e) {
+                                if (e.keyCode == 27) {
+                                    e.preventDefault();
+                                    intput.val(inputvalue);
+                                }
+                          });
+
+                    form.append(intput);
+                    intput.focus();
+
+                    form.submit(function(e) {
+
+                      /* do no submit */
+                      e.preventDefault();
+
+                      TableTool.revert = intput.val();
+
+                      var ajaxoptions = {
+                          type    : 'POST',
+                          data    : {action: 'edit', key:nodes[0].id, value: intput.val() },
+                          dataType: 'html',
+                          url     : 'view_utils.php?x=edit',
+                          success : function(result, status) {
+                              if (result !== 'done') { alert(result); }
+                              this.editing = false;
+                          }
+                      };
+                      $.ajax(ajaxoptions);
+                      return false;
+                    });
+
+                  }
+           }
+              });
+              $('#goback').button({
+          			text: true,
+          			icons: {
+          				primary: "ui-icon-triangle-1-w"
+          				}
+          			});
+
+              $( "#sved4x" ).button({
+          			text: true,
+          			icons: {
+          				primary: "ui-icon-transferthick-e-w"
+          			}
+          		});
+
+     	  	$( "#copymissing" ).button({
       			icons: {
-      				primary: "ui-icon-transferthick-e-w"
+      				primary: "ui-icon-check"
       			}
       		});
+          jQuery("#copymissing").click( function() {
+                      /* defaults for ajaxoptions */
+                      var ajaxoptions = {
+                          type    : 'POST',
+                          data    : {action:'copymissing'},
+                          dataType: 'html',
+                          url     : 'view_utils.php?x=edit',
+                          success : function(result, status) {
+                                       if (result !== 'done') { alert(result); }
+                                       else  mygrid1.fnDraw(true);
+                                    }
 
-      		$('#update_2').click(function(){
-             $.post("view_utils.php", { action: "update_2", lang: lang }, function(data){
-                if (data== 'done') {
-                  mygrid1.fnDraw(true);
-                } else alert(data);}, "text");
-      		});
+                      };
+                      $.ajax(ajaxoptions);
+              return false;
 
-     	  	$( "#sved4" ).button({
-      			text: true,
+         	});
+         $( "#sved4" ).button({
       			icons: {
       				primary: "ui-icon-disk"
       			}
       		});
-          jQuery("#sved4").click( function() {
-          	if( lastsel != null ) {;}
-          	else alert("Please Select Row");
-          });
        });
 		</script>
 
@@ -653,6 +1260,7 @@ class plugin_language_editor extends baseplugin {
   padding: 10px 4px;
   }
 </style>
+
   <table id="table1">
     <thead>
     <tr class='admin_list_header'>
@@ -661,9 +1269,16 @@ class plugin_language_editor extends baseplugin {
   </thead>
   <tbody></tbody>
    </table>
-  <div align='right' id="toolbarz" class="ui-widget-header ui-corner-all" style="width:<?php echo $view->width; ?>">
-  <input type="BUTTON" id="sved4" value="Edit row" />
-  </div>
+   <form method='post'>
+ <div id="toolbarz" class="ui-widget-header ui-corner-all" style="width:<?php echo $view->width; ?>">
+
+  <div style='display:blockinline; text-align:right; '>
+  <a style='float:left;' id='goback' href='view_utils.php'>List</a>
+  <input name='action' type='hidden' value='update_2'/>
+  <button type="button" id='copymissing'>Copy All Missing</button>
+  <input type="Submit" id="sved4x" value="Save changes" />
+  </div></div>
+  </form>
     <?php
   }
 
@@ -677,15 +1292,21 @@ class plugin_language_editor extends baseplugin {
 
   function findinside( $string) {
     // preg_match_all('/define\(["\']([a-zA-Z0-9_]+)["\'],[ ]*(.*?)\);/si',  $string, $m); //.'/i'
-    preg_match_all('|^[\s]*define\(["\'](.*)["\'],[\s]*["\'](.*)["\']\);|imU', $string, $m);
+    preg_match_all('/|^[\s]*define[\s]*\([\s]*["\'](.+)["\'][\s]*,[\s]*["\']([\s\S]*)["\']\);|/mUu', $string, $m);
 //    print_r($langtemp);
     if (count($m[1])>0) {
-      return array_combine( $m[1],$m[2]);
+      $rows = array_combine( $m[1],$m[2]);
+      unset($rows['']);
+      unset($rows[0]);
+//      ksort($rows, SORT_STRING);
+      return $rows;
 
     } else
       return array();
   }
-
-
+  function lowercmp($a, $b)
+  {
+    return strcmp(strtolower($a), strtolower($b));
+  }
 }
 ?>

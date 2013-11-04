@@ -410,6 +410,32 @@ global $_SHOP;
   return $return;
 }
 
+function getLanginfo($filename){
+  $rows = file($filename);
+  $result = array('modified'=>false);
+  foreach($rows as $row) {
+    $lowrow = trim(strtolower($row));
+    if (strpos($lowrow,'//language:' )!==false || strpos($lowrow,'//creator:' )!==false || strpos($lowrow,'//revision:' )!==false || strpos($lowrow,'//defines added at:' )!==false) {
+      $result[substr($lowrow, 2, strpos($row,':' )-2)] = trim( substr($row, strpos($row,':' )+1));
+    }
+    if (strpos($lowrow,'//customized by:' )!==false) {
+      $result['customizedby'] = substr($row, strpos($row,':' )+1);
+      $result['iscustomized'] = true;
+    }
+    if (strpos($lowrow,'//createdate:' )!==false) {
+      $result['createdate'] = substr($row, strpos($row,':' )+1);
+    }
+    if (strpos($lowrow,'//defines added at:' )!==false) {
+      $result['modified'] = true;
+    }
+    if (strpos($lowrow,'define' )!==false) {
+      break;
+    }
+  }
+  $rows ='';
+  return $result;
+}
+
 function con($name, $default='') {
   global $_SHOP;
   if (defined($name)) {

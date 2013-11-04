@@ -213,10 +213,10 @@ class Discount  Extends Model {
     If (is_string($this->discount_active)) {
       if ($this->discount_active=='yes') {
         $this->discount_active = array('www','pos');
-      } elseif ($this->discount_active=='no') {
-        $this->discount_active = array();
-      } else {
+      } elseif (!empty($this->discount_active))  {
         $this->discount_active = explode(",", $this->discount_active);
+      } else {
+        $this->discount_active = array();
       }
     }
   }

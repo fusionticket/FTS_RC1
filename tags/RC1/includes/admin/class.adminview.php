@@ -150,7 +150,8 @@ class AdminView extends Component {
 
     $columnsfields = array('width','sort');
     echo "\n<div style=' width:" . ($width?$width:$this->width) . ";'>\n";
-    echo "<table id='{$name}' cellspacing='1'>\n";
+    $mywidth = ($width!=0)?"width='{$width}' ":'';
+    echo "<table id='{$name}' {$mywidth}cellspacing='1'>\n";
     $aFilters ='';
     $aColumns = '';
 

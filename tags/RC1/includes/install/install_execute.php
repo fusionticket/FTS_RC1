@@ -231,6 +231,7 @@ class install_execute {
       unset ($_SESSION['SHOP']['root_secured']);
       if (!$storetmp) {unset ($_SESSION['SHOP']['tmp_dir']); }
     }
+    if (!is_null($_SESSION['SHOP']['tmp_dir'])) {unset ($_SESSION['SHOP']['tmp_dir']); }
     if (!isset($_SESSION['SHOP']['secure_id'])) {
       if (!isset($_SESSION['BASE_URL'])) {
         $_SESSION['BASE_URL'] = BASE_URL;

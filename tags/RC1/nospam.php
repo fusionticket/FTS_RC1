@@ -42,8 +42,8 @@ session_name('ShopSession');
 session_start();
 
 if (isset($_POST['name']) && isset($_POST[$_POST['name']])) {
-  writelog(print_r($_SESSION['_NoSpam'],true));
-  writelog(print_r($_POST,true));
+//  writelog(print_r($_SESSION['_NoSpam'],true));
+//  writelog(print_r($_POST,true));
   $check = $_SESSION['_NoSpam'][clean($_POST['name'])] == md5(strtoupper ($_POST[$_POST['name']]));
   echo json_encode($check);
   exit;

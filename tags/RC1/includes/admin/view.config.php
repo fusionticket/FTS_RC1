@@ -122,7 +122,6 @@ class ConfigView extends AdminView{
 
   }
   function MyInput($type, $field, $value, $size, $maxlength, $extra, $nolabel=false) {
-//    var_dump($nolabel);
     if (is_array($type)) {
   //  $this->label ($field, $nolabel);
       foreach ($type as $key => $newtype) {

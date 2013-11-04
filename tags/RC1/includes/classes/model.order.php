@@ -1113,7 +1113,7 @@ class Order Extends Model {
         $data['seat_row_nr']='0';
       }
       //compute  barcode
-      $data['barcode_text']=  plugin::call('updateOrderEncodeBarcode', sprintf("%08d%08d", $data['seat_id'], $data['seat_code']), $order, $data);
+      $data['barcode_text']=  seat::encodeBarcode( $order, $data);
 
       //save the data for the bill
       $key = "{$data['category_id']}";

@@ -53,22 +53,22 @@
    {event start_date=$start_date sub='on' ort='on' place_map='on' order="event_date,event_time" first=$smarty.get.offset length=$length}
     {assign var='month' value=$shop_event.event_date|date_format:"%B"}
     {if $month neq  $month1}
-     <tr><td colspan='3' class='title' style='text-decoration:underline;'><br>{$shop_event.event_date|date_format:"%B %Y"}</td></tr>
+     <tr><td colspan='3' class='title' style='text-decoration:underline;'><br />{$shop_event.event_date|date_format:"%B %Y"}</td></tr>
      {assign var='month1' value=$month}
     {/if}
     <tr class='tr_{cycle values="0,1"}'>
-      <td valign='top' style='vertical-align: top;' >
+      <td style='vertical-align:top;' >
         <a target='_parent' href='index.php?event_id={$shop_event.event_id}'>
-          {if $shop_event.event_pm_id}<img style='margin:0px;' src='{$_SHOP_themeimages}ticket.gif' border="0">
-          {else}<img style='margin:0px;' src='{$_SHOP_themeimages}info.gif' border="0">{/if}
+          {if $shop_event.event_pm_id}<img style='margin:0px;' src='{$_SHOP_themeimages}ticket.gif' alt='ticket' />
+          {else}<img style='margin:0px;' src='{$_SHOP_themeimages}info.gif' alt='info' />{/if}
           </a>
         <a  style='vertical-align: top;' target='_parent' href='index.php?event_id={$shop_event.event_id}'>{$shop_event.event_name}</a>
-        {if $shop_event.event_mp3}<a target="_blank" style='float:right' href="{$_SHOP_files}{$shop_event.event_mp3}"><img src="{$_SHOP_themeimages}audio-small.png" border='0' /></a>{/if}
+        {if $shop_event.event_mp3}<a target="_blank" style='float:right' href="{$_SHOP_files}{$shop_event.event_mp3}"><img src="{$_SHOP_themeimages}audio-small.png" alt='audio'/></a>{/if}
       </td>
-      <td>{$shop_event.event_date|date_format:!shortdate_format!} <br><b>{!time!}:</b> {$shop_event.event_time|date_format:!time_format!}</td>
+      <td>{$shop_event.event_date|date_format:!shortdate_format!} <br /><b>{!time!}:</b> {$shop_event.event_time|date_format:!time_format!}</td>
       <td >
         {$shop_event.ort_name} - {$shop_event.ort_city}
-        <br> {$shop_event.pm_name}
+        <br /> {$shop_event.pm_name}
       </td>
     </tr>
   {/event}
@@ -80,7 +80,7 @@
       <p>
          <!-- To comply with our GPL please keep the following link in the footer of your site -->
          <!-- Failure to abide by these rules may result in the loss of all support and/or site status. -->
-         Copyright $copy; 2012. All Rights Reserved.<br />
+         Copyright $copy; 2013. All Rights Reserved.<br />
          Powered By <a href="http://www.fusionticket.org">Fusion Ticket</a> - Free Open Source Online Box Office
        </p>
   	</div>

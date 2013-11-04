@@ -48,7 +48,7 @@ class plugin_Custom_OrderDescription extends baseplugin {
 	/**
 	 * version - Your plugin's version string. Required value.
 	 */
-	public $plugin_myversion		= '0.0.1';
+	public $plugin_myversion		= '0.0.2';
 	/**
 	 * requires - An array of key/value pairs of basename/version plugin dependencies.
 	 * Prefixing a version with '<' will allow your plugin to specify a maximum version (non-inclusive) for a dependency.

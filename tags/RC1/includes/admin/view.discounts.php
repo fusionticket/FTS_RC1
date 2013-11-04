@@ -86,8 +86,8 @@ class DiscountView extends AdminView {
                                              'discount_promo_header'=>array('width'=>150),
                                              'discount_value_header'=>array('width'=>120 ),
                                              'discount_used_header'=>array( 'width'=>80,'type' =>'null'  ),
-                                             'discount_useweb_header'=>array( 'width'=>25,'type' =>'null','sort'=>false ),
-                                             'discount_usepos_header'=>array( 'width'=>25,'type' =>'null','sort'=>false ),
+//                                             'discount_useweb_header'=>array( 'width'=>25,'type' =>'null','sort'=>false ),
+//                                             'discount_usepos_header'=>array( 'width'=>25,'type' =>'null','sort'=>false ),
                                              'actions_header'=>array('width'=>50 )),
                                         array(
                                            'addaction'=>"{$_SERVER['PHP_SELF']}?action=add_disc",
@@ -116,27 +116,29 @@ class DiscountView extends AdminView {
         $handling_mode_pos=(strpos($row['discount_active'],'pos')!==false) || $row['discount_active'] =='yes';
         $handling_mode_web=(strpos($row['discount_active'],'www')!==false) || $row['discount_active'] =='yes';
         $pmp = ($row['discount_event_id'])?"&discount_event_id={$row['discount_event_id']}":'';
+        if (!is_null($discount_event_id)) {
+          echo "<td class='admin_list_item' align='center'>";
 
-        echo "<td class='admin_list_item' align='center'>";
+          if ($handling_mode_web ) {
+            echo $this->show_button("javascript:if(confirm(\"".con('discount_www_deactivate')."\")){ location.href=\"{$_SERVER['PHP_SELF']}?action=active_disc&discount_id={$row['discount_id']}&mode=www&do=remove{$pmp}\"; }",('discount_www_activated'),2,
+                 array('image'=>'shop_web_pub.png'));
+          } else {
+            echo $this->show_button("javascript:if(confirm(\"".con('discount_www_activate')."\")){ location.href=\"{$_SERVER['PHP_SELF']}?action=active_disc&discount_id={$row['discount_id']}&mode=www&do=add{$pmp}\"; }",('discount_www_deactivated'),2,
+                 array('image'=>'shop_web_unpub.png'));
+          }
+          echo "</td>";
+          echo "<td class='admin_list_item'  align='center'>";
+          if ($handling_mode_pos ) {
+            echo $this->show_button("javascript:if(confirm(\"".con('discount_pos_deactivate')."\")){ location.href=\"{$_SERVER['PHP_SELF']}?action=active_disc&discount_id={$row['discount_id']}&mode=pos&do=remove{$pmp}\"; }",('discount_pos_activated'),2,
+                 array('image'=>'shop_pos_pub.png'));
+          } else {
+            echo $this->show_button("javascript:if(confirm(\"".con('discount_pos_activate')."\")){ location.href=\"{$_SERVER['PHP_SELF']}?action=active_disc&discount_id={$row['discount_id']}&mode=pos&do=add{$pmp}\"; }",('discount_pos_deactivated'),2,
+                 array('image'=>'shop_pos_unpub.png'));
+          }
+          echo "</td>";
 
-        if ($handling_mode_web ) {
-          echo $this->show_button("javascript:if(confirm(\"".con('discount_www_deactivate')."\")){ location.href=\"{$_SERVER['PHP_SELF']}?action=active_disc&discount_id={$row['discount_id']}&mode=www&do=remove{$pmp}\"; }",('discount_www_activated'),2,
-               array('image'=>'shop_web_pub.png'));
-        } else {
-          echo $this->show_button("javascript:if(confirm(\"".con('discount_www_activate')."\")){ location.href=\"{$_SERVER['PHP_SELF']}?action=active_disc&discount_id={$row['discount_id']}&mode=www&do=add{$pmp}\"; }",('discount_www_deactivated'),2,
-               array('image'=>'shop_web_unpub.png'));
-        }
-        echo "</td>";
-        echo "<td class='admin_list_item'  align='center'>";
-        if ($handling_mode_pos ) {
-          echo $this->show_button("javascript:if(confirm(\"".con('discount_pos_deactivate')."\")){ location.href=\"{$_SERVER['PHP_SELF']}?action=active_disc&discount_id={$row['discount_id']}&mode=pos&do=remove{$pmp}\"; }",('discount_pos_activated'),2,
-               array('image'=>'shop_pos_pub.png'));
-        } else {
-          echo $this->show_button("javascript:if(confirm(\"".con('discount_pos_activate')."\")){ location.href=\"{$_SERVER['PHP_SELF']}?action=active_disc&discount_id={$row['discount_id']}&mode=pos&do=add{$pmp}\"; }",('discount_pos_deactivated'),2,
-               array('image'=>'shop_pos_unpub.png'));
-        }
-        echo "</td>";
-        echo "<td class='admin_list_item' align='right' nowrap><nowrap>";
+      }
+      echo "<td class='admin_list_item' align='right' nowrap><nowrap>";
 
         echo $this->show_button("{$_SERVER['PHP_SELF']}?action=edit_disc&discount_id={$row['discount_id']}","edit",2);
         echo $this->show_button("javascript:if(confirm(\"".con('delete_item')."\")){location.href=\"{$_SERVER['PHP_SELF']}?action=remove_disc&discount_id={$row['discount_id']}{$pmp}\";}","remove",2,
@@ -204,12 +206,13 @@ class DiscountView extends AdminView {
         $this->form($row, $disc, con('discount_add_title'));
     } elseif ($_GET['action'] == 'active_disc') {
         $row = Discount::load($_GET['discount_id']);
+        var_dump($row);
         if ($row) {
           $mode = ($_GET['mode']==='www')?'www':'pos';
           $do = is($_GET['do'],'');
           if ($do==='add' and !in_array($mode,$row->discount_active)) {
             $row->discount_active[] = $mode;
-          $row->save();
+            $row->save();
           } elseif ($do==='remove' and in_array($mode,$row->discount_active)) {
             $row->discount_active = array_diff($row->discount_active, array($mode));
             $row->save();

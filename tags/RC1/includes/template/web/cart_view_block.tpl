@@ -35,24 +35,24 @@
       <h3 class="t">
         {!shopcart!}&nbsp;
         {if $cart->is_empty_f()}
-          <img src="{$_SHOP_themeimages}caddie.gif">
+          <img src="{$_SHOP_themeimages}caddie.gif" alt="{!cart_image_alt!}" />
         {else}
-          <img src="{$_SHOP_themeimages}caddie_full.png" border='0'>
+          <img src="{$_SHOP_themeimages}caddie_full.png" alt="{!cart_full_image_alt!}">
         {/if}
       </h3>
     </div>
     <div class="art-box art-blockcontent">
       <div class="art-box-body art-blockcontent-body">
         {if $cart->is_empty_f()}
-          <div class='cart_content' align="center">{!no_tick_res!}</div>
+          <div class='cart_content'>{!no_tick_res!}</div>
         {else}
           {assign var="cart_overview" value=$cart->overview_f()}
           <div style='text-align:center;'>
             {if $cart_overview.expired}
-              <img src='{$_SHOP_themeimages}ticket-expired.png' title="{!expired_tickets!}">  {$cart_overview.expired}<br><br>
+              <img src='{$_SHOP_themeimages}ticket-expired.png' title="{!expired_tickets!}" alt='expired' />  {$cart_overview.expired}<br><br>
             {elseif $cart_overview.valid}
-              <img src='{$_SHOP_themeimages}ticket-valid.png' title="{!valid_tickets!}"> {$cart_overview.valid}&nbsp;&nbsp;
-              <img src='{$_SHOP_themeimages}clock.gif'>  <span id="countdown1"></span>
+              <img src='{$_SHOP_themeimages}ticket-valid.png' title="{!valid_tickets!}" alt='valid' /> {$cart_overview.valid}&nbsp;&nbsp;
+              <img src='{$_SHOP_themeimages}clock.gif' alt='clock' />  <span id="countdown1"></span>
               <script>
                 $('#countdown1').countdown({
                    until: {$cart_overview.secttl},
@@ -102,9 +102,9 @@
             </tr>
           </table>
           {if $cart_overview.valid}
-             {gui->button url='button' onclick="window.location='checkout.php'" name='checkout' type=1 style="float:right;"}
+             {gui->button url='button' onclick="window.location='{$_SHOP_root_secured}checkout.php'" name='checkout' type=1 style="float:right;"}
           {/if}
-          {gui->button url='button' onclick="window.location=index.php?action=view_cart" name='view_order' type=1 style="float:right;"}
+             {gui->button url='button' onclick="window.location='index.php?action=view_cart'" name='view_order' type=1 style="float:right;"}
         {/if}
         <div class="cleared"></div>
       </div>

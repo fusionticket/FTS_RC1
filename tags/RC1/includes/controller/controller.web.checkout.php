@@ -35,7 +35,7 @@
 if (!defined('ft_check')) {die('System intrusion ');}
 
 require_once ("controller.web.shop.php");
-error_reporting(E_ALL ^ E_NOTICE);
+
 
 
 class ctrlWebCheckout extends ctrlWebShop {

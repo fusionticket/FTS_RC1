@@ -167,7 +167,7 @@ If (is_array($category)) {
                     $reszz = "<img class='pm_seatmap' style='{$sty}background-color:Gainsboro;".placeMapStyle($style)."' border=1 src='".$_SHOP->images_url."seatdisable.png'>";
                   }
                   ////////////Reserved seats, they will only be selectable if you have area='pos' set in cat...tpl
-              } elseif ($seat[PM_STATUS] == PM_STATUS_RESP && $area === 'pos' && $seat[PM_CATEGORY] == $cat_ident) {
+              } elseif ($seat[PM_STATUS] == PM_STATUS_RESP ) {//&& $seat[PM_CATEGORY] == $cat_ident
                   $reszz = "<img class='pm_seatmap' style='{$sty}".placeMapStyle($style)."' border=1 src='".$_SHOP->images_url."seatselect.png' title='";
                   if ($print_zone && $zone) {
                       $reszz .= $zone->pmz_name . ': ';

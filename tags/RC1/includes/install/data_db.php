@@ -120,8 +120,7 @@ $tbls['User']['fields'] = array(
   'user_lastlogin' => " datetime NOT NULL DEFAULT '0000-00-00 00:00:00'",
   'user_order_total' => " int(11) NOT NULL DEFAULT '0'",
   'user_current_tickets' => " int(6) NOT NULL DEFAULT '0'",
-  'user_total_tickets' => " int(11) NOT NULL DEFAULT '0'",
-  'user_maillist' => " tinyint(4) NOT NULL DEFAULT '0'");
+  'user_total_tickets' => " int(11) NOT NULL DEFAULT '0'");
 $tbls['User']['key'] = array(
   "PRIMARY KEY (`user_id`)");
 $tbls['User']['engine'] = 'InnoDB';
@@ -470,8 +469,8 @@ $tbls['Seat']['fields'] = array(
   'seat_checked_by' => " int(11) DEFAULT NULL",
   'seat_checked_date' => " timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'",
   'seat_old_order_id' => "int(11) DEFAULT NULL",
-  'seat_old_status' => "varchar(5) DEFAULT NULL",
-  'seat_pos_id' => "int(11) DEFAULT NULL");
+  'seat_old_status' => "varchar(5) DEFAULT NULL");
+
 $tbls['Seat']['key'] = array(
   "PRIMARY KEY (`seat_id`)",
   "KEY `seat_event_id` (`seat_event_id`)",
