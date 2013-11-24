@@ -72,10 +72,10 @@
                                       <input type="hidden" name="uri" value="{$smarty.server.REQUEST_URI}">
                                     {/if}
                                     <p id="form-login-username">
-                                  		<label for="modlgn-username">{!email!}</label><input type='text' id="modlgn-username" name='username' required='required' size="30"/>{printMsg key='loginusername'}
+                                  		<label for="modlgn-username">{!email!}</label><input type='text' id="modlgn-username" name='username' required='required' size='30'/>{printMsg key='loginusername'}
                                   	</p>
                                   	<p id="form-login-password">
-                                  		<label for="modlgn-passwd">{!password!}</label><input id="modlgn-passwd" type='password' name='password' required='required' size="30"/>{printMsg key='loginpassword'}
+                                  		<label for="modlgn-passwd">{!password!}</label><input id="modlgn-passwd" type='password' name='password' required='required' size='30'/>{printMsg key='loginpassword'}
                                     </p>
                                    	<div id="form-shop-remember">
                                       <ul>

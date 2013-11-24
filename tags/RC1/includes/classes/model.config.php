@@ -128,7 +128,7 @@ class config extends model{
       if (($row[1][1]==':') or ($row[1][1]==';')) {
         $row[1] = unserialize($row[1]);
       }
-      if (!is_null($val)) {
+      if (!is_null($row[1])) {
         $config->$row[0] = $row[1];
       }
     }

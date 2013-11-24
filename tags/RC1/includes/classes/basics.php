@@ -117,7 +117,9 @@ function writeLog($what, $where = FT_DEBUG){
      print_r( debug_backtrace());
    }
    $logname = 'error';
-   if ($where == FT_DEBUG) {
+   if (is_string($where)) {
+    $logname = $where;
+   } elseif ($where == FT_DEBUG) {
       $logname = 'debug';
    }
    $errorfield = 'filefor_'.$logname;

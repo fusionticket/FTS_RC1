@@ -103,7 +103,6 @@ class Awf_Acl {
                 return $role;
             }
         }
-        var_dump($role);
         throw new Exception('This role ('.$role.') does not exists!');
     }
     // returns the list of Role names defined in this ACL class.

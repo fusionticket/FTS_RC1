@@ -116,20 +116,23 @@ class plugin_language_editor extends baseplugin {
   global $_SHOP;
   // this section works the same way as the draw() function insite the views it self.
     if ($id==$this->plugin_acl) {
+      if (!isset($_SESSION['langedit']['lang']))     $_SESSION['langedit']['lang']       = '';
+      if (!isset($_SESSION['langedit']['package']))    $_SESSION['langedit']['package']    = '';
+      if (!isset($_SESSION['langedit']['version']))    $_SESSION['langedit']['version']    = '0';
 
-      if ($_POST['action'] == 'editlang' && is($_POST['lang'],false) && is($_POST['package'],false)) {
-        $_SESSION['langedit']['lang']    = $_POST['lang'];
-        $_SESSION['langedit']['package'] = $_POST['package'];
+      if ($_POST['action'] == 'editlang') {
         $_SESSION['langedit']['diff1']   = null;
+        //  var_dump($_SESSION['langedit']);
         $lang =    $_SESSION['langedit']['lang'];
         $package = $_SESSION['langedit']['package'];
 
         $editfile = dirname(dirname(__FILE__)).DS.'lang'.DS."{$package}_{$lang}.inc";
-        $deffile = dirname(dirname(__FILE__)).DS.'lang'.DS."{$package}_en.inc";
+        $deffile  = dirname(dirname(__FILE__)).DS.'lang'.DS."{$package}_en.inc";
         if ($lang ==='en') {
           $diff1 = $this->_send('language/download.xml', array('ftrevision'=>$this->getRevision(), 'ftlang'=>'en', 'ftpackage'=>$package, 'ftuser'=>0));
-    //      var_dump($diff1);
-        //  $diff1 = $diff1['data'];
+          //      var_dump($diff1);
+
+          //  $diff1 = $diff1['data'];
         } else {
           $string1  = file_get_contents($deffile);
           $diff1 = $this->findinside($string1);
@@ -148,6 +151,29 @@ class plugin_language_editor extends baseplugin {
         $_SESSION['langedit']['settings'] = $settings;
 
         $this->_tablelangedit($view);
+
+      }elseif ($_POST['action'] == 'download') {
+        $lang =    $_SESSION['langedit']['lang'];
+        $package = $_SESSION['langedit']['package'];
+        $version = $_SESSION['langedit']['version'];
+        $editfile = dirname(dirname(__FILE__)).DS.'lang'.DS."{$package}_{$lang}.inc";
+
+        if (file_exists( $editfile)) {
+          $settings = getLanginfo($editfile);
+          $string2  = file_get_contents($editfile);
+          $diff1 = $this->findinside($string2);
+        } else {
+          $diff1 = $this->_send('language/download.xml', array('ftrevision'=>$this->getRevision(), 'ftlang'=>'en', 'ftpackage'=>$package, 'ftuser'=>0));
+        }
+        list ($diff2,$settings) = $this->_send('language/download.xml', array('ftrevision'=>$this->getRevision(), 'ftlang'=>$lang, 'ftpackage'=>$package, 'ftuser'=>$version,'ftextend'=>true));
+
+        $_SESSION['langedit']['diff1'] = $diff1;
+        $_SESSION['langedit']['diff2'] = $diff2;
+        $_SESSION['langedit']['settings'] = $settings;
+    //    var_dump($_SESSION['langedit']);
+
+        $this->_tablelangedit($view);
+
 
       }elseif ($_POST['action']=='update_2') {
 
@@ -183,13 +209,19 @@ class plugin_language_editor extends baseplugin {
           file_put_contents($editfile,$string2, FILE_TEXT );
           addNotice('Translation is saved');
         }
-        redirect('view_utils.php' ,array('action'=>'update'));
+        redirect('view_utils.php' ,array('action'=>'editlang'));
       }elseif ($_POST['action']=='update') {
         $this->_tablelangedit($view);
         return true;
-      } else
+      } else {
+        unset($_SESSION['langedit']['diff1']);
+        unset($_SESSION['langedit']['diff2']);
+        unset($_SESSION['langedit']['diff3']);
         $this->_tableLangages($view);
-    } else return false;
+      }
+    } else {
+       return false;
+    }
   }
 
   function doUtilitiesView_Execute($id, $view){
@@ -200,16 +232,27 @@ class plugin_language_editor extends baseplugin {
     //  die('here '.$id.' '.$this->plugin_acl);
       // do your tasks here.
 
-      //------------------------------------------------------------------------------
-      if ($_POST['action']=='new_language') {
+        //------------------------------------------------------------------------------
+      if ($_POST['action']=='setlang') {
+        //------------------------------------------------------------------------------
+        if (isset($_POST['lang']))       $_SESSION['langedit']['lang']       = clean($_POST['lang']);
+        if (isset($_POST['package']))    $_SESSION['langedit']['package']    = clean($_POST['package']);
+        if (isset($_POST['version']))    $_SESSION['langedit']['version']    = clean($_POST['version']);
+  //      echo json_encode($_SESSION['langedit']);
+        return true;
+
+
+        //------------------------------------------------------------------------------
+      } elseif ($_POST['action']=='new_language') {
         //------------------------------------------------------------------------------
 
-        $lang = strtolower($_POST['lang']);
-        if (strlen($lang)<>2) {
+        $lang = strtolower(clean($_POST['lang']));
+        $editfile = dirname(dirname(__FILE__)).DS.'lang'.DS."site_{$lang}.inc";
+        if (!is_string($lang)) {
+          die('Language code needs to be 2 characters');
+        } elseif (strlen($lang)<>2) {
           die('Language code needs to be 2 characters');
 
-        } elseif (!is_string($lang)) {
-          die('Language code needs to be 2 characters');
         } elseif (file_exists($editfile)){
           die('Language code already exist.');
         } else {
@@ -221,6 +264,10 @@ class plugin_language_editor extends baseplugin {
           $string2 .= "?>";
           file_put_contents($editfile,$string2, FILE_TEXT );
         }
+        $_SESSION['langedit']['lang']       = $lang;
+        $_SESSION['langedit']['package']    = null;
+        $_SESSION['langedit']['version']    = 0;
+
         echo ("done");
         return true;
 
@@ -266,37 +313,56 @@ class plugin_language_editor extends baseplugin {
 
         echo 'done';
         return true;
-
-      //------------------------------------------------------------------------------
-    } elseif ($_POST['action']=='upload_files')  {
-      //------------------------------------------------------------------------------
-
-//        print_r($_POST); print_r( $_SHOP->language_editor_plugin_userref);
+        //------------------------------------------------------------------------------
+      } elseif ($_POST['action']=='register')  {
+        //------------------------------------------------------------------------------
+        //        print_r($_POST); print_r( $_SHOP->language_editor_plugin_userref);
         if (!isset($_SHOP->language_editor_plugin_userref) || empty($_SHOP->language_editor_plugin_userref)) {
-          $diff1 = $this->_send('language/register.xml',  array('ftuser'=>$_SHOP->organizer_name, 'ftemail'=>$_SHOP->organizer_email, 'ftcountry'=>$_SHOP->organizer_country, 'ftuserrev'=>'Unknown'));
+          $diff1 = $this->_send('language/register.xml',  array('ftuser'=>clean($_POST['owner']),
+                                                                'ftemail'=>clean($_POST['email']),
+                                                                'ftcountry'=>$_SHOP->organizer_country,
+                                                                'ftuserrev'=>clean($_POST['username'])));
           if ($diff1{0}!=='*') {
             echo 'Error: ',$diff1;
             return true;
           }
-          $diff1 = substr($diff1,1);
           config::updateFile('language_editor_plugin_userref',$diff1);
         } else {
-          $diff1 = $_SHOP->language_editor_plugin_userref;
+          echo 'Error: You are already registered';
+          return true;
         }
-        $lang = $_SESSION['langedit']['lang'];
-        foreach ($_POST['files'] as $file ) {
-          $editfile = dirname(dirname(__FILE__)).DS.'lang'.DS."{$file['name']}_{$lang}.inc";
+        echo 'done';
+        return true;
+        //------------------------------------------------------------------------------
+      } elseif ($_POST['action']=='upload_files')  {
+        //------------------------------------------------------------------------------
+        $result = 'You dont have access.';
+        if (isset($_SESSION['langedit']['canupload']) && $_SESSION['langedit']['canupload']|| !empty($_SHOP->language_editor_plugin_userref)) {
+
+
+          $lang =    $_SESSION['langedit']['lang'];
+          $package = $_SESSION['langedit']['package'];
+
+          $editfile = dirname(dirname(__FILE__)).DS.'lang'.DS."{$package}_{$lang}.inc";
           $string1  = file_get_contents($editfile);
           $data = json_encode( $this->findinside($string1));
           $settings = getlanginfo($editfile);
-         // print_r($data);
-          $result = $this->_send('language/upload.xml',  array('ftuser'=>$diff1,
-                                                                 'ftlang'=>$lang,
-                                                                 'ftlangname'=>$settings['language'],
-                                                                 'ftpackage'=>$file['name'],
-                                                                 'ftrevision'=>$this->getRevision(),
-                                                                 'ftdata'=>$data));
-          echo $result, "\n";
+          // print_r($data);
+          if (!isset($settings['language'])|| empty($settings['language'])) {
+            $settings['language'] = $_SHOP->langs_names[$lang];
+          }
+          if (!isset($settings['language'])|| empty($settings['language'])) {
+            $settings['language'] = $lang;
+          }
+
+          echo $this->_send('language/upload.xml',  array('ftuser'=>$_SHOP->language_editor_plugin_userref,
+                                                                   'ftlang'=>$lang,
+                                                                   'ftlangname'=>$settings['language'],
+                                                                   'ftpackage'=>$package,
+                                                                   'ftrevision'=>$this->getRevision(),
+                                                                   'ftdata'=>$data,
+                                                                   'ftsettings'=>$settings));
+
         }
         echo 'done';
         return true;
@@ -304,32 +370,30 @@ class plugin_language_editor extends baseplugin {
         //------------------------------------------------------------------------------
       } elseif ($_POST['action']=='upload')  {
         //------------------------------------------------------------------------------
-
-        $lang = $_SESSION['langedit']['lang'];
-        $files = array();
-   //     var_dump($_SESSION['langedit']['files']);
-        foreach ($_SESSION['langedit']['files'] as $value ) {
-          $editfile = dirname(dirname(__FILE__)).DS.'lang'.DS.$value."_{$lang}.inc";
-          $settings = getLanginfo($editfile);
-//        var_dump($editfile, $settings);
-         if ($settings['modified']) {
-            $files[$value] = $settings;
+        if (!isset($_SESSION['langedit']['canupload']) || !$_SESSION['langedit']['canupload']) {
+          $diff1 = $this->_send('language/login.xml',  array('ftuser'=>$_SHOP->language_editor_plugin_userref));
+           if ($diff1===true) {
+            $_SESSION['langedit']['canupload'] = true;
+          } else {
+            die ('<h1 style="color:red;">'.$diff1[1]."</h1>");
           }
         }
-        if (count($files)==0) {
-          echo "No Customized files found.";
-          return true;
+        $lang = $_SESSION['langedit']['lang'];
+        $package = $_SESSION['langedit']['package'];
+        if ($_SESSION['langedit']['uploads'][$package]) {
+          echo "<h1>Upload agrement</h1>";
+          echo "<p><b style='color:red;'>Read the following text carefully.</b></p>";
+          echo "<p>You are about to upload a new version of <i>{$package}</i> in the language {$_SHOP->langs_names[$lang]}.</p>";
+          echo "<p>By uploading this language file you are sure that:<ul>";
+          echo "<li> This language file is at least 60% off your own work.</li>";
+          echo "<li>You don't have any unfriendly text added.</li>";
+          echo "<li>There are no references to your own website in it.</li>";
+          echo "<li>When you upload the language file is part of FusionTicket community.</li>";
+          echo "<li>You allow everyone to use and modify your version for their own use.</li>";
+          echo "<li>There will be NO rewards on uploading you version, exept a big thank you.</li>";
+          echo "</ul>When you dont agree on one of the above please cancel this action.</p>";
+          echo "<p><b>Thank you for your time creating this language file.</B></P>";
         }
-        echo "<table width='100%' border=1>";
-        foreach ($files as $key => $file ) {
-        //  var_dump($key,$file);
-          echo "<tr>";
-          echo "<th width='20px' style='text-align:center;'><input type='checkbox' name='{$key}'/></th>";
-          echo "<td>{$key}</td>";
-          echo "<td width='200px'>{$file['defines added at']}</td>";
-          echo "</tr>";
-        }
-        echo "</table>";
         return true;
 
         //------------------------------------------------------------------------------
@@ -345,7 +409,7 @@ class plugin_language_editor extends baseplugin {
         $class = (is_writable($editfile))?'class="editable"':'test="'.$editfile.'"';
         $diff3 =  array_unique(array_merge(array_keys($diff1), array_keys($diff2)));
 
-     //   usort($diff3,array($this,'lowercmp'));
+        usort($diff3,array($this,'lowercmp'));
         $count = count($diff3);
         foreach ($diff3 as $key) {
           if (empty($key) || (is_null($diff1[$key]) && is_null($diff2[$key]))) {
@@ -367,9 +431,9 @@ class plugin_language_editor extends baseplugin {
             $_POST['iDisplayStart'] = $_POST['iDisplayStart'] -1;
             continue;
           }
-         $red = ($diff1[$key] === $diff2[$key])?'border: 1px solid green;':$red;
+          $red = ($diff1[$key] === $diff2[$key])?'border: 1px solid green;':$red;
           $red = (!array_key_exists($key, $diff1 ))?'border: 1px solid red;':$red;
-          $red = (!array_key_exists($key, $diff2 ))?'border: 1px solid blue;':$red;
+          $red = (!array_key_exists($key, $diff2 )|| empty($diff2[$key]))?'border: 1px solid blue;':$red;
           $red .= ($key != strtolower($key))?'color:red;':'';
           if(!array_key_exists($key, $diff1 )){
             $responce['aaData'][$i]=array('data'=>'<table style="width:100%; '.$red.'" border=0  cellspacing=0 cellpadding=0>
@@ -401,7 +465,7 @@ class plugin_language_editor extends baseplugin {
                                                      </table>');
           }
           $red = '';
-          $red .= (!isset($diff1[$key]))?'missing ':'';
+          $red .= (!isset($diff2[$key]) || empty($diff2[$key]))?'missing ':'';
           $red .= ($key != strtolower($key))?'case ':'';
 
           $responce['aaData'][$i]['DT_RowClass']=$red;
@@ -504,13 +568,11 @@ class plugin_language_editor extends baseplugin {
         $responce["sEcho"] = $_POST['sEcho'];
         $responce[  "iTotalRecords"] = 0;
         $responce[  "iTotalDisplayRecords"] = 0;
-        if (empty($_POST['lang'])) {
+        if (empty($_SESSION['langedit']['lang'])) {
           echo json_encode($responce);
           return true;
         }
         $dir = dirname(dirname(__FILE__)).DS."lang";
-        $_SESSION['langedit']['lang']    = clean($_POST['lang']);
-        $_SESSION['langedit']['version'] = clean($_POST['version']);
         //  echo "<option value=''>Select</option>\n";
         $resp = array();
         $resp['site']['DT_RowId']='site';
@@ -540,22 +602,30 @@ class plugin_language_editor extends baseplugin {
             }
           }
         }
-        $_SESSION['langedit']['files'] = array_keys($resp);
         $langs = $this->_send('language/getpackages.xml',array('ftrevision'=>$this->getRevision(), 'ftlang'=>$_SESSION['langedit']['lang'], 'ftpackages'=> array_keys($resp), 'ftuser'=>$_SESSION['langedit']['version'] ));
         $lang = $_SESSION['langedit']['lang'];
   //      var_dump($langs);
         foreach ($resp as $key => $value ) {
+          $settings = array('edit'=>true,'download'=>false,'upload'=>false);
           if (array_key_exists($key, $langs )) {
             $diff1 = $langs[$key]['keys'];
             $value['server'] = $langs[$key]['versions'];
             $value['language'] = $langs[$key]['name'];
-          }else {
+            $settings['download'] = $langs[$key]['available'];
+          }elseif (($lang!='en') && file_exists(dirname(dirname(__FILE__)).DS.'lang'.DS.$key."_en.inc")) {
+            $editfile = dirname(dirname(__FILE__)).DS.'lang'.DS.$key."_en.inc";
+            $string1 = file_get_contents($editfile);
+            $diff1 = array_keys($this->findinside($string1));
+            $value['server'] ='[local only]';
+          } else {
             $diff1 = array();
             $value['server'] ='[not available]';
+            $settings['edit'] = false;
           }
   //        $responce[  "test"][$key] = $diff1;
 
           if (file_exists(dirname(dirname(__FILE__)).DS.'lang'.DS.$key."_{$lang}.inc")) {
+            $settings['edit'] = true;
             $editfile = dirname(dirname(__FILE__)).DS.'lang'.DS.$key."_{$lang}.inc";
             $string1 = file_get_contents($editfile);
             $diff2 = array_keys($this->findinside($string1));
@@ -568,8 +638,14 @@ class plugin_language_editor extends baseplugin {
                  $diffm[]='[More...]';
               }
               $value['local'] = '<span title=\''.implode("\n",$diffm).'\'>'.round(max(0,(count($diff)/count($diff1))-0.004)*100).'%' .'</span>';
+              if (!empty($_SHOP->language_editor_plugin_userref) && round(max(0,(count($diff)/count($diff1))-0.004)*100)>50) {
+                $settings['upload'] = true;
+              }
             } else {
               $value['local'] = '[New]';
+              if (!empty($_SHOP->language_editor_plugin_userref)) {
+                $settings['upload'] = true;
+              }
             }
             $diffm = array_diff( $diff2,$diff);
             if (($cnt = count($diffm))>10) {
@@ -584,6 +660,13 @@ class plugin_language_editor extends baseplugin {
           } else {
             $value['local'] = 'na.';
           }
+
+          $value['DT_RowClass'] .= ($settings['edit'])?'canedit ':'';
+          $value['DT_RowClass'] .= ($settings['download'])?'candownload ':'';
+          $value['DT_RowClass'] .= ($settings['upload'])?'canupload ':'';
+          $_SESSION['langedit']['uploads'][$key] = $settings['upload'];
+
+
           $responce['aaData'][] = $value;
         }
         $responce[  "iTotalRecords"] = count($responce['aaData']);
@@ -656,7 +739,7 @@ class plugin_language_editor extends baseplugin {
                     },
                     sScrollY: '120px',
                     bJQueryUI: true,
-                        sDom: 'T<l<t>p>',
+                        sDom: 'T<"H"<"lang_toolbar"><"lang_addbutton">r>t',
    //                "sDom": 'T<"clear">lfrtip',
                     bSort: false,
                     bAutoWidth: true,
@@ -672,7 +755,12 @@ class plugin_language_editor extends baseplugin {
                                   {'sWidth':'405px', "mData": "versions" }],
                     fnGridComplete:  function(aoData){
                       var oTT1 = TableTools.fnGetInstance( 'table1' );
-                      oTT1.fnSelect( $('#table1 tbody tr')[0] );
+
+                      if ($('#lang').val()) {
+                        oTT1.fnSelect( $('#table1 tbody #'+$('#lang').val() ));
+                      } else {
+                        oTT1.fnSelect( $('#table1 tbody tr')[0] );
+                      }
                     },
                     oTableTools: {
                       "sRowSelect": "single",
@@ -691,9 +779,11 @@ class plugin_language_editor extends baseplugin {
                     var TableTool = this;
 
                     if (nodes.length ==0 || this.editing ) { return; }
-                    $('#lang').val(nodes[0].id);
-                    mygrid2.fnDraw(true);
 
+                    $.post("view_utils.php?x=setlang",
+                      { action: "setlang", lang: nodes[0].id },
+                      function(data){ mygrid2.fnDraw(true);},
+                      "html");
 
                     currentRow = nodes[0].id;
 
@@ -703,7 +793,7 @@ class plugin_language_editor extends baseplugin {
                     }
                     var selection  = editfield.data('versions');
 
-                    this.buttonbar  = $('<div id="buttonbar" style="z-index:9999; position:relative; float:right;" />');
+                    this.buttonbar  = $('<div id="buttonbar" style="z-index:9999; margin:0px; position:relative; float:right;" />');
                     var button;
 
                     button = $('<button title="View other language version from the server." />').button({
@@ -740,7 +830,10 @@ class plugin_language_editor extends baseplugin {
                         menu.menu().hide();
                         $('.versionmenu').click(function(e) {
                           $('#version').val($(this).data('id'));
-                          mygrid2.fnDraw(true);
+                          $.post("view_utils.php?x=setversion",
+                            { action: "setlang", version: $(this).data('id') },
+                            function(data){ mygrid2.fnDraw(true);},
+                            "html");
                           return false;
                         });
                         $(document.body).append(menu);
@@ -758,9 +851,7 @@ class plugin_language_editor extends baseplugin {
                     sServerMethod: "POST",
                     fnServerParams: function ( aoData ) {
                       aoData.push( { "name":  'action', "value": "packages" } );
-                      aoData.push( { "name":  'lang', "value": $('#lang').val()} );
-                      aoData.push( { "name":  'version', "value": $('#version').val()} );
-                    },
+                     },
                     sScrollY: '240px',
                     bJQueryUI: true,
                         sDom: 'T<l<t>p>',
@@ -775,67 +866,117 @@ class plugin_language_editor extends baseplugin {
                     bPaginate: false,
                     bScrollCollapse: false,
                     aoColumns : [ { "mData": "language" },
-                                  {'sWidth':'135px', "mData": "server" },
-                                  {'sWidth':'135px', "mData": "local" },
-                                  {'sWidth':'135px', "mData": "customized" }],
+                                  {'sWidth':'155px', "mData": "server" },
+                                  {'sWidth':'155px', "mData": "local" },
+                             //     {'sWidth':'155px', "mData": "customized" }
+                                  ],
                     fnGridComplete:  function(aoData){
+                      var oTT1 = TableTools.fnGetInstance( 'table2' );
+                      if (oTT1.editing ) {
+                        oTT1.buttonbar.remove();
+//                        this.ftsmenu.remove();
+                        oTT1.editing   = false;
+                      }
+                      if ($('#package').val()) {
+                        oTT1.fnSelect( $('#table2 tbody #'+$('#package').val() ));
+                      } else {
+                        oTT1.fnSelect( $('#table2 tbody tr')[0] );
+                      }
                     },
                     oTableTools: {
                       "sRowSelect": "single",
                       "aButtons": [],
+                      fnRowDeselected: function ( nodes ) {
+                        if (nodes.length ==0 || !this.editing ) { return; }
+                        this.buttonbar.remove();
+//                        this.ftsmenu.remove();
+                        this.editing   = false;
+                       },
+
                       "fnRowSelected": function ( nodes ) {
+                         if (nodes.length ==0 || this.editing ) { return; }
                          $('#package').val(nodes[0].id);
+                         var TableTool = this;
+                             TableTool.buttonbar  = $('<div id="buttonbar" style="z-index:9999; margin:0px;  position:relative; float:right;" />');
+                        currentRow = nodes[0].id;
+                              var editfield   = $(nodes[0]);//.get(1);
+                              var classes = editfield.prop('class');
+
+                              var button;
+
+                              button = $('<button title="Edit this translation." />').button({
+                                        icons: {
+                                          primary: "ui-icon-wrench"
+                                        },
+                                        disabled: ! editfield.hasClass('canedit'),
+                                        text: false
+                                      });//.click(function () { alert('edit');} );
+                              button.height(16).width(16);
+                              TableTool.buttonbar.append(button);
+
+                              button = $('<button  title="Download this translation." />').button({
+                                        icons: {
+                                          primary: "ui-icon-arrowreturnthick-1-s"
+                                        },
+                                        disabled:! editfield.hasClass('candownload'),
+                                        text: false
+                                      }).click(function (e) {
+                                        if (!confirm('You are about to download and preview a translation from the language server\n'+
+                                                    'The contend will be previewed after downloading.\n'+
+                                                    'When you want to have this translation hit [Save tramslation].\n'+
+                                                    'Do you want to continue?')) {
+                                          e.preventDefault();
+                                          return false;
+                                        }
+                                        $('#myaction').val('download');
+                                      });
+
+
+                              button.height(16).width(16);
+                              TableTool.buttonbar.append(button);
+
+                              button = $('<button  type=button title="Upload this translation." />').button({
+                                        icons: {
+                                          primary: "ui-icon-arrowreturnthick-1-n"
+                                        },
+                                        disabled: !editfield.hasClass('canupload'),
+
+                                        text: false
+                                      }).click(function () {
+                                                  doaction = 'upload';
+                                                  $( "#upload-form" ).dialog( "open" );
+                                                  return false;
+                                      } );
+                              button.height(16).width(16);
+                              TableTool.buttonbar.append(button);
+
+
+                                $('#table2 tbody #'+currentRow+' td:last').append(TableTool.buttonbar);
+
+                             TableTool.editing = true;
+
+                         $.post("view_utils.php?x=setpackage",
+                            { action: "setlang", 'package': nodes[0].id },
+                            function(data){
+
+
+                            ;},
+                            "html");
+
                     }
                  }
         });
-    $( "#sved4" )
-      .button()
-      .next()
-        .button({
-          text: false,
-          icons: {
-            primary: "ui-icon-triangle-1-s"
-          }
-        })
-        .click(function() {
-          var menu = $( this ).parent().parent().next().show().position({
-            my: "left top",
-            at: "left bottom",
-            of: $( this )
-          });
-          $( document ).one( "click", function() {
-            menu.hide();
-          });
-          return false;
-        })
-        .parent()
-          .buttonset().parent()
-          .next()
-            .hide()
-            .menu();
+        $('div.lang_toolbar').addClass('admin_list_title').css('float','left').html('Language Editor - Language selection');
+        $('div.lang_addbutton').css('float','right').html('<?php echo _esc($view->show_button('button',"add",3,array('id'=>'new_language')),false);?>');
+
+    $( "#register" )
+      .button().click(function(){
+            $( "#register-form" ).dialog( "open" );
+            return false;
+        });
         $('#new_language').click(function(){
             $( "#newlang-form" ).dialog( "open" );
             return false;
-        });
-        $('#upload_language').click(function(){
-            doaction = 'upload';
-            $( "#upload-form" ).dialog( "open" );
-            return false;
-        });
-
-        $('#download_language').click(function(){
-            doaction = 'download';
-            $( "#upload-form" ).dialog( "open" );
-            return false;
-        });
-
-
-        jQuery("#selectlang").submit( function() {
-        	if( $('#package').val()  != '' && $('#lang').val() !='' ) {return true;}
-        	else {
-        	  alert("Please, Select language and package first.");
-        	  return false;
-        	}
         });
       function checkLength( o, n, min, max ) {
       if ( o.val().length > max || o.val().length < min ) {
@@ -868,7 +1009,11 @@ class plugin_language_editor extends baseplugin {
     var myname = $( "#myname" ),
       mylang = $( "#mylang" ),
       mycreator = $( "#mycreator" ),
-      allFields = $( [] ).add( myname ).add( mylang ).add( mycreator );
+      myowner = $('#myowner'),
+      myemail = $('#myemail'),
+      myusername = $('#myusername'),
+      allFields = $( [] ).add( myname ).add( mylang ).add( mycreator ),
+      allRegFields = $( [] ).add( myowner ).add( myemail ).add( myusername );
       var tips = $( ".validateTips" );
   $( "#newlang-form" ).dialog({
       autoOpen: false,
@@ -907,6 +1052,44 @@ class plugin_language_editor extends baseplugin {
         allFields.val( "" ).removeClass( "ui-state-error" );
       }
     });
+  $( "#register-form" ).dialog({
+     autoOpen: false,
+      height: 410,
+      width: 600,
+      modal: true,
+      bgiframe: false,
+      position:['middle',50],
+      buttons: {
+        "Register": function() {
+          var bValid = true;
+          var bValid = true;
+          allRegFields.removeClass( "ui-state-error" );
+
+          bValid = bValid && checkLength( mylang, "Marchant name", 5, 54 );
+    //      bValid = bValid && checkRegexp( mylang, /^([a-zA-Z])+$/i, "The Language code needs to have only of consist of a-z." );
+          bValid = bValid && checkLength( myusername, "User Name", 3, 54 );
+          bValid = bValid && checkLength( myemail, "Your email address", 5, 26 );
+
+          if ( bValid ) {
+               $('#filelist').append('<h1>Please wait files will be '+doaction+'ed now.</h1>');
+               $.post("view_utils.php",
+                      {  action: "register", myowner: myowner.val(), myusername: myusername.val(), myemail: myemail.val() },
+                      function(data){ alert(data); $( "#upload-form" ).dialog( "close" ); mygrid1.fnDraw(true);  },
+                      "html");
+
+          }
+        },
+        Cancel: function() {
+          $( this ).dialog( "close" );
+        }
+      },
+      open: function (){
+               $( "#upload-form" ).dialog( "option", 'title', doaction+" files dialog." );
+               $.post("view_utils.php", { action: doaction }, function(data){
+                 $('#filelist').html(data);
+               }, "html");
+      }
+    });
   $( "#upload-form" ).dialog({
      autoOpen: false,
       height: 410,
@@ -918,7 +1101,7 @@ class plugin_language_editor extends baseplugin {
         "Ok": function() {
           var bValid = true;
           if ( bValid ) {
-               $('#filelist').append('<h1>Please wait files will be '+doaction+'ed now.</h1>');
+               $('#filelist').html('<h1 style="color:green">Please wait files will be '+doaction+'ed now.</h1>');
                $.post("view_utils.php",
                       { action: doaction+"_files", files: $('#uploadform').serializeArray() },
                       function(data){ alert(data); mygrid2.fnDraw(true); $( "#upload-form" ).dialog( "close" ); },
@@ -936,7 +1119,9 @@ class plugin_language_editor extends baseplugin {
                  $('#filelist').html(data);
                }, "html");
       }
-    });      });
+    });
+
+         });
 		</script>
 
 	<style>
@@ -945,12 +1130,13 @@ class plugin_language_editor extends baseplugin {
   }
 </style>
 <?php
-  $view->
+  //$view->
+?>
   <form method='post' id=selectlang>
-  <input type=hidden name='action' value='editlang'/>
-  <input type=hidden name='lang' id='lang' value=''/>
-  <input type=hidden name='version' id='version' value='0'/>
-  <input type=hidden name='package' id='package' value=''/>
+  <input type="hidden" id='myaction' name='action' value='editlang'/>
+  <input type=hidden name='lang' id='lang' value='<?php echo $_SESSION['langedit']['lang'];?>'/>
+  <input type=hidden name='version' id='version' value='<?php echo $_SESSION['langedit']['version'];?>'/>
+  <input type=hidden name='package' id='package' value='<?php echo $_SESSION['langedit']['package'];?>'/>
 
   <table id="table1">
     <thead>
@@ -968,44 +1154,51 @@ class plugin_language_editor extends baseplugin {
       <th class='' id='language_key' style='text-align:left'>Package</th>
       <th class='' id='language_key' style='text-align:left'>Server</th>
       <th class='' id='language_key' style='text-align:left'>Local</th>
-      <th class='' id='language_key' style='text-align:left'>Customized</th>
+ <!--     <th class='' id='language_key' style='text-align:left'>Customized</th> -->
      </tr>
   </thead>
   <tbody></tbody>
    </table>
 	<div id="toolbarz" class="ui-widget-header ui-corner-all"  style="display: inline-block; text-align:right; width:<?php echo $view->width; ?>">
-    <span>
-      <button type=submit id="sved4">Edit language</button>
-      <button id="select">Select an action</button>
-    </span>
+      <button type=button id="register">Register/login</button>
   </div>
-    <ul>
-      <li><a id='new_language' href="#">New</a></li>
-      <li><a id='download_language' href="#">Download</a></li>
-      <li>-</li>
-      <li><a id='upload_language' href="#">Upload</a></li>
-    </ul>
   </form>
 
   <div id="newlang-form" title="Create new language">
-  <form>
-  <fieldset>
-    <label for="lang">Language Code</label>
-    <input type="text" name="lang" id="mylang" class="text ui-widget-content ui-corner-all" />
-    <label for="name">Language Name</label>
-    <input type="text" name="name" id="myname" value="" class="text ui-widget-content ui-corner-all" />
-    <label for="creator">Creator</label>
-    <input type="text" name="creator" id="mycreator" value="<?php echo $_SHOP->organizer_name; ?>" class="text ui-widget-content ui-corner-all" />
-  </fieldset>
-  <span class="validateTips">All form fields are required.</span>
-  </form>
-</div>
-  <div id="upload-form" title="Upload changed language files.">
+    <form  id=uploadform>
+    <fieldset>
+      <label for="lang">Language Code</label>
+      <input type="text" name="lang" id="mylang" class="text ui-widget-content ui-corner-all" />
+      <label for="name">Language Name</label>
+      <input type="text" name="name" id="myname" value="" class="text ui-widget-content ui-corner-all" />
+      <label for="creator">Creator</label>
+      <input type="text" name="creator" id="mycreator" value="<?php echo $_SHOP->organizer_name; ?>" class="text ui-widget-content ui-corner-all" />
+    </fieldset>
+    <span class="validateTips">All form fields are required.</span>
+    </form>
+  </div>
+
+  <div id="register-form" title="Register for uploading">
+    <form>
+    <fieldset>
+      <label for="lang">Marchent name</label>
+      <input type="text" name="owner" id="myowner" value='<?php echo $_SHOP->organizer_name; ?>' class="text ui-widget-content ui-corner-all" />
+      <label for="name">User Name</label>
+      <input type="text" name="username" id="myusername" value="<?php echo $_SHOP->admin->admin_realname; ?>" class="text ui-widget-content ui-corner-all" />
+      <label for="creator">email address</label>
+      <input type="text" name="email" id="myemail" value="<?php echo $_SHOP->organizer_email; ?>" class="text ui-widget-content ui-corner-all" />
+    </fieldset>
+    <span class="validateTips">All form fields are required.</span>
+    </form>
+  </div>
+
+
+  <div id="upload-form" style='text-align:left;' title="Upload changed language files.">
   <form id=uploadform>
   <fieldset>
     <span id=filelist></span>
   </fieldset>
-  <span class="validateTips">Select the languages that you want to upload to the server repository.</span>
+  <span class="validateTips"></span>
   </form>
 </div>
     <?php
@@ -1017,7 +1210,7 @@ class plugin_language_editor extends baseplugin {
  		<script type="text/javascript">
        $(document).ready(function() {
           var currentRow = -1;
-          var mygrid1 = $("#table1").dataTable({
+          var mygrid1 = $("#table3").dataTable({
              //   bProcessing: true,
                 bServerSide: true,
                 sAjaxSource: "view_utils.php?x=grid",
@@ -1027,13 +1220,13 @@ class plugin_language_editor extends baseplugin {
                 },
                 fnGridComplete:  function(aoData){
                   if (currentRow != -1) {
-                    var oTT1 = TableTools.fnGetInstance( 'table1' );
+                    var oTT1 = TableTools.fnGetInstance( 'table3' );
                     oTT1.fnSelect( $('#'+currentRow) );
                   }
                 },
 
                 sScrollY: '400px',
-                bJQueryUI: false,
+                bJQueryUI: true,
              //  sDom: 'T<l<t>p>',
                 sDom: 'Tlfiptr',
                 bSort: false,
@@ -1044,6 +1237,20 @@ class plugin_language_editor extends baseplugin {
             //    iScrollLoadGap : 3,
 
                 aoColumns : [ { "mData": "data" }],
+                    fnGridComplete:  function(aoData){
+                      var oTT1 = TableTools.fnGetInstance( 'table3' );
+                      if (oTT1.editing ) {
+                        oTT1.buttonbar.remove();
+//                        this.ftsmenu.remove();
+                        oTT1.editing   = false;
+                      }
+/*                      if ($('#package').val()) {
+                        oTT1.fnSelect( $('#table2 tbody #'+$('#package').val() ));
+                      } else {
+                        oTT1.fnSelect( $('#table2 tbody tr')[0] );
+                      }*/
+                    },
+
                 oTableTools: {
                   sRowSelect: "single",
                   aButtons: [],
@@ -1075,15 +1282,14 @@ class plugin_language_editor extends baseplugin {
                     var form = $('<form />');
                      this.revert  = inputvalue   = $(editfield).text();
 
-                      this.buttonbar = $('<div id="buttonbar" style="z-index:9999; position:relative; float:right;" />');
+                      this.buttonbar = $('<div id="buttonbar" style="z-index:9999; margin:0px; position:relative; float:right;" />');
                       var button, buttonA, buttonB;
 
-                        if ($(nodes[0]).hasClass('case')) {
-
-                        buttonB = $('<button title="Lowercase the keyvalue." />').button({
+                      button = $('<button title="Lowercase the keyvalue." />').button({
                               icons: {
                                 primary: "ui-icon-arrowthickstop-1-s"
                               },
+                              disabled: ! $(nodes[0]).hasClass('case'),
                               text: false
                             }).click(function () {
                              var ajaxoptions = {
@@ -1101,21 +1307,20 @@ class plugin_language_editor extends baseplugin {
                               };
                               $.ajax(ajaxoptions);
                             } );
-                        buttonB.height('16px').width('16px');
-                        this.buttonbar.append(buttonB);
+                        button.height('16px').width('16px');
+                        this.buttonbar.append(button);
 
-                      }
-                     if ($(nodes[0]).hasClass('missing')) {
-                     button = $('<button title="Copy translation." />').button({
+                        button = $('<button title="Copy translation." />').button({
                             icons: {
                               primary: "ui-icon-copy"
                             },
+                            disabled : ! $(nodes[0]).hasClass('missing'),
                             text: false
                           }).click(function () {
                             $('#'+nodes[0].id+'_input').val($('#'+nodes[0].id+'_orgin').html())
                           } );
                       button.height('16px').width('16px');
-}
+
                       this.buttonbar.append(button);
                       buttonA = $('<button  title="Remove this translation." />').button({
                               icons: {
@@ -1261,7 +1466,7 @@ class plugin_language_editor extends baseplugin {
   }
 </style>
 
-  <table id="table1">
+  <table id="table3">
     <thead>
     <tr class='admin_list_header'>
       <th class='' id='language_key' style='text-align:left'>Translations</th>

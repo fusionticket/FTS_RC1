@@ -116,7 +116,7 @@ class DiscountView extends AdminView {
         $handling_mode_pos=(strpos($row['discount_active'],'pos')!==false) || $row['discount_active'] =='yes';
         $handling_mode_web=(strpos($row['discount_active'],'www')!==false) || $row['discount_active'] =='yes';
         $pmp = ($row['discount_event_id'])?"&discount_event_id={$row['discount_event_id']}":'';
-        if (!is_null($discount_event_id)) {
+        if (!is_null($row['discount_event_id'])) {
           echo "<td class='admin_list_item' align='center'>";
 
           if ($handling_mode_web ) {
@@ -206,7 +206,6 @@ class DiscountView extends AdminView {
         $this->form($row, $disc, con('discount_add_title'));
     } elseif ($_GET['action'] == 'active_disc') {
         $row = Discount::load($_GET['discount_id']);
-        var_dump($row);
         if ($row) {
           $mode = ($_GET['mode']==='www')?'www':'pos';
           $do = is($_GET['do'],'');

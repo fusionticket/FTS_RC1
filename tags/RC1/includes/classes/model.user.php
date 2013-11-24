@@ -198,7 +198,7 @@ class User extends Model{
 			///Check user password///
 			/////////////////////////
 
-    		$query="SELECT username, password, user_status, user_email, user_maillist
+    		$query="SELECT username, password, user_status, user_email
               	FROM User left join auth on auth.user_id=User.user_id
               	WHERE User.user_id="._esc((int)$data['user_id']);
 
@@ -224,9 +224,6 @@ class User extends Model{
 
     	  if ($userup->CheckValues($data, $status, $mandatory, 0, $short)){
           $userup->_fill($data);
-          
-          $userup->user_maillist = $data['user_maillist'] ? $data['user_maillist'] : 0;
-           
     	    $userup->user_status = $status;
     	    if (ShopDB::Begin()){
             if ($userup->save()){

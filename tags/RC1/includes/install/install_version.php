@@ -32,6 +32,6 @@
    * clear to you.
    */
 
-  define("INSTALL_VERSION","RC1");
+  define("INSTALL_VERSION","RC1a");
   define("INSTALL_REVISION", '$Revision$');
 ?>

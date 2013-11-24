@@ -33,9 +33,9 @@
 
 **/
 
-//Defines added at: 2013-10-30T14:33:22-07:00
+//Defines added at: 2013-11-04T15:00:27+00:00
 //Modified: 1
-//Defines added at: 2013-10-27T06:25:47-07:00
+//Defines added at: 2013-11-04T13:45:08+00:00
 //Revision: 1955
 
 define('act_code', "Activatie code:");
@@ -809,9 +809,9 @@ define('nav_first', "Eerst");
 define('nav_first-tooltip', "eerste");
 define('nav_last', "Laatst");
 define('nav_last-tooltip', "laatste");
-define('nav_next', " > ");
+define('nav_next', ">nav_next");
 define('nav_next-tooltip', "volgende");
-define('nav_prev', " < ");
+define('nav_prev', " < nav_prev");
 define('nav_prev-tooltip', "vorige");
 define('netpay', "netPay");
 define('netpay_pay', "Click here go to NetPay payment page.");
@@ -1024,4 +1024,150 @@ define('page_format_default', "Default");
 define('freeticketcode', "Kortings code: ");
 
 define('orderdescription', "Betaling bestelde ticket(s)");
+
+define('shortdate_format', "%e %b %Y");
+
+define('yyyy_mm_dd', "dd-mm-jjjj");
+
+define('pwd_send', "Wachtwoord versturen");
+
+define('remove', "Verwijderen");
+define('res', "Herstarten");
+
+define('publish', "Publiceren");
+
+define('reserve', "Reserveren");
+
+define('save', "Bewaren");
+define('save_payment', "Bewaar en amp; Betalingsrekening per Email.");
+define('save_ship', "Bewaar en amp; Email");
+define('save_note', "Bewaar &amp; Email een rekening");
+define('search', "Zoeken");
+define('show_seats', "Zitplaats Kaart");
+define('submit', "Verzenden");
+
+define('unpublish', "Ongepubliceerd");
+
+define('view', "Overzicht");
+define('view_order', "Bestel Overzicht");
+
+define('pm_split', "Opdeling Plaatskaart");
+
+define('split_zones', "Zones Splitsen");
+
+define('place_map_tooltip', "Volgorde van Zitplaatsen en Kortingen opmaken");
+define('print', "Printen");
+
+define('set_status_ord', "Bestelde Orders opstellen");
+define('set_status_shipment_send', "Opstellen_om_te_Verzenden");
+define('set_status_shipment_none', "Niet verzonden aan Reeks");
+define('set_status_payment_none', "Ingesteld op onbetaald");
+define('set_status_payment_paid', "Ingesteld op Betaald");
+define('save_payment_tooltip', "Bewaar &amp; Email de bovenstaande rekening aan de klant.");
+define('save_ship_tooltip', "Bewaar &amp; Email verzendlijst");
+define('save_note_tooltip', "Bewaar &amp; Email een rekening");
+
+define('password', "Wachtwoord");
+define('password1', "Kies Wachtwoord");
+define('password2', "Herhaal Wachtwoord");
+
+define('remove_image', "Verwijder Bestand of Afbeelding");
+
+define('tickets', "Pasjes");
+
+define('welcome', "Welkom");
+
+define('yes', "Ja");
+
+define('user_firstname', "Voornaam");
+define('user_lastname', "Achternaam");
+define('user_name', "Naam");
+define('user_address', "Adres");
+define('user_address1', "Adres 1");
+define('user_address2', "Adres 2");
+define('user_city', "Stad");
+define('user_state', "Staat");
+define('user_state_name', "Staat");
+define('user_zip', "Zipcode");
+
+define('shorterdate_format', "%h %e");
+
+define('log_err_not_act_info', "log_err_not_act_info");
+
+define('user_email', "E-Mail");
+define('user_fax', "Gebruikers_fax");
+define('user_phone', "gebruikers_telefoon");
+
+define('time_format', "%I:%M %p");
+
+define('user_country', "Gebruiker_land");
+define('user_country_name', "gebruiker_land_naam");
+define('user_id', "gebruiker ID");
+define('user_status', "Status");
+define('user_maillist', "Krant");
+define('useralreadyexist', "Deze E-mail is al geregistreerd in de Database!");
+
+define('pass_not_egal', "De wachtwoorden komen niet overeen!");
+define('pass_match', "De Wachtwoorden komen niet overeen.");
+define('pass_too_short', "Het Wachtwoord is te kort");
+define('phone_long', "Het Telefoonnummer is te lang");
+define('phone_short', "Het Telefoonnummer is te kort");
+define('places_empty', "Kies aub uw plaatsen");
+define('places_occupied', "De geselecteerde plaatsen zijn al  gereserveerd");
+define('places_remains', "Resterende plaatsen");
+define('places_toomuch', "Dit Aantal Plaatsen kan niet worden Gereserveerd!");
+define('pwd_not_thesame', "De ingevoerde Wachtwoorden komen niet overeen!");
+define('pwd_second_missing', "Het Tweede Wachtwoord ontbreekt!");
+define('pwd_to_short', "Het Wachtwoord is te kort!");
+define('pub_confirm_msg', "Publiceren van Gebeurtenis?");
+
+define('reservate_failed', "Interne Error: Onmogelijk om Locaties te Bewaren");
+define('restart_success', "Succesvol Herstart!");
+
+define('save_successful', "Veranderingen zijn bewaard.");
+define('save_failed', "Interne Error: Onmogelijk om de Opdracht te bewaren");
+define('send_order_email', "Verstuur de Opdracht per E-mail en Verander de Status om te \'Verzenden\'");
+define('split_pm', "Splits Locatie Kaart");
+define('status_is_pub', "Deze Gebeurtenis is gepubliceerd!");
+define('stop_success', "Succesvol gestopt!");
+define('system_halted', "<b> SYSTEEM IS STOPGEZET! <b>");
+
+define('this_page_is_not_secure', "Attentie: uw Registratie en Opdrachtdetails zijn niet gecodeerd. Betalingen zullen echter bij het gebruik van Paypal beveiligingspagina\'s gebruiken (SSL).");
+define('ticket_deleted', "Pas gewist!");
+define('ticket_not_found', "Pas is niet gevonden in de Database!");
+define('tickets_printing', "De Pasjes worden geprint. Wacht aub!");
+define('too_low', "Voer aub een Nummer Groter dan 0 in!");
+define('to_trash', "Verstuur naar de Prullenbak");
+
+define('undefined', "Ongedefinieerd!");
+
+define('wrong_input_ids', "Verkeerd Invoer Id");
+
+define('username_not_found', "Gebruiker niet geregistreerd. Lever aub een geldige email.");
+
+define('search_choice_one_field', "Kies een Zoekveld!");
+define('search_choice_event', "Kies een Gebeurtenis om te Zoeken!");
+define('search_choice_seat_row_nr', "Kies een Plaats/Rij om naar te zoeken!");
+
+define('update_error', "Update Error!");
+define('user_details_saved_successfully', "Gebruikersdetails zijn succesvol geüpdate");
+
+define('tabs-admins_admin', "Gebruikersbesturing");
+define('tabs-events_admin', "Gebeurtenisbesturing");
+
+define('statistic_admin', "Melding");
+
+define('template_admin', "Sjablonen");
+
+define('search_admin', "Zoek");
+
+define('transports_admin', "Invoer/Uitvoer");
+
+define('utilities_admin', "Faciliteiten");
+
+define('system_summary', "Systeem Samenvatting");
+define('shopconfig_tab', "Configuratie");
+define('shopconfig_lastrun_int', "Schoon de intervalcontrole op (0 = off)");
+define('shopconfig_lastrun', "Laatste tijd gecheckt");
+define('shopconfig_restime', "Reserveringstijd (0 = uit)");
 ?>

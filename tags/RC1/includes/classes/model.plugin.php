@@ -66,20 +66,12 @@ class plugin extends model {
     $query = "select * from `plugins` where plugin_name = "._esc($plugin_name);
     $plugclass = "plugin_".$plugin_name;
     $plugin = null;
-    if($plug_d=ShopDB::query_one_row($query)) {
-      $plugin = new $plugclass(null);
-      $plugin->_fill($plug_d, false);
-      $plugin->_unser_extra();
-    } elseif (file_exists(INC.'plugins'.DS.'plugin.'.$plugin_name.'.php')) {
+    if($plug_d=ShopDB::query_one_row($query) && file_exists(INC.'plugins'.DS.'plugin.'.$plugin_name.'.php')) {
       $plugin = new plugin;
-      $plugin->plugin_name      = $plugin_name;
-      $plugin->plugin_enabled   = false;
-      $plugin->plugin_priority  = 999;
-      $plugin->plugin_protected = false;
-      $plugin->plugin_id        = 0;
-      $plugin->plug($plugin_name);
+      $plugin->plug($plug_d['plugin_name'],$plug_d['plugin_id'] );
+      $plugin->_fill($plug_d, false);
+      self::Getplugins($plugin);
     }
-    self::Getplugins($plugin);
     return $plugin;
   }
 

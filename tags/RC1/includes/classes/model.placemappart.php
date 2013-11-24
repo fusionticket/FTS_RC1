@@ -179,45 +179,41 @@ class PlaceMapPart Extends Model {
     return parent::delete();
   }
 
-  function set_zone ($zone_id, $zone_map) {
-    for($j = 0;$j < $this->pmp_height;$j++) {
-      for($k = 0;$k < $this->pmp_width;$k++) {
-        if ($zone_map[$j][$k]) {
+  function set_zone ($zone_id, $map) {//var_dump($map);
+    foreach($map as $j => $row) {
+      foreach($row as $k => $sel) {
+        if ($sel) {// echo '[',$j,'-',$k,']';
           if ($this->data[$j][$k][PM_ZONE] != $zone_id) {
-          	if (is_string($this->data[$j][$k][PM_ZONE]) || count($this->data[$j][$k])==1) {
+          	if (!is_numeric($this->data[$j][$k][PM_ZONE])) {
           		$this->data[$j][$k] = array($zone_id, 0, 0);
           	} else {
-          		$this->data[$j][$k][PM_ZONE]=$zone_id;
+          		$this->data[$j][$k][PM_ZONE]=(int)$zone_id;
           	}
           }
-//        } elseif ($this->data[$j][$k][PM_ZONE] == $zone_id) {
-//          $this->data[$j][$k] = array(0, 0, 0);
         }
       }
     }
   }
 
-  function set_category ($category_id, $map){
-    for($j = 0;$j < $this->pmp_height;$j++) {
-      for($k = 0;$k < $this->pmp_width;$k++) {
-      	if (is_string($this->data[$j][$k][PM_ZONE]) || count($this->data[$j][$k])==1) {
-      		$this->data[$j][$k] = array( 1, $category_id, 0);
-      	} elseif ($this->data[$j][$k][PM_ZONE] > 0) {
-          if ($map[$j][$k]) {
-            $this->data[$j][$k][PM_CATEGORY] = $category_id;
-//          } else if ($this->data[$j][$k][PM_CATEGORY] == $category_id) {
-//            $this->data[$j][$k][PM_CATEGORY] = 0;
+  function set_category ($category_id, $map){ //var_dump($map);
+    foreach($map as $j => $row) {
+      foreach($row as $k => $sel) {
+        if ($sel) { //echo '[',$j,'-',$k,']';
+          if (!is_numeric($this->data[$j][$k][PM_ZONE])) {
+      		  $this->data[$j][$k] = array( 1, $category_id, 0);
+      	  } elseif ($this->data[$j][$k][PM_ZONE] > 0) {
+            $this->data[$j][$k][PM_CATEGORY] = (int) $category_id;
+          }
         }
       }
     }
-  }
   }
 
   function clear ($map){
     foreach($map as $j => $row) {
       foreach($row as $k => $sel) {
         if ($sel) {
-          $this->data[$j][$k] = array(0);
+          $this->data[$j][$k] = array(0,0,0);
         }
       }
     }
@@ -227,7 +223,7 @@ class PlaceMapPart Extends Model {
     $label_text = strtr($label_text, ',|', '..');
     if ($label_type == 'T') {
       if (count($map) != 1) {
-        return;
+        return addwarning('just_select_onerow');
       }
       foreach($map as $j => $row) {
         foreach($row as $k => $sel) {
@@ -281,8 +277,8 @@ class PlaceMapPart Extends Model {
         if (is_numeric($seat[PM_ZONE])) {
           $zone[$seat[PM_ZONE]]++;
           $cat[$seat[PM_CATEGORY]]++;
+        }
       }
-    }
     }
     $stats->zones = $zone;
     $stats->categories = $cat;
@@ -523,7 +519,7 @@ function auto_numbers ($zone_id, $first_row = 1, $step_row = 1, $inv_row = false
     for($j = 0;$j < $this->pmp_height;$j++) {
       for($k = 0;$k < $this->pmp_width;$k++) {
         if ($this->data[$j][$k][PM_ZONE] == $zone_ident) {
-          $this->data[$j][$k] = array(0);
+          $this->data[$j][$k] = array(0, 0, 0);
           $count++;
         }
       }
@@ -596,7 +592,7 @@ function auto_numbers ($zone_id, $first_row = 1, $step_row = 1, $inv_row = false
     for($j = 0;$j < $this->pmp_height;$j++) {
       for($k = 0;$k < $this->pmp_width;$k++) {
         $seat = $this->data[$j][$k];
-      	if (is_numeric($seat[PM_ZONE]) > 0) {
+      	if (is_numeric($seat[PM_ZONE])) {
       	  if ($seat[PM_CATEGORY]) {
             $zone = $this->zones[$seat[PM_ZONE]];
             $category = $this->categories[$seat[PM_CATEGORY]];
@@ -648,6 +644,7 @@ function auto_numbers ($zone_id, $first_row = 1, $step_row = 1, $inv_row = false
     $seats_db = Seat::load_pmp_all($this->pmp_id);
     $expires = time() + 3600;
     $error = false;
+    $this->pmp_expires = $expires;
     if ($seats_db) {
       for($j = 0;$j < $this->pmp_height;$j++) {
         for($k = 0;$k < $this->pmp_width;$k++) {
@@ -661,26 +658,24 @@ function auto_numbers ($zone_id, $first_row = 1, $step_row = 1, $inv_row = false
 
               if ($seat_db['seat_status'] == 'free') {
                   $this->data[$j][$k][PM_STATUS] = PM_STATUS_FREE;
-//              } elseif ($seat_db['seat_status'] == 'res') {
-//                $this->data[$j][$k][PM_STATUS] = PM_STATUS_RESP;
               } elseif ($seat_db['seat_status'] == 'resp') {
                 $this->data[$j][$k][PM_STATUS] = PM_STATUS_RESP;
               } else {
                   $this->data[$j][$k][PM_STATUS] = PM_STATUS_OCC;
               }
-            } elseif (!$error) {
-              user_error('seats cache error found, rebuilding cache... PLEASE RELOAD');
+/*            } elseif (!$error) {
+              addwaring('seats cache error found, rebuilding cache... PLEASE RELOAD');
               // user_error("seats cache error! seat id: {$seat_c[PM_ID]} ($k,$j) {$seat_c[PM_ZONE]} {$seat_c[PM_CATEGORY]}");
               // print_r($seat_c);
               $this->data = PlaceMapPart::_unser_data($this->pmp_data_orig, $this->pmp_width, $this->pmp_height);
               // echo("<pre>");print_r($pmp_data_orig);echo("</pre>");
               $error = true;
+   */
             }
           }
         }
       }
     }
-    $this->pmp_expires = $expires;
   }
 
   function clear_cache ($pmp_id) {

@@ -33,2477 +33,3238 @@
 
 **/
 
-//Defines added at: 2013-10-29T08:38:44-07:00
+//Defines added at: 2013-11-05T11:31:41-08:00
 //Modified: 1
-//Defines added at: 2013-10-29T08:18:25-07:00
+//Defines added at: 2013-11-05T08:10:03-08:00
 //Revision: 1955
 
-define('setlocale_ALL', 'en.utf8; en.utf-8;en_EN.utf8;en_EN.utf-8;en-EN.utf8;en-EN.utf-8;en;en_EN;en-EN');
+define('split_pm', "Split Seat Chart");
 
-define('date_format', '%A - %B %e, %Y');
+define('ballet', "Ballet");
 
-define('time_format', '%I:%M %p');
+define('export_xml_event_event', "Choose an Event");
 
-define('admin_date_format', 'Y-m-d');
-define('admin_time_format', 'H:i');
-define('admin_datetime_format', 'Y-m-d H:i');
+define('prg_complete', "Complete Order");
 
-define('longdate_format', '%Y-%m-%d %H:%M:%S');
+define('include_invoice', "Include Invoice");
 
-define('shortdate_format', '%e %b %Y');
-define('shorterdate_format', '%h %e');
+define('configuration_is_saved', "Configuration is saved.");
 
-define('date', 'Date');
-define('dd_mm_yyyy', '(dd-mm-yyyy)');
+define('status_is_pub', "This Event is Published!");
 
-define('yyyy_mm_dd', '(yyyy-mm-dd)');
+define('blues', "Blues");
 
-define('date_from', 'Date From');
-define('date_to', 'Date To');
-define('dts_day_arr', 'Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday');
+define('export_xl', "Sales Data");
 
-define('add', 'Add');
-define('add_row', 'Add');
-define('add_venue', 'Add ');
-define('add_tickets', 'Add Ticket(s)');
-define('admin_list', 'List');
+define('no_handling_selected', "No handling method selected.");
 
-define('cancel', 'Cancel Order?');
-define('checkout', 'Checkout');
-define('clear', 'Clear');
-define('close', 'Close');
-define('continue', 'Continue');
+define('include_tickets', "Include Tickets");
 
-define('define', 'Define');
+define('stop_success', "Successfully Stopped!");
+define('sacred', "Church music");
 
-define('edit', 'Edit');
+define('xl_view_title', "Sales Data");
 
-define('delete', 'Delete');
+define('noting_checkout', "There is nothing to checkout!!!");
 
-define('login_button', 'Login');
+define('cant_create_seat_zone_missing_cat', "Every zone needs to have category in a placemap part.");
 
-define('order_it', 'Order');
-define('order_more_tickets', 'Buy More Tickets');
+define('please_wait_button', "Please wait.");
 
-define('publish', 'Publish');
-define('pwd_send', 'Send Password');
+define('system_halted', "<b>SYSTEM IS HALTED!<b>");
 
-define('remove', 'Remove');
-define('res', 'Reset');
-define('reserve', 'Reserve');
+define('cinema', "Cinema");
 
-define('save', 'Save');
-define('save_payment', 'Save &amp; Email payment note');
-define('save_ship', 'Save &amp; Email shipping note');
-define('save_note', 'Save &amp; Email a note');
-define('search', 'Search');
-define('show_seats', 'Seating Chart');
-define('submit', 'Submit');
+define('xl_start', "Date of sales");
 
-define('unpublish', 'Unpublish');
+define('no_useraddress_selected', "No user address selected.");
 
-define('view', 'View');
-define('view_order', 'View Order');
+define('pub_success', "The following event has been successfully published: ");
+define('please_wait_message_order', "Please wait, will the order is created.");
 
-define('icon_unpublish', 'Click to UnPublish');
-define('icon_unpublish_alt', 'Published');
-define('icon_publish', 'Click to Publish');
-define('icon_publish_alt', 'New Event');
-define('icon_nosal', 'Click to RePublish');
-define('icon_nosal_alt', 'UnPublished');
+define('this_page_is_not_secure', "Attention: Your Registration and Order Details are not encrypted. However payments using Paypal will use secure pages (SSL).");
 
-define('add_tooltip', 'Add');
-define('add_multi_tooltip', 'Add sub-event to this main event.');
+define('classics', "Classical music");
 
-define('edit_tooltip', 'Edit Item');
+define('xl_end', "End Date");
 
-define('add_venue_tooltip', 'Add a new Venue');
+define('error_missingcategorytype', "Missing category numbering type");
 
-define('compile_all_tooltip', 'This will (re)compile all the templates to check they are valid.');
-define('copy', 'Copy');
+define('vpc_pay', "Proceed to payment gateway page");
 
-define('add_pm', 'Add Placemap');
+define('site_offline_message', "PLEASE NOTE: This Site is off-line.");
 
-define('pm_split', 'Split Placemap');
+define('ticket_deleted', "Ticket Deleted!");
 
-define('split_zones', 'Split Zones');
+define('exposition', "Exposition");
 
-define('Published', 'Published');
+define('generate_xl', "Generate Sales Worksheet");
 
-define('place_map_tooltip', 'Edit Event Seating and Discounts');
+define('error_discountnotfound', "Discount not found");
 
-define('archive', 'Archive');
+define('successfully_updated_user_details', "Your profile has been successfully updated.");
 
-define('details', 'Details');
+define('export_eventbarcodes_order', "Order ID");
 
-define('print', 'Print');
+define('ticket_not_found', "Ticket Not Found in Database!");
 
-define('set_status_ord', 'Set to Ordered');
-define('set_status_shipment_send', 'Set to Sent');
-define('set_status_shipment_none', 'Set to Not Sent');
-define('set_status_payment_paid', 'Set to Paid');
-define('set_status_payment_none', 'Set to Not Paid');
-define('save_payment_tooltip', 'Save &amp; Email the above note to the customer.');
-define('save_ship_tooltip', 'Save &amp; Email shipping note');
-define('save_note_tooltip', 'Save &amp; Email a note');
-
-define('delete_ticket', 'Delete Ticket');
-
-define('nav_first', 'First');
-define('nav_prev', ' < ');
-define('nav_next', ' > ');
-define('nav_last', 'Last');
-
-define('password', 'Password');
-define('password1', 'Choose Password');
-define('password2', 'Repeat Password');
-
-define('new_password', 'New Password');
-
-define('old_password', 'Current Password');
-
-define('confirmpassword', 'Confirm Password');
-
-define('event', 'Event');
-
-define('home', 'Home');
-
-define('logout', 'Log out');
-
-define('member', 'Member login');
-
-define('no', ' No');
-
-define('order_id', 'Order Number');
-
-define('remove_image', 'Remove File or Image');
-
-define('tickets', 'Tickets');
-
-define('welcome', 'Welcome');
-
-define('yes', ' Yes');
-
-define('user_firstname', 'First Name');
-define('user_lastname', 'Last Name');
-define('user_name', 'Name');
-define('user_address', 'Address');
-define('user_address1', 'Address 1');
-define('user_address2', 'Address 2');
-define('user_city', 'City');
-define('user_state', 'State');
-define('user_state_name', 'State');
-define('user_zip', 'Zipcode');
-define('user_country', 'Country');
-define('user_country_name', 'Country');
-define('user_phone', 'Phone');
-define('user_fax', 'Fax');
-define('user_email', 'E-Mail');
-define('user_id', 'User ID');
-define('user_status', 'Status');
-define('user_maillist', 'Newsletter');
-
-define('act_err', 'User Not Found or Already Activated!');
-define('act_error', 'Account Could Not be Activated! Please re-check the link or contact the system administrator.');
-define('act_uselink', 'Please use the link that has been sent to your email address.');
-define('act_email_sent', 'Activation email sent.');
-define('already_exist', 'This Name Already Exists. Choose Another!');
-
-define('useralreadyexist', 'This E-mail is Already Registered in the Database!');
-
-define('autocancel_order', 'Auto Cancel: Failed to Order!');
-define('autocancel_paying', 'Auto Cancel: Failed to Pay for Order!');
-
-define('cant_delete_self', 'You can not delete yourself!');
-define('cannot_find_seat', 'Cannot Find Seat!');
-define('cannot_seal', 'Internal Error: Cannot Seal Credit Card Info!');
-define('cannot_store', 'Internal Error: Cannot Store Credit Card Info!');
-define('check_condition', 'Please Accept the Terms!');
-define('compilation_succeed', 'Success - Template Compiled!');
-define('correct_errors_first', 'Correct Errors First!');
-
-define('delete_confirm_msg', 'Delete This Event?');
-define('delete_item', 'Delete?');
-define('deleted_all_tickets', 'Deleted All Tickets!');
-define('delete_subs_first', 'Delete Sub-Events First!');
-
-define('email_valid', 'Please Enter a Valid Email Address!');
-define('email_match', 'The Emails Do Not Match!');
-define('email_badconfig', 'The program\'s mail configuration is incorrectly defined!');
-define('event_order_limit_exceeded', 'Sorry, The number of seats that you can order for this event is limited!');
-
-define('fax_short', 'The Fax Number is too Short!');
-define('fax_long', 'The Fax Number is too Long!');
-
-define('img_loading_problem', 'Problem Loading Image!');
-define('img_loading_problem_copy', 'Problem Loading Image Copy!');
-define('in_use', 'This Object is in use and <b>cannot</b> be Deleted!');
-define('internal_error', 'Internal Error!');
-define('invalid_date', 'Invalid Date!');
-define('invalid_number', 'Invalid Credit Card Number!');
-
-define('log_err_isactive', 'That account is already active.');
-define('log_err_mailnotsend', 'The Activation Email <b>could not</b> be sent, please check you have entered the correct email address.');
-define('log_err_not_act', 'You are Not Activated!');
-define('log_err_not_act_info', 'Your account is not yet activated.
-  <p>Please check your email to activate your account. Don\'t forget to check the spam folder.</p>
-  <p>If you haven\'t received any email yet, please click <a href=\'resend_activation.php\'>here</a> to resend the activation email.</p>');
-define('log_err_wrong_usr', 'Your username and/or password don\'t match!');
-define('log_err_wrong_usr_info', 'Wrong Username or Password.
-		If you have forgoten your password, click <a href=\'forgot_password.php\' onclick=\'showDialog(this);return false;\' >here</a>');
-
-define('mand_all', 'All input fields are Required.');
-define('mandatory', 'Field Required!');
-define('mp3_loading_problem', 'Problem Loading MP3 File!');
-define('missing_pm_ord_id', 'Error: this placemap cannot be saved, venue is missing');
+define('folklore', "Folklore");
 
-define('nosale_confirm_msg', 'Remove from Sale?');
-define('new_order_created', 'New Order Created');
-define('not_number', 'Enter a Number Without -()!');
-define('not_valid_email', 'E-mail is invalid.');
-define('no_result', 'No Result!');
-
-define('old_order_cancelled', 'Old Order Cancelled!');
-define('order_allready_cancelled', 'Order Already Cancelled!');
-define('order_cancelled', 'Order Cancelled!');
-define('order_cannot_reissue', 'Can Not Re-Issued!');
-define('order_error_message', 'Order Error Message');
-define('order_madefinal', 'Order is Complete');
-define('order_not_found', 'Order Not Found!');
-define('ordernotfound', 'Order Not Found');
-define('order_not_cancelled', 'Order Not Cancelled!');
-define('order_notice_message', 'Order Notice Message');
-define('order_paid_already', 'Order Already Paid');
-define('order_paid_total', 'Total Paid');
-
-define('pass_not_egal', 'Passwords Do Not Match!');
-define('pass_match', 'Passwords do not match');
-define('pass_too_short', 'Password is too short');
-define('phone_long', 'The Phone Number is too long');
-define('phone_short', 'The Phone Number is too short');
-define('places_empty', 'Please select your seats');
-define('places_occupied', 'The selected seats have been already reserved');
-define('places_remains', ' Remaining seats');
-define('places_toomuch', 'This Number of Seats cannot be Reserved!');
-define('pwd_not_thesame', 'The Passwords Entered Do Not Match!');
-define('pwd_second_missing', 'Second Password is Missing!');
-define('pwd_to_short', 'Password Too Short!');
-define('pub_confirm_msg', 'Publish Event?');
-
-define('reservate_failed', 'Internal Error: Impossible to Save Seats ');
-define('restart_success', 'Successfully Restarted!');
-
-define('save_successful', 'Changes Saved');
-define('save_failed', 'Internal Error: Impossible to Save the Order ');
-define('send_order_email', 'Send Order by E-mail and Change Status to \'Sent\'');
-define('split_pm', 'Split Seat Chart');
-define('status_is_pub', 'This Event is Published!');
-define('stop_success', 'Successfully Stopped!');
-define('system_halted', '<b>SYSTEM IS HALTED!<b>');
-
-define('this_page_is_not_secure', 'Attention: Your Registration and Order Details are not encrypted. However payments using Paypal will use secure pages (SSL).');
-define('ticket_deleted', 'Ticket Deleted!');
-define('ticket_not_found', 'Ticket Not Found in Database!');
-define('tickets_printing', 'Tickets are Printing. Please Wait!');
-define('too_low', 'Please Enter a Number Larger than 0 !');
-define('to_trash', 'Sent to Garbage');
-
-define('undefined', 'Undefined!');
+define('seat_id', "Ticket Number");
 
-define('err_blank_or_allready', 'Error, Blank or already in use!');
-
-define('compilation_failed', 'Compilation Failed!');
-define('classcatch', 'Class Catch:');
+define('event_sold', "Event sold out");
 
-define('wrong_input_ids', 'Wrong Input Id');
-
-define('file_not_exsist', 'File does Not Exist!');
+define('payment_not_approved', "Payment is not approved.");
 
-define('username_not_found', 'User not registered. Please provide a valid email.');
+define('order_payment', "Payment");
 
-define('search_choice_one_field', 'Choose a Field to Search!');
-define('search_choice_event', 'Choose an Event to Search!');
-define('search_choice_seat_row_nr', 'Choose a Seat/Row to Search!');
+define('tickets_printing', "Tickets are Printing. Please Wait!");
 
-define('options_saved', 'Options Saved!');
+define('funk', "Funk");
 
-define('update_error', 'Update Error!');
-define('user_details_saved_successfully', 'User details successfully updated');
+define('seat_price', "Seat Price");
 
-define('index_admin', 'Home');
-
-define('administration', 'Administration');
+define('dts_month_arr', "January|February|March|April|May|June|July|August|September|October|November|December");
 
-define('tabs-admins_admin', 'User Management');
-define('tabs-events_admin', 'Event Management');
+define('publish_web', "Publish to Webshop");
 
-define('statistic_admin', 'Reporting');
+define('too_low', "Please Enter a Number Larger than 0 !");
 
-define('orders_admin', 'Order Management');
+define('humour', "Humour");
 
-define('template_admin', 'Templates');
+define('export_cc', "Credit Cards");
 
-define('handlings_admin', 'Order Handlings');
+define('without_fee', "Without Fee");
 
-define('search_admin', 'Search');
+define('unpublish_web', "Remove from Webshop");
 
-define('transports_admin', 'Import /Export');
+define('garbage_images', "Garbage images");
 
-define('utilities_admin', 'Utilities');
+define('to_trash', "Sent to Garbage");
 
-define('index_admin_tab', 'Information');
+define('jazz', "Jazz");
 
-define('current_version', 'Version:');
+define('export_cc_title', "Export Credit Card Numbers");
 
-define('infowebversion', 'Server Software');
-define('infophpversion', 'PHP Version');
-define('infomysqlversion', 'MySQL Version');
-define('infomysqldb', 'Database');
-define('infousercount', 'User count:');
-define('infogroupcount', 'Group count:');
-define('infovenuecount', 'Venue count:');
-define('infoeventcount', 'Event count:');
-define('infoadmincount', 'Admin count:');
-
-define('system_summary', 'System Summary');
-
-define('index_admins_count', '<b>Admins:</b> %d, <b>Managers:</b> %d, <b>Pos:</b> %d, <b>TicketTakers:</b> %d');
-define('index_user_count', '<b>POS:</b> %d, <b>Guests:</b> %d, <b>Members:</b> %d/%d/%d');
-define('index_events_count', '<b>Pub:</b> %d, <b>New:</b> %d, <b>Nosale:</b> %d, <b>Trash:</b> %d, <b>Total:</b> %d');
-define('index_ort_count', '%d');
-
-define('owner_tab', 'Merchant Details');
-
-define('merchant_update_title', 'Modify Merchant Information');
-
-define('organizer_name', 'Merchant Name');
-define('organizer_address', 'Address');
-define('organizer_plz', 'Zip');
-define('organizer_ort', 'City');
-define('organizer_state', 'State');
-define('organizer_country', 'Country');
-define('organizer_phone', 'Phone');
-define('organizer_fax', 'Fax');
-define('organizer_email', 'E-Mail');
-define('organizer_currency', 'Currency');
-define('organizer_logo', 'Merchant\'s Logo');
-define('organizer_remove_image', 'Remove Logo');
-
-define('shopconfig_tab', 'Configuration');
-
-define('option_update_title', 'Config Shop Auto-Cleanup settings.');
-
-define('shopconfig_lastrun_int', 'Cleanup check interval (0 = off)');
-define('shopconfig_lastrun', 'Last time checked');
-define('shopconfig_restime', 'Reservation time (0 = off)');
-define('shopconfig_check_pos', 'Check for Unpaid POS Orders?');
-
-define('confirm_yes', 'Yes');
-define('confirm_no', 'No');
-
-define('shopconfig_delunpaid', 'Global Delete Unpaid Orders?');
-define('shopconfig_delunpaid_pos', 'Delete UnPaid POS Orders?');
-
-define('option_others_title', 'Other Options');
-
-define('shopconfig_user_activate', 'Users Checkout Level');
-
-define('act_restrict_cart', 'Restrict Cart to Members');
-define('act_restrict_all', 'Only activated members');
-define('act_restrict_later', 'New members are allowed');
-define('act_restrict_w_guest', 'New members and guests');
-define('act_restrict_quest_only', 'Only guest users');
-
-define('shopconfig_maxres', 'Max tickets to reserve');
-define('shopconfig_altpayment_time', 'Switch to Alt Payment');
-
-define('res_delay', 'Shopping Cart Timeout');
-
-define('cart_delay', 'Database Cart Timeout');
-
-define('res_delay_less_cart', ' < Can not be less than Cart Timeout');
-
-define('admin_login', 'Login Name');
-define('admin_user_tab', 'Administrators');
-define('admin_id', 'Admin ID');
-define('admin_inuse', 'Enabled?');
-define('admin_ismanager', 'Is manager');
-define('admin_user_title', 'System Administrators');
-define('admin_update_title', 'Modify Administrator');
-define('admin_add_title', 'Add System Administrator');
-
-define('spoint_tab', 'POS Offices');
-
-define('pos_user_title', 'Points of Sale');
-define('pos_add_title', 'Add a Point of Sale');
-define('pos_update_title', 'Modify Point of Sale');
-
-define('kasse_name', 'POS Name');
-
-define('user_prefs_print', 'Preferences');
-define('user_prefs_print_pdf', 'Open Orders in Acrobat');
-define('user_prefs_print_pdt', 'Send Orders to Printer');
-define('user_prefs_strict', 'Use Office On fixed PC');
-define('user_prefs_store_now', 'Store cookie now');
-define('user_nickname', 'Nickname');
-
-define('print_warning', 'When you want to directly print the PDF\'s, you need to setup our system.');
-
-define('control_tab', 'Ticket Takers');
-define('control_user_title', 'Ticket Takers');
-define('control_view', 'Ticket Taker');
-define('control_add_title', 'Add Ticket Taker');
-define('control_update_title', 'Modify Ticket Taker');
-define('control_login', 'Login Name');
-define('control_event_ids', 'Authorised Events');
-
-define('reset_to_main', 'Tick_to_reset_to_main_event.');
-
-define('ort_admin_tab', 'Venues');
-define('ort_admin', 'Venues');
-define('ort_title', 'Venues');
-define('ort_add_title', 'Add Venue');
-define('ort_insert_title', 'Add Venue');
-define('ort_update_title', 'Modify Venue');
-define('ort_id', 'Venue ID');
-define('ort_name', 'Venue Name');
-define('ort_address', 'Address');
-define('ort_address1', 'Address 1');
-define('ort_zip', 'Zip');
-define('ort_city', 'City');
-define('ort_state', 'State');
-define('ort_country', 'Country');
-define('ort_phone', 'Phone');
-define('ort_fax', 'Fax');
-define('ort_url', 'Homepage');
-define('ort_pm', 'Googlemaps link');
-define('ort_image', 'Venue Logo');
-
-define('place_maps', 'Seat Charts');
-
-define('edit_pm', 'Modify Seat Chart');
-
-define('pm_id', 'Seat Chart ID');
-define('pm_event_id', 'Event ID');
-define('pm_name', 'Seat Chart Name');
-define('pm_image', 'Seat Chart Image');
-
-define('categories', 'Categories');
-
-define('both', 'Rows/Seats');
-
-define('rows', 'Rows');
-
-define('seat', 'Seats');
-
-define('none', 'None');
-
-define('cat_at', '@');
-define('category_id', 'Category Number');
-define('category_name', 'Category Name');
-define('category_price', 'Category Price');
-define('category_template', 'Template for Tickets');
-define('category_color', 'Color for Category');
-define('category_numbering', 'Category Numbering');
-define('category_numbering_both', 'Rows and Seats Numbered');
-define('category_numbering_rows', 'Only Rows Numbered');
-define('category_numbering_seat', 'Only Seats Numbered (No Rows)');
-define('category_numbering_none', 'Seats w/o Numbers (Open Seating)');
-define('category_size', 'Category Size');
+define('without_cost', "Without Cost");
 
-define('number_taken', 'Seats Sold');
+define('cant_delete_without_id', "Missing record definition");
 
-define('category_data', 'Category Data');
-define('category_new_size_title', 'Change Category Size');
-define('category_new_size', 'New Size');
+define('undefined', "Undefined!");
 
-define('pm_zones', 'Zones');
-define('pm_zone', 'Zone');
-define('pmz_pm_id', 'Seat Chart ID #');
-define('pmz_color', 'Zone Color');
-define('pmz_name', 'Zone Name');
-define('pmz_short_name', 'Zone Nickname');
-define('pmz_id', 'Zone Record Number');
-define('pmz_ident', 'Zone Number');
-define('place_map', 'Seat Chart');
-define('pm_parts', 'Seat Chart Parts');
-define('pm_part', 'Seat Chart Part');
-define('pmp_id', 'Seat Chart Part ID');
-define('pmp_name', 'Seat Chart Part Name');
-define('pmp_width', 'Seat Chart Part Width');
-define('pmp_height', 'Seat Chart Part Height');
-define('pmp_scene', 'Scene Location');
-define('pmp_scene_none', 'None');
-define('pmp_scene_north', 'North');
-define('pmp_scene_east', 'East');
-define('pmp_scene_south', 'South');
-define('pmp_scene_west', 'West');
-define('pmp_shift', 'Shift Rows');
+define('music', "Music");
 
-define('scene_h', '../images/scene_h_en.png');
-define('scene_v', '../images/scene_v_en.png');
+define('export_cc_count', "Credit Card Count");
 
-define('label', 'Label:');
-define('label_type_text', 'Text');
-define('label_type_row_east', 'Row# on Right');
-define('label_type_row_west', 'Row# on Left');
-define('label_type_seat_south', 'Seat# Below');
-define('label_type_seat_north', 'Seat# Above');
-define('label_type_exit', 'Exit');
+define('box_office', "Box Office");
 
-define('seat_numbering', 'Seat Numbering');
+define('ftsmanager_plugin', "FTS hosting manager");
 
-define('autonumber_pmz', 'Automatic numbering');
+define('err_blank_or_allready', "Error, Blank or already in use!");
 
-define('first_row', 'First Row');
+define('opera', "Opera");
 
-define('step_row', 'Row Step');
+define('export_entrant', "Export Attendees");
 
-define('inv_row', 'Invert Rows');
+define('alert', "Alert:");
 
-define('first_seat', 'First Seat');
+define('icon_webpub', "Click to Publish to Webshop");
 
-define('step_seat', 'Seat Step');
+define('valutas', "Common valutas");
 
-define('inv_seat', 'Invert Seat');
+define('compilation_failed', "Compilation Failed!");
 
-define('flip', 'Flip');
+define('other', "Other");
 
-define('keep', 'Keep');
+define('export_entrant_title', "Ticket Status Report");
 
-define('map', 'Chart');
+define('pos_booktickets', "Book Tickets");
 
-define('ort', 'Venue');
-define('ort_plan_nr', 'Number on plan');
+define('icon_webpub_alt', "Publish to Webshop");
 
-define('event_group_tab', 'Event Groups');
-define('event_group_title', 'Event Groups');
-define('event_group_add_title', 'Add an Event Group');
-define('event_group_update_title', 'Modify Event Group');
-define('event_group_id', 'Group ID');
-define('event_group_name', 'Group Name');
-define('event_group_start_date', 'Start Date');
-define('event_group_end_date', 'End Date');
-define('event_group_type', 'Group Type');
+define('pm_mollie_bank_id', "Bank relatie:");
 
-define('festival', 'Festival');
+define('classcatch', "Class Catch:");
 
-define('tournee', 'Tournament');
-define('theatre', 'Theater');
+define('party', "Party");
 
-define('event_group_description', 'Description');
-define('event_group_image', 'Event Group Image');
+define('export_entrant_event', "Choose an Event");
 
-define('unpublish_event_group', 'Unpublish Event Group');
+define('seat_count', "Seat Count:");
 
-define('publish_event_group', 'Publish Event Group');
+define('icon_webunpub', "Click to Remove from Webshop");
 
-define('event_tab', 'Events');
+define('handling_', "Unknown handler");
 
-define('history_tab', 'Archive');
+define('wrong_input_ids', "Wrong Input Id");
 
-define('event_history_title', 'Previous Events');
-define('event_title', 'Active Events');
+define('pop', "Pop");
 
-define('checkbox_all', 'Check/Uncheck All');
+define('export_entrant_order_id', "Order ID");
 
-define('also_sub', 'Subevents also');
+define('pos_order_page', "Order Checkout");
 
-define('event_add_title', 'Add a New Event');
-define('event_edit_title', 'Modify Event');
-define('event_update_title', 'Modify Event');
+define('icon_webunpub_alt', "Remove from Webshop");
 
-define('add_multi', 'Add Sub-Event');
+define('xl_order_place', "Place");
 
-define('event_id', 'Event ID#');
-define('event_name', 'Event Name');
-define('event_pm_ort_id', 'Seat Chart');
+define('file_not_exsist', "File does Not Exist!");
 
-define('agenda_only', 'Agenda Only');
+define('rock', "Rock");
 
-define('event_ort_name', 'Venue Name');
-define('event_rep', 'Repeatability');
-define('event_rep_main', 'Multiple');
-define('event_rep_unique', 'Unique');
+define('export_entrant_fullname', "FullName");
 
-define('main,sub', 'Unique Event');
+define('free_seat', "Seats Available:");
 
-define('event_short_text', 'Event Short Text');
-define('event_text', 'Event Long Text');
-define('event_description', 'Description');
-define('event_url', 'Homepage');
-define('event_date', 'Date');
-define('event_recur_type', 'Re-Occurs');
+define('icon_pospub', "Click to Publish to POS");
 
-define('recure_nothing', 'No');
-define('recure_daily', 'Daily');
+define('xl_handling_payment', "Handled");
 
-define('event_recur_end', 'Event Stops');
-define('event_recur_end_error', 'Date is invalid or older than start date');
+define('username_not_found', "User not registered. Please provide a valid email.");
 
-define('recure_days_selection', 'Days to Exclude');
+define('sports', "Sports");
 
-define('event_time', 'Event Begins');
-define('event_open', 'Event Open');
-define('event_end', 'Event Ends');
-define('event_order_limit', 'Order Limit');
-define('event_template', 'Template for Tickets');
-define('event_type', 'Event Type');
+define('export_entrant_city', "City");
 
-define('ballet', 'Ballet');
-define('blues', 'Blues');
+define('open_event', "Open Event?");
 
-define('sacred', 'Church music');
+define('icon_pospub_alt', "Publish to POS");
 
-define('cinema', 'Cinema');
-define('classics', 'Classical music');
+define('linked_event_managers', "Linked managers");
 
-define('exposition', 'Exposition');
+define('search_choice_one_field', "Choose a Field to Search!");
 
-define('folklore', 'Folklore');
-define('funk', 'Funk');
+define('theater', "Theater");
 
-define('humour', 'Humour');
+define('export_entrant_tickets', "Tickets");
 
-define('jazz', 'Jazz');
+define('actions', "Actions");
 
-define('music', 'Music');
+define('icon_posunpub', "Click to Remove from POS");
 
-define('opera', 'Opera');
-define('other', 'Other');
+define('select_event_group', "Select an Event Group");
+define('search_choice_event', "Choose an Event to Search!");
 
-define('party', 'Party');
-define('pop', 'Pop');
+define('event_image', "Event Image");
+define('export_entrant_price', "Total Due");
 
-define('rock', 'Rock');
+define('timestamp', "Timestamp");
 
-define('sports', 'Sports');
+define('icon_posunpub_alt', "Remove from POS");
 
-define('theater', 'Theater');
+define('group_webshop_ads', "Google ads");
 
-define('event_image', 'Event Image');
-define('event_mp3', 'MP3');
+define('search_choice_seat_row_nr', "Choose a Seat/Row to Search!");
 
-define('undefined_category', 'Category undefined');
+define('event_mp3', "MP3");
+define('export_entrant_totalprice', "Totals");
 
-define('discount_title', 'Discounts');
-define('discount_add_title', 'Add a Discount');
-define('discount_category_id', 'Event Category');
-define('discount_cond', 'Discount Conditions');
-define('discount_update_title', 'Modify Discount');
-define('discount_id', 'Discount ID');
-define('discount_name', 'Discount Name');
-define('discount_type', 'Discount Type');
-define('discount_type_fixe', 'Fixed Discount');
-define('discount_type_percent', 'Percent Discount');
-define('discount_value', 'Discount Value');
+define('cancel_and_delete', "Status Changed to &quot;Cancelled&quot; and Tickets Deleted");
+define('cc_name', "Credit card owner name");
 
-define('event_stats_title', 'Statistics');
+define('google_ad_client', "Google ads client is [pub-...]");
 
-define('show_text_stats', 'Text');
-define('show_grafik_stats', 'Graph');
+define('options_saved', "Options Saved!");
 
-define('event_status', 'Event Status');
-define('event_status_active', 'Active');
-define('event_status_all', 'All');
+define('undefined_category', "Category undefined");
 
-define('orders_handlings_tab', 'Handling');
-define('orders_event_tab', 'Events');
-define('orders_view_asc', 'Sort by Event date: Ascending');
-define('orders_view_desc', 'Sort by Event date: Descending');
-define('order_list_title', 'Orders by Payment Handling');
-define('order_event_list_title', 'Orders by Event');
-define('order_type_ordered', 'Ordered');
-define('order_type_pending', 'Pending');
-define('order_type_cancelled', 'Cancelled');
-define('order_type_reissued', 'Re-issued');
-define('order_type_paid', 'Paid');
-define('order_type_sended', 'Sent');
-define('order_type_reserved', 'Reserved');
+define('export_entrant_seats', "Seats");
 
-define('purge', 'Purge');
+define('order_details', "Order details");
 
-define('order_patron', 'Customer');
-define('order_nr', 'Order #: ');
-define('order_tickets_nr', 'Number of Tickets');
+define('cc_number', "Credit card number");
 
-define('tickets_nr', 'Quantity');
+define('google_ad_slot_left', "Slot ID left ads");
 
-define('order_fee', 'Fee');
-define('order_total_price', 'Total Price');
-define('order_date', 'Order Date');
-define('order_shipment_status', 'Shipment Status');
-define('order_place', 'Order created at');
-define('order_admin', 'Order created by');
+define('update_error', "Update Error!");
 
-define('send', 'Sent');
+define('discount_title', "Discounts");
 
-define('order_payment_status', 'Order Status');
-define('order_paid_total_view', 'Order Total');
-define('order_payment_id', 'Payment ID');
-define('order_status', 'Status');
+define('time', "Time");
 
-define('processed', 'Processed');
+define('order_status_changed', "Order Status Changed Successfully");
 
-define('order_deleted_manual', 'Order Manually cancelled');
-define('order_responce', 'Cancellation Type');
-define('order_responce_date', 'Cancellation Date');
-define('order_delete_now', 'Are you sure to remove this order?');
-define('order_details_tickettab', 'Tickets');
-define('order_details_usertab', 'User');
-define('order_details_logtab', 'Status log');
-define('order_details_notetab', 'Note');
-define('order_statuslog', 'Order status log');
-define('order_note', 'Don\'t forget to save the note.');
-define('order_note_title', 'Note');
-define('order_add_note', 'Add Note');
-define('onote_type', 'Note Type');
-define('on_type_note', 'Generic Note');
-define('on_type_admin', 'Admin Note');
-define('on_type_action', 'Action/ToDo');
-define('on_type_payment', 'Payment Details Note');
-define('on_type_ship', 'Shipping Details Note');
-define('on_type_todo', 'ToDo');
+define('cc_exp', "Expiry date");
 
-define('note', 'Note');
+define('google_ad_slot_right', "Slot ID right ads");
 
-define('admin', 'Administrator');
+define('user_details_saved_successfully', "User details successfully updated");
 
-define('ship', 'Shipping');
+define('discount_add_title', "Add a Discount");
 
-define('pos', 'POS User');
-define('posman', 'POS Manager');
+define('import_admin_title', "Import Data");
 
-define('organizer', 'Organizer');
+define('pos_currenttickets', "Orders Overview");
 
-define('change_status_to_ord', 'Change Status to Ordered?');
-define('change_status_to_send', 'Change Status to Sent?');
-define('change_status_to_no_send', 'Change Status to Not Sent?');
-define('change_status_to_paid', 'Change Status to Paid?');
-define('change_status_to_no_paid', 'Change Status to Not Paid?');
+define('cc_code', "Security code");
 
-define('reissue_order', 'Update this order and re-issue with new tickets?');
-define('reissue_ticket', 'Re-issue the ticket (recalculate unique barcode)? Ticket Nr:');
+define('al_remove_control', "Remove link");
 
-define('legende', 'Explanation');
+define('index_admin', "Home");
 
-define('reserved', 'Reserved');
+define('discount_category_id', "Event Category");
 
-define('ordered', 'Ordered');
+define('import_xml_title', "Import Files");
 
-define('pending', 'Pending');
-define('paid', 'Paid');
+define('pos_yourtickets', "Owned Orders");
 
-define('sended', 'Sent');
+define('error', "error");
 
-define('paid_and_send', 'Paid and Sent');
+define('unpub_success', "Event success unpublished.");
 
-define('cancelled', 'Cancelled');
+define('administration', "Administration");
 
-define('reissue', 'Re-issued');
+define('discount_cond', "Discount Conditions");
 
-define('possible_actions', 'Possible Actions');
+define('import_xml_submit', "Import It!");
 
-define('view_order_details', 'View Details');
+define('pos_alltickets', "All Paid/Sent Orders");
 
-define('print_order', 'Print Order');
+define('select_qty', "Select quantity");
 
-define('change_order_to_ord', 'Mark \'Ordered\'');
+define('handling', "Handling");
 
-define('send_order_post', 'Mark \'Sent\'?');
+define('tabs-admins_admin', "User Management");
 
-define('no_send_order_post', 'Mark \'Not Sent\'');
+define('discount_update_title', "Modify Discount");
 
-define('change_order_to_paid', 'Mark \'Paid\'');
-define('change_order_to_send', 'Mark \'Sent\'');
-define('change_order_to_no_paid', 'Mark \'Not Paid\'');
+define('import_xml', "Event in XML");
 
-define('reissue_order_menu', 'Update this Order and Issue with new tickets.');
+define('pos_paidlist', "Paid orders");
 
-define('cancel_order', 'Mark \'Canceled\' and Delete Tickets');
+define('successfully_add_note', "Note successfully added");
 
-define('templ_System', 'System Emails');
-define('templ_email', 'Emails');
-define('templ_swift', 'Simple Email');
-define('templ_pdf2', 'Html2pdf\'s');
-define('templ_pdf', 'Old Pdf\'s');
-define('template_title', 'Templates');
-define('template_add_title', 'Add a Template');
-define('template_update_title', 'Modify Template');
+define('pmz', "Zone");
 
-define('lang', 'Language');
-define('lang_en', 'English');
+define('tabs-events_admin', "Event Management");
 
-define('email_from', 'From:');
-define('email_to', 'To:');
-define('email_subject', 'Subject');
-define('email_text', 'Text Section');
-define('email_html', 'HTML Section');
+define('discount_id', "Discount ID");
 
-define('template_id', 'ID #');
-define('template_type', 'Type');
-define('template_name', 'Name');
+define('import_xml_file', "Import File");
 
-define('compile_all', 'Compile all');
+define('pos_unsentlist', "UnSent Orders");
+define('please_select', "Please select...");
+define('pmp', "Placemap Part");
 
-define('email_to_name', 'Email to name:');
-define('email_to_email', 'To email address:');
-define('email_from_name', 'Email from name:');
-define('email_from_email', 'From email address:');
-define('emails_cc', 'CC emails:');
-define('emails_bcc', 'BCC emails:');
-define('email_def_lang', 'Default template language:');
-define('email_templates', 'Email templates:');
+define('statistic_admin', "Reporting");
 
-define('remove_group', 'Remove');
+define('discount_name', "Discount Name");
 
-define('template_subject', 'Template language subject');
-define('template_text', 'Template language plain text');
-define('template_html', 'Template language HTML');
+define('import_template', "Templates");
 
-define('send_test', 'Send Test Email');
+define('pos_unpaidlist', "UnPaid List");
 
-define('email_header', 'Email Header');
-define('email_body', 'Email Body');
+define('filter', "Search");
 
-define('fees', 'Fee\'s');
+define('barcode', "Barcode");
 
-define('shipment_fees', 'Shipment fees');
+define('orders_admin', "Order Management");
 
-define('handling_title', 'Order Handling');
-define('handling_add_title', 'Add an Order Handling');
+define('discount_type', "Discount Type");
 
-define('payment_update_title', 'Modify the Payment Type');
+define('import_langauge', "Language Files");
 
-define('handling_update_title', 'Modify the Payment Type');
-define('handling_payment', 'Payment');
+define('pos_reservedlist', "Reserved Orders");
 
-define('cash', 'Cash');
+define('venue_in_use', "This venue is in use.");
 
-define('entrance', 'At the Entrance');
+define('no_template_tags', "email template looks empty");
 
-define('invoice', 'Invoice');
+define('template_admin', "Templates");
 
-define('paypal', 'PayPal');
+define('discount_type_fixe', "Fixed Discount");
 
-define('ideal', 'iDEAL');
+define('import_csv_file', "Import File Name");
 
-define('authorize_aim', 'AIM');
+define('paymentstatus', "Payment Status");
+define('print_both', "Print invoice & ticket");
 
-define('ebs', 'EBS');
-define('email', 'Email');
+define('emailtest', "Send test email");
 
-define('post', 'Post');
+define('handlings_admin', "Order Handlings");
 
-define('google', 'Google');
+define('discount_type_percent', "Percent Discount");
 
-define('handling_shipment', 'Shipment');
-define('handling_sale_mode', 'Selling Method');
+define('langauge', "New Language File Name");
 
-define('www', 'Webshop');
+define('pos_clicktoproc', "Click To Finish Processing!");
 
-define('sp', 'POS');
+define('view_details', "View order details");
 
-define('handling_alt', 'Alt Handling Method');
-define('handling_no_alt', 'Hide');
-define('handling_alt_only', 'Only Alt Handling Method');
-define('handling_expires_min', 'Minutes until OH Cancels for<br> Non-Payment (0 = Never)');
-define('handling_fee_fix', 'Fee Fixed');
-define('handling_fee_percent', 'Fee Percent');
-define('handling_email_template_ord', 'Email to send when Ordered');
-define('handling_email_template_send', 'Email to send when Shipped');
-define('handling_email_template_paid', 'Email to send when Paid');
-define('handling_pdf_template', 'PDF Template for Invoice/Receipt');
-define('handling_pdf_ticket_template', 'PDF Ticket Template');
-define('handling_text_payment', 'Payment Label');
-define('handling_text_shipment', 'Shipment Label');
-define('handling_html_template', 'HTML Template for Explanations');
-define('handling_email_template_ord_incl_pdf', 'Include PDF\'s for Order');
-define('handling_email_template_paid_incl_pdf', 'Include PDF\'s for Paid');
-define('handling_email_template_send_incl_pdf', 'Include PDF\'s for Sent');
-define('handling_email_template_ord_incl_inv_pdf', 'Invoice/Receipt');
-define('handling_email_template_paid_incl_inv_pdf', 'Invoice/Receipt');
-define('handling_email_template_send_incl_inv_pdf', 'Invoice/Receipt');
-define('handling_email_template_ord_incl_ticket_pdf', ' Ticket');
-define('handling_email_template_paid_incl_ticket_pdf', ' Ticket');
-define('handling_email_template_send_incl_ticket_pdf', ' Ticket');
-define('handling_only_manual_send', 'Always manually send email');
+define('testemail_notsend', "Test Email was not send.");
 
-define('pm_paypal_business', 'PayPal Account');
-define('pm_paypal_test', 'PayPal Sandbox');
-define('pm_ideal_merchantid', 'Merchant ID');
-define('pm_ideal_subid', 'Sub ID');
-define('pm_ideal_issuer', 'Issuing Bank');
-define('pm_ideal_test', 'Ideal Sandbox');
-define('pm_ideal_key', 'Key');
-define('pm_ideal_keypass', 'Key Password');
-define('pm_ideal_pcert', 'Pcert');
-define('pm_ideal_certficate', 'Certificate');
-define('pm_google_merchant_id', 'Merchant ID');
-define('pm_google_merchant_key', 'Key');
-define('pm_google_sandbox', 'Sandbox');
-define('pm_google_callback_link', 'Call Back Link');
-define('pm_on_google_cancel_cancel_order', 'Google Cancellation');
-define('pm_on_user_cancel_cancel_order', 'User Cancellation');
-define('pm_on_refund_cancel_order', 'Refund');
-define('pm_ebs_accountid', 'Account ID');
-define('pm_ebs_seckey', 'Security Key');
-define('pm_ebs_test', 'EBS Test');
-define('pm_authorize_aim_login', 'AIM Login');
-define('pm_authorize_aim_txnkey', 'Transaction Key');
-define('pm_authorize_aim_test', 'AIM Test');
-define('patron_tab', 'Customer');
+define('search_admin', "Search");
 
-define('search_title_user', 'Search for Customer');
-define('sale_point', 'POS');
+define('discount_value', "Discount Value");
 
-define('guest', 'Guest');
+define('orphan_tab', "Orphans");
 
-define('search_result', 'Search Result');
-define('seat_tab', 'Seat');
-define('seat_status', 'Status');
-define('seat_code', 'Barcode');
-define('search_title_place', 'Search Seats');
+define('pos_clicktosent', "Click To Set to Sent!");
 
-define('event_list', 'Event List');
+define('cannot_find_order', "Cannot find order");
 
-define('seat_row_nr', 'Row Number');
-define('seat_nr', 'Seat Number');
+define('testemail_was_send_to', "A test email was send to ");
+define('transports_admin', "Import /Export");
 
-define('choice_please', 'Choose Please...');
-define('category', 'Category');
+define('event_stats_title', "Statistics");
 
-define('place', 'Seat');
-define('price', 'Price');
+define('pos_deleteorder', "Delete Order?");
 
-define('bs', 'Ord.#');
+define('main', "Main event");
 
-define('status', 'Status');
+define('cant_set_new_password', "Problem with changing the password.");
 
-define('order_tab', 'Order');
+define('utilities_admin', "Utilities");
 
-define('search_title_order', 'Search Orders');
+define('show_text_stats', "Text");
 
-define('barcode_tab', 'Barcode');
+define('garbage_tab', "Garbage");
 
-define('search_title_codebar', 'Search Barcodes');
+define('pos_handlinginfo', "Handling Info");
 
-define('codebar', 'Barcode');
+define('control', "Ticket Taker");
 
-define('export_admin_title', 'Export Data');
-define('export_xml_event_title', 'Export Data');
-define('export_xml_event_submit', 'Export It!');
-define('export_xml_event_file', 'Filename');
-define('export_xml_calendar', 'Calendar');
-define('export_xml_calendar_event', 'Calendar');
-define('export_templates', 'Templates');
-define('export_template_id', 'Choose Template ');
-define('export_template_file', 'Filename');
-define('export_submit', 'Export It!');
-define('export_xml_event', 'Event in XML');
-define('export_xml_event_event', 'Choose an Event');
-define('export_xl', 'Sales Data');
+define('no_category_selected', "No Category selected");
 
-define('xl_view_title', 'Sales Data');
-define('xl_start', 'Date of sales');
-define('xl_end', 'End Date');
+define('index_admin_tab', "Information");
 
-define('generate_xl', 'Generate Sales Worksheet');
+define('show_grafik_stats', "Graph");
 
-define('seat_id', 'Ticket Number');
-define('seat_price', 'Seat Price');
+define('garbage', "Garbage");
 
-define('export_cc', 'Credit Cards');
-define('export_cc_title', 'Export Credit Card Numbers');
-define('export_cc_count', 'Credit Card Count');
-define('export_entrant', 'Export Attendees');
-define('export_entrant_title', 'Ticket Status Report');
-define('export_entrant_event', 'Choose an Event');
-define('export_entrant_order_id', 'Order ID');
-define('export_entrant_fullname', 'FullName');
-define('export_entrant_city', 'City');
-define('export_entrant_tickets', 'Tickets');
-define('export_entrant_price', 'Total Due');
-define('export_entrant_totalprice', 'Totals');
-define('export_entrant_seats', 'Seats');
+define('pos_enternote', "Notes about order and tickets:<br><b>Remember to save after any changes!!</b>");
 
-define('time', 'Time');
+define('ticket', "ticket");
 
-define('import_admin_title', 'Import Data');
-define('import_xml_title', 'Import Files');
-define('import_xml_submit', 'Import It!');
-define('import_xml', 'Event in XML');
-define('import_xml_file', 'Import File');
-define('import_template', 'Templates');
-define('import_langauge', 'Language Files');
-define('import_csv_file', 'Import File Name');
+define('availability', "View Availability");
 
-define('langauge', 'New Language File Name');
+define('current_version', "Version:");
 
-define('orphan_tab', 'Orphans');
+define('event_status', "Event Status");
+define('empty_trash', "Empty");
 
-define('Record_Orphan_Test', 'Orphaned Database Records');
+define('pos_goback', "Click to go back");
 
-define('garbage_tab', 'Garbage');
-define('garbage', 'Garbage');
+define('failed_send_to', "Failed to send an Email.");
 
-define('empty_trash', 'Empty');
+define('event_sales_closed_header', "Ticket sales are not open. You can view availability by clicking View Availability");
 
-define('unused_guests', 'Unused Guests');
+define('infowebversion', "Server Software");
 
-define('order', 'Orders');
+define('event_status_active', "Active");
 
-define('emaillog_tab', 'Email Log');
-define('email_log_list_title', 'Email List');
-define('el_timestamp', 'Date Sent');
-define('el_action', 'Action');
-define('el_email_to', 'Addressed To:');
-define('el_failed', 'Failed');
-define('el_received', 'Received');
-define('el_log', 'Return Log');
-define('el_bad_emails', 'Bad Emails');
-define('el_email_message', 'Email Message');
+define('unused_guests', "Unused Guests");
 
-define('backup_tab', 'Backup');
-define('backup_title', 'Back Up Database');
+define('pos_nextorder', "Next Order");
 
-define('comp_method', 'Compression Method');
-define('comp_level', 'Compression Level');
+define('admin_status_control', "Ticket taker");
 
-define('bzip2', 'BZip2');
+define('event_ordering_header', "Ticket sales are not open. You can view availability by choosing a category");
 
-define('gzip', 'GZip');
+define('infophpversion', "PHP Version");
 
-define('without_compression', 'Without Compression');
+define('event_status_all', "All");
 
-define('change_event', 'Change Event');
-define('check', 'Check');
-define('checked', 'Checked');
-define('check_success', 'Ticket Check OK!');
-define('com', 'Ordered');
-define('control_events_list', 'Events');
+define('order', "Orders");
 
-define('free', 'Free');
+define('pos_nextunpaid', "Next UnPaid Order");
 
-define('not_valid_event', 'Event is Not Valid');
+define('admin_status_pos', "POS User");
 
-define('place_not_commanded', 'Seat is Not Ordered');
-define('place_only_reserved', 'Seat Reserved, but Not Paid');
-define('place_status_not_updated', 'Error: Seat Status Not Updated');
-define('place_without_nr', 'Seat Without Number');
+define('event_ordering_sales_closed_no_seatmap', "No seat map available for this category.");
 
-define('ticket_already_checked', 'Ticket Already Checked');
+define('infomysqlversion', "MySQL Version");
 
-define('header_ticket_taker', 'Ticket Takers');
+define('orders_handlings_tab', "Handling");
 
-define('no_event_sets', 'There are no events scheduled at this moment, please check back later.');
-define('no_event_groups_sets', 'There are no festivals scheduled at this moment, please check back later.');
+define('emaillog_tab', "Email Log");
 
-define('act_name', 'Activate Account');
-define('act_done', 'Account Activated');
-define('act_enter_title', 'Kindly enter your activation code below.');
-define('act_enter_code', 'Complete your activation by entering the activation code sent to you by Email in the box below, or click on the link in the Email.<br/>If you have already activated your account, please press Activate again');
-define('act_code', 'Activation code');
-define('act_send', 'Activate');
-define('act_notarr', 'Resend Activation');
+define('pos_nextunsent', "Next UnSent Order");
 
-define('resend_activation', 'Resend Activation');
+define('admin_status_posman', "POS Manager");
 
-define('act_is_sent', 'Your Activation Email has been sent to your inbox.');
-define('act_sent', 'Your activation email has been sent to your inbox. Please check your Email for the activation code or link.');
-define('act_resent', 'Your activation email has been resent to your inbox. Please check your Email for the activation code or link.');
-define('act_mess_line', 'Please check your email to activate your account.<br>');
-define('act_mess_line_nm', '<b>You may complete this order without activating your account.</b><br>
-          					Please check your email to activate your account for future purchases.<br>');
-define('act_note', 'Enter your e-mail address. Click on \'Resend Activation\' and a new activation email will be sent to your e-mail address.');
-define('act_norecived', 'If you have not received an activation email within a few hours, please click this <strong>link</strong>');
+define('event_prices_sales_closed_footer', "Tickets are not available at this moment.");
 
-define('success_activate', 'You have successfully activated your account. You are now logged in.');
+define('infomysqldb', "Database");
 
-define('agb_name', 'General Terms of Sale');
-define('agb_info', 'Put your sales conditions in \'agb.html\'');
+define('orders_event_tab', "Events");
 
-define('calendar', 'Calendar');
-define('cart_empty', 'Your Cart is Empty.');
-define('cart_empty_or_invalid', 'The cart is empty or invalid. Please add tickets.');
+define('email_log_list_title', "Email List");
 
-define('total', 'Total');
+define('pos_processorder', "Processed Order? The Order ID and Ticket IDs been noted?");
 
-define('expires_in', 'Expires in');
+define('admin_status_organizer', "Organizer");
 
-define('total_price', 'Total Price');
+define('event_sales_open', "Event Sales Open");
 
-define('shopcart', 'Shopping Cart');
+define('infousercount', "User count:");
 
-define('no_tick_res', 'You have no reserved tickets.');
+define('orders_view_asc', "Sort by Event date: Ascending");
 
-define('valid_tickets', 'Valid Tickets:');
+define('el_timestamp', "Date Sent");
 
-define('expired_tickets', 'Expired Tickets:');
+define('pos_reorder_info', "To Order Tickets Click below:<br>WARNING old order is cancelled on Re-Order!");
 
-define('tick_exp_in', 'Expiring in ');
+define('admin_status_accountant', "Accountant");
 
-define('x_tick', 'x Tickets');
+define('event_sales_close', "Event Sales Close");
 
-define('tot_tick_price', 'Total Ticket Price:');
+define('infogroupcount', "Group count:");
 
-define('row', 'Row');
+define('orders_view_desc', "Sort by Event date: Descending");
 
-define('normal', 'Normal');
+define('el_action', "Action");
 
-define('expired', 'EXPIRED');
+define('pos_ticketready', "The tickets have there ID and Order ID on them and are ready to to be posted?");
 
-define('minutes', 'min.');
+define('admin_status_admin', "Administrator");
 
-define('selected_total', 'Selected Ticket Total in ');
-define('shopping_cart', 'Shopping cart');
+define('reservtime', "Time left");
 
-define('cart_cont_mess', 'Please check your order. You have a limited time before your reserved tickets are released back to sale. Please, either order more tickets or continue to checkout.
-	<br><br>To change your tickets \'Remove\' the ones you have reserved and click \'Order More Tickets\'.');
-define('cat_description', 'Seating Sections and Prices');
+define('infovenuecount', "Venue count:");
 
-define('tickets_available', 'Availability');
+define('order_list_title', "Orders by Payment Handling");
 
-define('category_sold', 'Sold out');
+define('el_email_to', "Addressed To:");
 
-define('discount_for', 'With Discount:');
+define('shipmentstatus', "Shipment Status");
 
-define('prices_in', 'Prices in');
-define('please_login', 'Please Login or Register to Reserve Seats.');
+define('admin_status_tickettaker', "Tickettaker");
 
-define('select_category', 'Select a Category');
+define('payreservenow', "Pay reservation");
 
-define('order_limit', 'Order Limit');
-define('old_event', 'This event is expired and can not be ordered anymore.');
+define('infoeventcount', "Event count:");
 
-define('select_seat_head', 'Select your seat(s)');
-define('select_seat', '1. Select your seat(s)');
-define('select_seat_pos', 'Select your seat(s) for ');
+define('order_event_list_title', "Orders by Event");
 
-define('click_on_reserve', '2. Click on \'Reserve\'');
+define('el_failed', "Failed");
 
-define('number_seats', 'Number of seats');
+define('next_order_id', "Next Order ID");
 
-define('only_rows_numbered', 'Only rows numbered');
-define('order_reg', 'Order Registered');
+define('admin_status_manager', "Manager");
 
-define('tnx_order_mess', 'Thank you very much! Your order was registered. To pay for your order follow the proccess below. ');
+define('export_eventbarcodes_seat', "Seat");
 
-define('shopping_cart_check_out', 'Select Payment & Shipment Method');
+define('infoadmincount', "Admin count:");
 
-define('handling_cont_mess', 'Check your tickets, Check your details and then select your payment option and click &quot;Order&quot;.');
-define('handlings', 'Payment Methods');
+define('order_type_ordered', "Ordered");
 
-define('payment', 'Payment');
+define('el_received', "Received");
 
-define('shipment', 'Shipment');
+define('cancel_ticket', "Cancel Ticket");
 
-define('order_not_found_or_created', 'Cannot proceed with order.');
+define('role_not_allowed', "Role not allowed.");
 
-define('limit', 'Unfortunately, you have exceeded the amount of allowed reserved tickets.<br> To check your orders click <a href=\'index.php?action=person_orders\'>here</a>.');
+define('export_eventbarcodes_seat_free', "Free");
 
-define('orclick', ' Or Click to:');
+define('system_summary', "System Summary");
 
-define('pay_accept', 'Payment Accepted');
-define('pay_refused', 'Payment Refused');
-define('pay_reg', 'Congrats! Your order was successfully made.');
-define('pay_reg_desc', 'Your electronic ticket has been sent to your email address.<br/><br/> Please make sure you have a printed copy to present when collecting your physical ticket.<br/><br/><span>Note: if you don\'t find your electronic ticket in your inbox please check your Spam/Junk folder or <a href=\'contact.php\'>contact us</a>. To avoid our emails being seen as junk, please add our \'From\' address to your Address Book.</span>');
-define('pay_error', 'Payment Declined</p><p>Your online transaction has been declined by your bank. Please read the following reasons why this could have happened.<br/><br/><ul><li>1.  Insufficient funds in your bank account.</li><li>2.  Your bank has declined the payment due to \'Stop Payments\' as a precautionary measure against fraudulent credit card use.</li><li>3.  The credit card details were entered incorrectly.</li></ul><br/></p><p>If you are sure the credit card details are correct please try again later or contact us at {$organizer_email} for further assistance. Please accept our apologies for any inconvenience caused by the error when completing your ticket purchase.');
+define('order_type_pending', "Pending");
 
-define('trx_id', 'Transaction ID');
+define('el_log', "Return Log");
 
-define('orderdeleted', 'Order Deleted');
+define('reissued', "Re-issued");
 
-define('printinvoice', 'Print Invoice');
-define('printtickets', 'Print Tickets');
+define('error_nosizediff', "No new size given.");
 
-define('free_event', 'Free Tickets');
+define('select_seats_first', "Select seats first");
 
-define('discounts', 'Discounts');
+define('index_admins_count', "<b>Admins:</b> %d, <b>Managers:</b> %d, <b>Pos:</b> %d, <b>TicketTakers:</b> %d");
 
-define('place_nr', 'Seat');
+define('order_type_cancelled', "Cancelled");
 
-define('unassigned_seat', 'Unassigned');
+define('el_bad_emails', "Bad Emails");
+define('exist_user', "Existing");
 
-define('each', 'per ticket.');
+define('category_nosale_size', "Category Size");
 
-define('shop', 'Order Tickets');
-define('shop_main', 'Select Event');
-define('shop_info', 'Check tickets are available for the desired Category then click on &quot;Buy Tickets&quot; to continue.');
-define('shop_info_main', 'Select a event below for the day for which you wish to purchase tickets.');
-define('shop_condition', 'Conditions: Information collected will only be stored to handle shipping and payment.');
-define('shop_no_event', 'Sorry but the event you are looking for, does not exist, has expired or been removed.');
+define('select_seats', "Select seats");
 
-define('from', 'From the');
+define('index_user_count', "<b>POS:</b> %d, <b>Guests:</b> %d, <b>Members:</b> %d/%d/%d");
 
-define('choose_event', 'Please select the event for the day you wish to book from the list below:');
+define('order_type_reissued', "Re-issued");
 
-define('doors_open', 'Doors Open');
-define('dates_localities', 'Dates and Locations');
+define('el_email_message', "Email Message");
 
-define('various_dates', 'Multiple Dates');
-define('venue', 'Location');
+define('new_partron', "New");
 
-define('no_sub_events', 'There are no sub-events currently available.');
-define('no_categories_available', 'There are currently no categories currently available online. Contact the Box Office direct.');
+define('plugin_install_title', "Plugins");
 
-define('event_groups', 'Event Groups');
-define('et_church', 'Church Music');
-define('et_cinema', 'Cinema');
-define('et_classics', 'Classical Music');
-define('et_expo', 'Expo');
-define('et_folk', 'Folk');
-define('et_humour', 'Humour');
-define('et_jbf', 'Jazz/Blues/Funk');
-define('et_music', 'Music');
-define('et_opbal', 'Opera/Ballet');
-define('et_other', 'Other');
-define('et_party', 'Party');
-define('et_pr', 'Pop/Rock');
-define('et_theater', 'Theatre');
+define('search_user_details', "User information");
 
-define('forgot_pwd', 'Forgot Password ?');
+define('index_events_count', "<b>Pub:</b> %d, <b>New:</b> %d, <b>Nosale:</b> %d, <b>Trash:</b> %d, <b>Total:</b> %d");
 
-define('pwd_forgot', 'Forgotten your Password?');
+define('order_type_paid', "Paid");
 
-define('forgot_password', 'Forgotten your Password?');
-define('forgot_password_ok', 'Your password has been reset');
-define('forgot_password_ok_desc', 'OK ! We have generated a new password for you and sent it to your email.');
+define('backup_tab', "Backup");
 
-define('pwd_err', 'User not found or other problem occurred');
-define('pwd_is_sent', 'Your new password was sent to your e-mail');
-define('pwd_note', 'Enter your e-mail address here. Click on \'Send Password\' and a new password will be emailed to you');
+define('open_with_acrobat', "Open Orders in Acrobat");
 
-define('helpme', 'Help information');
+define('plugin_name', "Pluginname");
 
-define('up_events', 'Upcoming Events');
+define('tickettaker_change_event', "Change Event");
 
-define('eventlist_info', 'Please select an upcoming event from below.');
+define('index_ort_count', "%d");
 
-define('orders', 'Orders');
-define('order_summary', 'Order Summary');
+define('order_type_sended', "Sent");
 
-define('personal_orders', 'Personal Orders');
+define('backup_title', "Back Up Database");
 
-define('number_tickets', 'Number of tickets');
+define('preferences', "Preferences");
+define('plugin_info', "Plugin information");
 
-define('userid', 'User Id');
+define('tickettaker_logout', "Logout");
 
-define('buytimeleft', 'You have ~DAYS~ Days, ~HOURS~ Hours, ~MINS~ Mins, ~SECS~ Seconds left to confirm your order!');
+define('owner_tab', "Merchant Details");
+define('order_type_reserved', "Reserved");
 
-define('autocancel', 'After this time your order is automatically cancelled!');
+define('comp_method', "Compression Method");
 
-define('ordertickets', 'To Order Tickets Click below:');
+define('send_orders_printer', "Send Orders to Printer");
 
-define('reserv_cancel', 'WARNING this is a one way process!');
+define('plugin_myversion', "Version number");
 
-define('notpaid', 'Not Paid');
+define('tickettaker_scan', "Scan tickets");
 
-define('sold', 'Sold');
+define('merchant_update_title', "Modify Merchant Information");
 
-define('manual_payment', 'Set to Paid: ');
+define('purge', "Purge");
 
-define('payhere', '<br><br>To Pay Now, Check Here:');
+define('comp_level', "Compression Level");
 
-define('notsent', 'Not Sent');
+define('select_country', "Select Country...");
 
-define('sent', 'Sent');
+define('plugin_priority', "Priority");
 
-define('go_back', 'Click Here to Go Back');
+define('tickettaker_search', "Search");
 
-define('id', 'ID');
+define('organizer_name', "Merchant Name");
+define('order_patron', "Customer");
 
-define('zone', 'Zone');
+define('bzip2', "BZip2");
 
-define('discount', 'Discount');
+define('eph_cash_confirm', "The order is created, press &quot;Pay&quot; to continue.");
 
-define('paytimeleft', 'You have ~DAYS~ Days, ~HOURS~ Hours, ~MINS~ Mins and ~SECS~ Seconds to pay for your order!');
-define('paytimeforever', 'You have to pay for your order, before the start of the event! ');
-define('pers_orders', 'Current / Previous Order');
+define('plugin_priority_5', "5");
 
-define('options', 'Options');
+define('search_order_id_header', "Order #");
 
-define('pers_cancel', 'Cancelled');
-define('pers_ord', 'Ordered/Unpaid');
-define('pers_page', 'Personal Page');
-define('pers_paid', 'Paid');
-define('pers_reissue', 'Re-issued');
-define('pers_res', 'Reserved');
-define('pers_send', 'Sent');
-define('pers_unknown', 'Unknown Status - Contact Admin');
-define('personal', 'Personal Details');
-define('pers_mess', 'To change your details please click the [Edit] button below.');
-define('pers_mess2', 'To change or see your orders in more detail please click <a href=\'index.php?personal_page=orders\'>Here</a><br><br>Only the last 6 orders are shown here.');
-define('payment_status', 'Payment Status');
+define('organizer_address', "Address");
+define('order_nr', "Order #: ");
 
-define('shipment_status', 'Shipment Status');
+define('gzip', "GZip");
 
-define('program', 'Program');
+define('page_format_default', "Default");
+define('plugin_priority_4', "4");
 
-define('div_dates', 'Multiple Dates');
+define('search_order_date_header', "Date");
 
-define('your_addr', 'Shipment details');
+define('organizer_plz', "Zip");
+define('order_tickets_nr', "Number of Tickets");
 
-define('confirmemail', 'Confirm E-mail Address');
+define('without_compression', "Without Compression");
 
-define('login', 'Login name');
+define('page_format_std', "Standard");
+define('plugin_priority_3', "3");
 
-define('memberinfo', 'Please enter your details below. To buy tickets you are required to sign up, it is recommend that you sign up before you reserve tickets.');
+define('search_user_header', "Patron");
 
-define('register', 'Register');
+define('organizer_ort', "City");
 
-define('alreadymember', 'Already a Member?');
-define('alreadymembertext', 'Sign in to the site with your username and password on your left.');
+define('tickets_nr', "Quantity");
 
-define('becomemember', 'Become a Member');
+define('change_event', "Change Event");
 
-define('pers_info', 'Customer Information');
+define('page_format_custom', "Custom");
+define('plugin_priority_2', "2");
 
-define('user_notice', 'To order your tickets please complete the following fields and click on &quot;Continue&quot;. Fields with (*) are mandatory. This information will stay confidential. We will not give out your information or sell it to others. You can also choose to become a member and never fill this form again.');
+define('search_address_header', "Address");
 
-define('becomememberorguest', 'Register as Member or Guest');
-define('becomeguest', 'Register as Guest');
+define('organizer_state', "State");
+define('order_fee', "Fee");
 
-define('guest_info', 'Fill your details here, so that the ticket can be sent to you.
-					 <br> Already a regular customer? Fill at the left side, your email address and password.');
+define('check', "Check");
 
-define('pwd_min', ' (min 6 letters)');
+define('page_orientation_landscape', "Landscape");
+define('plugin_priority_1', "1");
 
-define('user_nospam', 'Security Code');
+define('search_zip_header', "Zip");
 
-define('nospam_info', 'Enter this code >>>');
+define('organizer_country', "Country");
+define('order_total_price', "Total Price");
 
-define('agrement', 'I have read and agree to the General Terms of Sale.');
+define('checked', "Checked");
 
-define('newsletter', 'I would like to receive Weekly Virgin Megastore Mail');
+define('page_orientation_portrait', "Portrait");
+define('plugin_enabled', "Enabled");
 
-define('mayuse', 'I agree that {\\$organizer_name} may use my details to send me information about future events and other {\\$organizer_name} related matters, and that they will not pass on my details to any 3rd party.');
-define('member_info', 'Please enter your email address and password');
+define('search_city_header', "City");
 
-define('personaldetails', 'Personal Details');
+define('organizer_phone', "Phone");
+define('order_date', "Order Date");
 
-define('addressdetails', 'Address Details');
+define('check_success', "Ticket Check OK!");
 
-define('contactdetails', 'Contact Details');
+define('place_row', "Row");
+define('plugin_protected', "Protected plugin");
 
-define('memberpasswords', 'Passwords');
+define('search_country_header', "Country");
 
-define('securitytc', 'Security and Terms');
+define('organizer_fax', "Fax");
+define('order_shipment_status', "Shipment Status");
 
-define('prg_order', 'Order');
-define('prg_seat', 'Select Seat');
-define('prg_discounts', 'Select Discounts');
-define('prg_review', 'Cart');
-define('prg_signin', 'Register');
-define('prg_payment', 'Select Payment');
-define('prg_complete', 'Complete Order');
+define('com', "Ordered");
 
-define('no_handling_selected', 'No handling method selected.');
-define('noting_checkout', 'There is nothing to checkout!!!');
-define('no_useraddress_selected', 'No user address selected.');
+define('place_seat', "Seat");
+define('plugin_allow_uninstall', "Are you sure to uninstall this plugin?");
 
-define('error_missingcategorytype', 'Missing category numbering type');
-define('error_discountnotfound', 'Discount not found');
-define('event_sold', 'Event sold out');
+define('search_order_status_header', "Status");
 
-define('dts_month_arr', 'January|February|March|April|May|June|July|August|September|October|November|December');
+define('organizer_email', "E-Mail");
+define('order_place', "Order created at");
 
-define('without_fee', 'Without Fee');
-define('without_cost', 'Without Cost');
+define('control_events_list', "Events");
 
-define('box_office', 'Box Office');
+define('payment_cc', "Credit Card");
 
-define('alert', 'Alert:');
+define('discount_www_deactivate', "Deactivate this Discount for the webshop?");
 
-define('pos_booktickets', 'Book Tickets');
+define('search_seat_id_header', "Seat #");
 
-define('seat_count', 'Seat Count:');
+define('organizer_currency', "Currency");
+define('order_admin', "Order created by");
 
-define('pos_order_page', 'Order Checkout');
+define('free', "Free");
 
-define('free_seat', 'Seats Available:');
+define('payment_post', "Post");
 
-define('open_event', 'Open Event?');
+define('discount_pos_deactivate', "Deactivate this Discount for the Points of Sale?");
 
-define('actions', 'Actions');
+define('search_event_name_header', "Event");
 
-define('timestamp', 'Timestamp');
+define('organizer_logo', "Merchant's Logo");
 
-define('cancel_and_delete', 'Status Changed to &quot;Cancelled&quot; and Tickets Deleted');
+define('send', "Sent");
 
-define('order_details', 'Order details');
-define('order_status_changed', 'Order Status Changed Successfully');
+define('not_valid_event', "Event is Not Valid");
 
-define('pos_currenttickets', 'Orders Overview');
-define('pos_yourtickets', 'Owned Orders');
-define('pos_alltickets', 'All Paid/Sent Orders');
-define('pos_paidlist', 'Paid orders');
-define('pos_unsentlist', 'UnSent Orders');
-define('pos_unpaidlist', 'UnPaid List');
-define('pos_reservedlist', 'Reserved Orders');
-define('paymentstatus', 'Payment Status');
-define('pos_clicktoproc', 'Click To Finish Processing!');
-define('pos_clicktosent', 'Click To Set to Sent!');
-define('pos_deleteorder', 'Delete Order?');
-define('pos_handlinginfo', 'Handling Info');
-define('pos_enternote', 'Notes about order and tickets:<br><b>Remember to save after any changes!!</b>');
-define('pos_goback', 'Click to go back');
-define('pos_nextorder', 'Next Order');
-define('pos_nextunpaid', 'Next UnPaid Order');
-define('pos_nextunsent', 'Next UnSent Order');
-define('pos_processorder', 'Processed Order? The Order ID and Ticket IDs been noted?');
-define('pos_reorder_info', 'To Order Tickets Click below:<br>WARNING old order is cancelled on Re-Order!');
-define('pos_ticketready', 'The tickets have there ID and Order ID on them and are ready to to be posted?');
+define('paypal_pay', "Make payments with PayPal - it's fast, free and secure!");
 
-define('shipmentstatus', 'Shipment Status');
+define('discount_www_activate', "Activate this Discount for the webshop?");
 
-define('next_order_id', 'Next Order ID');
+define('search_category_name_header', "Category");
 
-define('cancel_ticket', 'Cancel Ticket');
+define('organizer_remove_image', "Remove Logo");
+define('order_payment_status', "Order Status");
 
-define('reissued', 'Re-issued');
+define('place_not_commanded', "Seat is Not Ordered");
+define('pm_title', "Charts");
 
-define('exist_user', 'Existing');
+define('discount_pos_activate', "Activate this Discount for the Points of Sale?");
 
-define('new_partron', 'New');
+define('search_pmz_name_header', "Zone");
+define('shopconfig_tab', "Configuration");
 
-define('open_with_acrobat', 'Open Orders in Acrobat');
+define('order_paid_total_view', "Order Total");
 
-define('preferences', 'Preferences');
+define('place_only_reserved', "Seat Reserved, but Not Paid");
 
-define('send_orders_printer', 'Send Orders to Printer');
-define('select_country', 'Select Country...');
+define('tmp_receipt', "Receipt");
 
-define('eph_cash_confirm', 'The order is created, press &quot;Pay&quot; to continue.');
+define('discount_www_activated', "Active in the webshop");
 
-define('page_format_default', 'Default');
-define('page_format_std', 'Standard');
-define('page_format_custom', 'Custom');
-define('page_orientation_landscape', 'Landscape');
-define('page_orientation_portrait', 'Portrait');
-define('place_row', 'Row');
-define('place_seat', 'Seat');
-define('payment_cc', 'Credit Card');
-define('payment_post', 'Post');
-define('paypal_pay', 'Make payments with PayPal - it\'s fast, free and secure!');
-define('pm_title', 'Charts');
+define('search_place_header', "Seat");
 
-define('tmp_receipt', 'Receipt');
-define('tmp_invoice', 'Invoice');
-define('tmp_sold_to', 'Sold To:');
-define('tmp_order_date', 'Order Date');
-define('tmp_order_number', 'Order Number');
-define('tmp_order_method', 'Order Method');
-define('tmp_shipping_method', 'Shipping Method ');
-define('tmp_payment_method', 'Payment Method');
-define('tmp_description', 'Description');
-define('temp_quantity', 'Qty.');
-define('tmp_category', 'Category ');
-define('tmp_discounts', 'Discounts');
-define('tmp_price', 'Price');
-define('tmp_total', 'Total ');
-define('tmp_subtotal', 'SubTotal:');
-define('tmp_fee', 'Handling Fee:');
-define('tmp_order_total', 'Total:');
-define('tmp_thank_you', 'Thank You!');
-define('tmp_inv_message', 'Your tickets have been reserved. Please pay this invoice within 10 minutes.');
-define('tmp_flourish', ' Presents');
-define('tmp_venue', 'Location Details');
-define('tmp_date_time', 'Date and Time');
-define('tmp_event_date', 'Event Date:');
-define('tmp_start_time', 'Start Time: ');
-define('tmp_open_time', 'Doors Open: ');
-define('tmp_section', 'Seating Section');
-define('tmp_zone', 'Zone:');
-define('tmp_row', 'Row #: ');
-define('tmp_seat', 'Seat#: ');
-define('tmp_details', 'Ticket Details');
-define('tmp_type', 'Type: ');
-define('tmp_discount', 'Discount: ');
-define('tmp_conditions', '<b>NOTE TO PURCHASER: TREAT THIS E-TICKET AS YOU WOULD ANY OTHER VALUABLE OR CASH. YOU WILL NEED TO PRINT THIS AND PRESENT IT WHEN COLLECTING YOUR PHYSICAL TICKET.</b>
+define('option_update_title', "Config Shop Auto-Cleanup settings.");
+define('order_payment_id', "Payment ID");
+
+define('place_status_not_updated', "Error: Seat Status Not Updated");
+
+define('tmp_invoice', "Invoice");
+
+define('discount_pos_activated', "Active in the Points of Sale");
+
+define('search_seat_status_header', "Status");
+define('shopconfig_lastrun_int', "Cleanup check interval (0 = off)");
+
+define('order_status', "Status");
+
+define('place_without_nr', "Seat Without Number");
+
+define('tmp_sold_to', "Sold To:");
+
+define('discount_pos_deactivated', "Deactive in the Points of Sale");
+
+define('checkin_ticket', "Are you sure to checkin this ticket?");
+
+define('shopconfig_lastrun', "Last time checked");
+
+define('processed', "Processed");
+
+define('ticket_already_checked', "Ticket Already Checked");
+define('tmp_order_date', "Order Date");
+
+define('discount_www_deactivated', "Deactive in the webshop");
+
+define('checkin', "Checkin");
+
+define('date_format', "%A - %B %e, %Y");
+
+define('shopconfig_restime', "Reservation time (0 = off)");
+
+define('order_deleted_manual', "Order Manually cancelled");
+
+define('header_ticket_taker', "Ticket Takers");
+
+define('tmp_order_number', "Order Number");
+
+define('handling_www_deactivate', "Deactivate this handling for the webshop?");
+
+define('search_result_none', "No search result for this selection.");
+
+define('time_format', "%I:%M %p");
+
+define('shopconfig_check_pos', "Check for Unpaid POS Orders?");
+
+define('order_responce', "Cancellation Type");
+
+define('no_event_sets', "There are no events scheduled at this moment, please check back later.");
+
+define('tmp_order_method', "Order Method");
+
+define('handling_pos_deactivate', "Deactivate this handling for the Points of Sale?");
+
+define('checkout_expired', "The tickets in you cart are expired \\nand will be removed from the cart.");
+
+define('admin_date_format', "Y-m-d");
+
+define('confirm_yes', "Yes");
+
+define('order_responce_date', "Cancellation Date");
+
+define('no_event_groups_sets', "There are no festivals scheduled at this moment, please check back later.");
+
+define('tmp_shipping_method', "Shipping Method ");
+
+define('handling_www_activate', "Activate this handling for the webshop?");
+
+define('no_user_set', "User not selected.");
+
+define('admin_time_format', "H:i");
+
+define('confirm_no', "No");
+
+define('order_delete_now', "Are you sure to remove this order?");
+
+define('act_name', "Activate Account");
+
+define('tmp_payment_method', "Payment Method");
+
+define('handling_pos_activate', "Activate this handling for the Points of Sale?");
+
+define('event_status_header', "Status");
+
+define('admin_datetime_format', "Y-m-d H:i");
+
+define('shopconfig_delunpaid', "Global Delete Unpaid Orders?");
+
+define('order_details_tickettab', "Tickets");
+
+define('act_done', "Account Activated");
+
+define('tmp_description', "Description");
+
+define('handling_www_activated', "Active in the webshop");
+
+define('event_name_header', "Events");
+
+define('longdate_format', "%Y-%m-%d %H:%M:%S");
+
+define('shopconfig_delunpaid_pos', "Delete UnPaid POS Orders?");
+
+define('order_details_usertab', "User");
+
+define('act_enter_title', "Kindly enter your activation code below.");
+
+define('temp_quantity', "Qty.");
+
+define('handling_pos_activated', "Active in the Points of Sale");
+
+define('event_datetime_header', "Date");
+
+define('shortdate_format', "%e %b %Y");
+
+define('option_others_title', "Other Options");
+define('order_details_logtab', "Status log");
+
+define('act_enter_code', "Complete your activation by entering the activation code sent to you by Email in the box below, or click on the link in the Email.<br/>If you have already activated your account, please press Activate again");
+
+define('tmp_category', "Category ");
+
+define('handling_pos_deactivated', "Deactive in the Points of Sale");
+
+define('event_type_header', "Type");
+
+define('shorterdate_format', "%h %e");
+define('shopconfig_user_activate', "Users Checkout Level");
+
+define('order_details_notetab', "Note");
+
+define('act_code', "Activation code");
+
+define('tmp_discounts', "Discounts");
+
+define('handling_www_deactivated', "Deactive in the webshop");
+
+define('ort_name_header', "Venue");
+
+define('date', "Date");
+
+define('act_restrict_cart', "Restrict Cart to Members");
+
+define('order_statuslog', "Order status log");
+
+define('act_send', "Activate");
+
+define('tmp_price', "Price");
+
+define('new_category_size_not_different', "The new category size should be different from the old one.");
+
+define('ort_country_header', "Country");
+
+define('dd_mm_yyyy', "(dd-mm-yyyy)");
+
+define('act_restrict_all', "Only activated members");
+
+define('order_note', "Don't forget to save the note.");
+
+define('act_notarr', "Resend Activation");
+
+define('tmp_total', "Total ");
+
+define('event_status_incorrect', "In order to resize a category, the event should be unpublished");
+
+define('actions_header', "");
+
+define('yyyy_mm_dd', "(yyyy-mm-dd)");
+
+define('act_restrict_later', "New members are allowed");
+
+define('order_note_title', "Note");
+
+define('resend_activation', "Resend Activation");
+
+define('tmp_subtotal', "SubTotal:");
+
+define('category_numbering_incorrect', "Only open seated categories can be resized");
+
+define('multicurrency_conf', "Currency Conversion Rates");
+
+define('date_from', "Date From");
+
+define('act_restrict_w_guest', "New members and guests");
+
+define('order_add_note', "Add Note");
+
+define('act_is_sent', "Your Activation Email has been sent to your inbox.");
+
+define('tmp_fee', "Handling Fee:");
+
+define('new_category_size_is_to_small', "New category size should be at least equal to sold seats in that category.");
+
+define('datatable_no_data', "No data available in table");
+define('date_to', "Date To");
+
+define('act_restrict_quest_only', "Only guest users");
+
+define('onote_type', "Note Type");
+
+define('act_sent', "Your activation email has been sent to your inbox. Please check your Email for the activation code or link.");
+
+define('tmp_order_total', "Total:");
+
+define('cant_lock_event', "Cannot lock event to allow this change.");
+
+define('datatable_loading', "Loading...");
+define('dts_day_arr', "Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday");
+
+define('shopconfig_maxres', "Max tickets to reserve");
+
+define('on_type_note', "Generic Note");
+
+define('act_resent', "Your activation email has been resent to your inbox. Please check your Email for the activation code or link.");
+
+define('tmp_thank_you', "Thank You!");
+
+define('size_to_small_for_event', "Free seat at the event is not sufficient");
+
+define('datatable_zerorecords', "No matching records found.");
+
+define('add', "Add");
+
+define('shopconfig_altpayment_time', "Switch to Alt Payment");
+
+define('on_type_admin', "Admin Note");
+
+define('act_mess_line', "Please check your email to activate your account.<br>");
+
+define('tmp_inv_message', "Your tickets have been reserved. Please pay this invoice within 10 minutes.");
+
+define('cant_delete_old_seats', "Cannot delete old seats");
+
+define('eventlink_check_header', "");
+
+define('add_row', "Add");
+
+define('res_delay', "Shopping Cart Timeout");
+
+define('on_type_action', "Action/ToDo");
+
+define('act_mess_line_nm', "<b>You may complete this order without activating your account.</b><br>
+          					Please check your email to activate your account for future purchases.<br>");
+
+define('tmp_flourish', " Presents");
+
+define('cant_save_category', "Cannot save category statistics");
+
+define('eventlink_loginname_header', "Loginname");
+
+define('add_venue', "Add ");
+
+define('cart_delay', "Database Cart Timeout");
+
+define('on_type_payment', "Payment Details Note");
+
+define('act_note', "Enter your e-mail address. Click on 'Resend Activation' and a new activation email will be sent to your e-mail address.");
+
+define('tmp_venue', "Location Details");
+
+define('admin_country', "User Country");
+
+define('eventlink_email_header', "email address");
+
+define('add_tickets', "Add Ticket(s)");
+
+define('res_delay_less_cart', " < Can not be less than Cart Timeout");
+
+define('on_type_ship', "Shipping Details Note");
+
+define('act_norecived', "If you have not received an activation email within a few hours, please click this <strong>link</strong>");
+
+define('tmp_date_time', "Date and Time");
+
+define('report_excelcolors', "report_excelcolors");
+
+define('update', "Update");
+
+define('admin_list', "List");
+define('admin_login', "Login Name");
+
+define('on_type_todo', "ToDo");
+
+define('success_activate', "You have successfully activated your account. You are now logged in.");
+
+define('tmp_event_date', "Event Date:");
+
+define('no_event_data', "Your cart has timed out and is now empty.");
+
+define('pos_event_name_title', "Events");
+
+define('cancel', "Cancel Order?");
+
+define('admin_user_tab', "Administrators");
+
+define('note', "Note");
+
+define('agb_name', "General Terms of Sale");
+
+define('tmp_start_time', "Start Time: ");
+
+define('status_change_handling_error', "Error while changing status.");
+
+define('pos_tickets_title', "Tickets");
+
+define('checkout', "Checkout");
+
+define('admin_id', "Admin ID");
+define('admin', "Administrator");
+define('agb_info', "Put your sales conditions in 'agb.html'");
+
+define('tmp_open_time', "Doors Open: ");
+
+define('pub', "Published Events");
+define('pos_total_title', "Total");
+
+define('clear', "Clear");
+
+define('admin_inuse', "Enabled?");
+
+define('ship', "Shipping");
+
+define('calendar', "Calendar");
+
+define('tmp_section', "Seating Section");
+
+define('unpub', "Unpublished Events");
+
+define('pos_event_name', "Event");
+
+define('close', "Close");
+
+define('admin_ismanager', "Is manager");
+
+define('pos', "POS User");
+
+define('cart_empty', "Your Cart is Empty.");
+
+define('tmp_zone', "Zone:");
+
+define('nosal', "Not on sale");
+
+define('pos_date', "Date");
+
+define('continue', "Continue");
+
+define('admin_user_title', "System Administrators");
+
+define('posman', "POS Manager");
+
+define('cart_empty_or_invalid', "The cart is empty or invalid. Please add tickets.");
+
+define('tmp_row', "Row #: ");
+
+define('nextbutton', "Next");
+
+define('pos_venue', "Venue");
+
+define('define', "Define");
+
+define('admin_update_title', "Modify Administrator");
+
+define('organizer', "Organizer");
+
+define('total', "Total");
+define('tmp_seat', "Seat#: ");
+
+define('handling_sp', "POS");
+
+define('pos_doors_open', "Doors open");
+
+define('edit', "Edit");
+
+define('admin_add_title', "Add System Administrator");
+
+define('change_status_to_ord', "Change Status to Ordered?");
+
+define('expires_in', "Expires in");
+
+define('tmp_details', "Ticket Details");
+
+define('handling_www', "WEB");
+
+define('wrong_event_id', "Wrong event_id!");
+
+define('delete', "Delete");
+
+define('spoint_tab', "POS Offices");
+
+define('change_status_to_send', "Change Status to Sent?");
+
+define('total_price', "Total Price");
+define('tmp_type', "Type: ");
+
+define('for_handling_salemode', "for: ");
+
+define('discount_none', "None");
+
+define('login_button', "Login");
+
+define('pos_user_title', "Points of Sale");
+
+define('change_status_to_no_send', "Change Status to Not Sent?");
+
+define('shopcart', "Shopping Cart");
+
+define('tmp_discount', "Discount: ");
+
+define('you_requested_that_is_not_visable', "The requested page is not available.");
+
+define('placemapexit', "Exit");
+
+define('order_it', "Order");
+
+define('pos_add_title', "Add a Point of Sale");
+
+define('change_status_to_paid', "Change Status to Paid?");
+
+define('no_tick_res', "You have no reserved tickets.");
+
+define('tmp_conditions', "<b>NOTE TO PURCHASER: TREAT THIS E-TICKET AS YOU WOULD ANY OTHER VALUABLE OR CASH. YOU WILL NEED TO PRINT THIS AND PRESENT IT WHEN COLLECTING YOUR PHYSICAL TICKET.</b>
 Unauthorised duplication, alteration, or sale of this ticket may prevent admittance to the event.
 Present this page at the time of admission to be scanned.
-The unique bar code on this ticket allows only one entry per ticket.');
+The unique bar code on this ticket allows only one entry per ticket.");
 
-define('login_pos', 'POS Login');
-define('login_organizer', 'Administration Login');
-define('login_control', 'Ticket Taker Login');
+define('you_do_not_have_access', "Sorry, You do not have access to this function.");
 
-define('approx', 'Approx');
+define('select_event_first', "<b style=\"text-align:center;width:100%;\">No event selected.</b>");
 
-define('pay', 'Proceed to payment');
+define('order_more_tickets', "Buy More Tickets");
 
-define('not_all_all_values_set', 'Check your form, not all needed values where set for Re-Occurs.');
+define('pos_update_title', "Modify Point of Sale");
 
-define('email_compile_error', 'Compile error: ');
+define('change_status_to_no_paid', "Change Status to Not Paid?");
 
-define('order_discount_price', 'Discount amount');
-define('order_partial_price', 'Order Price');
+define('valid_tickets', "Valid Tickets:");
 
-define('discount_promo', 'Discount promo code');
+define('login_pos', "POS Login");
 
-define('global_discounts', 'Order Discounts');
+define('order_seats', "order_seats");
 
-define('down_install_again', 'Install new version');
+define('pos_event_image_header', "Image");
+define('publish', "Publish");
 
-define('version_checker', 'Install new version');
+define('kasse_name', "POS Name");
 
-define('avaliable_version', 'Available version');
+define('reissue_order', "Update this order and re-issue with new tickets?");
 
-define('curr_ver', 'Current version');
-define('curr_build', 'Current build');
+define('expired_tickets', "Expired Tickets:");
 
-define('version_missing', 'missing');
+define('login_organizer', "Administration Login");
 
-define('are_you_sure', 'Do you want to download update?');
-define('are_you_sure_update', 'Do you want to download update?');
-define('are_you_sure_apply_update', 'Do you want to apply update? YOU WILL LOOSE CUSTOM CHANGES!');
+define('templ_files', "Template Files");
 
-define('shopconfig_ftusername', 'fusionticket.org Username');
-define('shopconfig_ftpassword', 'fusionticket.org Password');
-define('shopconfig_keepdetails', 'Save User/Pass/Proxy Settings?');
+define('pos_event_description_header', "Description");
+define('pwd_send', "Send Password");
 
-define('download_update', 'Update Settings and Apply');
+define('user_prefs_print', "Preferences");
 
-define('shopconfig_proxyaddress', 'Updater optional proxy address.');
-define('shopconfig_proxyport', 'Update proxy port.');
+define('reissue_ticket', "Re-issue the ticket (recalculate unique barcode)? Ticket Nr:");
 
-define('downloaded_update_files', 'Downloaded Update Files:');
-define('download_older_than_curr', 'Available Update is older than currently installed!');
-define('download_same_as_curr', 'Available Update is same as currently installed!');
-define('download_link_failed', 'Could not get download link');
+define('tick_exp_in', "Expiring in ");
 
-define('file_download_failed', 'Failed to download file, try again later');
-define('file_downloaded', 'Update.zip downloaded');
-define('file_saved', 'Update.zip Saved');
-define('file_deleted', 'Finished with Update.zip, removed.');
+define('login_control', "Ticket Taker Login");
 
-define('update_save', 'Update and/or Save Details');
+define('discount_used', "discount used");
 
-define('version_updater', 'Update');
+define('select_event', "Select an Event");
 
-define('order_already_crated', 'This order is already saved!');
-define('order_already_cancelled', 'This order has already been cancelled');
+define('remove', "Remove");
 
-define('Select_handling_option', 'Select a payment option.');
+define('user_prefs_print_pdf', "Open Orders in Acrobat");
 
-define('freeticketcode_notfound', 'FreeTicketCode not found. Try again');
+define('legende', "Explanation");
 
-define('placemap_image_explanation', '<img class=\'seatmapimage\' src=\'{$_SHOP->images_url}seatfree.png\'>: Available choice,
-                                     <img class=\'seatmapimage\' src=\'{$_SHOP->images_url}seatselect.png\'>: Selected,
-                                     <img class=\'seatmapimage\' src=\'{$_SHOP->images_url}seatused.png\'>:  Unavailable,
-                                     <img class=\'seatmapimage\' src=\'{$_SHOP->images_url}seatdisable.png\'>: Other category');
+define('x_tick', "x Tickets");
 
-define('copy_main_pm', 'copy from main event');
+define('approx', "Approx");
 
-define('republish_old_event', 'Are you sure you want to publish this archived event?\\r\\n It will only show in the [Program] area of the Web Shop.');
+define('plugin_config_title', "Plugin configuration");
 
-define('unpublished', 'UnPublished');
+define('help_plugin', "Help plugin");
 
-define('restart__failure', 'restart__failure');
+define('res', "Reset");
 
-define('plugins_tab', 'Plugins');
+define('user_prefs_print_pdt', "Send Orders to Printer");
 
-define('category_pm_id', 'Seat Chart ID');
-define('category_pmp_id', 'Seat Chart Part ID');
+define('reserved', "Reserved");
 
-define('publish7', 'publish7');
-define('pub__failure', 'The following event failed to publish:');
+define('tot_tick_price', "Total Ticket Price:");
 
-define('export_entrant_withseats', 'Export with seat numbers');
-define('export_entrant_notsended', 'Include seats not yet sent');
+define('pay', "Proceed to payment");
+define('pub_failure', "Cannot publish event");
 
-define('mollie_status_cancelled', 'You have cancelled the order while in iDeal');
+define('search_action', "Click to show the list of existing users");
 
-define('always_show_handling', 'Show always');
+define('reserve', "Reserve");
 
-define('shopconfig_maxorder', 'Max tickets to order');
+define('user_prefs_strict', "Use Office On fixed PC");
 
-define('unable_to_fetch_seats', 'Unable to fetch Users seats');
-define('user_seat_update_failed', 'Unable to update User seat numbers');
-define('unable_to_update_user_details', 'Unable to update User details');
+define('ordered', "Ordered");
 
-define('Unable_to_update_user_orders', '');
+define('row', "Row");
 
-define('cant_delete_image', 'Cannot delete image file');
-define('cant_delete_mp3', 'Cannot delete mp3 file');
+define('not_all_all_values_set', "Check your form, not all needed values where set for Re-Occurs.");
 
-define('enabled', 'Enabled');
+define('error_event_save_changes', "error when trying to save changes");
 
-define('show_stat_reports', 'Other Reports');
+define('order_action', "Click to create the order");
 
-define('report_admin_title', 'Spreadsheet Reports');
-define('report_xl', 'Tickets Sales Report');
-define('report_archive_event', 'Event Archives');
-define('report_entrant', 'Ticket Status Report');
+define('save', "Save");
 
-define('export_statuslog', 'Export Status Log');
+define('user_prefs_store_now', "Store cookie now");
 
-define('max_seats_reached', 'Maximum Seats Reached');
+define('pending', "Pending");
 
-define('handling_alt_settings', 'Alternate Settings');
-define('hide', 'Hide');
-define('handling_fee_settings', 'Fee Settings');
-define('hanging_pdf_settings', 'PDF Settings');
-define('hanging_email_settings', 'Email Settings');
+define('normal', "Normal");
 
-define('plugins_title', 'Plug Ins');
-define('plugin_email', 'Email: ');
-define('plugin_web', 'Website: ');
+define('email_compile_error', "Compile error: ");
 
-define('order_status_send', 'Sent');
+define('stop_failure', "Cant stop event");
 
-define('promo_in_use', 'This promocode is already used.');
+define('order_cancel_action', "Cancel the defined order");
 
-define('discount_promo_for', 'Discount promocode for&nbsp;');
+define('save_payment', "Save &amp; Email payment note");
 
-define('rep_ord_id', 'Order #');
-define('rep_sale_date', 'Sale Date');
-define('rep_sale_barcode', 'Barcode');
+define('user_nickname', "Nickname");
 
-define('hand_payment_text', 'Payment Method');
+define('paid', "Paid");
 
-define('user_title', 'Customer Information');
+define('expired', "EXPIRED");
 
-define('cust_id', 'ID');
+define('order_discount_price', "Discount amount");
 
-define('ven_id', 'ID');
-define('ven_name', 'Name');
+define('restart_failure', "Cant restart event");
 
-define('evnt_title', 'Event Information');
-define('evnt_id', 'ID');
-define('evnt_name', 'Name');
-define('evnt_date', 'Date');
-define('evnt_time', 'Time');
+define('notifytimeout', "Notify Message closetime");
 
-define('cat_title', 'Ticket Information');
-define('cat_id', 'ID');
-define('cat_name', 'Name');
-define('cat_price', 'Value');
-define('cat_sold', 'Sold For');
+define('save_ship', "Save &amp; Email shipping note");
 
-define('disc_name', 'Name');
-define('disc_type', 'Type');
-define('disc_value', 'Value');
+define('print_warning', "When you want to directly print the PDF's, you need to setup our system.");
 
-define('handling_fee_type', 'Fee calculation type');
-define('handling_fee_sum', 'Sum of fixed and Percent');
-define('handling_fee_min', 'Minimum of fixed and Percent');
-define('handling_fee_max', 'Maximum of fixed and Percent');
+define('sended', "Sent");
 
-define('pay_ispending', 'Payment transaction is pending.');
+define('minutes', "min.");
 
-define('cookie_disabled', '<h1> Warning, you have disabled cookies on your system.</h1> This will not work on this website. Please turn this on, before you order any tickets.</h1>');
+define('order_partial_price', "Order Price");
+define('order_status_ordered', "ordered");
 
-define('admin_user_id', 'Sale Point user');
-define('admin_status', 'Role of user');
-define('admin_email', 'Email address');
-define('admin_posuser_title', 'Sale Point Administrators');
+define('group_eventsettings', "Event Settings");
 
-define('user', 'user');
+define('save_note', "Save &amp; Email a note");
 
-define('shipment_type', 'Shipment Type');
-define('shipment_address', 'Shipment Address');
+define('control_tab', "Ticket Takers");
 
-define('order_owner_id', 'Create by POS');
-define('onote_type_note', 'note');
-define('onote_type_admin', 'admin');
-define('onote_type_payment', 'payment');
-define('onote_type_todo', 'todo');
-define('onote_isprivate', ' (<i>private</i>)');
-define('onote_private', 'Personal Note (You can see only)');
-define('onote_subject', 'Note Subject');
-define('onote_note', 'Note Details');
-define('onote_set_sent', 'On &quot;Save &amp; Email&quot; Set Order To Sent.');
-define('onote_set_paid', 'On &quot;Save &amp; Email&quot; Set Order To Paid.');
-define('onote_resend_sent', 'Resend &quot;Sent&quot; Email.');
-define('onote_resend_paid', 'Resend &quot;Paid&quot; Email.');
+define('paid_and_send', "Paid and Sent");
 
-define('logged_in', 'User:');
+define('selected_total', "Selected Ticket Total in ");
 
-define('placemap', 'Event Placemap');
+define('discount_promo', "Discount promo code");
 
-define('event_details', 'Event Details');
-define('event_view_periode', 'Event Viewing Period');
-define('event_view_begin', 'Event View Begin Date');
-define('event_view_end', 'Event View End Date');
-define('event_advanced_options', 'Event Advanced Options');
-define('event_pickup_options', 'Event Pickup Options');
+define('admin_default', "Default");
+define('archive_oldevents', "Move Event Direct to Archive");
 
-define('discount_deactivate', 'Deactivate Discount');
-define('discount_activate', 'Activate Discount');
+define('search', "Search");
 
-define('print_invoice', 'Print invoice');
-define('print_tickets', 'Print Tickets');
+define('control_user_title', "Ticket Takers");
+define('cancelled', "Cancelled");
 
-define('adminlinks_pos_control', 'Event Links');
+define('shopping_cart', "Shopping cart");
 
-define('linked_tickettakers', 'Linked ticket takers');
+define('global_discounts', "Order Discounts");
 
-define('block', 'Block Seats');
+define('eprocessingnetwork', "eProcessingNetwork");
 
-define('assign', 'Assign Seats');
+define('order_already_reissue_cancelled', "Order already reissue cancelled!");
 
-define('clear_selection', 'Clear Selection');
+define('show_seats', "Seating Chart");
 
-define('reset', 'Reset');
+define('control_view', "Ticket Taker");
 
-define('name', 'Name');
+define('reissue', "Re-issued");
 
-define('size', 'Size');
+define('cart_cont_mess', "Please check your order. You have a limited time before your reserved tickets are released back to sale. Please, either order more tickets or continue to checkout.
+	<br><br>To change your tickets 'Remove' the ones you have reserved and click 'Order More Tickets'.");
 
-define('confirm_clear', 'This operation will clear all your previously selected seat, are you sure you want to proceed?');
+define('down_install_again', "Install new version");
 
-define('delete_link_error', 'Can\'t delete an event link when there are seats allocated to this pos');
+define('maroc', "maroc");
 
-define('mailer_description', 'Use this interface to send emails to customers attending this event.');
-define('mail_patrons_confirm', 'Are you sure you want to email all attending customers?');
-define('mail_patrons', 'Mail Customers');
+define('category_numbering_header', "Nature");
 
-define('select_template', 'Select template');
+define('submit', "Submit");
 
-define('mail_to', 'Mail to');
+define('control_add_title', "Add Ticket Taker");
 
-define('attending_patrons', 'attending customer(s)');
+define('possible_actions', "Possible Actions");
 
-define('preview_template', 'Preview template');
-define('please_select_template', 'Please select a template.');
+define('cat_description', "Seating Sections and Prices");
 
-define('send_email', 'Send Email');
+define('version_checker', "Install new version");
 
-define('no_attendants', 'This event has no attendants yet.');
+define('maroctelecommerce', "maroctelecommerce");
 
-define('include_invoice', 'Include Invoice');
-define('include_tickets', 'Include Tickets');
+define('category_name_header', "Category");
 
-define('cant_create_seat_zone_missing_cat', 'Every zone needs to have category in a placemap part.');
+define('unpublish', "Unpublish");
 
-define('pub_success', 'The following event has been successfully published: ');
+define('control_update_title', "Modify Ticket Taker");
 
-define('vpc_pay', 'Proceed to payment gateway page');
+define('view_order_details', "View Details");
 
-define('successfully_updated_user_details', 'Your profile has been successfully updated.');
+define('tickets_available', "Availability");
 
-define('payment_not_approved', 'Payment is not approved.');
-define('publish_web', 'Publish to Webshop');
+define('avaliable_version', "Available version");
 
-define('unpublish_web', 'Remove from Webshop');
+define('mollie', "mollie");
 
-define('publish_POS', 'Publish to POS');
+define('category_size_header', "Size");
 
-define('unpublish_POS', 'Remove from POS');
+define('view', "View");
 
-define('icon_webpub', 'Click to Publish to Webshop');
-define('icon_webpub_alt', 'Publish to Webshop');
-define('icon_webunpub', 'Click to Remove from Webshop');
-define('icon_webunpub_alt', 'Remove from Webshop');
-define('icon_pospub', 'Click to Publish to POS');
-define('icon_pospub_alt', 'Publish to POS');
-define('icon_posunpub', 'Click to Remove from POS');
-define('icon_posunpub_alt', 'Remove from POS');
+define('control_login', "Login Name");
 
-define('cc_name', 'Credit card owner name');
-define('cc_number', 'Credit card number');
-define('cc_exp', 'Expiry date');
-define('cc_code', 'Security code');
+define('print_order', "Print Order");
 
-define('error', 'error');
+define('category_sold', "Sold out");
+define('curr_ver', "Current version");
 
-define('select_qty', 'Select quantity');
-define('successfully_add_note', 'Note successfully added');
+define('vpc', "vpc");
 
-define('please_select', 'Please select...');
+define('category_price_header', "Price");
 
-define('filter', 'Search');
+define('view_order', "View Order");
 
-define('venue_in_use', 'This venue is in use.');
+define('control_event_ids', "Authorised Events");
+define('change_order_to_ord', "Mark 'Ordered'");
 
-define('print_both', 'Print invoice & ticket');
+define('discount_for', "With Discount:");
 
-define('view_details', 'View order details');
+define('curr_build', "Current build");
+define('category_useweb_header', "Web");
 
-define('cannot_find_order', 'Cannot find order');
+define('icon_unpublish', "Click to UnPublish");
 
-define('main', 'Main event');
+define('reset_to_main', "Tick_to_reset_to_main_event.");
 
-define('control', 'Ticket Taker');
+define('send_order_post', "Mark 'Sent'?");
 
-define('ticket', 'ticket');
+define('prices_in', "Prices in");
 
-define('failed_send_to', 'Failed to send an Email.');
+define('version_missing', "missing");
 
-define('admin_status_control', 'Ticket taker');
-define('admin_status_pos', 'POS User');
-define('admin_status_posman', 'POS Manager');
-define('admin_status_organizer', 'Organizer');
-define('admin_status_accountant', 'Accountant');
-define('admin_status_admin', 'Administrator');
-define('admin_status_tickettaker', 'Tickettaker');
-define('admin_status_manager', 'Manager');
+define('category_usepos_header', "POS");
 
-define('role_not_allowed', 'Role not allowed.');
+define('icon_unpublish_alt', "Published");
 
-define('error_nosizediff', 'No new size given.');
+define('ort_admin_tab', "Venues");
 
-define('category_nosale_size', 'Category Size');
+define('no_send_order_post', "Mark 'Not Sent'");
 
-define('plugin_install_title', 'Plugins');
-define('plugin_name', 'Pluginname');
-define('plugin_info', 'Plugin information');
-define('plugin_myversion', 'Version number');
-define('plugin_priority', 'Priority');
-define('plugin_priority_5', '5');
-define('plugin_priority_4', '4');
-define('plugin_priority_3', '3');
-define('plugin_priority_2', '2');
-define('plugin_priority_1', '1');
-define('plugin_enabled', 'Enabled');
-define('plugin_protected', 'Protected plugin');
-define('plugin_allow_uninstall', 'Are you sure to uninstall this plugin?');
+define('please_login', "Please Login or Register to Reserve Seats.");
 
-define('discount_www_deactivate', 'Deactivate this Discount for the webshop?');
-define('discount_pos_deactivate', 'Deactivate this Discount for the Points of Sale?');
-define('discount_www_activate', 'Activate this Discount for the webshop?');
-define('discount_pos_activate', 'Activate this Discount for the Points of Sale?');
-define('discount_www_activated', 'Active in the webshop');
-define('discount_pos_activated', 'Active in the Points of Sale');
-define('discount_pos_deactivated', 'Deactive in the Points of Sale');
-define('discount_www_deactivated', 'Deactive in the webshop');
+define('are_you_sure', "Do you want to download update?");
 
-define('handling_www_deactivate', 'Deactivate this handling for the webshop?');
-define('handling_pos_deactivate', 'Deactivate this handling for the Points of Sale?');
-define('handling_www_activate', 'Activate this handling for the webshop?');
-define('handling_pos_activate', 'Activate this handling for the Points of Sale?');
-define('handling_www_activated', 'Active in the webshop');
-define('handling_pos_activated', 'Active in the Points of Sale');
-define('handling_pos_deactivated', 'Deactive in the Points of Sale');
-define('handling_www_deactivated', 'Deactive in the webshop');
+define('pm_maroc_url', "pm_maroc_url");
+define('pm_name_header', "Name");
 
-define('new_category_size_not_different', 'The new category size should be different from the old one.');
+define('icon_publish', "Click to Publish");
 
-define('event_status_incorrect', 'In order to resize a category, the event should be unpublished');
+define('ort_admin', "Venues");
 
-define('category_numbering_incorrect', 'Only open seated categories can be resized');
+define('change_order_to_paid', "Mark 'Paid'");
 
-define('new_category_size_is_to_small', 'New category size should be at least equal to sold seats in that category.');
+define('select_category', "Select a Category");
 
-define('cant_lock_event', 'Cannot lock event to allow this change.');
+define('are_you_sure_update', "Do you want to download update?");
 
-define('size_to_small_for_event', 'Free seat at the event is not sufficient');
+define('pm_mollie_partnerid', "pm_mollie_partnerid");
 
-define('cant_delete_old_seats', 'Cannot delete old seats');
-define('cant_save_category', 'Cannot save category statistics');
+define('template_name_header', "Template");
 
-define('admin_country', 'User Country');
+define('icon_publish_alt', "New Event");
 
-define('report_excelcolors', 'report_excelcolors');
+define('ort_title', "Venues");
 
-define('no_event_data', 'Your cart has timed out and is now empty.');
+define('change_order_to_send', "Mark 'Sent'");
 
-define('status_change_handling_error', 'Error while changing status.');
+define('order_limit', "Order Limit");
 
-define('pub', 'Published Events');
+define('are_you_sure_apply_update', "Do you want to apply update? YOU WILL LOOSE CUSTOM CHANGES!");
 
-define('unpub', 'Unpublished Events');
+define('pm_mollie_test', "pm_mollie_test");
 
-define('nosal', 'Not on sale');
-define('nextbutton', 'Next');
+define('ort_city_header', "City");
 
-define('handling_sp', 'POS');
-define('handling_www', 'WEB');
+define('icon_nosal', "Click to RePublish");
 
-define('for_handling_salemode', 'for: ');
+define('ort_add_title', "Add Venue");
 
-define('you_requested_that_is_not_visable', 'The requested page is not available.');
-define('you_do_not_have_access', 'Sorry, You do not have access to this function.');
+define('change_order_to_no_paid', "Mark 'Not Paid'");
 
-define('order_seats', 'order_seats');
+define('old_event', "This event is expired and can not be ordered anymore.");
 
-define('templ_files', 'Template Files');
+define('shopconfig_ftusername', "fusionticket.org Username");
 
-define('discount_used', 'discount used');
+define('bank_id', "bank_id");
 
-define('plugin_config_title', 'Plugin configuration');
-define('pub_failure', 'Cannot publish event');
+define('admin_status_header', "Kind");
 
-define('error_event_save_changes', 'error when trying to save changes');
+define('icon_nosal_alt', "UnPublished");
 
-define('stop_failure', 'Cant stop event');
+define('ort_insert_title', "Add Venue");
 
-define('restart_failure', 'Cant restart event');
+define('reissue_order_menu', "Update this Order and Issue with new tickets.");
 
-define('order_status_ordered', 'ordered');
+define('select_seat_head', "Select your seat(s)");
+define('shopconfig_ftpassword', "fusionticket.org Password");
 
-define('admin_default', 'Default');
+define('uninstall', "Uninstall");
 
-define('eprocessingnetwork', 'eProcessingNetwork');
+define('admin_login_header', "Loginname");
+define('add_tooltip', "Add");
 
-define('maroc', 'maroc');
-define('maroctelecommerce', 'maroctelecommerce');
-define('mollie', 'mollie');
+define('ort_update_title', "Modify Venue");
 
-define('vpc', 'vpc');
+define('cancel_order', "Mark 'Canceled' and Delete Tickets");
 
-define('pm_maroc_SecretKey', 'pm_maroc_SecretKey');
-define('pm_maroc_storeId', 'pm_maroc_storeId');
-define('pm_maroc_url', 'pm_maroc_url');
-define('pm_mollie_partnerid', 'pm_mollie_partnerid');
-define('pm_mollie_test', 'pm_mollie_test');
+define('select_seat', "1. Select your seat(s)");
+define('shopconfig_keepdetails', "Save User/Pass/Proxy Settings?");
 
-define('bank_id', 'bank_id');
+define('install', "Install");
 
-define('uninstall', 'Uninstall');
+define('admin_country_header', "Country");
+define('add_multi_tooltip', "Add sub-event to this main event.");
 
-define('install', 'Install');
+define('ort_id', "Venue ID");
 
-define('bill', 'Bill');
+define('select_seat_pos', "Select your seat(s) for ");
 
-define('others', 'Others');
+define('download_update', "Update Settings and Apply");
 
-define('report_eventbarcodes', 'List of Barcodes per event');
+define('bill', "Bill");
 
-define('export_eventbarcodes_title', 'List of Barcodes per event');
-define('export_eventbarcodes_event', 'Select Event');
-define('eventbarcodes_date', 'Date');
-define('eventbarcodes_time', 'Time');
-define('export_eventbarcodes_code', 'Barcode');
-define('export_eventbarcodes_fullname', 'Patron');
-define('entrant_date', 'Date');
-define('entrant_time', 'Time');
+define('discount_name_header', "Discount name");
 
-define('nav_first-tooltip', '');
-define('nav_prev-tooltip', '');
-define('nav_next-tooltip', '');
-define('nav_last-tooltip', '');
+define('edit_tooltip', "Edit Item");
 
-define('select_seat_title', 'Select seat');
+define('ort_name', "Venue Name");
 
-define('ismember', 'ismember');
+define('templ_email', "Emails");
 
-define('captcha_info', 'Enter this code >>>');
+define('click_on_reserve', "2. Click on 'Reserve'");
 
-define('user_condition', 'Conditions: Information collected will only be stored to handle shipping and payment.');
+define('shopconfig_proxyaddress', "Updater optional proxy address.");
 
-define('pdf_tickets_and_invoice', 'pdf_tickets_and_invoice');
-define('pdf_invoice_only', 'pdf_invoice_only');
-define('pdf_tickets_only', 'pdf_tickets_only');
+define('others', "Others");
 
-define('order_is_not_paid', 'Order not Paid.');
+define('discount_promo_header', "Promo code");
 
-define('seat_checked', 'Seat checked');
+define('add_venue_tooltip', "Add a new Venue");
 
-define('event_ordering', 'Order tickets');
-define('event_ordering-tooltip', '');
-define('event_select_cat', 'Select Category');
-define('event_select_seats', 'Seatmap');
+define('ort_address', "Address");
 
-define('select_discounts', 'Select Discount');
+define('templ_swift', "Simple Email");
 
-define('no_discount', 'No discount');
+define('number_seats', "Number of seats");
 
-define('bad_category_id', 'Category not found.');
+define('shopconfig_proxyport', "Update proxy port.");
 
-define('next', 'next');
+define('report_eventbarcodes', "List of Barcodes per event");
 
-define('add_to_cart', 'Add to Cart');
+define('discount_value_header', "Value");
 
-define('error_cantloadevent', 'can\'t load selected event');
+define('compile_all_tooltip', "This will (re)compile all the templates to check they are valid.");
 
-define('buy_tickets', 'Buy Tickets');
+define('ort_address1', "Address 1");
 
-define('input_fields_requered', 'Input fields with a <b>*</b> are required.');
+define('templ_pdf2', "Html2pdf's");
 
-define('person_user', 'Profile details');
-define('person_orders', 'List of orders');
-define('printticket', 'Print Ticket(s)');
+define('only_rows_numbered', "Only rows numbered");
 
-define('with_discount', ' with ');
+define('downloaded_update_files', "Downloaded Update Files:");
 
-define('edit_user', 'Edit');
+define('export_eventbarcodes_title', "List of Barcodes per event");
 
-define('user_update', 'Save profile');
+define('discount_used_header', "Used");
 
-define('failed_too_update_user', 'failed to update userprofile');
+define('copy', "Copy");
 
-define('order_info', 'Order overview');
+define('ort_zip', "Zip");
 
-define('invalid_order', 'invalid_order');
+define('templ_pdf', "Old Pdf's");
 
-define('submit_reserve', 'Reserve');
+define('order_reg', "Order Registered");
 
-define('go_home', 'Home');
-define('go_pay', 'Pay order');
+define('download_older_than_curr', "Available Update is older than currently installed!");
 
-define('user_email2', 'Repeat E-Mail');
+define('export_eventbarcodes_event', "Select Event");
 
-define('order_reserved', 'Order is reserved for you');
+define('discount_useweb_header', "Web");
 
-define('cart_expired', 'The tickets in you cart are expired and will be removed from the cart.');
+define('add_pm', "Add Placemap");
 
-define('vertical_menu', 'Menu');
+define('ort_city', "City");
 
-define('no_orderid_given', 'No Order ID for ticket loading');
+define('template_title', "Templates");
+define('tnx_order_mess', "Thank you very much! Your order was registered. To pay for your order follow the proccess below. ");
 
-define('select_user_country', '[Select Country...]');
+define('download_same_as_curr', "Available Update is same as currently installed!");
 
-define('cant_lock_seat', 'can\'t lock seat');
+define('eventbarcodes_date', "Date");
 
-define('search_choice_two_fields', 'Fill atliest 2 fields.');
+define('discount_usepos_header', "POS");
 
-define('personal_search_dialog', 'Personal Search dialog');
+define('pm_split', "Split Placemap");
 
-define('order_status_reserved', 'Reserved');
-define('order_status_sent', 'Order sent');
-define('order_status_paid', 'Order paid');
-define('order_status_cancelled', 'Order cancelled');
+define('ort_state', "State");
 
-define('success', 'Success ');
+define('template_add_title', "Add a Template");
 
-define('invalid', 'Invalid');
+define('shopping_cart_check_out', "Select Payment & Shipment Method");
 
-define('select', 'Select');
+define('download_link_failed', "Could not get download link");
 
-define('garbage_logfiles', 'Overview of create log files');
+define('eventbarcodes_time', "Time");
 
-define('no_logfiles_find', 'There are no log files precent');
+define('user_city_header', "City");
 
-define('clear_cache', 'Clear Cache');
+define('split_zones', "Split Zones");
 
-define('garbage_files', 'Orphaned/Misc Files');
+define('ort_country', "Country");
 
-define('delete_files', 'Delete all files');
+define('template_update_title', "Modify Template");
 
-define('no_files_found', 'There are no orphaned/misc files');
+define('handling_cont_mess', "Check your tickets, Check your details and then select your payment option and click &quot;Order&quot;.");
 
-define('handling_fee_perseat', 'fixed fee per seat');
+define('file_download_failed', "Failed to download file, try again later");
 
-define('config_title', 'Configuration Tables');
+define('export_eventbarcodes_code', "Barcode");
 
-define('group_organizer', 'Merchant Details');
-define('group_common', 'Common');
+define('user_country_header', "Country");
 
-define('landscape', 'Landscape');
+define('ort_phone', "Phone");
 
-define('system_online', 'System on-line');
+define('lang', "Language");
 
-define('offline_message', 'Off-line message');
+define('handlings', "Payment Methods");
 
-define('secure_site', 'Security');
+define('file_downloaded', "Update.zip downloaded");
 
-define('theme_name', 'Theme name');
+define('export_eventbarcodes_fullname', "Patron");
 
-define('input_time_type', 'Time Format');
+define('user_posname_header', "POS Office");
 
-define('time_type_12', '12 hour clock');
-define('time_type_24', '24 hour clock');
+define('place_map_tooltip', "Edit Event Seating and Discounts");
 
-define('input_date_type', 'Date format');
+define('ort_fax', "Fax");
 
-define('date_type_dmy', 'ddmmyyyy');
-define('date_type_mdy', 'mddyyyy');
-define('date_type_ydm', 'yyyyddmm');
+define('lang_en', "English");
 
-define('timezone', 'Time zone');
+define('payment', "Payment");
 
-define('pdf_paper_size', 'Pdf Paper size');
-define('pdf_paper_orientation', 'Orientation');
-define('portrait', 'Portrait');
+define('file_saved', "Update.zip Saved");
 
-define('address_label_template', 'Address Label Template');
-define('address_label_always', 'Always print an address label');
+define('entrant_date', "Date");
 
-define('trace_on', 'Trace-on');
+define('user_id_header', "ID");
 
-define('shopconfig_run_as_demo', 'Run as Demo');
+define('archive', "Archive");
 
-define('group_autocleanup', 'Auto clean-up');
-define('group_ordering', 'Ordering');
-define('group_upload', 'Upload settings');
+define('ort_url', "Homepage");
 
-define('allowed_uploads', 'Allowed file types');
+define('email_from', "From:");
 
-define('file_mode', 'File mode');
+define('shipment', "Shipment");
 
-define('allowed_maxsize', 'Maximum size');
-define('allowed_maxwidth', 'Maximum width');
-define('allowed_maxheight', 'Maximum height');
+define('file_deleted', "Finished with Update.zip, removed.");
 
-define('group_mail', 'Mail settings');
+define('entrant_time', "Time");
 
-define('mail_smtp_host', 'Host');
-define('mail_smtp_user', 'SMTP User');
-define('mail_smtp_pass', 'SMTP Password');
-define('mail_smtp_port', 'SMTP Port');
-define('mail_smtp_security', 'Mail Security');
+define('user_name_header', "Username");
 
-define('smtp_security_none', 'none');
-define('smtp_security_ssl', 'ssl');
-define('smtp_security_tls', 'tls');
+define('details', "Details");
 
-define('group_language', 'Language');
+define('ort_pm', "Googlemaps link");
 
-define('langs', 'Language code');
-define('langs_names', 'Language Names');
+define('email_to', "To:");
 
-define('event_type_enum', 'Event type');
-define('event_group_type_enum', 'Event group');
+define('order_not_found_or_created', "Cannot proceed with order.");
 
-define('autodefinelangs', 'Auto-define language');
+define('update_save', "Update and/or Save Details");
 
-define('selectfunction_not_found', 'Function not found');
+define('nav_first-tooltip', "");
 
-define('cant_save_configvalue', 'Problem(s) while saving configuration setting for ');
-define('change_order_to_paid_confirm', 'Are you sure to set the order paid?');
+define('user_status_header', "Status");
 
-define('error_while_registering_user', 'There was an error while registering you. Please try again.');
+define('print', "Print");
 
-define('cant_send_email', 'Problem while trying to send email.');
+define('ort_image', "Venue Logo");
 
-define('help', 'Help');
+define('email_subject', "Subject");
 
-define('administrator', 'Administration');
+define('limit', "Unfortunately, you have exceeded the amount of allowed reserved tickets.<br> To check your orders click <a href='index.php?action=person_orders'>here</a>.");
 
-define('welcome_patron', '<b>Hi</b>');
+define('version_updater', "Update");
 
-define('checked_by', 'Checked by: ');
-define('checked_at', 'Checked at: ');
+define('nav_prev-tooltip', "");
 
-define('admin_realname', 'Full Name');
+define('sales_patron', "POS Patron");
+define('set_status_ord', "Set to Ordered");
 
-define('userewriteurl', 'Create SEO urls');
-define('userewriteurl-tooltip', 'Create SEO urls');
+define('place_maps', "Seat Charts");
 
-define('table_order_id', 'Order');
-define('table_order_price', 'Amount');
-define('table_order_user', 'Patron');
-define('table_order_date', 'Date/time');
+define('email_text', "Text Section");
 
-define('pdf_noting_to_show', 'Nothing to show.');
+define('orclick', " Or Click to:");
+define('order_already_crated', "This order is already saved!");
 
-define('no_placemap_available', 'No online sales. For informational purposes only');
+define('nav_next-tooltip', "");
 
-define('configuration_is_saved', 'Configuration is saved.');
+define('tickets_reissued_remember_to_send', "Tickets reissued remember send!");
 
-define('select_handling_option', 'Select handling option.');
+define('set_status_shipment_send', "Set to Sent");
 
-define('please_wait_button', 'Please wait.');
-define('please_wait_message_order', 'Please wait, will the order is created.');
+define('edit_pm', "Modify Seat Chart");
+define('email_html', "HTML Section");
 
-define('site_offline_message', 'PLEASE NOTE: This Site is off-line.');
+define('pay_accept', "Payment Accepted");
 
-define('export_eventbarcodes_order', 'Order ID');
+define('order_already_cancelled', "This order has already been cancelled");
 
-define('order_payment', 'Payment');
+define('nav_last-tooltip', "");
 
-define('record_orphan_test', 'Overview record orphans');
+define('status_header', "");
+define('set_status_shipment_none', "Set to Not Sent");
 
-define('garbage_images', 'Garbage images');
+define('pm_id', "Seat Chart ID");
 
-define('cant_delete_without_id', 'Missing record definition');
+define('template_id', "ID #");
 
-define('ftsmanager_plugin', 'FTS hosting manager');
+define('pay_refused', "Payment Refused");
 
-define('valutas', 'Common valutas');
+define('select_seat_title', "Select seat");
 
-define('pm_mollie_bank_id', 'Bank relatie:');
+define('in_use_adminlink', "Record is connected to an event");
 
-define('handling_', 'Unknown handler');
+define('set_status_payment_paid', "Set to Paid");
 
-define('xl_order_place', 'Place');
-define('xl_handling_payment', 'Handled');
+define('pm_event_id', "Event ID");
 
-define('linked_event_managers', 'Linked managers');
+define('template_type', "Type");
 
-define('select_event_group', 'Select an Event Group');
+define('pay_reg', "Congrats! Your order was successfully made.");
 
-define('group_webshop_ads', 'Google ads');
-define('google_ad_client', 'Google ads client is [pub-...]');
-define('google_ad_slot_left', 'Slot ID left ads');
-define('google_ad_slot_right', 'Slot ID right ads');
+define('freeticketcode_notfound', "FreeTicketCode not found. Try again");
 
-define('al_remove_control', 'Remove link');
+define('ismember', "ismember");
 
-define('unpub_success', 'Event success unpublished.');
+define('config_errors_found', "Check your configuration, there where some errors found while saving.");
 
-define('handling', 'Handling');
+define('set_status_payment_none', "Set to Not Paid");
 
-define('pmz', 'Zone');
-define('pmp', 'Placemap Part');
+define('pm_name', "Seat Chart Name");
 
-define('barcode', 'Barcode');
+define('template_name', "Name");
 
-define('no_template_tags', 'email template looks empty');
+define('pay_reg_desc', "Your electronic ticket has been sent to your email address.<br/><br/> Please make sure you have a printed copy to present when collecting your physical ticket.<br/><br/><span>Note: if you don't find your electronic ticket in your inbox please check your Spam/Junk folder or <a href='contact.php'>contact us</a>. To avoid our emails being seen as junk, please add our 'From' address to your Address Book.</span>");
+define('placemap_image_explanation', "<img class='seatmapimage' src=\"{$_SHOP->images_url}seatfree.png\">: Available choice,
+                                     <img class='seatmapimage' src=\"{$_SHOP->images_url}seatselect.png\">: Selected,
+                                     <img class='seatmapimage' src=\"{$_SHOP->images_url}seatused.png\">:  Unavailable,
+                                     <img class='seatmapimage' src=\"{$_SHOP->images_url}seatdisable.png\">: Other category");
 
-define('emailtest', 'Send test email');
+define('captcha_info', "Enter this code >>>");
 
-define('testemail_notsend', 'Test Email was not send.');
-define('testemail_was_send_to', 'A test email was send to ');
+define('error_salespoint_not_found', "Error: Salespoint not found!!");
 
-define('cant_set_new_password', 'Problem with changing the password.');
+define('save_payment_tooltip', "Save &amp; Email the above note to the customer.");
 
-define('no_category_selected', 'No Category selected');
+define('pm_image', "Seat Chart Image");
 
-define('availability', 'View Availability');
+define('compile_all', "Compile all");
 
-define('event_sales_closed_header', 'Ticket sales are not open. You can view availability by clicking View Availability');
-define('event_ordering_header', 'Ticket sales are not open. You can view availability by choosing a category');
-define('event_ordering_sales_closed_no_seatmap', 'No seat map available for this category.');
-define('event_prices_sales_closed_footer', 'Tickets are not available at this moment.');
-define('event_sales_open', 'Event Sales Open');
-define('event_sales_close', 'Event Sales Close');
+define('pay_error', "Payment Declined</p><p>Your online transaction has been declined by your bank. Please read the following reasons why this could have happened.<br/><br/><ul><li>1.  Insufficient funds in your bank account.</li><li>2.  Your bank has declined the payment due to 'Stop Payments' as a precautionary measure against fraudulent credit card use.</li><li>3.  The credit card details were entered incorrectly.</li></ul><br/></p><p>If you are sure the credit card details are correct please try again later or contact us at {$organizer_email} for further assistance. Please accept our apologies for any inconvenience caused by the error when completing your ticket purchase.");
 
-define('reservtime', 'Time left');
+define('copy_main_pm', "copy from main event");
 
-define('payreservenow', 'Pay reservation');
+define('user_condition', "Conditions: Information collected will only be stored to handle shipping and payment.");
 
-define('export_eventbarcodes_seat', 'Seat');
-define('export_eventbarcodes_seat_free', 'Free');
+define('plugin_info_header', "Plugin");
 
-define('select_seats_first', 'Select seats first');
-define('select_seats', 'Select seats');
-define('search_user_details', 'User information');
+define('save_ship_tooltip', "Save &amp; Email shipping note");
 
-define('tickettaker_change_event', 'Change Event');
-define('tickettaker_logout', 'Logout');
-define('tickettaker_scan', 'Scan tickets');
-define('tickettaker_search', 'Search');
+define('categories', "Categories");
 
-define('search_order_id_header', 'Order #');
-define('search_order_date_header', 'Date');
-define('search_user_header', 'Patron');
-define('search_address_header', 'Address');
-define('search_zip_header', 'Zip');
-define('search_city_header', 'City');
-define('search_country_header', 'Country');
-define('search_order_status_header', 'Status');
-define('search_seat_id_header', 'Seat #');
-define('search_event_name_header', 'Event');
-define('search_category_name_header', 'Category');
-define('search_pmz_name_header', 'Zone');
-define('search_place_header', 'Seat');
-define('search_seat_status_header', 'Status');
+define('email_to_name', "Email to name:");
 
-define('checkin_ticket', 'Are you sure to checkin this ticket?');
-define('checkin', 'Checkin');
+define('trx_id', "Transaction ID");
 
-define('search_result_none', 'No search result for this selection.');
+define('republish_old_event', "Are you sure you want to publish this archived event?\\r\\n It will only show in the [Program] area of the Web Shop.");
 
-define('checkout_expired', 'The tickets in you cart are expired \\nand will be removed from the cart.');
+define('pdf_tickets_and_invoice', "pdf_tickets_and_invoice");
+define('plugin_myversion_numbering_header', "Version");
 
-define('no_user_set', 'User not selected.');
+define('save_note_tooltip', "Save &amp; Email a note");
 
-define('event_status_header', 'Status');
-define('event_name_header', 'Events');
-define('event_datetime_header', 'Date');
-define('event_type_header', 'Type');
+define('both', "Rows/Seats");
 
-define('ort_name_header', 'Venue');
-define('ort_country_header', 'Country');
+define('email_to_email', "To email address:");
 
-define('actions_header', '');
+define('orderdeleted', "Order Deleted");
 
-define('multicurrency_conf', 'Currency Conversion Rates');
+define('unpublished', "UnPublished");
 
-define('datatable_no_data', 'No data available in table');
-define('datatable_loading', 'Loading...');
-define('datatable_zerorecords', 'No matching records found.');
+define('pdf_invoice_only', "pdf_invoice_only");
+define('plugin_author_header', "Author");
 
-define('eventlink_check_header', '');
-define('eventlink_loginname_header', 'Loginname');
-define('eventlink_email_header', 'email address');
+define('delete_ticket', "Delete Ticket");
 
-define('update', 'Update');
+define('rows', "Rows");
 
-define('pos_event_name_title', 'Events');
-define('pos_tickets_title', 'Tickets');
-define('pos_total_title', 'Total');
-define('pos_event_name', 'Event');
-define('pos_date', 'Date');
-define('pos_venue', 'Venue');
-define('pos_doors_open', 'Doors open');
+define('email_from_name', "Email from name:");
 
-define('wrong_event_id', 'Wrong event_id!');
+define('printinvoice', "Print Invoice");
 
-define('discount_none', 'None');
+define('restart__failure', "restart__failure");
 
-define('placemapexit', 'Exit');
+define('pdf_tickets_only', "pdf_tickets_only");
+define('priority_header', "Priority");
 
-define('select_event_first', '<b style=\"text-align:center;width:100%;\">No event selected.</b>');
+define('nav_first', "First");
 
-define('pos_event_image_header', 'Image');
-define('pos_event_description_header', 'Description');
+define('seat', "Seats");
 
-define('select_event', 'Select an Event');
+define('email_from_email', "From email address:");
 
-define('help_plugin', 'Help plugin');
+define('printtickets', "Print Tickets");
+define('plugins_tab', "Plugins");
 
-define('search_action', 'Click to show the list of existing users');
+define('order_is_not_paid', "Order not Paid.");
 
-define('order_action', 'Click to create the order');
-define('order_cancel_action', 'Cancel the defined order');
+define('pmp_name_header', "Name");
 
-define('notifytimeout', 'Notify Message closetime');
+define('nav_prev', " < ");
+define('none', "None");
 
-define('group_eventsettings', 'Event Settings');
+define('emails_cc', "CC emails:");
 
-define('archive_oldevents', 'Move Event Direct to Archive');
+define('free_event', "Free Tickets");
 
-define('order_already_reissue_cancelled', 'Order already reissue cancelled!');
+define('category_pm_id', "Seat Chart ID");
 
-define('category_numbering_header', 'Nature');
-define('category_name_header', 'Category');
-define('category_size_header', 'Size');
-define('category_price_header', 'Price');
-define('category_useweb_header', 'Web');
-define('category_usepos_header', 'POS');
+define('seat_checked', "Seat checked");
 
-define('pm_name_header', 'Name');
+define('pmp_size_header', "Size");
 
-define('template_name_header', 'Template');
+define('nav_next', " > ");
 
-define('ort_city_header', 'City');
+define('cat_at', "@");
 
-define('admin_status_header', 'Kind');
-define('admin_login_header', 'Loginname');
-define('admin_country_header', 'Country');
+define('emails_bcc', "BCC emails:");
 
-define('discount_name_header', 'Discount name');
-define('discount_promo_header', 'Promo code');
-define('discount_value_header', 'Value');
-define('discount_used_header', 'Used');
-define('discount_useweb_header', 'Web');
-define('discount_usepos_header', 'POS');
+define('discounts', "Discounts");
 
-define('user_city_header', 'City');
-define('user_country_header', 'Country');
-define('user_posname_header', 'POS Office');
-define('user_id_header', 'ID');
-define('user_name_header', 'Username');
-define('user_status_header', 'Status');
+define('category_pmp_id', "Seat Chart Part ID");
 
-define('sales_patron', 'POS Patron');
+define('event_ordering', "Order tickets");
 
-define('tickets_reissued_remember_to_send', 'Tickets reissued remember send!');
+define('zones_name_header', "Name");
 
-define('status_header', '');
+define('nav_last', "Last");
 
-define('in_use_adminlink', 'Record is connected to an event');
+define('category_id', "Category Number");
 
-define('config_errors_found', 'Check your configuration, there where some errors found while saving.');
+define('email_def_lang', "Default template language:");
 
-define('error_salespoint_not_found', 'Error: Salespoint not found!!');
+define('place_nr', "Seat");
+define('publish7', "publish7");
 
-define('plugin_info_header', 'Plugin');
-define('plugin_myversion_numbering_header', 'Version');
-define('plugin_author_header', 'Author');
-define('priority_header', 'Priority');
-define('pmp_name_header', 'Name');
-define('pmp_size_header', 'Size');
+define('event_ordering-tooltip', "");
 
-define('zones_name_header', 'Name');
-define('zone_short_header', 'Short');
+define('zone_short_header', "Short");
 
-define('uadmin_inuse_header', 'Active');
+define('password', "Password");
 
-define('free_seat_cat', 'Seats Available:');
+define('category_name', "Category Name");
 
-define('search_orderid', 'Order ID');
-define('search_patron', 'Patron');
-define('search_phone', 'Phone');
-define('search_email', 'eMail');
+define('email_templates', "Email templates:");
 
-define('pos_waitingmessage', 'Waiting for payment..');
+define('unassigned_seat', "Unassigned");
 
-define('receipt', 'Receipt.');
+define('pub__failure', "The following event failed to publish:");
 
-define('tickettaker', 'Ticket Taker');
+define('event_select_cat', "Select Category");
 
-define('linked_posoffices', 'POS Offices');
+define('uadmin_inuse_header', "Active");
 
-define('unlink', 'unlink');
+define('password1', "Choose Password");
 
-define('spoint_removed_adminuser', 'The pos user/manager is unlinked from this Office.');
+define('category_price', "Category Price");
 
-define('tospage', 'ToS');
-define('tos_title', 'Change ToS page');
-define('tos_text', 'Discription');
-define('tos_document_saved', 'The ToS document is changed');
+define('remove_group', "Remove");
 
-define('netpay', 'netPay');
+define('each', "per ticket.");
+define('export_entrant_withseats', "Export with seat numbers");
+define('event_select_seats', "Seatmap");
 
-define('pm_netpaypal_secure', 'Netpay\'s securecode');
-define('pm_netpaypal_id', 'Netpay\'s  merchant ID');
+define('free_seat_cat', "Seats Available:");
 
-define('netpay_pay', 'Click here go to NetPay payment page.');
+define('password2', "Repeat Password");
 
-define('placemap_delete_failed_seats_exists', 'Cannot delete seatmap. Event belonging to this seatmap is published already!');
-define('pos_user_not_connected', '<font color=red>Not Linked</font>');
-define('pos_user_connected_to', '');
+define('category_template', "Template for Tickets");
 
-define('admin_user_id_blank', 'There isn\'t a selected user.');
+define('template_subject', "Template language subject");
 
-define('pm_img_file_not_found', 'The image for the placemap can\'t be found');
+define('shop', "Order Tickets");
 
-define('img_loading_problem_ext', 'The chosen extension is not allowed by the system');
+define('export_entrant_notsended', "Include seats not yet sent");
 
-define('allow_free_tickets', 'Allow free ticket categories');
+define('select_discounts', "Select Discount");
+define('search_orderid', "Order ID");
 
-define('shoppos_settings', 'POS Office settings');
-define('shoppos_allow_without_fee', 'Allow All POS offices to sell free tickets');
-define('shoppos_allow_without_cost', 'Allow All POS offices to sell tickets without fee');
+define('new_password', "New Password");
 
-define('preview_webshop', 'Preview Website');
-define('pm_part_preview', 'Seat map part preview');
-define('placemap_seats_selected', 'Selected Seats: ');
+define('category_color', "Color for Category");
 
-define('has_eventpromo', 'Use promocode');
+define('template_text', "Template language plain text");
 
-define('enter_eventpromocode', 'Please Enter Promocode below.');
-define('eventdiscount_invalid', 'Promo code is invalid.');
+define('shop_main', "Select Event");
 
-define('posuser_activate', 'Register all Pos Users as Member');
-define('placemap_selection', 'Map');
+define('mollie_status_cancelled', "You have cancelled the order while in iDeal");
 
-define('reserve_tickets', 'Tickets are Reserved');
+define('no_discount', "No discount");
 
-define('order_place_header', 'Method');
+define('search_patron', "Patron");
 
-define('pmp_zone_name_header', 'Zone');
-define('pmp_category_name_header', 'Category');
-define('pm_category', 'Category');
+define('old_password', "Current Password");
 
-define('edit_seatnumbering', 'Edit Seat numbering');
+define('category_numbering', "Category Numbering");
 
-define('add_zone_seat', 'Add seat to this zone');
-define('add_category_seat', 'Add to this category');
+define('template_html', "Template language HTML");
 
-define('select_category_first', 'Select Category first.');
+define('shop_info', "Check tickets are available for the desired Category then click on &quot;Buy Tickets&quot; to continue.");
 
-define('placemap_seats_of', 'of');
+define('always_show_handling', "Show always");
 
-define('event_ordering_tickets_info', 'Ordering <b id=ordering_seats class=seatscounter>0</b> x <b id=ordering_category></b> with <b id=ordering_discount></b> a <b id=ordering_price></b> = <b id=ordering_total></b>');
+define('bad_category_id', "Category not found.");
 
-define('available', 'Available');
-define('all', 'All');
+define('search_phone', "Phone");
 
-define('onone_isprivate', '(Private Note)');
+define('confirmpassword', "Confirm Password");
+define('category_numbering_both', "Rows and Seats Numbered");
 
-define('print_address', 'Print Address Label');
+define('send_test', "Send Test Email");
+define('shop_info_main', "Select a event below for the day for which you wish to purchase tickets.");
+define('shopconfig_maxorder', "Max tickets to order");
 
-define('cashu', '!!cashu!!');
-define('cant_find_seat', 'Can\'t find seat');
-define('cant_update_event_stat', 'Cannot update the event statistics');
+define('next', "next");
 
-define('freeticketcode', 'Discount Code:');
+define('search_email', "eMail");
 
-define('infogetfilefunction', 'InfoGetFileFunction');
-define('infoziplibinstalled', 'InfoZipLibInstalled');
+define('event', "Event");
 
-define('orderdescription', 'Fusion Ticket Order ');
+define('category_numbering_rows', "Only Rows Numbered");
 
-define('pm_vpc_accesscode', 'pm_vpc_AccessCode');
-define('pm_vpc_merchant', 'pm_vpc_Merchant');
-define('pm_vpc_secure_secret', 'pm_vpc_SECURE_SECRET');
+define('email_header', "Email Header");
 
-define('english', 'English');
+define('shop_condition', "Conditions: Information collected will only be stored to handle shipping and payment.");
+
+define('unable_to_fetch_seats', "Unable to fetch Users seats");
+
+define('add_to_cart', "Add to Cart");
+
+define('pos_waitingmessage', "Waiting for payment..");
+
+define('home', "Home");
+
+define('category_numbering_seat', "Only Seats Numbered (No Rows)");
+
+define('email_body', "Email Body");
+
+define('shop_no_event', "Sorry but the event you are looking for, does not exist, has expired or been removed.");
+
+define('user_seat_update_failed', "Unable to update User seat numbers");
+
+define('error_cantloadevent', "can't load selected event");
+
+define('receipt', "Receipt.");
+
+define('logout', "Log out");
+
+define('category_numbering_none', "Seats w/o Numbers (Open Seating)");
+
+define('fees', "Fee's");
+define('from', "From the");
+
+define('unable_to_update_user_details', "Unable to update User details");
+
+define('buy_tickets', "Buy Tickets");
+
+define('tickettaker', "Ticket Taker");
+
+define('member', "Member login");
+
+define('category_size', "Category Size");
+
+define('shipment_fees', "Shipment fees");
+
+define('choose_event', "Please select the event for the day you wish to book from the list below:");
+
+define('input_fields_requered', "Input fields with a <b>*</b> are required.");
+
+define('linked_posoffices', "POS Offices");
+
+define('no', " No");
+define('number_taken', "Seats Sold");
+
+define('handling_title', "Order Handling");
+
+define('doors_open', "Doors Open");
+
+define('cant_delete_image', "Cannot delete image file");
+
+define('person_user', "Profile details");
+
+define('unlink', "unlink");
+
+define('order_id', "Order Number");
+
+define('category_data', "Category Data");
+
+define('handling_add_title', "Add an Order Handling");
+
+define('dates_localities', "Dates and Locations");
+
+define('cant_delete_mp3', "Cannot delete mp3 file");
+
+define('person_orders', "List of orders");
+
+define('spoint_removed_adminuser', "The pos user/manager is unlinked from this Office.");
+
+define('remove_image', "Remove File or Image");
+
+define('category_new_size_title', "Change Category Size");
+
+define('payment_update_title', "Modify the Payment Type");
+
+define('various_dates', "Multiple Dates");
+
+define('enabled', "Enabled");
+
+define('printticket', "Print Ticket(s)");
+
+define('tospage', "ToS");
+define('tickets', "Tickets");
+
+define('category_new_size', "New Size");
+
+define('handling_update_title', "Modify the Payment Type");
+
+define('venue', "Location");
+
+define('show_stat_reports', "Other Reports");
+
+define('with_discount', " with ");
+
+define('tos_title', "Change ToS page");
+
+define('welcome', "Welcome");
+
+define('pm_zones', "Zones");
+
+define('handling_payment', "Payment");
+
+define('no_sub_events', "There are no sub-events currently available.");
+
+define('report_admin_title', "Spreadsheet Reports");
+
+define('edit_user', "Edit");
+
+define('tos_text', "Discription");
+
+define('yes', " Yes");
+
+define('pm_zone', "Zone");
+
+define('cash', "Cash");
+
+define('no_categories_available', "There are currently no categories currently available online. Contact the Box Office direct.");
+
+define('report_xl', "Tickets Sales Report");
+
+define('user_update', "Save profile");
+
+define('tos_document_saved', "The ToS document is changed");
+
+define('user_firstname', "First Name");
+
+define('pmz_pm_id', "Seat Chart ID #");
+
+define('entrance', "At the Entrance");
+define('event_groups', "Event Groups");
+
+define('report_archive_event', "Event Archives");
+
+define('failed_too_update_user', "failed to update userprofile");
+
+define('netpay', "netPay");
+
+define('user_lastname', "Last Name");
+
+define('pmz_color', "Zone Color");
+
+define('invoice', "Invoice");
+
+define('et_church', "Church Music");
+
+define('report_entrant', "Ticket Status Report");
+
+define('order_info', "Order overview");
+
+define('pm_netpaypal_secure', "Netpay's securecode");
+
+define('user_name', "Name");
+
+define('pmz_name', "Zone Name");
+define('paypal', "PayPal");
+
+define('et_cinema', "Cinema");
+define('export_statuslog', "Export Status Log");
+
+define('invalid_order', "invalid_order");
+
+define('pm_netpaypal_id', "Netpay's  merchant ID");
+
+define('user_address', "Address");
+
+define('pmz_short_name', "Zone Nickname");
+
+define('ideal', "iDEAL");
+
+define('et_classics', "Classical Music");
+
+define('max_seats_reached', "Maximum Seats Reached");
+
+define('submit_reserve', "Reserve");
+
+define('netpay_pay', "Click here go to NetPay payment page.");
+
+define('user_address1', "Address 1");
+
+define('pmz_id', "Zone Record Number");
+
+define('authorize_aim', "AIM");
+
+define('et_expo', "Expo");
+
+define('handling_alt_settings', "Alternate Settings");
+
+define('go_home', "Home");
+
+define('placemap_delete_failed_seats_exists', "Cannot delete seatmap. Event belonging to this seatmap is published already!");
+
+define('user_address2', "Address 2");
+
+define('pmz_ident', "Zone Number");
+
+define('ebs', "EBS");
+define('et_folk', "Folk");
+
+define('hide', "Hide");
+
+define('go_pay', "Pay order");
+
+define('pos_user_not_connected', "<font color=red>Not Linked</font>");
+
+define('user_city', "City");
+
+define('place_map', "Seat Chart");
+
+define('email', "Email");
+define('et_humour', "Humour");
+
+define('handling_fee_settings', "Fee Settings");
+
+define('user_email2', "Repeat E-Mail");
+
+define('pos_user_connected_to', "");
+
+define('user_state', "State");
+
+define('pm_parts', "Seat Chart Parts");
+define('post', "Post");
+
+define('et_jbf', "Jazz/Blues/Funk");
+
+define('hanging_pdf_settings', "PDF Settings");
+
+define('order_reserved', "Order is reserved for you");
+
+define('admin_user_id_blank', "There isn't a selected user.");
+
+define('user_state_name', "State");
+
+define('pm_part', "Seat Chart Part");
+
+define('google', "Google");
+
+define('et_music', "Music");
+
+define('hanging_email_settings', "Email Settings");
+
+define('cart_expired', "The tickets in you cart are expired and will be removed from the cart.");
+
+define('pm_img_file_not_found', "The image for the placemap can't be found");
+
+define('user_zip', "Zipcode");
+
+define('pmp_id', "Seat Chart Part ID");
+
+define('handling_shipment', "Shipment");
+
+define('et_opbal', "Opera/Ballet");
+
+define('plugins_title', "Plug Ins");
+
+define('vertical_menu', "Menu");
+
+define('img_loading_problem_ext', "The chosen extension is not allowed by the system");
+
+define('user_country', "Country");
+
+define('pmp_name', "Seat Chart Part Name");
+
+define('handling_sale_mode', "Selling Method");
+
+define('et_other', "Other");
+
+define('plugin_email', "Email: ");
+
+define('no_orderid_given', "No Order ID for ticket loading");
+
+define('allow_free_tickets', "Allow free ticket categories");
+
+define('user_country_name', "Country");
+
+define('pmp_width', "Seat Chart Part Width");
+
+define('www', "Webshop");
+
+define('et_party', "Party");
+
+define('plugin_web', "Website: ");
+
+define('select_user_country', "[Select Country...]");
+define('shoppos_settings', "POS Office settings");
+
+define('user_phone', "Phone");
+
+define('pmp_height', "Seat Chart Part Height");
+
+define('sp', "POS");
+
+define('et_pr', "Pop/Rock");
+
+define('order_status_send', "Sent");
+
+define('cant_lock_seat', "can't lock seat");
+
+define('shoppos_allow_without_fee', "Allow All POS offices to sell free tickets");
+
+define('user_fax', "Fax");
+
+define('pmp_scene', "Scene Location");
+
+define('handling_alt', "Alt Handling Method");
+
+define('et_theater', "Theatre");
+
+define('promo_in_use', "This promocode is already used.");
+
+define('search_choice_two_fields', "Fill atliest 2 fields.");
+define('shoppos_allow_without_cost', "Allow All POS offices to sell tickets without fee");
+
+define('user_email', "E-Mail");
+
+define('pmp_scene_none', "None");
+
+define('handling_no_alt', "Hide");
+
+define('forgot_pwd', "Forgot Password ?");
+
+define('discount_promo_for', "Discount promocode for&nbsp;");
+
+define('personal_search_dialog', "Personal Search dialog");
+define('preview_webshop', "Preview Website");
+
+define('user_id', "User ID");
+
+define('pmp_scene_north', "North");
+
+define('handling_alt_only', "Only Alt Handling Method");
+
+define('pwd_forgot', "Forgotten your Password?");
+
+define('rep_ord_id', "Order #");
+
+define('order_status_reserved', "Reserved");
+
+define('pm_part_preview', "Seat map part preview");
+
+define('user_status', "Status");
+
+define('pmp_scene_east', "East");
+
+define('handling_expires_min', "Minutes until OH Cancels for<br> Non-Payment (0 = Never)");
+
+define('forgot_password', "Forgotten your Password?");
+
+define('rep_sale_date', "Sale Date");
+
+define('order_status_sent', "Order sent");
+
+define('placemap_seats_selected', "Selected Seats: ");
+
+define('user_maillist', "Newsletter");
+
+define('pmp_scene_south', "South");
+
+define('handling_fee_fix', "Fee Fixed");
+
+define('forgot_password_ok', "Your password has been reset");
+
+define('rep_sale_barcode', "Barcode");
+
+define('order_status_paid', "Order paid");
+
+define('has_eventpromo', "Use promocode");
+
+define('act_err', "User Not Found or Already Activated!");
+
+define('pmp_scene_west', "West");
+
+define('handling_fee_percent', "Fee Percent");
+
+define('forgot_password_ok_desc', "OK ! We have generated a new password for you and sent it to your email.");
+
+define('hand_payment_text', "Payment Method");
+
+define('order_status_cancelled', "Order cancelled");
+
+define('enter_eventpromocode', "Please Enter Promocode below.");
+
+define('act_error', "Account Could Not be Activated! Please re-check the link or contact the system administrator.");
+
+define('pmp_shift', "Shift Rows");
+
+define('handling_email_template_ord', "Email to send when Ordered");
+
+define('pwd_err', "User not found or other problem occurred");
+
+define('user_title', "Customer Information");
+
+define('success', "Success ");
+
+define('eventdiscount_invalid', "Promo code is invalid.");
+
+define('act_uselink', "Please use the link that has been sent to your email address.");
+
+define('scene_h', "../images/scene_h_en.png");
+
+define('handling_email_template_send', "Email to send when Shipped");
+
+define('pwd_is_sent', "Your new password was sent to your e-mail");
+
+define('cust_id', "ID");
+
+define('invalid', "Invalid");
+
+define('posuser_activate', "Register all Pos Users as Member");
+
+define('act_email_sent', "Activation email sent.");
+
+define('scene_v', "../images/scene_v_en.png");
+
+define('handling_email_template_paid', "Email to send when Paid");
+
+define('pwd_note', "Enter your e-mail address here. Click on 'Send Password' and a new password will be emailed to you");
+
+define('ven_id', "ID");
+
+define('select', "Select");
+
+define('placemap_selection', "Map");
+
+define('already_exist', "This Name Already Exists. Choose Another!");
+
+define('label', "Label:");
+
+define('handling_pdf_template', "PDF Template for Invoice/Receipt");
+define('helpme', "Help information");
+
+define('ven_name', "Name");
+
+define('garbage_logfiles', "Overview of create log files");
+
+define('reserve_tickets', "Tickets are Reserved");
+
+define('useralreadyexist', "This E-mail is Already Registered in the Database!");
+
+define('label_type_text', "Text");
+
+define('handling_pdf_ticket_template', "PDF Ticket Template");
+
+define('up_events', "Upcoming Events");
+
+define('evnt_title', "Event Information");
+
+define('no_logfiles_find', "There are no log files precent");
+
+define('order_place_header', "Method");
+
+define('autocancel_order', "Auto Cancel: Failed to Order!");
+
+define('label_type_row_east', "Row# on Right");
+
+define('handling_text_payment', "Payment Label");
+
+define('eventlist_info', "Please select an upcoming event from below.");
+define('evnt_id', "ID");
+
+define('clear_cache', "Clear Cache");
+
+define('pmp_zone_name_header', "Zone");
+
+define('autocancel_paying', "Auto Cancel: Failed to Pay for Order!");
+
+define('label_type_row_west', "Row# on Left");
+
+define('handling_text_shipment', "Shipment Label");
+
+define('orders', "Orders");
+
+define('evnt_name', "Name");
+
+define('garbage_files', "Orphaned/Misc Files");
+
+define('pmp_category_name_header', "Category");
+
+define('cant_delete_self', "You can not delete yourself!");
+
+define('label_type_seat_south', "Seat# Below");
+
+define('handling_html_template', "HTML Template for Explanations");
+
+define('order_summary', "Order Summary");
+
+define('evnt_date', "Date");
+
+define('delete_files', "Delete all files");
+
+define('pm_category', "Category");
+
+define('cannot_find_seat', "Cannot Find Seat!");
+
+define('label_type_seat_north', "Seat# Above");
+
+define('handling_email_template_ord_incl_pdf', "Include PDF's for Order");
+
+define('personal_orders', "Personal Orders");
+
+define('evnt_time', "Time");
+
+define('no_files_found', "There are no orphaned/misc files");
+
+define('edit_seatnumbering', "Edit Seat numbering");
+
+define('cannot_seal', "Internal Error: Cannot Seal Credit Card Info!");
+
+define('label_type_exit', "Exit");
+
+define('handling_email_template_paid_incl_pdf', "Include PDF's for Paid");
+
+define('number_tickets', "Number of tickets");
+
+define('cat_title', "Ticket Information");
+
+define('handling_fee_perseat', "fixed fee per seat");
+
+define('add_zone_seat', "Add seat to this zone");
+
+define('cannot_store', "Internal Error: Cannot Store Credit Card Info!");
+
+define('seat_numbering', "Seat Numbering");
+
+define('handling_email_template_send_incl_pdf', "Include PDF's for Sent");
+
+define('userid', "User Id");
+
+define('cat_id', "ID");
+define('config_title', "Configuration Tables");
+
+define('add_category_seat', "Add to this category");
+
+define('check_condition', "Please Accept the Terms!");
+
+define('autonumber_pmz', "Automatic numbering");
+
+define('handling_email_template_ord_incl_inv_pdf', "Invoice/Receipt");
+
+define('buytimeleft', "You have ~DAYS~ Days, ~HOURS~ Hours, ~MINS~ Mins, ~SECS~ Seconds left to confirm your order!");
+
+define('cat_name', "Name");
+
+define('group_organizer', "Merchant Details");
+
+define('select_category_first', "Select Category first.");
+
+define('compilation_succeed', "Success - Template Compiled!");
+
+define('first_row', "First Row");
+
+define('handling_email_template_paid_incl_inv_pdf', "Invoice/Receipt");
+
+define('autocancel', "After this time your order is automatically cancelled!");
+
+define('cat_price', "Value");
+
+define('group_common', "Common");
+
+define('placemap_seats_of', "of");
+
+define('correct_errors_first', "Correct Errors First!");
+
+define('step_row', "Row Step");
+
+define('handling_email_template_send_incl_inv_pdf', "Invoice/Receipt");
+
+define('ordertickets', "To Order Tickets Click below:");
+
+define('cat_sold', "Sold For");
+
+define('landscape', "Landscape");
+
+define('event_ordering_tickets_info', "Ordering <b id=ordering_seats class=seatscounter>0</b> x <b id=ordering_category></b> with <b id=ordering_discount></b> a <b id=ordering_price></b> = <b id=ordering_total></b>");
+
+define('delete_confirm_msg', "Delete This Event?");
+
+define('inv_row', "Invert Rows");
+
+define('handling_email_template_ord_incl_ticket_pdf', " Ticket");
+
+define('reserv_cancel', "WARNING this is a one way process!");
+
+define('disc_name', "Name");
+
+define('system_online', "System on-line");
+
+define('available', "Available");
+
+define('delete_item', "Delete?");
+
+define('first_seat', "First Seat");
+
+define('handling_email_template_paid_incl_ticket_pdf', " Ticket");
+
+define('notpaid', "Not Paid");
+
+define('disc_type', "Type");
+
+define('offline_message', "Off-line message");
+
+define('all', "All");
+
+define('deleted_all_tickets', "Deleted All Tickets!");
+
+define('step_seat', "Seat Step");
+
+define('handling_email_template_send_incl_ticket_pdf', " Ticket");
+
+define('sold', "Sold");
+
+define('disc_value', "Value");
+
+define('secure_site', "Security");
+
+define('onone_isprivate', "(Private Note)");
+
+define('delete_subs_first', "Delete Sub-Events First!");
+
+define('inv_seat', "Invert Seat");
+
+define('handling_only_manual_send', "Always manually send email");
+
+define('manual_payment', "Set to Paid: ");
+
+define('handling_fee_type', "Fee calculation type");
+
+define('theme_name', "Theme name");
+
+define('print_address', "Print Address Label");
+
+define('email_valid', "Please Enter a Valid Email Address!");
+
+define('flip', "Flip");
+
+define('pm_paypal_business', "PayPal Account");
+define('payhere', "<br><br>To Pay Now, Check Here:");
+
+define('handling_fee_sum', "Sum of fixed and Percent");
+
+define('input_time_type', "Time Format");
+
+define('email_match', "The Emails Do Not Match!");
+
+define('keep', "Keep");
+
+define('pm_paypal_test', "PayPal Sandbox");
+
+define('notsent', "Not Sent");
+
+define('handling_fee_min', "Minimum of fixed and Percent");
+
+define('time_type_12', "12 hour clock");
+
+define('cant_find_seat', "Can't find seat");
+
+define('email_badconfig', "The program's mail configuration is incorrectly defined!");
+
+define('map', "Chart");
+
+define('pm_ideal_merchantid', "Merchant ID");
+
+define('sent', "Sent");
+
+define('handling_fee_max', "Maximum of fixed and Percent");
+
+define('time_type_24', "24 hour clock");
+
+define('cant_update_event_stat', "Cannot update the event statistics");
+
+define('event_order_limit_exceeded', "Sorry, The number of seats that you can order for this event is limited!");
+
+define('ort', "Venue");
+
+define('pm_ideal_subid', "Sub ID");
+
+define('go_back', "Click Here to Go Back");
+
+define('pay_ispending', "Payment transaction is pending.");
+
+define('input_date_type', "Date format");
+
+define('freeticketcode', "Discount Code:");
+define('fax_short', "The Fax Number is too Short!");
+
+define('ort_plan_nr', "Number on plan");
+
+define('pm_ideal_issuer', "Issuing Bank");
+
+define('id', "ID");
+
+define('cookie_disabled', "<h1> Warning, you have disabled cookies on your system.</h1> This will not work on this website. Please turn this on, before you order any tickets.</h1>");
+
+define('date_type_dmy', "ddmmyyyy");
+
+define('infogetfilefunction', "InfoGetFileFunction");
+
+define('fax_long', "The Fax Number is too Long!");
+
+define('event_group_tab', "Event Groups");
+
+define('pm_ideal_test', "Ideal Sandbox");
+
+define('zone', "Zone");
+
+define('admin_user_id', "Sale Point user");
+
+define('date_type_mdy', "mddyyyy");
+
+define('infoziplibinstalled', "InfoZipLibInstalled");
+define('img_loading_problem', "Problem Loading Image!");
+
+define('event_group_title', "Event Groups");
+
+define('pm_ideal_key', "Key");
+
+define('discount', "Discount");
+
+define('admin_status', "Role of user");
+
+define('date_type_ydm', "yyyyddmm");
+
+define('orderdescription', "Fusion Ticket Order ");
+
+define('img_loading_problem_copy', "Problem Loading Image Copy!");
+
+define('event_group_add_title', "Add an Event Group");
+
+define('pm_ideal_keypass', "Key Password");
+define('paytimeleft', "You have ~DAYS~ Days, ~HOURS~ Hours, ~MINS~ Mins and ~SECS~ Seconds to pay for your order!");
+
+define('admin_email', "Email address");
+
+define('timezone', "Time zone");
+
+define('pm_vpc_accesscode', "pm_vpc_AccessCode");
+
+define('in_use', "This Object is in use and <b>cannot</b> be Deleted!");
+
+define('event_group_update_title', "Modify Event Group");
+
+define('pm_ideal_pcert', "Pcert");
+define('paytimeforever', "You have to pay for your order, before the start of the event! ");
+
+define('admin_posuser_title', "Sale Point Administrators");
+
+define('pdf_paper_size', "Pdf Paper size");
+define('pm_vpc_merchant', "pm_vpc_Merchant");
+
+define('internal_error', "Internal Error!");
+
+define('event_group_id', "Group ID");
+
+define('pm_ideal_certficate', "Certificate");
+define('pers_orders', "Current / Previous Order");
+
+define('user', "user");
+
+define('pdf_paper_orientation', "Orientation");
+define('pm_vpc_secure_secret', "pm_vpc_SECURE_SECRET");
+
+define('invalid_date', "Invalid Date!");
+
+define('event_group_name', "Group Name");
+
+define('pm_google_merchant_id', "Merchant ID");
+
+define('options', "Options");
+
+define('shipment_type', "Shipment Type");
+
+define('portrait', "Portrait");
+
+define('english', "English");
+
+define('invalid_number', "Invalid Credit Card Number!");
+
+define('event_group_start_date', "Start Date");
+
+define('pm_google_merchant_key', "Key");
+define('pers_cancel', "Cancelled");
+
+define('shipment_address', "Shipment Address");
+
+define('address_label_template', "Address Label Template");
+
+define('log_err_isactive', "That account is already active.");
+
+define('event_group_end_date', "End Date");
+
+define('pm_google_sandbox', "Sandbox");
+define('pers_ord', "Ordered/Unpaid");
+
+define('order_owner_id', "Create by POS");
+
+define('address_label_always', "Always print an address label");
+
+define('log_err_mailnotsend', "The Activation Email <b>could not</b> be sent, please check you have entered the correct email address.");
+
+define('event_group_type', "Group Type");
+
+define('pm_google_callback_link', "Call Back Link");
+define('pers_page', "Personal Page");
+
+define('onote_type_note', "note");
+
+define('trace_on', "Trace-on");
+
+define('log_err_not_act', "You are Not Activated!");
+
+define('festival', "Festival");
+
+define('pm_on_google_cancel_cancel_order', "Google Cancellation");
+define('pers_paid', "Paid");
+
+define('onote_type_admin', "admin");
+
+define('shopconfig_run_as_demo', "Run as Demo");
+
+define('log_err_not_act_info', "Your account is not yet activated.
+  <p>Please check your email to activate your account. Don't forget to check the spam folder.</p>
+  <p>If you haven't received any email yet, please click <a href='resend_activation.php'>here</a> to resend the activation email.</p>");
+
+define('tournee', "Tournament");
+
+define('pm_on_user_cancel_cancel_order', "User Cancellation");
+define('pers_reissue', "Re-issued");
+
+define('onote_type_payment', "payment");
+
+define('group_autocleanup', "Auto clean-up");
+
+define('log_err_wrong_usr', "Your username and/or password don't match!");
+
+define('theatre', "Theater");
+
+define('pm_on_refund_cancel_order', "Refund");
+define('pers_res', "Reserved");
+
+define('onote_type_todo', "todo");
+
+define('group_ordering', "Ordering");
+
+define('log_err_wrong_usr_info', "Wrong Username or Password.
+		If you have forgoten your password, click <a href='forgot_password.php' onclick='showDialog(this);return false;' >here</a>");
+
+define('event_group_description', "Description");
+
+define('pm_ebs_accountid', "Account ID");
+define('pers_send', "Sent");
+
+define('onote_isprivate', " (<i>private</i>)");
+
+define('group_upload', "Upload settings");
+
+define('mand_all', "All input fields are Required.");
+
+define('event_group_image', "Event Group Image");
+
+define('pm_ebs_seckey', "Security Key");
+define('pers_unknown', "Unknown Status - Contact Admin");
+
+define('onote_private', "Personal Note (You can see only)");
+
+define('allowed_uploads', "Allowed file types");
+
+define('mandatory', "Field Required!");
+
+define('unpublish_event_group', "Unpublish Event Group");
+
+define('pm_ebs_test', "EBS Test");
+define('personal', "Personal Details");
+
+define('onote_subject', "Note Subject");
+
+define('file_mode', "File mode");
+
+define('mp3_loading_problem', "Problem Loading MP3 File!");
+
+define('publish_event_group', "Publish Event Group");
+define('pm_authorize_aim_login', "AIM Login");
+define('pers_mess', "To change your details please click the [Edit] button below.");
+
+define('onote_note', "Note Details");
+
+define('allowed_maxsize', "Maximum size");
+
+define('missing_pm_ord_id', "Error: this placemap cannot be saved, venue is missing");
+
+define('event_tab', "Events");
+
+define('pm_authorize_aim_txnkey', "Transaction Key");
+define('pers_mess2', "To change or see your orders in more detail please click <a href='index.php?personal_page=orders'>Here</a><br><br>Only the last 6 orders are shown here.");
+
+define('onote_set_sent', "On &quot;Save &amp; Email&quot; Set Order To Sent.");
+
+define('allowed_maxwidth', "Maximum width");
+
+define('nosale_confirm_msg', "Remove from Sale?");
+
+define('history_tab', "Archive");
+
+define('pm_authorize_aim_test', "AIM Test");
+define('payment_status', "Payment Status");
+
+define('onote_set_paid', "On &quot;Save &amp; Email&quot; Set Order To Paid.");
+
+define('allowed_maxheight', "Maximum height");
+
+define('new_order_created', "New Order Created");
+
+define('event_history_title', "Previous Events");
+
+define('patron_tab', "Customer");
+
+define('shipment_status', "Shipment Status");
+
+define('onote_resend_sent', "Resend &quot;Sent&quot; Email.");
+
+define('group_mail', "Mail settings");
+
+define('not_number', "Enter a Number Without -()!");
+
+define('event_title', "Active Events");
+
+define('search_title_user', "Search for Customer");
+
+define('program', "Program");
+
+define('onote_resend_paid', "Resend &quot;Paid&quot; Email.");
+
+define('mail_smtp_host', "Host");
+
+define('not_valid_email', "E-mail is invalid.");
+
+define('checkbox_all', "Check/Uncheck All");
+
+define('sale_point', "POS");
+
+define('div_dates', "Multiple Dates");
+
+define('logged_in', "User:");
+
+define('mail_smtp_user', "SMTP User");
+
+define('no_result', "No Result!");
+
+define('also_sub', "Subevents also");
+
+define('guest', "Guest");
+
+define('your_addr', "Shipment details");
+
+define('placemap', "Event Placemap");
+
+define('mail_smtp_pass', "SMTP Password");
+
+define('old_order_cancelled', "Old Order Cancelled!");
+
+define('event_add_title', "Add a New Event");
+
+define('search_result', "Search Result");
+
+define('confirmemail', "Confirm E-mail Address");
+
+define('event_details', "Event Details");
+
+define('mail_smtp_port', "SMTP Port");
+
+define('order_allready_cancelled', "Order Already Cancelled!");
+
+define('event_edit_title', "Modify Event");
+
+define('seat_tab', "Seat");
+
+define('login', "Login name");
+
+define('event_view_periode', "Event Viewing Period");
+
+define('mail_smtp_security', "Mail Security");
+
+define('order_cancelled', "Order Cancelled!");
+
+define('event_update_title', "Modify Event");
+
+define('seat_status', "Status");
+
+define('memberinfo', "Please enter your details below. To buy tickets you are required to sign up, it is recommend that you sign up before you reserve tickets.");
+
+define('event_view_begin', "Event View Begin Date");
+
+define('smtp_security_none', "none");
+
+define('order_cannot_reissue', "Can Not Re-Issued!");
+
+define('add_multi', "Add Sub-Event");
+
+define('seat_code', "Barcode");
+
+define('register', "Register");
+
+define('event_view_end', "Event View End Date");
+
+define('smtp_security_ssl', "ssl");
+
+define('order_error_message', "Order Error Message");
+
+define('event_id', "Event ID#");
+
+define('search_title_place', "Search Seats");
+
+define('alreadymember', "Already a Member?");
+
+define('event_advanced_options', "Event Advanced Options");
+
+define('smtp_security_tls', "tls");
+
+define('order_madefinal', "Order is Complete");
+
+define('event_name', "Event Name");
+define('event_list', "Event List");
+
+define('alreadymembertext', "Sign in to the site with your username and password on your left.");
+
+define('event_pickup_options', "Event Pickup Options");
+
+define('group_language', "Language");
+
+define('order_not_found', "Order Not Found!");
+
+define('event_pm_ort_id', "Seat Chart");
+
+define('seat_row_nr', "Row Number");
+
+define('becomemember', "Become a Member");
+
+define('discount_deactivate', "Deactivate Discount");
+
+define('langs', "Language code");
+
+define('ordernotfound', "Order Not Found");
+
+define('agenda_only', "Agenda Only");
+
+define('seat_nr', "Seat Number");
+
+define('pers_info', "Customer Information");
+
+define('discount_activate', "Activate Discount");
+
+define('langs_names', "Language Names");
+
+define('order_not_cancelled', "Order Not Cancelled!");
+
+define('event_ort_name', "Venue Name");
+
+define('choice_please', "Choose Please...");
+
+define('user_notice', "To order your tickets please complete the following fields and click on &quot;Continue&quot;. Fields with (*) are mandatory. This information will stay confidential. We will not give out your information or sell it to others. You can also choose to become a member and never fill this form again.");
+
+define('print_invoice', "Print invoice");
+
+define('event_type_enum', "Event type");
+
+define('order_notice_message', "Order Notice Message");
+
+define('event_rep', "Repeatability");
+
+define('category', "Category");
+
+define('becomememberorguest', "Register as Member or Guest");
+
+define('print_tickets', "Print Tickets");
+
+define('event_group_type_enum', "Event group");
+
+define('order_paid_already', "Order Already Paid");
+
+define('event_rep_main', "Multiple");
+
+define('place', "Seat");
+
+define('becomeguest', "Register as Guest");
+
+define('adminlinks_pos_control', "Event Links");
+define('autodefinelangs', "Auto-define language");
+
+define('order_paid_total', "Total Paid");
+
+define('event_rep_unique', "Unique");
+
+define('price', "Price");
+
+define('guest_info', "Fill your details here, so that the ticket can be sent to you.
+					 <br> Already a regular customer? Fill at the left side, your email address and password.");
+
+define('linked_tickettakers', "Linked ticket takers");
+
+define('selectfunction_not_found', "Function not found");
+
+define('pass_not_egal', "Passwords Do Not Match!");
+
+define('main,sub', "Unique Event");
+
+define('bs', "Ord.#");
+
+define('pwd_min', " (min 6 letters)");
+
+define('block', "Block Seats");
+
+define('cant_save_configvalue', "Problem(s) while saving configuration setting for ");
+
+define('pass_match', "Passwords do not match");
+
+define('event_short_text', "Event Short Text");
+
+define('status', "Status");
+
+define('user_nospam', "Security Code");
+
+define('assign', "Assign Seats");
+
+define('change_order_to_paid_confirm', "Are you sure to set the order paid?");
+
+define('pass_too_short', "Password is too short");
+
+define('event_text', "Event Long Text");
+
+define('order_tab', "Order");
+
+define('nospam_info', "Enter this code >>>");
+
+define('clear_selection', "Clear Selection");
+
+define('error_while_registering_user', "There was an error while registering you. Please try again.");
+
+define('phone_long', "The Phone Number is too long");
+
+define('event_description', "Description");
+
+define('search_title_order', "Search Orders");
+
+define('agrement', "I have read and agree to the General Terms of Sale.");
+
+define('reset', "Reset");
+
+define('cant_send_email', "Problem while trying to send email.");
+
+define('phone_short', "The Phone Number is too short");
+
+define('event_url', "Homepage");
+
+define('barcode_tab', "Barcode");
+
+define('newsletter', "I would like to receive Weekly Virgin Megastore Mail");
+define('name', "Name");
+
+define('help', "Help");
+
+define('places_empty', "Please select your seats");
+
+define('event_date', "Date");
+
+define('search_title_codebar', "Search Barcodes");
+
+define('mayuse', "I agree that {\\$organizer_name} may use my details to send me information about future events and other {\\$organizer_name} related matters, and that they will not pass on my details to any 3rd party.");
+
+define('size', "Size");
+
+define('administrator', "Administration");
+
+define('places_occupied', "The selected seats have been already reserved");
+
+define('event_recur_type', "Re-Occurs");
+
+define('codebar', "Barcode");
+
+define('member_info', "Please enter your email address and password");
+
+define('confirm_clear', "This operation will clear all your previously selected seat, are you sure you want to proceed?");
+
+define('welcome_patron', "<b>Hi</b>");
+
+define('places_remains', " Remaining seats");
+
+define('recure_nothing', "No");
+
+define('export_admin_title', "Export Data");
+
+define('personaldetails', "Personal Details");
+
+define('delete_link_error', "Can't delete an event link when there are seats allocated to this pos");
+
+define('checked_by', "Checked by: ");
+
+define('places_toomuch', "This Number of Seats cannot be Reserved!");
+
+define('recure_daily', "Daily");
+
+define('export_xml_event_title', "Export Data");
+
+define('addressdetails', "Address Details");
+
+define('mailer_description', "Use this interface to send emails to customers attending this event.");
+
+define('checked_at', "Checked at: ");
+
+define('pwd_not_thesame', "The Passwords Entered Do Not Match!");
+
+define('event_recur_end', "Event Stops");
+define('export_xml_event_submit', "Export It!");
+
+define('contactdetails', "Contact Details");
+
+define('mail_patrons_confirm', "Are you sure you want to email all attending customers?");
+
+define('admin_realname', "Full Name");
+
+define('pwd_second_missing', "Second Password is Missing!");
+
+define('event_recur_end_error', "Date is invalid or older than start date");
+define('export_xml_event_file', "Filename");
+
+define('memberpasswords', "Passwords");
+define('mail_patrons', "Mail Customers");
+
+define('userewriteurl', "Create SEO urls");
+
+define('pwd_to_short', "Password Too Short!");
+
+define('recure_days_selection', "Days to Exclude");
+
+define('export_xml_calendar', "Calendar");
+
+define('securitytc', "Security and Terms");
+define('select_template', "Select template");
+
+define('userewriteurl-tooltip', "Create SEO urls");
+
+define('pub_confirm_msg', "Publish Event?");
+
+define('event_time', "Event Begins");
+define('export_xml_calendar_event', "Calendar");
+
+define('prg_order', "Order");
+
+define('mail_to', "Mail to");
+
+define('table_order_id', "Order");
+
+define('reservate_failed', "Internal Error: Impossible to Save Seats ");
+
+define('event_open', "Event Open");
+define('export_templates', "Templates");
+
+define('prg_seat', "Select Seat");
+
+define('attending_patrons', "attending customer(s)");
+
+define('table_order_price', "Amount");
+
+define('restart_success', "Successfully Restarted!");
+
+define('event_end', "Event Ends");
+define('export_template_id', "Choose Template ");
+
+define('prg_discounts', "Select Discounts");
+define('preview_template', "Preview template");
+
+define('table_order_user', "Patron");
+
+define('save_successful', "Changes Saved");
+
+define('event_order_limit', "Order Limit");
+define('export_template_file', "Filename");
+
+define('prg_review', "Cart");
+define('please_select_template', "Please select a template.");
+
+define('table_order_date', "Date/time");
+
+define('save_failed', "Internal Error: Impossible to Save the Order ");
+
+define('event_template', "Template for Tickets");
+define('export_submit', "Export It!");
+
+define('prg_signin', "Register");
+
+define('send_email', "Send Email");
+
+define('pdf_noting_to_show', "Nothing to show.");
+
+define('send_order_email', "Send Order by E-mail and Change Status to 'Sent'");
+
+define('event_type', "Event Type");
+define('export_xml_event', "Event in XML");
+
+define('prg_payment', "Select Payment");
+
+define('no_attendants', "This event has no attendants yet.");
+define('no_placemap_available', "No online sales. For informational purposes only");
+
+define('select_handling_option', "Select a payment option.");
+
+define('record_orphan_test', "Overview record orphans");
+
+define('publish_pos', "Publish to POS");
+define('published', "Published");
+
+define('setlocale_all', "en.utf8; en.utf-8;en_EN.utf8;en_EN.utf-8;en-EN.utf8;en-EN.utf-8;en;en_EN;en-EN");
+
+define('templ_system', "System Emails");
+
+define('unpublish_pos', "Remove from POS");
+
+define('pm_maroc_secretkey', "pm_maroc_SecretKey");
+define('pm_maroc_storeid', "pm_maroc_storeId");
 ?>
